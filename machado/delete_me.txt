@@ -1,4 +1,2 @@
 this file's purpose is to push an initial project directory structure to github.
-new changes
-new changes
-new changes
+i made changes.
