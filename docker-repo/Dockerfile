@@ -1,13 +1,5 @@
-#specify base image 
-FROM ubuntu:latest
+FROM nginx:1.15.8-alpine
 
-RUN apt update 
+LABEL version="1.0.0"
 
-#install apache
-RUN apt install –y apache2 apache2-utils 
-
-RUN apt clean 
-
-EXPOSE 80
- 
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+COPY index.html /usr/share/nginx/html/index.html
