@@ -31,6 +31,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: docker-repo/
-          file: ./Dockerfile
+          file: docker-repo/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME_PT }}/nft-ools.com:v2.0.0
