@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [docker-automated-builds]
+    branches: [ docker-automated-builds ]
   pull_request: 
-    branches: [docker-automated-builds]
+    branches: [ docker-automated-builds ]
  
 
 jobs:
