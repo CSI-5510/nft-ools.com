@@ -16,3 +16,10 @@ date | event
 2020-04-18 17:30 | project presentations 
 2020-04-20 17:30 | project presentations 
 2020-04-25 17:30 | project presentations 
+
+notes
+----
+date | note
+-----|------
+2022-03-05 | tried to use a duplicate tag
+
