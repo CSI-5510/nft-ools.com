@@ -11,7 +11,7 @@ $GLOBALS['db_conf']['db_db'] = "<databasename>";
 $GLOBALS['db_conf']['db_user'] = "<insertuser>";
 $GLOBALS['db_conf']['db_pass'] = "<insertpass>";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
-
+echo $GLOBALS['url_loc'][1];
  
 if($GLOBALS['config']['url_offset'] > 0){
     $x = 0; while($x < ($GLOBALS['config']['url_offset'])){ unset($GLOBALS['url_loc'][$x]); $x++; }
