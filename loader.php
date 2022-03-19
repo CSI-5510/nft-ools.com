@@ -5,7 +5,7 @@ $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI
 $GLOBALS['config']['url_offset'] = 1; 
 $GLOBALS['devmode'] = 1; 
 
-$GLOBALS['db_conf']['db_host'] = "127.0.0.1";
+$GLOBALS['db_conf']['db_host'] = "localhost";
 $GLOBALS['db_conf']['port'] = "3306";
 $GLOBALS['db_conf']['db_db'] = "mydb";
 $GLOBALS['db_conf']['db_user'] = "admin";
