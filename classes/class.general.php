@@ -1,8 +1,5 @@
 <?php
 class General{
-
-//print something from the class
-echo "printing from class";
 	
 /**
  * Function to test connection
