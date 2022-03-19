@@ -1,4 +1,3 @@
 <!-- navbar -->
-<header>
-Displayed from frontend/index.php
-</header>
+<h1>DB Test result:</h1>
+<p><?php> echo $result; </?></p>
