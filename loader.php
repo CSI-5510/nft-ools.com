@@ -5,6 +5,7 @@ $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI
 $GLOBALS['config']['url_offset'] = 1; 
 $GLOBALS['devmode'] = 1; 
 
+/*
 $GLOBALS['db_conf']['db_host'] = "35.196.103.19";
 $GLOBALS['db_conf']['port'] = "3306";
 $GLOBALS['db_conf']['db_db'] = "mydb";
@@ -12,7 +13,17 @@ $GLOBALS['db_conf']['db_user'] = "admin";
 $GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
 echo $GLOBALS['url_loc'][1];
- 
+*/
+
+$GLOBALS['db_conf']['db_host'] = "nightoff.org";
+$GLOBALS['db_conf']['port'] = "3306";
+$GLOBALS['db_conf']['db_db'] = "igfastdl_schoolsql";
+$GLOBALS['db_conf']['db_user'] = "igfastdl";
+$GLOBALS['db_conf']['db_pass'] = "${{secrets.YANN_DB_PW}}";
+$GLOBALS['db_conf']['db_charset'] = "utf8";
+echo $GLOBALS['url_loc'][1];
+
+
 if($GLOBALS['config']['url_offset'] > 0){
     $x = 0; while($x < ($GLOBALS['config']['url_offset'])){ unset($GLOBALS['url_loc'][$x]); $x++; }
     $GLOBALS['url_loc'] = array_values($GLOBALS['url_loc']);
