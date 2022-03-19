@@ -8,7 +8,7 @@ $GLOBALS['devmode'] = 1;
 $GLOBALS['db_conf']['db_host'] = "35.196.103.19";
 $GLOBALS['db_conf']['port'] = "3306";
 $GLOBALS['db_conf']['db_db'] = "mydb";
-$GLOBALS['db_conf']['db_user'] = "root";
+$GLOBALS['db_conf']['db_user'] = "admin";
 $GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
 echo $GLOBALS['url_loc'][1];
