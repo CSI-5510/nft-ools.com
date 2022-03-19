@@ -1,5 +1,5 @@
 <?php
-
+class General{
 
 //print something from the class
 echo "printing from class";
@@ -10,7 +10,7 @@ echo "printing from class";
 public static function checkConnection() {
   return DatabaseConnector::query('SELECT * FROM items',array());
 }	
-
+}
 ?>
 
 
