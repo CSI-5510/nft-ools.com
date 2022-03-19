@@ -10,7 +10,7 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 #For Apache to understand rewrite rules, we first need to activate mod_rewrite
 RUN a2enmod rewrite
 
-RUN apt-get install php-mysql
+RUN apt install php7.2-mysql
 
 COPY . .
 
