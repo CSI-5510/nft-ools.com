@@ -3,7 +3,7 @@
 
 <!-- navbar -->
 <h1>DB Test result:</h1>
-<p><?php> echo $result; </?></p>
+<p><?php echo $result; ?></p>
 <header>
 Displayed from frontend/index.php
 
