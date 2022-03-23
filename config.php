@@ -1,7 +1,6 @@
 <?php
 
-switch ($GLOBALS['url_loc'][1])
-{
+switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
     case "item":
@@ -11,8 +10,11 @@ switch ($GLOBALS['url_loc'][1])
     break;
     default:
         $BACKEND = "index";
-		$PAGE_TITLE = "Index";
+        $PAGE_TITLE = "Index";
+        $HEADER = "header";
+        $ASIDE = "aside";
         $FRONTEND = "index";
+        $FOOTER = "footer";
 	break;
 }
 ?>

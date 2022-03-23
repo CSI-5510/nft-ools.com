@@ -17,8 +17,6 @@ if($GLOBALS['config']['url_offset'] > 0){
     $GLOBALS['url_loc'] = array_values($GLOBALS['url_loc']);
 }
 
-echo "test";
-echo var_dump($GLOBALS['url_loc']);
 
 //Do not touch -- These are settings we should define or set, but not adjust unless we absolutely need to.
 $GLOBALS['errors'] = array();
