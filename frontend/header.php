@@ -1,4 +1,4 @@
-<header class="header h-80 bg-white shadow my-4 px-4">
+<header class="header bg-white shadow my-4 px-4">
     <div class="header-content items-center flex-row">
         <form action="#">
             <div class="hidden md:flex relative">
