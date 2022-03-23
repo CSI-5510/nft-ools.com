@@ -2,23 +2,23 @@
 //This is how we get what page we should be on based on URL.
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
-$GLOBALS['config']['url_offset'] = 2; 
+$GLOBALS['config']['url_offset'] = 1; 
 $GLOBALS['devmode'] = 1; 
 
-$GLOBALS['db_conf']['db_host'] = "127.0.0.1";
+$GLOBALS['db_conf']['db_host'] = "35.196.103.19";
 $GLOBALS['db_conf']['port'] = "3306";
-$GLOBALS['db_conf']['db_db'] = "<databasename>";
-$GLOBALS['db_conf']['db_user'] = "<insertuser>";
-$GLOBALS['db_conf']['db_pass'] = "<insertpass>";
+$GLOBALS['db_conf']['db_db'] = "mydb";
+$GLOBALS['db_conf']['db_user'] = "root";
+$GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
-echo $GLOBALS['url_loc'][1];
  
 if($GLOBALS['config']['url_offset'] > 0){
     $x = 0; while($x < ($GLOBALS['config']['url_offset'])){ unset($GLOBALS['url_loc'][$x]); $x++; }
     $GLOBALS['url_loc'] = array_values($GLOBALS['url_loc']);
 }
 
-echo $GLOBALS['url_loc'][1];
+echo "test";
+echo var_dump($GLOBALS['url_loc']);
 
 //Do not touch -- These are settings we should define or set, but not adjust unless we absolutely need to.
 $GLOBALS['errors'] = array();

@@ -1,4 +1,4 @@
 <?php
-echo "printing from backend/index.php";
-echo "<img src='../backend/saturn.jpeg'>"
+// echo "<div class='gray'></div>";
+// echo "<img src='../backend/saturn.jpeg'>";
 ?> 

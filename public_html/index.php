@@ -8,6 +8,9 @@ include('../backend/'.$BACKEND.'.php');
 <!doctype html>
 <html>
   <?php include_once('head.php');?>
+  <head>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
   <body class="w-full max-w-8xl mx-auto">
     <div class="flex flex-col">
       <?php if(isset($HEADER)): ?>

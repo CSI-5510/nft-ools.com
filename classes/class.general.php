@@ -1,11 +1,10 @@
 <?php
 
-
-//print something from the class
-echo "printing from class";
-	
-
-	
+class General {
+    public static function checkConnection() {
+        return DatabaseConnector::query('SELECT * FROM items) VALUES ()',array());
+    }
+}
 
 ?>
 
