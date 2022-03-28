@@ -1,4 +1,4 @@
 <?php
-// echo "<div class='gray'></div>";
-// echo "<img src='../backend/saturn.jpeg'>";
+    include_once('../backend/item_carousel_data_categories.php');
+    include_once('../backend/item_carousel.php');
 ?> 

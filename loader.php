@@ -1,4 +1,5 @@
 <?php
+
 //This is how we get what page we should be on based on URL.
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
@@ -27,11 +28,14 @@ $GLOBALS['messages']['warning'] = array(); //Main array for all status messages
 $GLOBALS['messages']['success'] = array(); //Main array for all status messages
 
 if(!ob_start("ob_gzhandler")) ob_start();
-session_start();
+// session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 include("../functions/functions.general.php");
 include("../classes/class.database.php");
 include("../classes/class.general.php");
+include("../backend/set_layer.php");
+include('../functions/functions.debug.php');
+echo "got here";
 ?>
