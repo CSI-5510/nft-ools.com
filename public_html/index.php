@@ -11,37 +11,39 @@
   <head>
     <link rel="stylesheet" href="./css/main.css">
   </head>
-  <body class="flex w-full max-w-8xl mx-auto">
+  <body class=" ">
   <!--container-->   
-  <div class="bg-green-400">
-        <div class="flex bg-blue-200">
+  <div class="flex h-screen">
+        <div class="bg-gray-800">
           <?php 
             if(isset($ASIDE)){
               include_once("../frontend/".$ASIDE.".php");
             } 
           ?>
         </div>
-        <div class=" ">
+        <div class="mx-auto md:w-4/5 w-11/12">
+        <div class="">
           <?php 
             if(isset($HEADER)){ 
               include_once("../frontend/".$HEADER.".php");
             } 
           ?>
         </div>
-        <div class="bg-red-500">
+        <div class="rounded border-dashed border-2 border-gray-300">
           <?php 
             if(isset($FRONTEND)){	 	  
               include_once('../frontend/'.$FRONTEND.'.php');
             }
           ?>
         </div>
-        <div class="">	  
+        <div class="bg-gray-800 absolute inset-x-0 bottom-0 ">	  
           <?php 
             if(isset($FOOTER)){
               include_once('../frontend/'.$FOOTER.'.php');
             } 
           ?>
-        </div>
+        </div>        
+          </div>
       </div>		  
     </div>
   </body>

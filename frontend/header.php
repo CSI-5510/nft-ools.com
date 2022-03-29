@@ -1,4 +1,4 @@
-<header class="header bg-white shadow my-4 px-4">
+<header class="header bg-white  my-4  pt-2 ">
     <div class="header-content items-center flex-row">
         <form action="#">
             <div class="hidden md:flex relative">
@@ -29,7 +29,7 @@
             </div>
         </form>
     </div>
-    <div class="my-2 container mx-auto flex items-center">
+    <div class="container mx-auto flex m-2  items-center">
         <!-- menu -->
         <nav class="">
             <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
