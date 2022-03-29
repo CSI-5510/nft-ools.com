@@ -1,13 +1,5 @@
-<aside class="sidebar w-full md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white h-full">
-    <div class="sidebar-header flex items-center justify-center py-4">
-        <div class="inline-flex">
-            <a href="#" class="inline-flex flex-row items-center">
-                <span class="leading-10 text-gray-300 text-2xl font-bold ml-1 uppercase">
-                    NFTools
-                </span>
-            </a>
-        </div>
-    </div>
+<aside class="w-64">
+
     <div class="sidebar-content px-4 py-6">
         <ul class="flex flex-col w-full">
             <li class="my-px">
@@ -100,5 +92,4 @@
                 </a>
             </li>
         </ul>
-    </div>
 </aside>
