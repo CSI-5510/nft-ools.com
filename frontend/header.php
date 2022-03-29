@@ -32,6 +32,7 @@
     <div class="my-2 container mx-auto flex items-center">
         <!-- menu -->
         <nav class="">
+            <a href="./items">test link</a>
             <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
                 <li class="">
                     <span>
