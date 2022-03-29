@@ -1,6 +1,7 @@
 <?php 
 
     function itemCarousel($data){
+        echo "<div class='flex justify-center p-6 space-x-3'>";
         printItemTile($data[0]);
         // printItemTile($data[1]);
         // printItemTile($data[2]);
