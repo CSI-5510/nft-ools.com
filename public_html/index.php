@@ -11,30 +11,31 @@
   <head>
     <link rel="stylesheet" href="./css/main.css">
   </head>
-  <body class="w-full max-w-8xl mx-auto">
-      <div class="grid grid-rows-5 grid-cols-5 gap-0.5">
-        <div class="row-span-4 col-span-1">
+  <body class="flex w-full max-w-8xl mx-auto">
+  <!--container-->   
+  <div class="bg-green-400">
+        <div class="flex bg-blue-200">
           <?php 
             if(isset($ASIDE)){
               include_once("../frontend/".$ASIDE.".php");
             } 
           ?>
         </div>
-        <div class="row-span-1 col-span-4">
+        <div class=" ">
           <?php 
             if(isset($HEADER)){ 
               include_once("../frontend/".$HEADER.".php");
             } 
           ?>
         </div>
-        <div class="row-span-3 col-span-4">
+        <div class="bg-red-500">
           <?php 
             if(isset($FRONTEND)){	 	  
               include_once('../frontend/'.$FRONTEND.'.php');
             }
           ?>
         </div>
-        <div class="row-span-1 col-span-5">	  
+        <div class="">	  
           <?php 
             if(isset($FOOTER)){
               include_once('../frontend/'.$FOOTER.'.php');
