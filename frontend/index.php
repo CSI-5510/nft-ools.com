@@ -1,6 +1,10 @@
 <?php
+
+
     include_once("../frontend/item_carousel.php");
-    
-    itemCarousel($data, $layer, $item_names);
+    console(SessionMgmt::get('cat_name'));
+    console(SessionMgmt::get('cat_id'));
+    itemCarousel($item_carousel_data);
+
 
 ?>

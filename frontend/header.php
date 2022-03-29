@@ -35,32 +35,51 @@
             <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
                 <li class="">
                     <span>
-                        Lawn
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_name'); ?>>
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
                 <li class="">
                     <span>
-                        Drills
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_name'); ?>>
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
                 <li class="">
                     <span>
-                        Saws
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_name'); ?>>
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
                     <li class="">
                     <span>
-                        Routers
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_name'); ?> onclick="location.href='./items'">
+                            
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
                 <li class="">
                     <span>
-                        Snow
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_name'); ?>>
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
                 <li class="">
                     <span>
-                        Hammer
+                        <form method='POST'>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_name'); ?>>
+                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_id'); ?>>
+                        </form>
                     </span>
                 </li>
             </ul>

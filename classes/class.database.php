@@ -22,6 +22,15 @@ class DatabaseConnector {
 			ORDER BY c.cat_id'
 		);
 	} 
+
+
+	public static function getItems($cat_id){
+		return DatabaseConnector::query(
+			'SELECT i.i_id, i.i_name, i.i_price, i.i_image, i.i_description, c.cat_id
+			FROM ITEM i INNER JOIN CATEGORY c ON i.i_category_id = c.cat_id
+			WHERE i.i_category_id = $cat_id'
+		);
+	}
   
 	
 	public static function query($query, $params = array()) {

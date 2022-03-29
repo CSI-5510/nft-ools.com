@@ -1,24 +1,8 @@
 <?php
 
-    $data = getCategoryTiles();
-    echo 'POST structure:<br>';
-    echo var_dump($_POST).'<br><br>';
 
-    if (is_null($_POST['category'])){
-        echo 'no category from POST<br>';
-        $_SESSION['category'] = null;
-        echo 'session category set to null';
-    } else {
-        echo var_dump($_POST['category']);
-    }
-    echo '<br><br>';
+    $item_carousel_data = getCategoryTiles();
 
-    if (is_null($_SESSION)){
-        echo 'no SESSION';
-    } else {
-        echo var_dump($_SESSION);
-    }
-    echo '<br>';
 
     function itemTileQuery($cat_ID, $button){
         //  return DatabaseConnector::getCategoryTiles();
@@ -30,23 +14,17 @@
     }
 
 
-
-
-    function printItemTile($data){
+    function printItemTile($item_carousel_data){
         echo "
-        <form method='POST'>
-      </div>
-            <div class='flex w-64 h-64 p-0 m-0 bg-gray-200' onclick='testFunction();'>
-            <img class='bg-fixed' src='data:image/jpeg;base64,".base64_encode($data['i_image'])."'> </img>
-                </div>
-                <input type='hidden' name='category' value='1' />
-                <input type='text' name='fawew' value='yeet'/>
-                    <input type='submit'/>
-
-            </form>
+            <div class='w-64 h-64 p-0 m-0 bg-gray-200'>
+                <form method='POST'>
+                    <input type='text' name='cat_name' value='". $item_carousel_data['cat_name']."' class='w-200 h-20 bottom-0'>
+                    <input type='hidden' name='cat_id' value='".$item_carousel_data['cat_id']."' />
+                    <input type='image' class='w-full h-full p-0 m-0' name='submit' src='data:image/jpeg;base64,".base64_encode($item_carousel_data['i_image'])."'/>
+                </form>
+            </div>
         ";
     }
 
-    
 
 ?>
