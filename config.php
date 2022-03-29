@@ -3,14 +3,14 @@
 switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
-    case "item_list":
-        $BACKEND = "item_list";
+    case "items":
+        $BACKEND = "items";
 		$PAGE_TITLE = "Item List";
         $HEADER = "header";
         $ASIDE = "aside";
-        $FRONTEND = "item_list";
+        $FRONTEND = "items";
         $FOOTER = "footer";
-    break;
+        break;
     case "subcategory":
         $BACKEND = "subcategory";
 		$PAGE_TITLE = "Subcategories";
@@ -18,15 +18,7 @@ switch ($GLOBALS['url_loc'][1]){
         $ASIDE = "aside";
         $FRONTEND = "subcategory";
         $FOOTER = "footer";
-    break;
-    case "item_list":
-        $BACKEND = "item_list";
-		$PAGE_TITLE = "Item List";
-        $HEADER = "header";
-        $ASIDE = "aside";
-        $FRONTEND = "item_list";
-        $FOOTER = "footer";
-    break;
+        break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
@@ -34,6 +26,6 @@ switch ($GLOBALS['url_loc'][1]){
         $ASIDE = "aside";
         $FRONTEND = "index";
         $FOOTER = "footer";
-	break;
+	    break;
 }
 ?>
