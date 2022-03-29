@@ -164,3 +164,5 @@
       }
       return "?" . $_SERVER['QUERY_STRING'];
   }
+
+?>

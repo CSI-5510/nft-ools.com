@@ -11,3 +11,5 @@
             <script>console.log(".$out.");</script>
         ";
     }
+
+?>
