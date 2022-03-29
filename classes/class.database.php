@@ -13,12 +13,14 @@ class DatabaseConnector {
 	/**
 	 * Function to get category id, name and image from the category table 
 	 */
-	public static function getCategoryDetails() {
-		return DatabaseConnector::query('SELECT c.cat_id, c.cat_name, i.i_image FROM
-		CATEGORY c JOIN ITEM i
-		WHERE i.i_category_id = c.cat_id
-		GROUP BY c.cat_id
-		ORDER BY c.cat_id');
+	public static function getCategoryTiles() {
+		return DatabaseConnector::query(
+			'SELECT c.cat_id, c.cat_name, i.i_image FROM
+			CATEGORY c JOIN ITEM i
+			WHERE i.i_category_id = c.cat_id
+			GROUP BY c.cat_id
+			ORDER BY c.cat_id'
+		);
 	} 
   
 	

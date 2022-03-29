@@ -1,17 +1,16 @@
 <?php 
 
-
-    function itemCarousel($layer, $item_names){
+    function itemCarousel($data){
         echo "<div class='flex justify-center p-6 space-x-3'>";
-        printItemTile($layer, $item_names[0]);
-        printItemTile($layer, $item_names[1]);
-        printItemTile($layer, $item_names[2]);
+        printItemTile($data[0]);
+        printItemTile($data[1]);
+        printItemTile($data[2]);
         echo "</div>";
         echo "<div class='flex justify-center p-6 space-x-3'>";
-        printItemTile($layer ,$item_names[3]);
-        printItemTile($layer ,$item_names[4]);
-        printItemTile($layer ,$item_names[5]);
+        printItemTile($data[3]);
+        printItemTile($data[4]);
+        printItemTile($data[5]);
         echo "</div>";
-    };
+    }
 
 ?>

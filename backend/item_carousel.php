@@ -1,22 +1,48 @@
 <?php
 
+    echo 'POST structure:<br>';
+    echo var_dump($_POST).'<br><br>';
+
+    if (is_null($_POST['category'])){
+        echo 'no category from POST<br>';
+        $_SESSION['category'] = null;
+        echo 'session category set to null';
+    } else {
+        echo var_dump($_POST['category']);
+    }
+    echo '<br><br>';
+
+    if (is_null($_SESSION)){
+        echo 'no SESSION';
+    } else {
+        echo var_dump($_SESSION);
+    }
+    echo '<br>';
+
+
+    $data = getCategoryTiles();
+
 
     function itemTileQuery($cat_ID, $button){
-        $tile_id = $cat_ID * 1000 + $button;
-        //return json_decode(simulateQuery($tile_id));
+        //  return DatabaseConnector::getCategoryTiles();
     }
 
 
-    function printItemTile($layer, $button){
-        // $item = itemTileQuery($button);
-        // echo "
-        //     <div class='w-200 h-200 p-0 m-0 bg-gray-200' onclick='testFunction();'>
-        //         <img class='w-200 h-200 p-0 m-0 object-fill' src='".$item['image']."'>
-        //         <p class='w-200 h-20 bottom-0'>
-        //             ".$item['name']."
-        //         </p>
-        //     </div>
-        // ";
+    function getCategoryTiles(){
+        return DatabaseConnector::getCategoryTiles();
+    }
+
+
+    function printItemTile($data){
+        echo "
+            <div class='w-64 h-64 p-0 m-0 bg-gray-200' onclick='testFunction();'>
+                <form metod='POST'>
+                    <input type='text' name='category' value='". $data['cat_name']."' class='w-200 h-20 bottom-0'>
+                    <input type='image' name='submit' src='data:image/jpeg;base64,".base64_encode($data['i_image'])."'/>
+                    <input type='submit'/>
+                </form>
+            </div>
+        ";
     }
 
     
