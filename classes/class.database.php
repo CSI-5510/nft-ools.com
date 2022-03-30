@@ -28,7 +28,7 @@ class DatabaseConnector {
 		return DatabaseConnector::query(
 			'SELECT i.i_id, i.i_name, i.i_price, i.i_image, i.i_description, c.cat_id
 			FROM ITEM i INNER JOIN CATEGORY c ON i.i_category_id = c.cat_id
-			WHERE i.i_category_id = $cat_id'
+			WHERE i.i_category_id = '.$cat_id
 		);
 	}
   

@@ -17,7 +17,7 @@
 
     function console_print($var){
         echo "
-            <script>console.log('".$var."');</script>
+            <script>console.log('.$var.');</script>
         ";
     }
 

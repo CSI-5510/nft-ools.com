@@ -3,7 +3,7 @@
 //This is how we get what page we should be on based on URL.
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
-$GLOBALS['config']['url_offset'] = 2; 
+$GLOBALS['config']['url_offset'] = 1; 
 $GLOBALS['devmode'] = 1; 
 
 $GLOBALS['db_conf']['db_host'] = "35.196.103.19";
@@ -37,4 +37,6 @@ include("../classes/class.database.php");
 include("../classes/class.general.php");
 include("../classes/class.session.php");
 include('../functions/functions.debug.php');
+
+console($GLOBALS['url_loc']);
 ?>
