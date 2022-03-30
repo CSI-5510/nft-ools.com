@@ -45,7 +45,7 @@
             if (isset($_SESSION['cat_data'])){
                 return $_SESSION['cat_data'];
             }
-            return 'cat_data not set';
+            return NULL;
         }
 
             
@@ -59,7 +59,7 @@
             if (isset($_SESSION[$var])){
                 return $_SESSION[$var];
             }
-            return $var.' not set';
+            return NULL;
         }
 
 
@@ -74,7 +74,7 @@
                 SessionMgmt::set($var, $_POST[$var]);
                 return;
             }
-            return 'no '.$var.' posted';
+            return NULL;
         }
 
 

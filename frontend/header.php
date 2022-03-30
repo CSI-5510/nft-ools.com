@@ -1,3 +1,4 @@
+<?php console(SessionMgmt::get('cat_id')); ?>
 <header class="header bg-white  my-4  pt-2 ">
     <div class="header-content items-center flex-row">
         <form action="#">
@@ -37,15 +38,16 @@
                 <li class="">
                     <span>
                         <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_name'); ?>>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_name'); ?> action='./items'>
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_id'); ?>>
+                            <a href="./items"></a>
                         </form>
                     </span>
                 </li>
                 <li class="">
                     <span>
                         <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_name'); ?>>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_name'); ?> onclick="location.href='./items'">
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_id'); ?>>
                         </form>
                     </span>
@@ -53,7 +55,7 @@
                 <li class="">
                     <span>
                         <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_name'); ?>>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_name'); ?> onclick="location.href='./items'">
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_id'); ?>>
                         </form>
                     </span>
@@ -62,7 +64,6 @@
                     <span>
                         <form method='POST'>
                             <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_name'); ?> onclick="location.href='./items'">
-                            
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_id'); ?>>
                         </form>
                     </span>
@@ -70,7 +71,7 @@
                 <li class="">
                     <span>
                         <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_name'); ?>>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_name'); ?> onclick="location.href='./items'">
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_id'); ?>>
                         </form>
                     </span>
@@ -78,7 +79,7 @@
                 <li class="">
                     <span>
                         <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_name'); ?>>
+                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_name'); ?> onclick="location.href='./items'">
                             <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_id'); ?>>
                         </form>
                     </span>

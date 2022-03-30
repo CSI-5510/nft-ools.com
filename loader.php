@@ -37,6 +37,4 @@ include("../classes/class.database.php");
 include("../classes/class.general.php");
 include("../classes/class.session.php");
 include('../functions/functions.debug.php');
-
-console($GLOBALS['url_loc']);
 ?>
