@@ -1,7 +1,7 @@
 <?php
 
 
-    function mapCategoryDataToTile($data){
+    function mapCategoryToTile($data){
         return [
             "name"=> $data['cat_name'],
             "id"=> $data['cat_id'],
@@ -10,7 +10,7 @@
     }
 
 
-    function mapItemDataToTile($data){
+    function mapItemToTile($data){
         return [
             "name"=> $data['i_name'],
             "id"=> $data['i_id'],

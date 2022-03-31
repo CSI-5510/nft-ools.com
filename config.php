@@ -3,6 +3,14 @@
 switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
+    case "item":
+        $BACKEND = "item";
+		$PAGE_TITLE = "Item List";
+        $HEADER = "header";
+        $ASIDE = "aside";
+        $FRONTEND = "item";
+        $FOOTER = "footer";
+        break;
     case "items":
         $BACKEND = "items";
 		$PAGE_TITLE = "Item List";
