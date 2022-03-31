@@ -19,6 +19,14 @@ switch ($GLOBALS['url_loc'][1]){
         $FRONTEND = "items";
         $FOOTER = "footer";
         break;
+    case "listing":
+        $BACKEND = "listing";
+		$PAGE_TITLE = "Item List";
+        $HEADER = "header";
+        $ASIDE = "aside";
+        $FRONTEND = "listing";
+        $FOOTER = "footer";
+        break;
     case "subcategory":
         $BACKEND = "subcategory";
 		$PAGE_TITLE = "Subcategories";
