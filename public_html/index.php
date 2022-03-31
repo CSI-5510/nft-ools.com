@@ -1,31 +1,50 @@
 <?php
-include("../loader.php");
-include ('../config.php');   
-if(isset($BACKEND)){
-include('../backend/'.$BACKEND.'.php');	
-}
+  include("../loader.php");
+  include ('../config.php');   
+  if(isset($BACKEND)){
+    include('../backend/'.$BACKEND.'.php');	
+  }
 ?>
 <!doctype html>
 <html>
   <?php include_once('head.php');?>
-  <body class="w-full max-w-8xl mx-auto">
-    <div class="flex flex-col">
-      <?php if(isset($HEADER)): ?>
-	   <header id="header" class="z-10 text-center justify-center" style="touch-action: none; top: 0px;">	  
-	 
-      </header>
-      <?php endif; ?>
-      <?php if(isset($FRONTEND)): ?>	 	  
-      <main style="-webkit-overflow-scrolling:touch">
-        <?php include('../frontend/'.$FRONTEND.'.php');?>		 	  
-      </main>
-      <?php endif; ?>	  
-  
-      <?php if(isset($FOOTER)): ?>		  
-      <footer id="footer" class="bg-white dark:bg-dark dark:text-light border-gray-300 dark border-dark inset-x-0 bottom-0 text-center z-50 flex lg:hidden" style="touch-action: none; bottom: 0px;">
-
-      </footer>
-      <?php endif; ?>		  
+  <head>
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body class=" ">
+  <!--container-->   
+  <div class="flex h-screen">
+        <div class="bg-gray-800">
+          <?php 
+            if(isset($ASIDE)){
+              include_once("../frontend/".$ASIDE.".php");
+            } 
+          ?>
+        </div>
+        <div class="mx-auto md:w-4/5 w-11/12">
+        <div class="">
+          <?php 
+            if(isset($HEADER)){ 
+              include_once("../frontend/".$HEADER.".php");
+            } 
+          ?>
+        </div>
+        <div class="rounded border-dashed border-2 border-gray-300">
+          <?php 
+            if(isset($FRONTEND)){	 	  
+              include_once('../frontend/'.$FRONTEND.'.php');
+            }
+          ?>
+        </div>
+        <div class="bg-gray-800 absolute inset-x-0 bottom-0 ">	  
+          <?php 
+            if(isset($FOOTER)){
+              include_once('../frontend/'.$FOOTER.'.php');
+            } 
+          ?>
+        </div>        
+          </div>
+      </div>		  
     </div>
   </body>
 </html>

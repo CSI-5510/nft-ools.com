@@ -1,4 +1,10 @@
 <?php
-echo "printing from backend/index.php";
-echo "<img src='../backend/saturn.jpeg'>"
+
+
+    $category_data = DatabaseConnector::getCategoryTiles();
+    SessionMgmt::initializeCatData($category_data);
+    SessionMgmt::setFromPost('cat_name');
+    SessionMgmt::setFromPost('cat_id');
+
+
 ?> 

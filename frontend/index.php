@@ -1,4 +1,8 @@
-<!-- navbar -->
-<header>
-Displayed from frontend/index.php
-</header>
+<?php
+
+
+    include_once("../backend/carousel.php");
+    carousel(mapCategoryTilesToCarousel($category_data));
+
+
+?>
