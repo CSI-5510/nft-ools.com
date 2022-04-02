@@ -4,6 +4,15 @@
   if(isset($BACKEND)){
     include('../backend/'.$BACKEND.'.php');	
   }
+  if(isset($HEADER_BACKEND)){
+    include('../backend/'.$HEADER_BACKEND.'.php');
+  }
+  if(isset($ASIDE_BACKEND)){
+    include('../backend/'.$ASIDE_BACKEND.'.php');
+  }
+  if(isset($FOOTER_BACKEND)){
+    include('../backend/'.$FOOTER_BACKEND.'.php');
+  }
 ?>
 <!doctype html>
 <html>

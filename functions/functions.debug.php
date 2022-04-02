@@ -1,23 +1,14 @@
 <?php
-
-
+    
+    /** prints $var to console
+     * console
+     *
+     * @param  mixed $var - use with foreach(json_encode($var)) for objects, use in recursive function for embedded objects
+     * @return void prints script element to page that prints $var to console
+     */
     function console($var){
-        $out = $var;
-        if(is_null($out)){
-            console_print($out);
-            return;
-        }
-        if(is_array($out)){
-            $out = implode(',', $out);
-            $out = '"'.$out.'"';
-        }
-        console_print($out);
-        return;
-    }
-
-    function console_print($var){
         echo "
-            <script>console.log('.$var.');</script>
+            <script>console.log('$var');</script>
         ";
     }
 

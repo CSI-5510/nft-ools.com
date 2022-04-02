@@ -1,4 +1,3 @@
-<?php console(SessionMgmt::get('cat_id')); ?>
 <header class="header bg-white  my-4  pt-2 ">
     <div class="header-content items-center flex-row">
         <form action="#">
@@ -33,57 +32,8 @@
     <div class="container mx-auto flex m-2  items-center">
         <!-- menu -->
         <nav class="">
-            <a href="./items">test link</a>
             <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
-                <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_name'); ?> action='./items'>
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(0, 'cat_id'); ?>>
-                            <a href="./items"></a>
-                        </form>
-                    </span>
-                </li>
-                <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_name'); ?> onclick="location.href='./items'">
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(1, 'cat_id'); ?>>
-                        </form>
-                    </span>
-                </li>
-                <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_name'); ?> onclick="location.href='./items'">
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(2, 'cat_id'); ?>>
-                        </form>
-                    </span>
-                </li>
-                    <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_name'); ?> onclick="location.href='./items'">
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(3, 'cat_id'); ?>>
-                        </form>
-                    </span>
-                </li>
-                <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_name'); ?> onclick="location.href='./items'">
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(4, 'cat_id'); ?>>
-                        </form>
-                    </span>
-                </li>
-                <li class="">
-                    <span>
-                        <form method='POST'>
-                            <input type='submit' name='cat_name' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_name'); ?> onclick="location.href='./items'">
-                            <input type='hidden' name='cat_id' value=<?php SessionMgmt::echoCatDataElement(5, 'cat_id'); ?>>
-                        </form>
-                    </span>
-                </li>
+                <?php drawHeaderLinks($category_data); ?>
             </ul>
         </nav>
         <a href="" class="ml-auto flex-shrink-0 flex items-center">

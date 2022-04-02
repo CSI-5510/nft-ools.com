@@ -8,7 +8,7 @@ $GLOBALS['devmode'] = 1;
 
 $GLOBALS['db_conf']['db_host'] = "35.196.103.19";
 $GLOBALS['db_conf']['port'] = "3306";
-$GLOBALS['db_conf']['db_db'] = "mydb";
+$GLOBALS['db_conf']['db_db'] = "NFTools";
 $GLOBALS['db_conf']['db_user'] = "admin";
 $GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
@@ -33,8 +33,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 include("../functions/functions.general.php");
+include('../functions/functions.debug.php');
+include('../functions/functions.tile.php');
+include('../functions/functions.carousel.php');
+include('../functions/functions.header.php');
+include('../functions/functions.navigation.php');
 include("../classes/class.database.php");
 include("../classes/class.general.php");
-include("../classes/class.session.php");
-include('../functions/functions.debug.php');
 ?>
