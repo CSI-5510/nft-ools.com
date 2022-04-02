@@ -17,9 +17,13 @@
 <div class="w-11/12 py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
     <div class="flex pb-10">
         <div class="ml-10">
-            <div class="flow-root">
-                <p class="float-left">Welcome to GeeksforGeeks</p>
-                <p class="float-right">A complete portal for geeks</p>
+            <div class="relative">
+                <p class="absolute left-0">
+                    Welcome to GeeksforGeeks
+                </p>
+                <p class="absolute right-0">
+                    A complete portal for geeks
+                </p>
             </div>
             <div class="flex items-center">
                 <h2 class="block leading-relaxed font-light text-gray-700 text-3xl text-left">Darcy</h2>
