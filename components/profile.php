@@ -20,7 +20,7 @@
             <div class="flex items-center">
                 <h2 class="block leading-relaxed font-light text-gray-700 text-3xl text-left">Darcy</h2>
             </div>
-            <div class="flex right">
+            <div class="flex items-right">
                 <a class="text-right cursor-pointer h-7 px-3 ml-3 focus:outline-none hover:border-transparent text-center rounded border border-gray-400 hover:bg-blue-500 hover:text-white bg-transparent text-gray-500 font-semibold">Edit Profile</a>
             </div>
             <div class="">
