@@ -19,6 +19,8 @@
         <div class="ml-10">
             <div class="flex items-center">
                 <h2 class="block leading-relaxed font-light text-gray-700 text-3xl text-left">Darcy</h2>
+            </div>
+            <div class="flex right">
                 <a class="text-right cursor-pointer h-7 px-3 ml-3 focus:outline-none hover:border-transparent text-center rounded border border-gray-400 hover:bg-blue-500 hover:text-white bg-transparent text-gray-500 font-semibold">Edit Profile</a>
             </div>
             <div class="">
@@ -45,6 +47,9 @@
             <img src="https://images.pexels.com/photos/248771/pexels-photo-248771.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                  class="foto w-full h-full object-cover"
                  alt="description" />
+        </div>
+        <div class="flex items-center">
+            <a href="#">Show More Items...</a>
         </div>
     </article>
     <br><h2 class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">Items Sold</h2>
