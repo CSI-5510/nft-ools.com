@@ -69,6 +69,9 @@
                  class="foto w-full h-full object-cover"
                  alt="description" />
         </div>
+        <div class="flex items-center">
+            <a href="#">Show More Items...</a>
+        </div>
     </article>
 </div>
 
