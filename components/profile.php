@@ -14,7 +14,7 @@
 <body>
 
 <!-- Component Reference: https://tailwindcomponents.com/component/example-profile -->
-<div class="w-11/12">
+<div class="w-11/12 py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
     <div class="flex justify-center pb-10">
         <div class="ml-10">
             <div class="flex items-center">
@@ -27,6 +27,25 @@
     </div>
     <div class="border-b border-gray-300"></div>
     <article class="mt-5 grid grid-cols-3 gap-10">
+        <h1>Items Bought</h1>
+        <div class="cursor-pointer relative" style="width:300px; height:300px">
+            <img src="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                 class="foto w-full h-full object-cover"
+                 alt="description" />
+        </div>
+        <div class="cursor-pointer relative" style="width:300px; height:300px">
+            <img src="https://images.pexels.com/photos/258109/pexels-photo-258109.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                 class="foto w-full h-full object-cover"
+                 alt="description" />
+        </div>
+        <div class="cursor-pointer relative" style="width:300px; height:300px">
+            <img src="https://images.pexels.com/photos/248771/pexels-photo-248771.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                 class="foto w-full h-full object-cover"
+                 alt="description" />
+        </div>
+    </article>
+    <article class="mt-5 grid grid-cols-3 gap-10">
+        <h1>Items Sold</h1>
         <div class="cursor-pointer relative" style="width:300px; height:300px">
             <img src="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                  class="foto w-full h-full object-cover"
