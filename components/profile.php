@@ -18,9 +18,9 @@
     <div class="flex justify-center pb-10">
         <div class="ml-10">
             <div class="flex items-center">
-                <h2 class="block leading-relaxed font-light text-gray-700 text-3xl">Darcy</h2>
-               <br><a class="cursor-pointer h-7 px-3 ml-3 focus:outline-none hover:border-transparent text-center rounded border border-gray-400 hover:bg-blue-500 hover:text-white bg-transparent text-gray-500 font-semibold">Edit Profile</a>
-                </a>
+                <h2 class="block leading-relaxed font-light text-gray-700 text-3xl text-left">Darcy</h2>
+                <a class="text-right cursor-pointer h-7 px-3 ml-3 focus:outline-none hover:border-transparent text-center rounded border border-gray-400 hover:bg-blue-500 hover:text-white bg-transparent text-gray-500 font-semibold">Edit Profile</a>
+                <span class="text-base">I am Darcy, I like music, and record videos</span>
             </div>
             <br>
         </div>
