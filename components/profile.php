@@ -15,16 +15,15 @@
 
 <!-- Component Reference: https://tailwindcomponents.com/component/example-profile -->
 <div class="w-11/12 py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-    <div class="flex justify-center pb-10">
+    <div class="flex pb-10">
         <div class="ml-10">
-            <div class="flex items-left">
+            <div class="flex items-center">
                 <h2 class="block leading-relaxed font-light text-gray-700 text-3xl text-left">Darcy</h2>
                 <a class="text-right cursor-pointer h-7 px-3 ml-3 focus:outline-none hover:border-transparent text-center rounded border border-gray-400 hover:bg-blue-500 hover:text-white bg-transparent text-gray-500 font-semibold">Edit Profile</a>
             </div>
             <div class="">
                 <h1 class="text-base font-bold font-light">Bio</h1>
                 <span class="text-base">I am Darcy, I like music, and record videos</span>
-                <a class="block text-base text-blue-500 mt-2" target="_blank">https://tailwindcomponents.com/</a>
             </div>
             <br>
         </div>
