@@ -26,8 +26,8 @@
         </div>
     </div>
     <div class="border-b border-gray-300"></div>
+    <h2 class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">Items Bought</h2>
     <article class="mt-5 grid grid-cols-3 gap-10">
-        <h1>Items Bought</h1>
         <div class="cursor-pointer relative" style="width:300px; height:300px">
             <img src="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                  class="foto w-full h-full object-cover"
@@ -44,8 +44,8 @@
                  alt="description" />
         </div>
     </article>
+    <h2 class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">Items Sold</h2>
     <article class="mt-5 grid grid-cols-3 gap-10">
-        <h1>Items Sold</h1>
         <div class="cursor-pointer relative" style="width:300px; height:300px">
             <img src="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                  class="foto w-full h-full object-cover"
