@@ -3,7 +3,7 @@
     <div class="sidebar-content px-4 py-6">
         <ul class="flex flex-col w-full">
             <li class="my-px">
-                <a href="./" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700">
+                <a href="/<?php echo $GLOBALS['url_loc'][0]; ?>/" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700">
                     <span class="flex items-center justify-center text-lg text-gray-400">
                         <svg
                             fill="none"

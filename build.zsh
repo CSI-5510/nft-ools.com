@@ -1,11 +1,13 @@
-echo enter version: 
+echo enter name: 
+read name
+echo enter version:
 read version
-full_version=v000.000."$version"
+full_version=v"$version"
 echo version: "$full_version"
 echo stopping container...
-docker stop item_carousel
+docker stop "$name"
 echo removing container...
-docker rm -f item_carousel
-docker build -t item_carousel:"$full_version" ./
-docker run -d -p 9000:80 --name item_carousel item_carousel:"$full_version"
-echo item_carousel:"$full_version" deployed
+docker rm -f "$name"
+docker build -t "$name":"$full_version" ./
+docker run -d -p 9000:80 --name "$name" "$name":"$full_version"
+echo "$name":"$full_version" deployed
