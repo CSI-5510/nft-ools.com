@@ -1,39 +1,29 @@
 <?php
 
+$HEADER = "header";
+$HEADER_BACKEND = "header";
+$FOOTER = "footer";
+$FOOTER_BACKEND = "footer";
+$ASIDE = "aside";
+$ASIDE_BACKEND = "aside";
+
 switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
     case "item":
         $BACKEND = "item";
-		$PAGE_TITLE = "Item List";
-        $HEADER = "header";
-        $ASIDE = "aside";
+		$PAGE_TITLE = "Item";
         $FRONTEND = "item";
-        $FOOTER = "footer";
         break;
-    case "items":
-        $BACKEND = "items";
+    case "category":
+        $BACKEND = "category";
 		$PAGE_TITLE = "Item List";
-        $HEADER = "header";
-        $ASIDE = "aside";
-        $FRONTEND = "items";
-        $FOOTER = "footer";
-        break;
-    case "subcategory":
-        $BACKEND = "subcategory";
-		$PAGE_TITLE = "Subcategories";
-        $HEADER = "header";
-        $ASIDE = "aside";
-        $FRONTEND = "subcategory";
-        $FOOTER = "footer";
+        $FRONTEND = "category";
         break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
-        $HEADER = "header";
-        $ASIDE = "aside";
         $FRONTEND = "index";
-        $FOOTER = "footer";
 	    break;
 }
 ?>
