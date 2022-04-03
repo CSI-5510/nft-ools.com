@@ -56,14 +56,14 @@ class DatabaseConnector {
 	
 	/** DB query for a single item
 	 *
-	 * @param  mixed $i_id item id in item table
-	 * @return [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description', 'cat_id'}]
+	 * @param  mixed $id item id in item table
+	 * @return array [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description'}]
 	 */
 	public static function getItemData($id){
 		$q = 'SELECT i_id, i_name, i_price, i_image, i_description 
 			FROM item WHERE i_id = '.$id; 
 		// echo $q;
-		return DatabaseConnector::query($q);
+		return DatabaseConnector::query($q)[0];
 	}
 
   
