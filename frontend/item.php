@@ -1,8 +1,15 @@
 <?php 
     
     try{
-        if($GLOBALS['url_loc'][3]==$ADD_ITEM){
-            alertBox($item_data['i_name'].' at $'.$item_data['i_price']);
+        switch($GLOBALS['url_loc'][3]){
+            case $ADD_TO_CART:
+                alertBox($item_data['i_name'].' at $'.$item_data['i_price']);
+                break;
+            case $EDIT:
+                drawEditItemModal();
+                break;
+            default:
+                break;
         }
     } catch(Exception $e){
         alertBox('malformed url');
@@ -24,8 +31,16 @@
     </div>
     <div class="flex flex-row justify-between items-center w-3/10">
         <?php 
-            drawSignInButton('Sign In', $BLUE_BUTTON); 
-            drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON);    
+            if($is_users_listing){
+                drawEditItemButton($item_data['i_id'], $BLUE_BUTTON, $EDIT);
+            } else {
+                echo "&nbsp;";
+             }
+            if($signed_in){
+                drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+            } else {   
+                drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
+            }
         ?>
     </div>
 </div>
