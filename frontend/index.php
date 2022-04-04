@@ -1,8 +1,7 @@
 <?php
 
 
-    include_once("../backend/carousel.php");
-    carousel(mapCategoryTilesToCarousel($category_data));
+    carousel(mapCategoryToCarousel($category_tiles_data), 'category');
 
 
 ?>
