@@ -46,6 +46,8 @@
      * @return void prints to page
      */
     function printTile($data, $link){
+		//absolute path version, configurable for local development
+		$link = ''.$GLOBALS['config']['url_root'].''.$link.'';
         echo '
             <div class="w-64 h-64 p-0 m-0 bg-gray-200">
                 <a href="'.$link.'">

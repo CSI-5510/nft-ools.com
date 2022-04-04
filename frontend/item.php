@@ -36,7 +36,7 @@
             } else {
                 echo "&nbsp;";
              }
-            if($signed_in){
+            if(User::isLoggedIn()){
                 drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
             } else {   
                 drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 

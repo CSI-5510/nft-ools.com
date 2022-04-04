@@ -1,17 +1,8 @@
-<style>
-.rotated {
-  transform: rotate(90deg);
-  display: inline-block;
-}
-</style>
 <aside class="w-64">
    <div class="sidebar-content px-4 py-6">
-   <ul class="flex flex-col w-full">
-   
-
-   
+   <ul class="flex flex-col w-full space-y-2">
       <li class="my-px">
-         <a href="<?php echo $GLOBALS['config']['url_root'];echo $GLOBALS["url_loc"][0]; ?>" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700">
+         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700 hover:bg-gray-700">
             <span class="flex items-center justify-center text-lg text-gray-400">
                <svg
                   fill="none"
@@ -25,9 +16,9 @@
                   <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                </svg>
             </span>
-            <span class="ml-3 text-gray-500">
-            Home
-            </span>
+           <div class="<?php echo $GLOBALS["url_loc"][1] ? "ml-3 text-gray-500" : "ml-3 text-gray-500 border-b-2 border-red-400";?>">
+		   Home
+		   </div>
          </a>
       </li>
 	  
@@ -37,8 +28,8 @@
   x-init="$watch('categoryCollapse', val => localStorage.setItem('collapseCat', JSON.stringify(val)))"
   x-bind:class="{ 'collapseCat': categoryCollapse }"
 >  
-      <li>
-         <button x-on:click="categoryCollapse = !categoryCollapse" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700">
+      <li class="flex">
+         <button x-on:click="categoryCollapse = !categoryCollapse" class="flex w-full flex-row items-center h-10 pl-3 rounded-lg text-gray-600 cursor-pointer transition hover:bg-gray-700 my-2">
             <span class="text-gray-400">
 				<svg
 				   fill="none"
@@ -52,17 +43,22 @@
 				   <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
 				</svg>
             </span>
-            <span class="ml-3 text-gray-500">
-            Categories
-            </span>
-			  <span class="ml-6" :class="{'rotated': categoryCollapse}">&raquo;</span>
+           <div class="<?php echo $GLOBALS["url_loc"][1] !== "category" ? "ml-3 text-gray-500" : "ml-3 text-gray-500 border-b-2 border-red-400";?>">
+		   Category
+		   </div>
+		   <div class="flex w-full justify-end">
+		                     <svg :class="{ 'rotate-180': categoryCollapse }" class=" inline-block text-gray-500 w-4 h-4 m-2 transition-transform transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+                     <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  </svg> 
+				  </div>
          </button>
+
       </li>
 	  <div x-show="categoryCollapse" x-transition.opacity>
       <?php foreach ($data as $category): ?>
       <li class="my-px space-y-2">
          <a
-		 href="<?php echo $GLOBALS['config']['url_root'];echo $GLOBALS["url_loc"][0]; ?>/category/<?php echo $category["cat_id"]; ?>"
+		 href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/category/<?php echo $category["cat_id"]; ?>"
          class="
 		 <?php echo $GLOBALS["url_loc"][2] === $category["cat_id"] ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 transition hover:bg-gray-300 hover:text-gray-300" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition ";?>"
 		 >
@@ -81,7 +77,7 @@
          <span class="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Account</span>
       </li>
       <li class="my-px space-y-2">
-         <a href="<?php echo $GLOBALS['config']['url_root'];echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin()
+         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin()
              ? "profile"
              : "register"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !==
 "register"
@@ -106,7 +102,7 @@
                } else {
                    echo "Register";
                } ?>			
-         <a href="<?php echo $GLOBALS['config']['url_root'];echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin()
+         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin()
              ? "logout"
              : "login"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !==
 "login"

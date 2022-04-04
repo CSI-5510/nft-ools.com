@@ -30,6 +30,7 @@ public static function isLoggedIn()
 	return false;	
 }
 
+
 }
 
 ?>

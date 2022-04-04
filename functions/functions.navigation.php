@@ -17,7 +17,7 @@
      * @return string "/public_html/signin"
      */
     function signInNavigation(){
-        $l = '/'.$GLOBALS["url_loc"][0].'/sign_in';
+        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/login';
         return $l;
     }
 

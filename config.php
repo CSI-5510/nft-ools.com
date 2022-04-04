@@ -43,7 +43,7 @@ switch ($GLOBALS['url_loc'][1]){
         break;		
     case "category":
         $BACKEND = "category";
-		    $PAGE_TITLE = "Item List";
+		$PAGE_TITLE = "Item List";
         $FRONTEND = "category";
         break;
     case "signin":

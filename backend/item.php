@@ -18,7 +18,7 @@
     try{
         switch($GLOBALS['url_loc'][3]){
             case $ADD_TO_CART:
-                $result = DatabaseConnector::addToCart($item_data['i_id'], '21');
+                $result = DatabaseConnector::addToCart($item_data['i_id'], User::isLoggedIn());
                 break;
             case $EDIT:
                 // modal data
