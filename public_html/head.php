@@ -13,5 +13,6 @@
   </script>		 		 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+  <script src="/<?php echo $GLOBALS['url_loc'][0]; ?>/scripts/main.js"></script>
 <script src='https://www.google.com/recaptcha/api.js' async defer></script>  
 </head>

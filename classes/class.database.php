@@ -56,16 +56,27 @@ class DatabaseConnector {
 	
 	/** DB query for a single item
 	 *
-	 * @param  mixed $i_id item id in item table
-	 * @return [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description', 'cat_id'}]
+	 * @param  mixed $id item id in item table
+	 * @return array [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description'}]
 	 */
 	public static function getItemData($id){
 		$q = 'SELECT i_id, i_name, i_price, i_image, i_description 
 			FROM item WHERE i_id = '.$id; 
 		// echo $q;
-		return DatabaseConnector::query($q);
+		return DatabaseConnector::query($q)[0];
 	}
 
+	
+	/** adds item to user's cart
+	 *
+	 * @param  string $item item id
+	 * @param  string $user user id
+	 * @return void
+	 */
+	public static function addToCart($item, $user){
+		$q = 'INSERT INTO cart(cart_id, cart_item_id, cart_user_id) VALUES (NULL,'.$item.','.$user.')';
+		return DatabaseConnector::query($q);
+	}
   
 	
 	public static function query($query, $params = array()) {

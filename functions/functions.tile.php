@@ -29,6 +29,16 @@
     }
 
     
+    /** returns string for HTML image element's src attribute
+     *
+     * @param  mixed $blob image blob from db
+     * @return string 'data:image/jpeg;base64,'.base64_encode($blob)
+     */
+    function imageSrc($blob){
+        return 'data:image/jpeg;base64,'.base64_encode($blob);
+    }
+
+    
     /** Prints a single "tile" to the page.
      * 
      * @param  mixed $data - {"name", "id", "image"}
@@ -40,7 +50,7 @@
             <div class="w-64 h-64 p-0 m-0 bg-gray-200">
                 <a href="'.$link.'">
                     <div class="p-0 m-0 bottom-0">'.$data["name"].'</div>
-                    <image class="w-full h-full p-0 m-0" src="data:image/jpeg;base64,'.base64_encode($data["image"]).'"/>
+                    <image class="w-full h-full p-0 m-0" src="'.imageSrc($data["image"]).'"/>
                 </a>
             </div>
         ';

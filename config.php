@@ -20,6 +20,11 @@ switch ($GLOBALS['url_loc'][1]){
 		$PAGE_TITLE = "Item List";
         $FRONTEND = "category";
         break;
+    case "signin":
+        $BACKEND = "signin";
+		$PAGE_TITLE = "Sign In";
+        $FRONTEND = "signin";
+        break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
