@@ -36,7 +36,7 @@
         echo '
             <li class="">
                 <span>
-                    <a href='.urlNavigation("category", $data["id"]).'>
+                    <a href='.generalNavigation("category", $data["id"]).'>
                         '.$data["name"].'
                     </a>
                 </span>

@@ -66,6 +66,17 @@ class DatabaseConnector {
 		return DatabaseConnector::query($q)[0];
 	}
 
+	
+	/** adds item to user's cart
+	 *
+	 * @param  string $item item id
+	 * @param  string $user user id
+	 * @return void
+	 */
+	public static function addToCart($item, $user){
+		$q = 'INSERT INTO cart(cart_id, cart_item_id, cart_user_id) VALUES (NULL,'.$item.','.$user.')';
+		return DatabaseConnector::query($q);
+	}
   
 	
 	public static function query($query, $params = array()) {
