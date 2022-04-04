@@ -13,7 +13,7 @@ try{
 	$password = $_POST['signup_password'];	
 	
 	//Before we continue, do we already have a email with this username?
-	if (DatabaseConnector::query('SELECT email from users where email=:email', array(':email'=>$email))) { 
+	if (DatabaseConnector::query('SELECT email from user where email=:email', array(':email'=>$email))) { 
 	throw new Exception('Error: There is already someone with this email!'); 
 	}
 	
@@ -21,7 +21,7 @@ try{
 	
 	//php built in validator for email, if valid then insert
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	DatabaseConnector::query('INSERT INTO users (email, password) VALUES (:email, :password)', array(':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT)));
+	DatabaseConnector::query('INSERT INTO user (email, password) VALUES (:email, :password)', array(':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT)));
 	$success = 1;
 	} else {
 		throw new Exception('Error: Email is invalid!'); 	

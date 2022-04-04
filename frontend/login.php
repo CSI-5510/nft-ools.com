@@ -1,9 +1,14 @@
+<script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine/dist/iodine.min.umd.js" defer></script>
+
 <div class="flex items-center justify-center">
         <div class="w-full max-w-md">
-          <form class="bg-white  rounded px-12 pt-6 pb-8 mb-4" method="POST">
-          <?php
+		<div class="my-4">
+		          <?php
 /*Call our notification handling*/ include("../frontend/sitenotif.php");
 ?>
+</div>
+          <form class="bg-white  rounded px-12 pt-6 pb-8 mb-4" method="POST">
+
 <?php if(isset($success)): ?>
 			<div class="pt-8">	
            <div class="bg-green-200 border-l-4 border-green-300 text-green-800 p-4">
@@ -13,19 +18,26 @@
 </div>
 </div>
 <?php endif; ?>
-            <div class="mb-4">
+            <div class="mb-4" x-data="{ email: '<?php echo $emailoruser ? $emailoruser: ""?>' }">
               <label
                 class="block text-gray-700 text-sm font-normal mb-2"
-                for="username"
+                for="email"
               >
                 Email
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text" id="emailoruser" name="login_emailoruser" value="" 
-                autofocus
+				x-model="email"
+                type="text" id="emailoruser" name="login_emailoruser" value="<?php echo $emailoruser ? $emailoruser: ""?>" 
+                <?php echo $emailoruser ? "": "autofocus"?>
                 placeholder="Email"
               />
+			<span x-show="email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) == null && email !== ''" class="text-xs text-red-700" id="emailHelp" x-transition.opacity>
+			Not a valid email.
+			</span>
+			<span x-show="email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)" class="text-xs text-green-700" id="emailHelp" x-transition.opacity>
+			Email is valid.
+			</span>			
             </div>
             <div class="mb-6">
               <label
@@ -35,15 +47,15 @@
                 Password
               </label>
               <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="password" id="password" name="login_password" value="" 
                 placeholder="Password"
                 name="password"
                 required
+                <?php echo $emailoruser ? "autofocus": ""?>				
                 autocomplete="current-password"
               />
-              <input type="hidden" name="form_type" value="user_login">                
-
+              <input type="hidden" name="form_type" value="user_login">
             </div>
             <div class="flex flex-row-reverse items-center justify-between">
               

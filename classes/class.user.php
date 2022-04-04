@@ -25,7 +25,6 @@ public static function isLoggedIn()
 				//get loggedin user id
 				return $userid;
 			}
-
 		} 
 	} 
 	return false;	
