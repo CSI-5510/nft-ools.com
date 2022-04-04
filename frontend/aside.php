@@ -1,5 +1,4 @@
 <aside class="w-64">
-
     <div class="sidebar-content px-4 py-6">
         <ul class="flex flex-col w-full">
             <li class="my-px">
@@ -27,6 +26,7 @@
                     Main
                 </span>
             </li>
+
             <li class="my-px">
                 <a href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700">
                     <span class="flex items-center justify-center text-lg text-gray-400">
@@ -43,12 +43,13 @@
                         </svg>
                     </span>
                     <span class="ml-3 text-gray-500">
-                        Item
+                        Categories
                     </span>
                 </a>
             </li>
+			<?php if (User::isLoggedin()): ?>
             <li class="my-px">
-                <a href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700">
+                <a href="./checkout" class="<?php echo ($GLOBALS['url_loc'][1] !== "checkout") ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700";?>">
                     <span class="flex items-center justify-center text-lg text-gray-400">
                         <svg 
                             xmlns="http://www.w3.org/2000/svg" 
@@ -68,11 +69,12 @@
                     </span>
                 </a>
             </li>
+			<?php endif; ?>			
             <li class="my-px">
                 <span class="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Account</span>
             </li>
-            <li class="my-px">
-                <a href="#" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700">
+            <li class="my-px space-y-2">
+                <a href="./<?php echo User::isLoggedin() ? "profile" : "register";?>" class="<?php echo ($GLOBALS['url_loc'][1] !== "register") ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700";?>">
                     <span class="flex items-center justify-center text-lg text-red-400">
                         <svg
                             fill="none"
@@ -87,9 +89,35 @@
                         </svg>
                     </span>
                     <span class="ml-3 text-gray-500">
-                            Logout
+					<?php if (User::isLoggedin()){
+	echo "Profile"; 
+} else {
+echo "Register";
+}?>			
+                <a href="./<?php echo User::isLoggedin() ? "logout" : "login";?>" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700">
+                    <span class="flex items-center justify-center text-lg text-red-400">
+                        <svg
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            class="h-6 w-6"
+                        >
+                            <path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+                        </svg>
+                    </span>
+                    <span class="ml-3 text-gray-500">
+					<?php if (User::isLoggedin()){
+	echo "Logout"; 
+} else {
+echo "Login";
+}?>
                     </span>
                 </a>
+                    </span>
+                </a>				
             </li>
         </ul>
 </aside>
