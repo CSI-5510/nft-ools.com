@@ -12,17 +12,17 @@ switch ($GLOBALS['url_loc'][1]){
     break;
     case "item":
         $BACKEND = "item";
-		$PAGE_TITLE = "Item";
+		    $PAGE_TITLE = "Item";
         $FRONTEND = "item";
         break;
     case "category":
         $BACKEND = "category";
-		$PAGE_TITLE = "Item List";
+		    $PAGE_TITLE = "Item List";
         $FRONTEND = "category";
         break;
     case "signin":
         $BACKEND = "signin";
-		$PAGE_TITLE = "Sign In";
+		    $PAGE_TITLE = "Sign In";
         $FRONTEND = "signin";
         break;
     default:
