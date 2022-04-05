@@ -24,6 +24,8 @@
                 // modal data
                 console('pass modal data');
                 break;
+            default:
+                break;
         }
     } catch(Exception $e) {
         $result = $e->getMessage();
