@@ -1,5 +1,6 @@
 <?php 
 
+
     include('../functions/functions.item.php');
     
     try{
@@ -16,6 +17,8 @@
     } catch(Exception $e){
         alertBox('malformed url');
     }
+
+    
 ?>
 
 <div class="grid grid-rows-5 grid-cols-3">
