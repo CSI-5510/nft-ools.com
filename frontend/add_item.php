@@ -3,7 +3,7 @@
     include('../functions/functions.add_item.php');
 ?>
 
-<form>
+<form method="POST" action="/<?php echo $GLOBALS['url_loc'][0];?>/collector/add_item" enctype="multipart/form-data">
     <div class="flex flex-row items-start">
         <?php
             drawLabel('TITLE', $LISTING_LABEL);
