@@ -49,8 +49,14 @@
 
     }
 
-
-    function assembleItemData($price,){
+    
+    /** maps new item data for insertion
+     *
+     * @param  mixed $price from pricing algorithm
+     * @param  mixed $days_to_minimum_price set in contants/constants.all.php
+     * @return void
+     */
+    function assembleItemData($price, $days_to_minimum_price){
         return array(
             "i_name"=> $_POST["title"], 
             "i_description"=> $_POST["description"], 
@@ -60,7 +66,7 @@
             "i_serialnum"=> $_POST["serial"],
             "original_price"=> $_POST["original_price"], 
             "original_purchase_date"=> $_POST["original_purchase_date"],
-            "days_to_minimum_price"=> 10
+            "days_to_minimum_price"=> $days_to_minimum_price
         );
     }
 
