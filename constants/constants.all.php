@@ -25,5 +25,8 @@
     // ACCEPTED FILE TYPES
     $ACCEPTED_IMAGE_TYPES = '.jpg,.jpeg,.png';
 
+
+    // PRICING
+    $DAYS_TO_MINIMUM_PIRCE = 10;
     
 ?>
