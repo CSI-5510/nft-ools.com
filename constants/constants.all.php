@@ -43,6 +43,19 @@
     $ADD_ITEM_ORIGINAL_PURCHASE_PRICE = 'original_price';
     $ADD_ITEM_AFFIDAVIT_NAME = 'affidavit_name';
     $ADD_ITEM_AFFIDAVIT_VERIFY = 'affidavit_verify';
+    $ADD_ITEM_SERIAL_NUMBER = 'serial';
+
+
+    // ADD ITEM QUERY
+    $ADD_ITEM_QUERY_NAME = 'i_name';
+    $ADD_ITEM_QUERY_DESCRIPTION = 'i_description';
+    $ADD_ITEM_QUERY_CURRENT_PRICE = 'current_price';
+    $ADD_ITEM_QUERY_IMAGE = 'i_image';
+    $ADD_ITEM_QUERY_CATEGORY = 'i_category_Id';
+    $ADD_ITEM_QUERY_SERIAL_NUMBER = 'i_serialnum';
+    $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE = 'original_price';
+    $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE = 'original_purchase_date';
+    $ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE = 'days_to_minimum_price';
 
     
 ?>

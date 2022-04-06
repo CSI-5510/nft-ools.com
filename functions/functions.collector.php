@@ -54,19 +54,20 @@
      *
      * @param  mixed $price from pricing algorithm
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
-     * @return void
+     * @return array for use with DatabaseConnect::addNewItem()
      */
     function assembleItemData($price, $days_to_minimum_price){
+        include_once('../constants/constants.all.php');
         return array(
-            "i_name"=> $_POST["title"], 
-            "i_description"=> $_POST["description"], 
-            "current_price"=> $price, 
-            "i_image"=> $_FILES["image"], 
-            "i_category_Id"=> $_POST["category"], 
-            "i_serialnum"=> $_POST["serial"],
-            "original_price"=> $_POST["original_price"], 
-            "original_purchase_date"=> $_POST["original_purchase_date"],
-            "days_to_minimum_price"=> $days_to_minimum_price
+            $ADD_ITEM_QUERY_NAME=> $_POST[$ADD_ITEM_TITLE], 
+            $ADD_ITEM_QUERY_DESCRIPTION=> $_POST[$ADD_ITEM_DESCRIPTION], 
+            $ADD_ITEM_QUERY_CURRENT_PRICE=> $price, 
+            $ADD_ITEM_QUERY_IMAGE=> $_FILES[$ADD_ITEM_IMAGE], 
+            $ADD_ITEM_QUERY_CATEGORY=> $_POST[$ADD_ITEM_CATEGORY], 
+            $ADD_ITEM_QUERY_SERIAL_NUMBER=> $_POST[$ADD_ITEM_SERIAL_NUMBER],
+            $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE=> $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
+            $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE=> $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_DATE],
+            $ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE=> $days_to_minimum_price
         );
     }
 
