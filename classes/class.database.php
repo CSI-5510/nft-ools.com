@@ -13,7 +13,7 @@ class DatabaseConnector {
 	
 	/** DB query for category hyperlink data
 	 *
-	 * @return array [{'c_id', 'c_name'}, ...]
+	 * @return array [{'cat_id', 'cat_name'}, ...]
 	 */
 	public static function getCategoryLinkData() {
 		$q = 'SELECT c.cat_id, c.cat_name 

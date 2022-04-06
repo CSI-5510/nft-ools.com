@@ -64,13 +64,13 @@
      *
      * @param  mixed $name form name attribute
      * @param  mixed $format pick or add a format to constants/constants.all.php
-     * @param  mixed $options list of options for the dropdown, must be 1D
+     * @param  mixed $options list of options for the dropdown, must be 2D: [["value", "text"], ...]
      * @return void draws to page
      */
     function drawSelectOption($name, $format, $options){
         echo '<select name="'.$name.'" class="'.$format.'">';
         foreach($options as $option){
-            echo '<option value="'.$option.'">'.$option.'</option>';
+            echo '<option value="'.$option["value"].'">'.$option["text"].'</option>';
         }
         echo '</select>';
     }

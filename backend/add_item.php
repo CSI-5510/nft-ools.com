@@ -3,10 +3,13 @@
     // BACKEND
     $category_data = DatabaseConnector::getCategoryLinkData();
     $options = array();
+    $option = array();
     foreach($category_data as $c){
-        array_push($options, $c["cat_name"]);
+        $option = [
+            "value"=>$c["cat_id"],
+            "text"=>$c["cat_name"]
+        ];
+        array_push($options, $option);
     }
-    console(json_encode($category_data));
-    console(json_encode($options));
 
 ?>
