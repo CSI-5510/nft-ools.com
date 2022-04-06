@@ -60,7 +60,7 @@
     </div>
     <div class="flex flex-row justify-between items-start">
         <?php
-            drawSubmitButton($BLUE_BUTTON);
+            drawSubmitButton($BLUE_BUTTON." mx-40 my-10 w-full");
         ?>
     </div>
 </form>
