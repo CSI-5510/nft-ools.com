@@ -43,10 +43,10 @@ class DatabaseConnector {
 	/** DB query for all items in a category
 	 *
 	 * @param  string $cat_id category to be queried
-	 * @return array [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description', 'cat_id'}, ...]
+	 * @return array [{'i_id', 'i_name', 'current_price', 'i_image', 'i_description', 'cat_id'}, ...]
 	 */
 	public static function getItemsData($id){
-		$q = 'SELECT i.i_id, i.i_name, i.i_price, i.i_image, i.i_description, c.cat_id 
+		$q = 'SELECT i.i_id, i.i_name, i.current_price, i.i_image, i.i_description, c.cat_id 
 			FROM item i INNER JOIN category c ON i.i_category_id = c.cat_id 
 			WHERE i.i_category_id = '.$id;
 		// echo $q;
@@ -57,10 +57,10 @@ class DatabaseConnector {
 	/** DB query for a single item
 	 *
 	 * @param  mixed $id item id in item table
-	 * @return array [{'i_id', 'i_name', 'i_price', 'i_image', 'i_description'}]
+	 * @return array [{'i_id', 'i_name', 'current_price', 'i_image', 'i_description'}]
 	 */
 	public static function getItemData($id){
-		$q = 'SELECT i_id, i_name, i_price, i_image, i_description 
+		$q = 'SELECT i_id, i_name, current_price, i_image, i_description 
 			FROM item WHERE i_id = '.$id; 
 		// echo $q;
 		return DatabaseConnector::query($q)[0];
