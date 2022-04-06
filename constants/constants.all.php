@@ -26,7 +26,23 @@
     $ACCEPTED_IMAGE_TYPES = '.jpg,.jpeg,.png';
 
 
+    
     // PRICING
     $DAYS_TO_MINIMUM_PIRCE = 10;
+    $PRICE_FLOOR = 0.1;
+
+
+    // ADD ITEM POST
+    $ADD_ITEM_TITLE = 'title';
+    $ADD_ITEM_CATEGORY = 'category';
+    $ADD_ITEM_DESCRIPTION = 'description';
+    $ADD_ITEM_IMAGE = 'image';
+    $ADD_ITEM_DOCUMENTATION = 'documentation';
+    $ADD_ITEM_RECEIPT = 'receipt';
+    $ADD_ITEM_ORIGINAL_PURCHASE_DATE = 'original_purchase_date';
+    $ADD_ITEM_ORIGINAL_PURCHASE_PRICE = 'original_price';
+    $ADD_ITEM_AFFIDAVIT_NAME = 'affidavit_name';
+    $ADD_ITEM_AFFIDAVIT_VERIFY = 'affidavit_verify';
+
     
 ?>
