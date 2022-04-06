@@ -59,6 +59,22 @@
         return;
     }
 
+    
+    /** draws drop down menu
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format pick or add a format to constants/constants.all.php
+     * @param  mixed $options list of options for the dropdown, must be 1D
+     * @return void draws to page
+     */
+    function drawSelectOption($name, $format, $options){
+        echo '<select name="'.$name.'" class="'.$format.'">';
+        foreach($options as $option){
+            echo '<option value="'.$option.'">'.$option.'</option>';
+        }
+        echo '</select>';
+    }
+
 
     /** draws a dropzone for single files only
      *

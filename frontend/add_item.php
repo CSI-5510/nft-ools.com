@@ -13,7 +13,7 @@
     <div class="flex flex-row justify-between items-start">
         <?php
             drawLabel('CATEGORY', $LISTING_LABEL);
-            drawTextArea('category', $LISTING_INPUT_AREA);
+            drawSelectOption('category', $LISTING_INPUT_AREA, $options);
         ?>
     </div>
     <div class="flex flex-row justify-between items-start">
