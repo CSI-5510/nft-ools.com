@@ -6,13 +6,16 @@
      * @param  float $price original purchase price
      * @param  string $born date & time of original purchase
      * @param  float $floor minimum sale price as ratio of $price, 0.0 to 1.0
-     * @param  float $gamma sigmoid horizontal scale factor, second timebase
+     * @param  float $days_to_minimum days to reach minimum price
      * @return float depreciated price: (depreciation + floor) * price
      */
-    function pricing($price, $born, $floor, $gamma){
-        $_gamma = daysToSeconds($gamma);
+    function pricing($price, $born, $floor, $days_to_minimum){
+        $gamma = daysToSeconds(calculateGamma($days_to_minimum));
         $depreciation = depreciation($born, $gamma);
-        return ($depreciation + $floor) * $price;
+        if($depreciation<$floor){
+            $depreciation=$floor;
+        }
+        return $depreciation * $price;
     }
     
     
