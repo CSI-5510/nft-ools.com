@@ -9,12 +9,15 @@
                 // virus scan
                 // pass: 
                 $price = pricing(
-                    $_POST[$add], 
+                    $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
                     $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
                     $PRICE_FLOOR, 
                     $DAYS_TO_MINIMUM_PIRCE
                 );
-                $item_data = assembleItemData();
+                $item_data = assembleItemData(
+                    $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
+                    $DAYS_TO_MINIMUM_PIRCE
+                );
                 //   DatabaseConnector::addItem($item_data)
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
