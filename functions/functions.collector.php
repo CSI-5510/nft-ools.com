@@ -57,7 +57,7 @@
      * @return array for use with DatabaseConnect::addNewItem()
      */
     function assembleItemData($price, $days_to_minimum_price){
-        include_once('../constants/constants.all.php');
+        include('../constants/constants.all.php');
         return array(
             $ADD_ITEM_QUERY_NAME=> $_POST[$ADD_ITEM_TITLE], 
             $ADD_ITEM_QUERY_DESCRIPTION=> $_POST[$ADD_ITEM_DESCRIPTION], 

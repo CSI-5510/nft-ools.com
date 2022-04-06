@@ -10,11 +10,19 @@
      * @return float depreciated price: (depreciation + floor) * price
      */
     function pricing($price, $born, $floor, $days_to_minimum){
-        $gamma = daysToSeconds(calculateGamma($days_to_minimum));
+        console('pricing function start');
+        console('original price: '.$price);
+        console('original purchase date: '.$born);
+        console('floor coefficient: '.$floor);
+        console('days to floor: '.$days_to_minimum);
+        $gamma = calculateGamma($days_to_minimum);
+        console('gamma: '.$gamma);
         $depreciation = depreciation($born, $gamma);
         if($depreciation<$floor){
             $depreciation=$floor;
         }
+        console('depreciation: '.$depreciation);
+        console('pricing function stop');
         return $depreciation * $price;
     }
     
@@ -27,7 +35,8 @@
      */
     function depreciation($born, $gamma){
         $now = time();
-        $age = $now - strtotime($born);
+        $age = ($now - strtotime($born))/daysToSeconds(1);
+        console('age: '.$age);
         $x = scaleToGamma($age, $gamma);
         return sigmoid($x, $gamma);
     }
@@ -61,7 +70,7 @@
      * @return int days * 86,400
      */
     function daysToSeconds($days){
-        $SECONDS_PER_DAY = 86_400;
+        $SECONDS_PER_DAY = 86400;
         return $days * $SECONDS_PER_DAY;
     }
 

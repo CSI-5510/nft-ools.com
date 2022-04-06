@@ -28,7 +28,7 @@
 
     
     // PRICING
-    $DAYS_TO_MINIMUM_PIRCE = 10;
+    $DAYS_TO_MINIMUM_PIRCE = 37;
     $PRICE_FLOOR = 0.1;
 
 

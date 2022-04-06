@@ -1,6 +1,7 @@
 <?php
 
     include_once('../functions/functions.pricing_algorithm.php');
+    include_once('../functions/functions.collector.php');
     include_once('../constants/constants.all.php');
 
     try{
@@ -18,6 +19,8 @@
                     $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
                     $DAYS_TO_MINIMUM_PIRCE
                 );
+                console($price);
+                console(json_encode($item_data));
                 //   DatabaseConnector::addItem($item_data)
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
