@@ -50,20 +50,17 @@
     }
 
 
-    function assembleItemData(){
+    function assembleItemData($price,){
         return array(
-            "i_name"=> , 
-            "i_description"=> , 
-            "current_price"=> , 
-            "i_image"=> , 
-            "i_category_Id"=> , 
-            "i_serialnum"=> , 
-            "event_description"=> , 
-            "event_timestamp"=> , 
-            "original_price"=> , 
-            "is_approved"=> , 
-            "owner_id"=> , 
-            "days_to_minimum_price"=> 
+            "i_name"=> $_POST["title"], 
+            "i_description"=> $_POST["description"], 
+            "current_price"=> $price, 
+            "i_image"=> $_FILES["image"], 
+            "i_category_Id"=> $_POST["category"], 
+            "i_serialnum"=> $_POST["serial"],
+            "original_price"=> $_POST["original_price"], 
+            "original_purchase_date"=> $_POST["original_purchase_date"],
+            "days_to_minimum_price"=> 10
         );
     }
 

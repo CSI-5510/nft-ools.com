@@ -32,6 +32,19 @@
         return;
     }
 
+    
+    /** draws input type datetime-local
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format pick a format or add one to constants
+     * @return void
+     */
+    function drawDateInput($name, $format){
+        echo '
+            <input type="datetime-local" name="'.$name.'" class="'.$format.'">
+        ';
+    }
+
 
     /** draws text area input area
      *
