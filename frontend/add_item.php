@@ -38,7 +38,7 @@
         <?php
             drawLabel('RECEIPT', $LISTING_LABEL);
             drawFileUpload('receipt', 'receipt', $LISTING_DROPZONE, $ACCEPTED_IMAGE_TYPES);
-            ?>
+        ?>
     </div>
     <div class="flex flex-row justify-between items-start">
         <?php
