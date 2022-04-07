@@ -11,12 +11,8 @@
     $signed_in = User::isLoggedin();
     $is_users_listing = Order::isUsersListing($GLOBALS['url_loc'][2],$signed_in);
 	$is_item_open = Order::isItemOpen($GLOBALS['url_loc'][2]);
+	$is_item_pending = Order::isItemPending($GLOBALS['url_loc'][2]);
 	$is_item_in_cart = Order::isItemInUserCart($GLOBALS['url_loc'][2], $signed_in);
-	//tells us if a dispatched access is finished.
-	//1 = start
-	//2 = pending
-	//3 = finished
-	$reducer_status = 1;
 	
     if(!isset($GLOBALS['url_loc'][3])){
         return;
@@ -25,8 +21,7 @@
     try{
         switch($GLOBALS['url_loc'][3]){
             case $ADD_TO_CART:
-				$reducer_status = 2;
-                $result = DatabaseConnector::addToCart($item_data['i_id'], $signed_in);
+                $result = Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
             case $REMOVE_FROM_CART:
                 Order::removeItemFromCart($item_data['i_id'], $signed_in);
@@ -35,6 +30,10 @@
                 // modal data
                 console('pass modal data');
                 break;
+			default:
+			//returns them back to the default item page
+				header("location:./");
+				break;
         }
     } catch(Exception $e) {
         $result = $e->getMessage();

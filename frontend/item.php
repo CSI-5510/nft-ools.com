@@ -60,13 +60,23 @@
             if($signed_in){
 				//make sure user doesn't own the listing....
 				if(!$is_users_listing){
-					//if item is in cart
+					//if item is in cart of the user
 					if($is_item_in_cart){
 						//remove item
-						drawRemoveFromCartButton($item_data['i_id'], $BLUE_BUTTON, $REMOVE_FROM_CART); 
+						drawRemoveFromCartButton($item_data['i_id'], $BLUE_BUTTON, $REMOVE_FROM_CART);
 					} else {
-						//add item
-						drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+						//make sure item isn't currently pending (in an offer)..
+						if(!$is_item_pending){
+							if($is_item_open){
+								//add item button
+								drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+							} else {
+								//draw this button to show the item is not available for offers at all
+								drawUnavailableButton($BLUE_BUTTON); 
+							}
+						} else {
+						drawPendingButton($BLUE_BUTTON); 
+						}
 					}
 				}
 			} else {   

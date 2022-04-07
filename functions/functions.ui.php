@@ -15,6 +15,14 @@
         ';
     }
 
+
+    function drawDisabledButton($text, $format){
+        echo '
+            <div '. $format .'>
+                '.$text.'
+            </div>
+        ';
+    }
     
     /** Draws a button that perfroms the input function on click
      *
