@@ -3,8 +3,27 @@
     try{
         switch($GLOBALS['url_loc'][3]){
             case $ADD_TO_CART:
-                alertBox($item_data['i_name'].' at $'.$item_data['i_price']);
+				//is item already in the users cart? let the user know
+				if($is_item_in_cart){
+                alertBox("Item is already in the cart", "Error");
+				} else {
+				//set $is_item_in_cart to true
+				$is_item_in_cart = true;					
+				//initial add to order
+                alertBox($item_data['i_name'].' at $'.$item_data['current_price'], "Added to orders");
+				}
                 break;
+            case $REMOVE_FROM_CART:
+				//is item already in the users cart? let the user know
+				if(!$is_item_in_cart){
+                alertBox("Item is not in the cart", "Error");
+				} else {
+				//set $is_item_in_cart to true
+				$is_item_in_cart = false;					
+				//initial add to order
+                alertBox($item_data['i_name'], "Removed from orders");
+				}
+                break;		
             case $EDIT:
                 drawEditItemModal();
                 break;
@@ -15,6 +34,7 @@
         alertBox('malformed url');
     }
 ?>
+
 
 <div class="grid grid-rows-5 grid-cols-3">
     <h3 class="row-span-1 col-span-2 text-2xl font-bold m-10 mb-0 p-4 bg-gray-200">
@@ -36,11 +56,22 @@
             } else {
                 echo "&nbsp;";
              }
-            if(User::isLoggedIn()){
-                drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
-            } else {   
-                drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
-            }
+			 //check if user is signed in
+            if($signed_in){
+				//make sure user doesn't own the listing....
+				if(!$is_users_listing){
+					//if item is in cart
+					if($is_item_in_cart){
+						//remove item
+						drawRemoveFromCartButton($item_data['i_id'], $BLUE_BUTTON, $REMOVE_FROM_CART); 
+					} else {
+						//add item
+						drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+					}
+				}
+			} else {   
+			drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
+		}
         ?>
     </div>
 </div>

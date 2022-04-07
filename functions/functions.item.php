@@ -20,12 +20,25 @@
      * @return void draws to page
      */
     function drawAddToCartButton($id, $format, $command){
-        $text = 'Add to Cart';
+        $text = 'Add to Orders';
         $url = itemAPI($id, $command);
         drawLinkButton($text, $url, $format);
         return;
     }
-
+	
+	    /** draws an remove to cart button 
+     *
+     * @param  mixed $id item id for sql delete
+     * @param  mixed $format format for button from contants.all.php
+     * @param  mixed $command command for api from constants.all.php
+     * @return void draws to page
+     */
+    function drawRemoveFromCartButton($id, $format, $command){
+        $text = 'Remove from Orders';
+        $url = itemAPI($id, $command);
+        drawLinkButton($text, $url, $format);
+        return;
+    }
     
     /** draws the edit item button
      *

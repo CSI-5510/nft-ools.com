@@ -45,5 +45,6 @@ include('../functions/functions.item.php');
 include('../functions/functions.ui.php');
 include("../classes/class.database.php");
 include("../classes/class.user.php");
+include("../classes/class.order.php");
 include("../classes/class.general.php");
 ?>
