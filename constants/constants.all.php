@@ -2,6 +2,8 @@
 
     // NAVIGATION
     $ADD_TO_CART = 'add_to_cart';
+	$REMOVE_FROM_CART = 'remove_from_cart';
+
     $EDIT = 'edit';
 
     // FORMATTING

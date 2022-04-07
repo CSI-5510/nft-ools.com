@@ -136,7 +136,7 @@
 	  
       <?php if (User::isLoggedin()): ?>
       <li class="my-px">
-         <a href="./checkout" class="<?php echo $GLOBALS["url_loc"][1] !==
+         <a href="./orders" class="<?php echo $GLOBALS["url_loc"][1] !==
          "checkout"
              ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
              : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
@@ -152,10 +152,12 @@
                </svg>
             </span>
             <span class="ml-3">
-            Checkout
+            Orders
             </span>
             <span class="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full ml-auto">
-            0
+            <?php  
+			echo Order::getUsersOrdersCount();
+			?>
             </span>
          </a>
       </li>
