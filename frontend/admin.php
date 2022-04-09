@@ -41,6 +41,7 @@ $resultTable = $conn->query($sqlTable);
     </div>
 </nav><br>
 <div class="container">
+    <h2>NFT-ools Admin Approval Interface</h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -57,8 +58,8 @@ $resultTable = $conn->query($sqlTable);
                     $itemID = $rowTable['i_id'];
                     $itemName = $rowTable['i_name'];
                     $itemOwnerID = $rowTable['owner_id'];
-                    $itemOwnerFname = $rowTable['u.fname'];
-                    $itemOwnerLname = $rowTable['u.lname'];
+                    $itemOwnerFname = $rowTable['fname'];
+                    $itemOwnerLname = $rowTable['lname'];
                     echo '<tr>';
                     echo '<th scope="row">'.$itemID.'</th>';
                     echo '<td>'.$itemName.'</td>';
@@ -69,14 +70,6 @@ $resultTable = $conn->query($sqlTable);
                 }
             }
         ?>
-        <tr>
-            <th scope="row">1</th>
-            <td>Item 1</td>
-            <td>Sal Trupiano</td>
-            <td>
-                <form action="../backend/itemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="'.$itemID.'"><button type="submit" class="btn btn-secondary">Review</button></form>
-            </td>
-        </tr>
         </tbody>
     </table>
 
