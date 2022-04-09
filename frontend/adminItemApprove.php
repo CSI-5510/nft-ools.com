@@ -88,43 +88,43 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Title</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemName">
+                <input type="text" class="form-control" id="itemName" value="<?php echo $itemName ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Category</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemCategory">
+                <input type="text" class="form-control" id="itemCategory" value="<?php echo $itemCategoryName ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Serial Number</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemSerialNumber">
+                <input type="text" class="form-control" id="itemSerialNumber" value="<?php echo $itemSerialNumber ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemDescription">
+                <input type="text" class="form-control" id="itemDescription" value="<?php echo $itemDescription ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Image</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemImage">
+                <img src="data:image/jpeg;base64,'.base64_encode('<?php echo $itemImage->load(); ?>').'"/>
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Documentation</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemDocumentation">
+                <img src="data:image/jpeg;base64,'.base64_encode('<?php echo $itemDocumentation ?>').'"/>
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Receipt</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemReceipt">
+                <img src="data:image/jpeg;base64,'.base64_encode(<?php echo $itemImage ?>).'"/>
             </div>
         </div>
         <div class="row mb-3">
