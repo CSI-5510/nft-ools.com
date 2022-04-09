@@ -7,6 +7,10 @@ $dbName = "NFTools";
 
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $itemIDin = $_POST['itemID'];
+    echo "<h1>Item ID IN:".$itemIDin."</h1>";
+}
 /*
 $sqlTable = "SELECT i.i_id, i.i_name, i.owner_id, u.fname, u.lname FROM item i JOIN user u ON i.owner_id = u.id";
 $resultTable = $conn->query($sqlTable);
