@@ -21,7 +21,7 @@ if ($resultTable->num_rows > 0) {
         echo "<h1>Item ID: $itemID</h1>";
         $itemName = $rowTable['i_name'];
         echo "<h1>Item Name: $itemName</h1>";
-        $itemCategoryID = $rowTable['i_category_id'];
+        $itemCategoryID = $rowTable['i_category_Id'];
         echo "<h1>Item Cat ID: $itemCategoryID</h1>";
         $itemCategoryName = $rowTable['cat_name'];
         echo "<h1>Item Cat Name: $itemCategoryName</h1>";
@@ -38,7 +38,7 @@ if ($resultTable->num_rows > 0) {
     }
 }
 
-$sqlAffidavit = "SELECT a_content from AFFIDAVIT WHERE a_item_id = '$itemIDin'";
+$sqlAffidavit = "SELECT a_content from affidavit WHERE a_item_id = '$itemIDin'";
 $resultAffidavit = $conn->query($sqlAffidavit);
 if ($resultAffidavit->num_rows > 0) {
     while ($rowAffidavit = $resultAffidavit->fetch_assoc()) {
