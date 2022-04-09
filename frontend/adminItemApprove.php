@@ -18,12 +18,19 @@ $resultTable = $conn->query($sqlItemEditTable);
 if ($resultTable->num_rows > 0) {
     while ($rowTable = $resultTable->fetch_assoc()) {
         $itemID = $rowTable['i_id'];
+        echo "<h1>Item ID: $itemID</h1>";
         $itemName = $rowTable['i_name'];
+        echo "<h1>Item Name: $itemName</h1>";
         $itemCategoryID = $rowTable['i_category_id'];
+        echo "<h1>Item Cat ID: $itemCategoryID</h1>";
         $itemCategoryName = $rowTable['cat_name'];
+        echo "<h1>Item Cat Name: $itemCategoryName</h1>";
         $itemSerialNumber = $rowTable['i_serialnum'];
+        echo "<h1>Item SerialNumber: $itemSerialNumber</h1>";
         $itemDescription = $rowTable['i_description'];
+        echo "<h1>Item Desc: $itemDescription</h1>";
         $itemImage = $rowTable['i_image'];
+        echo '<h1>Image: </h1><img src="data:image/jpeg;base64,'.base64_encode($rowTable['i_image']).'"/>';
         $itemDocumentation = $rowTable['documentation'];
         $itemReceipt = $rowTable['receipt'];
         $itemOriginalPurchaseDate = $rowTable['original_purchase_date'];
