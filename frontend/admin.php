@@ -64,7 +64,7 @@ $resultTable = $conn->query($sqlTable);
                     echo '<th scope="row">'.$itemID.'</th>';
                     echo '<td>'.$itemName.'</td>';
                     echo '<td>'.$itemOwnerFname.$itemOwnerLname.'</td>';
-                    echo '<td><form action="../backend/itemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="'.$itemID.'"><button type="submit" class="btn btn-secondary">Review</button></form></td>';
+                    echo '<td><form action="../backend/adminItemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="' .$itemID.'"><button type="submit" class="btn btn-secondary">Review</button></form></td>';
                     echo '</tr>';
                 }
             }
