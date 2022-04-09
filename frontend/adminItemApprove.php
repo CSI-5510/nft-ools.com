@@ -15,6 +15,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 $sqlItemEditTable = "SELECT i.i_id, i.i_name, i.i_category_Id, c.cat_name, i.i_serialnum, i.i_description, i.i_image, i.documentation, i.receipt, i.original_purchase_date, i.current_price FROM item i JOIN category c ON i.i_category_Id = c.cat_id WHERE i.i_id = '$itemIDin'";
 $resultTable = $conn->query($sqlItemEditTable);
 
+if ($resultTable->num_rows > 0) {
+    while ($rowTable = $resultTable->fetch_assoc()) {
+        $itemID = $rowTable['i_id'];
+        $itemName = $rowTable['i_name'];
+        $itemCategoryID = $rowTable['i_category_id'];
+        $itemCategoryName = $rowTable['cat_name'];
+        $itemSerialNumber = $rowTable['i_serialnum'];
+        $itemDescription = $rowTable['i_description'];
+        $itemImage = $rowTable['i_image'];
+        $itemDocumentation = $rowTable['documentation'];
+        $itemReceipt = $rowTable['receipt'];
+        $itemOriginalPurchaseDate = $rowTable['original_purchase_date'];
+        $itemPrice = $rowTable['current_price'];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
