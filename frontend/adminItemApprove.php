@@ -15,8 +15,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 $sqlItemEditTable = "SELECT i.i_id, i.i_name, i.i_category_Id, c.cat_name, i.i_serialnum, i.i_description, i.i_image, i.documentation, i.receipt, i.original_purchase_date, i.current_price FROM item i JOIN category c ON i.i_category_Id = c.cat_id WHERE i.i_id = '$itemIDin'";
 $resultTable = $conn->query($sqlItemEditTable);
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -34,21 +32,21 @@ $resultTable = $conn->query($sqlItemEditTable);
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin - ITEM REVIEW</a>
+    <a class="navbar-brand" href="../backend/index.php">&nbsp;NFT-ools Admin - ITEM REVIEW</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link" href="#"></a>
-            <a class="nav-link active" href="../frontend/admin.php">&larr;Back to Admin Home</a>
+            <a class="nav-link active" href="admin.php">&larr;Back to Admin Home</a>
         </div>
     </div>
 </nav><br>
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="itemApproveController.php">
+    <form method="post" action="adminApprovalController.php">
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item ID</label>
             <div class="col-sm-10">
