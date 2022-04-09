@@ -11,10 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemIDin = $_POST['itemID'];
     echo "<h1>Item ID IN:".$itemIDin."</h1>";
 }
-/*
-$sqlTable = "SELECT i.i_id, i.i_name, i.owner_id, u.fname, u.lname FROM item i JOIN user u ON i.owner_id = u.id";
-$resultTable = $conn->query($sqlTable);
-*/
+
+$sqlItemEditTable = "SELECT i.i_id, i.i_name, i.i_category_Id, c.cat_name, i.i_serialnum, i.i_description, i.i_image, i.documentation, i.receipt, i.original_purchase_date, i.current_price FROM item i JOIN category c ON i.i_category_Id = c.cat_id WHERE i.i_id = '$itemIDin'";
+$resultTable = $conn->query($sqlItemEditTable);
+
 
 
 ?>
@@ -41,7 +41,7 @@ $resultTable = $conn->query($sqlTable);
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link" href="#"></a>
-            <a class="nav-link active" href="index.php">&larr;Back to Admin Home</a>
+            <a class="nav-link active" href="../frontend/admin.php">&larr;Back to Admin Home</a>
         </div>
     </div>
 </nav><br>
