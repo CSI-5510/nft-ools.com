@@ -31,6 +31,14 @@ if ($resultTable->num_rows > 0) {
     }
 }
 
+$sqlAffidavit = "SELECT a_content from AFFIDAVIT WHERE a_item_id = '$itemIDin'";
+$resultAffidavit = $conn->query($sqlAffidavit);
+if ($resultAffidavit->num_rows > 0) {
+    while ($rowAffidavit = $resultAffidavit->fetch_assoc()) {
+        $itemAffidavit = $rowAffidavit['a_content'];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
