@@ -7,7 +7,7 @@ $dbName = "NFTools";
 
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
-$sqlTable = "SELECT i.i_id, i.i_name, i.owner_id, u.email FROM item i JOIN user u ON i.owner_id = u.id";
+$sqlTable = "SELECT i.i_id, i.i_name, i.owner_id, u.fname, u.lname FROM item i JOIN user u ON i.owner_id = u.id";
 
 $resultTable = $conn->query($sqlTable);
 
@@ -51,6 +51,24 @@ $resultTable = $conn->query($sqlTable);
         </tr>
         </thead>
         <tbody>
+        <?php
+            if ($resultTable->num_rows > 0) {
+                while ($rowTable = $resultTable->fetch_assoc()) {
+                    $itemID = $rowTable['i_id'];
+                    $itemName = $rowTable['i_name'];
+                    $itemOwnerID = $rowTable['owner_id'];
+                    $itemOwnerFname = $rowTable['u.fname'];
+                    $itemOwnerLname = $rowTable['u.lname'];
+                    echo '<tr>';
+                    echo '<th scope="row">'.$itemID.'</th>';
+                    echo '<td>'.$itemName.'</td>';
+                    echo '<td>'.$itemOwnerID.'</td>';
+                    echo '<td>'.$itemOwnerFname.$itemOwnerLname.'</td>';
+                    echo '<td><form action="../backend/itemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="'.$itemID.'"><button type="submit" class="btn btn-secondary">Review</button></form></td>';
+                    echo '</tr>';
+                }
+            }
+        ?>
         <tr>
             <th scope="row">1</th>
             <td>Item 1</td>
