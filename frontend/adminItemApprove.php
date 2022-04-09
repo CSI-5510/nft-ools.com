@@ -43,6 +43,7 @@ $resultAffidavit = $conn->query($sqlAffidavit);
 if ($resultAffidavit->num_rows > 0) {
     while ($rowAffidavit = $resultAffidavit->fetch_assoc()) {
         $itemAffidavit = $rowAffidavit['a_content'];
+        echo "<h1> Item Affidavit: </h1> $itemAffidavit";
     }
 }
 
