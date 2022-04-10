@@ -166,7 +166,7 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Approval/Denial Justification</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemJustification">
+                <input type="text" class="form-control" id="itemJustification" name="itemJustification">
             </div>
         </div>
         <input type="submit" class="btn btn-secondary" value="SUBMIT AUTHORIZATION DECISION">

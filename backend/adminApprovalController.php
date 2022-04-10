@@ -20,4 +20,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemAffidavitIn = $_POST['itemAffidavit'];
     $itemApprovedRadiosIn = $_POST['approvalRadios'];
     echo "<h1>Approval Decision: $itemApprovedRadiosIn</h1>";
+    $itemApprovalJustificationIn = $_POST['itemJustification'];
 }
