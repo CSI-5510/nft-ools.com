@@ -1,4 +1,7 @@
 <?php 
+
+
+    include('../functions/functions.item.php');
     
     try{
         switch($GLOBALS['url_loc'][3]){
@@ -28,12 +31,13 @@
                 drawEditItemModal();
                 break;
             default:
+                console('item.php frontend line 15');
+                drawItemPage($item_data, $is_users_listing, $signed_in, FALSE);
                 break;
         }
     } catch(Exception $e){
-        alertBox('malformed url');
+        alertBox('Error', 'malformed url');
     }
-?>
 
 
 <div class="grid grid-rows-5 grid-cols-3">

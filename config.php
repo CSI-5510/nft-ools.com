@@ -7,12 +7,13 @@ $FOOTER_BACKEND = "footer";
 $ASIDE = "aside";
 $ASIDE_BACKEND = "aside";
 
+
 switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
     case "item":
         $BACKEND = "item";
-		$PAGE_TITLE = "Item";
+        $PAGE_TITLE = "Item";
         $FRONTEND = "item";
         break;
     case "logout":
@@ -43,13 +44,23 @@ switch ($GLOBALS['url_loc'][1]){
         break;		
     case "category":
         $BACKEND = "category";
-		$PAGE_TITLE = "Item List";
+        $PAGE_TITLE = "Item List";
         $FRONTEND = "category";
         break;
     case "signin":
         $BACKEND = "signin";
         $PAGE_TITLE = "Sign In";
         $FRONTEND = "signin";
+        break;
+    case "add_item":
+        $BACKEND = "add_item";
+        $PAGE_TITLE = "Add Item";
+        $FRONTEND = "add_item";
+        break;
+    case "collector":
+        $BACKEND = "collector";
+        $PAGE_TITLE = "Add Item";
+        $FRONTEND = "collector";
         break;
     default:
         $BACKEND = "index";
