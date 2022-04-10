@@ -53,21 +53,21 @@ $resultTable = $conn->query($sqlTable);
         </thead>
         <tbody>
         <?php
-            if ($resultTable->num_rows > 0) {
-                while ($rowTable = $resultTable->fetch_assoc()) {
-                    $itemID = $rowTable['i_id'];
-                    $itemName = $rowTable['i_name'];
-                    $itemOwnerID = $rowTable['owner_id'];
-                    $itemOwnerFname = $rowTable['fname'];
-                    $itemOwnerLname = $rowTable['lname'];
-                    echo '<tr>';
-                    echo '<th scope="row">'.$itemID.'</th>';
-                    echo '<td>'.$itemName.'</td>';
-                    echo '<td>'.$itemOwnerFname.$itemOwnerLname.'</td>';
-                    echo '<td><form action="adminItemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="' .$itemID.'"><button type="submit" class="btn btn-secondary">Review</button></form></td>';
-                    echo '</tr>';
-                }
-            }
+            foreach ($result as $item):
+                $itemID = $item["i_id"];
+                $itemName = $item['i_name'];
+                $itemOwnerID = $item['owner_id'];
+                $itemOwnerFname = $item['fname'];
+                $itemOwnerLname = $item['lname'];
+        ?>
+            <tr>
+                <th scope="row"><?php echo $itemID ?></th>
+                <td><?php echo $itemName ?></td>
+                <td><?php echo $itemOwnerFname . $itemOwnerLname ?></td>
+                <td><form action="adminItemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="<?php echo $itemID ?>"><button type="submit" class="btn btn-secondary">Review</button></form></td>
+            </tr>
+        <?php
+            endforeach;
         ?>
         </tbody>
     </table>
