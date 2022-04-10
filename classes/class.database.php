@@ -13,7 +13,7 @@ class DatabaseConnector {
 	
 	/** DB query for category hyperlink data
 	 *
-	 * @return array [{'c_id', 'c_name', 'i_image'}, ...]
+	 * @return array [{'cat_id', 'cat_name'}, ...]
 	 */
 	public static function getCategoryLinkData() {
 		$q = 'SELECT c.cat_id, c.cat_name 
@@ -78,6 +78,37 @@ class DatabaseConnector {
 		return DatabaseConnector::query($q);
 	}
   
+
+	public static function addNewItem($data, $userID){
+		$q = 'INSERT INTO item (
+			i_id, 
+			i_name, 
+			i_description, 
+			current_price, 
+			i_image, 
+			i_category_Id, 
+			i_serialnum, 
+			event_description, 
+			event_timestamp, 
+			original_price, 
+			is_approved, 
+			owner_id, 
+			days_to_minimum_price) VALUES (
+				NULL,
+				'.$data["i_name"].',
+				'.$data["i_description"].',
+				'.$data["current_price"].',
+				'.$data["i_image"].',
+				'.$data["i_category_Id"].',
+				'.$data["i_serialnum"].',
+				NULL,
+				NULL,
+				NULL,
+				'.$userID.',
+				NULL,
+				NULL)';
+		return DatabaseConnector::query($q);
+	}
 	
 	public static function query($query, $params = array()) {
 		$statement = self::connect()->prepare($query);

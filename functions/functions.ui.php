@@ -1,6 +1,115 @@
 <?php
 
 
+    include_once('../functions/functions.tile.php');
+    
+    /** draws listing label for input instructions
+     *
+     * @param  mixed $text instructions to display
+     * @param  mixed $format $LISTING_LABEL
+     * @return void draws to page
+     */
+    function drawLabel($text, $format){
+        echo '
+            <div class="'.$format.'">
+                '. $text .'
+            </div>
+        ';
+        return;
+    }
+
+
+    /** draws text input area
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format $LISTING_INPUT_AREA
+     * @return void draws to page
+     */
+    function drawTextInput($name, $format){
+        echo '
+            <input type="text" name="'.$name.'" class="'.$format.'">
+        ';
+        return;
+    }
+
+    
+    /** draws input type datetime-local
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format pick a format or add one to constants
+     * @return void
+     */
+    function drawDateInput($name, $format){
+        echo '
+            <input type="datetime-local" name="'.$name.'" class="'.$format.'">
+        ';
+    }
+
+
+    /** draws text area input area
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format $LISTING_INPUT_AREA
+     * @return void draws to page
+     */
+    function drawTextArea($name, $format){
+        echo '
+            <textarea name="'. $name .'" class="'.$format.'"></textarea>
+        ';
+        return;
+    }
+
+    
+    /** draws drop down menu
+     *
+     * @param  mixed $name form name attribute
+     * @param  mixed $format pick or add a format to constants/constants.all.php
+     * @param  mixed $options list of options for the dropdown, must be 2D: [["value", "text"], ...]
+     * @return void draws to page
+     */
+    function drawSelectOption($name, $format, $options){
+        echo '<select name="'.$name.'" class="'.$format.'">';
+        foreach($options as $option){
+            echo '<option value="'.$option["value"].'">'.$option["text"].'</option>';
+        }
+        echo '</select>';
+    }
+
+
+    /** draws a dropzone for single files only
+     *
+     * @param  string $id for html element's id attribute 
+     * @param  mixed $name form name attribute
+     * @param  string $message goes in the message box
+     * @param  mixed $format $LISTING_DROPZONE
+     * @return void draws to page
+     */
+    function drawDropzone($id, $name, $message, $format){
+        echo '
+            <div id="'.$id.'" name="'.$name.'" class="'.$format.'" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                <p>'.$message.'</p>
+            </div>
+        ';
+        return;
+    }
+
+    
+    /** draws a file upload control
+     *
+     * @param  mixed $id for html element's id attribute
+     * @param  mixed $name form name attribut
+     * @param  mixed $format format $LISTING_DROPZONE
+     * @param  mixed $accepts file types accepted by input
+     * @return void draws to page
+     */
+    function drawFileUpload($id, $name, $format, $accepts){
+        echo '
+            <input id="'.$id.'" type="file" name="'.$name.'" class="'.$format.'" accepts="'.$accepts.'">
+        ';
+    } 
+
+
+
     /** Draws a hyper link button.
      *
      * @param  mixed $text display text
@@ -9,7 +118,7 @@
      */
     function drawLinkButton($text, $url, $format){
         echo '
-            <a href="'.$url.'" '. $format .'>
+            <a href="'.$url.'" class="'.$format.'">
                 '.$text.'
             </a>
         ';
@@ -32,7 +141,7 @@
      */
     function drawFunctionButton($text, $fn, $format){
         echo '
-            <a onclick="'.$fn.'" '. $format .'>
+            <a onclick="'.$fn.'" class="'.$format.'">
                 '.$text.'
             </a>
         ';
@@ -53,5 +162,27 @@
             </div>
         </div>
         ';
+    }
+
+    
+    /** draws a submit button
+     *
+     * @param  mixed $format pick button format from constants.all.php
+     * @return void draws to page
+     */
+    function drawSubmitButton($format){
+        echo '
+            <input type="submit" value="SUBMIT" class="'.$format.'">
+        ';
+    }
+
+    
+    /** echos back an image sent via post
+     *
+     * @param  mixed $image id of input element that submitted the image
+     * @return void draws to page
+     */
+    function drawPostedImage($image, $format){
+        echo '<image class="'.$format.'" src="'.imageSrc(file_get_contents($_FILES[$image]["tmp_name"])).'"/>';
     }
 ?>

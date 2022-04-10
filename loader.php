@@ -41,7 +41,6 @@ include('../functions/functions.tile.php');
 include('../functions/functions.carousel.php');
 include('../functions/functions.header.php');
 include('../functions/functions.navigation.php');
-include('../functions/functions.item.php');
 include('../functions/functions.ui.php');
 include("../classes/class.database.php");
 include("../classes/class.user.php");
