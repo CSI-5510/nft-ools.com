@@ -18,19 +18,19 @@ $resultTable = $conn->query($sqlItemEditTable);
 if ($resultTable->num_rows > 0) {
     while ($rowTable = $resultTable->fetch_assoc()) {
         $itemID = $rowTable['i_id'];
-        echo "<h1>Item ID: $itemID</h1>";
+        //echo "<h1>Item ID: $itemID</h1>";
         $itemName = $rowTable['i_name'];
-        echo "<h1>Item Name: $itemName</h1>";
+        //echo "<h1>Item Name: $itemName</h1>";
         $itemCategoryID = $rowTable['i_category_Id'];
-        echo "<h1>Item Cat ID: $itemCategoryID</h1>";
+        //echo "<h1>Item Cat ID: $itemCategoryID</h1>";
         $itemCategoryName = $rowTable['cat_name'];
-        echo "<h1>Item Cat Name: $itemCategoryName</h1>";
+        //echo "<h1>Item Cat Name: $itemCategoryName</h1>";
         $itemSerialNumber = $rowTable['i_serialnum'];
-        echo "<h1>Item SerialNumber: $itemSerialNumber</h1>";
+        //echo "<h1>Item SerialNumber: $itemSerialNumber</h1>";
         $itemDescription = $rowTable['i_description'];
-        echo "<h1>Item Desc: $itemDescription</h1>";
+        //echo "<h1>Item Desc: $itemDescription</h1>";
         $itemImage = $rowTable['i_image'];
-        echo '<h1>Image: </h1><img src="data:image/jpeg;base64,'.base64_encode($rowTable['i_image']).'"/>';
+        //echo '<h1>Image: </h1><img src="data:image/jpeg;base64,'.base64_encode($rowTable['i_image']).'"/>';
         $itemDocumentation = $rowTable['documentation'];
         $itemReceipt = $rowTable['receipt'];
         $itemOriginalPurchaseDate = $rowTable['original_purchase_date'];
@@ -43,7 +43,7 @@ $resultAffidavit = $conn->query($sqlAffidavit);
 if ($resultAffidavit->num_rows > 0) {
     while ($rowAffidavit = $resultAffidavit->fetch_assoc()) {
         $itemAffidavit = $rowAffidavit['a_content'];
-        echo "<h1> Item Affidavit: </h1> $itemAffidavit";
+        //echo "<h1> Item Affidavit: </h1> $itemAffidavit";
     }
 }
 
@@ -130,19 +130,19 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Purchase Date</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemPurchaseDate">
+                <input type="text" class="form-control" id="itemPurchaseDate" value="<?php echo $itemOriginalPurchaseDate ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Purchase Price</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemPurchasePrice">
+                <input type="text" class="form-control" id="itemPurchasePrice" value="<?php echo $itemPrice ?>">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Affidavit of Quality</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemAffidavit">
+                <textarea id="itemAffidavit"><?php echo $itemDescription ?></textarea>
             </div>
         </div>
 
