@@ -30,16 +30,22 @@
         </form>
     </div>
     <div class="container mx-auto flex m-2  items-center">
-        <!-- menu -->
+        <!-- menu
         <nav class="">
             <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
-                <?php drawHeaderLinks($category_data); ?>
+                php drawHeaderLinks($category_data); 
             </ul>
-        </nav>
+        </nav>-->
+            <ul class="flex space-x-8 justify-between items-baseline text-sm font-bold">
+            <?php echo $PAGE_TITLE;  ?>
+			</ul>
+		
+		<?php if(User::isLoggedin()): ?>
         <a href="" class="ml-auto flex-shrink-0 flex items-center">
             <span class="hidden sm:inline ml-1 font-bold">
                 Profile
             </span>
         </a>
+		<?php endif;?>
     </div>
 </header>

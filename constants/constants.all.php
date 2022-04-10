@@ -3,6 +3,8 @@
 
     // NAVIGATION
     $ADD_TO_CART = 'add_to_cart';
+	$REMOVE_FROM_CART = 'remove_from_cart';
+
     $EDIT = 'edit';
     $ADD_ITEM = 'add_item';
     $ADD_ITEM_CONFIRMATION = 'add_item_confirmation';

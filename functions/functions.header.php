@@ -33,10 +33,13 @@
      * @return void - prints to page:
      */
     function drawHeaderLink($data){
+		//absolute path version, configurable for local development
+		$link = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/category/'.$data["id"].'';
+		
         echo '
             <li class="">
                 <span>
-                    <a href='.generalNavigation("category", $data["id"]).'>
+					<a href="'.$link.'">
                         '.$data["name"].'
                     </a>
                 </span>

@@ -4,6 +4,8 @@
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
 $GLOBALS['config']['url_offset'] = 1; 
+$GLOBALS['config']['url_root'] = ""; 
+
 $GLOBALS['devmode'] = 1; 
 
 $GLOBALS['db_conf']['db_host'] = "35.196.103.19";
@@ -41,5 +43,7 @@ include('../functions/functions.header.php');
 include('../functions/functions.navigation.php');
 include('../functions/functions.ui.php');
 include("../classes/class.database.php");
+include("../classes/class.user.php");
+include("../classes/class.order.php");
 include("../classes/class.general.php");
 ?>

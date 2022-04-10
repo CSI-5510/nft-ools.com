@@ -16,6 +16,32 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Item";
         $FRONTEND = "item";
         break;
+    case "logout":
+			//use this function to see if the user is logged in
+			if (!User::isLoggedin()){
+				header("Location: ./");
+				die();
+			}	
+			if (isset($_COOKIE['NFTOOLSID'])){
+			DatabaseConnector::query('DELETE FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])));
+			}
+			//expire cookie
+			setcookie('NFTOOLSID', '1', time()-3600);
+			//expire cookie
+			setcookie('NFTOOLSID_', '1', time()-3600);
+			//redirect the user
+			header("Location: ./");
+        break;		
+    case "login":
+        $BACKEND = "login";
+		$PAGE_TITLE = "Log In";
+        $FRONTEND = "login";
+        break;		
+    case "register":
+        $BACKEND = "register";
+		$PAGE_TITLE = "Register";
+        $FRONTEND = "register";
+        break;		
     case "category":
         $BACKEND = "category";
         $PAGE_TITLE = "Item List";
