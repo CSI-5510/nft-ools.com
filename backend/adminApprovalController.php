@@ -9,7 +9,7 @@ $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemIDin = $_POST['itemID'];
-    echo "<h1>Item ID: $itemIDin</h1>";
+    //echo "<h1>Item ID: $itemIDin</h1>";
 
     $itemNameIn = $_POST['itemName'];
     $itemCategoryIn = $_POST['itemCategory'];
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemPurchasePriceIn = $_POST['itemPurchasePrice'];
     $itemAffidavitIn = $_POST['itemAffidavit'];
     $itemApprovedRadiosIn = $_POST['approvalRadios'];
-    echo "<h1>Approval Decision: $itemApprovedRadiosIn</h1>";
+    //echo "<h1>Approval Decision: $itemApprovedRadiosIn</h1>";
     $itemApprovalJustificationIn = $_POST['itemJustification'];
 }
 
@@ -36,7 +36,19 @@ echo '<!DOCTYPE html>
 
 </head>
 
-<body>';
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="#"></a>
+            <a class="nav-link active" href="index.php">&larr;Back to NFT-ools</a>
+        </div>
+    </div>
+</nav><br>';
 
 $sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'";
 if ($conn->query($sql) === TRUE) {
