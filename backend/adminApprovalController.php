@@ -25,10 +25,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'";
 if ($conn->query($sql) === TRUE) {
-    console("success");
+    //console("success");
     echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 } else {
-    console("failure");
+    //console("failure");
     echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
 $conn->close();
