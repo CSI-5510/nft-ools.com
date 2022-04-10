@@ -45,7 +45,7 @@ echo '<!DOCTYPE html>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link" href="#"></a>
-            <a class="nav-link active" href="index.php">&larr;Back to NFT-ools</a>
+            <a class="nav-link active" href="../frontend/admin.php">&larr;Back to NFT-ools</a>
         </div>
     </div>
 </nav><br>';
