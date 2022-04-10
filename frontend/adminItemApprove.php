@@ -79,71 +79,71 @@ if ($resultAffidavit->num_rows > 0) {
 <div class="container">
     <h2>Item Listing Approval Form</h2>
     <form method="get" action="../backend/adminApprovalController.php">
-        <!--<input type="text" class="form-control" id="specialItemID" name="specialItemID" value="<?php echo $itemID; ?>" disabled>-->
+        <!--<input type="text" id="itemID" name="itemID" value="<?php echo $itemID; ?>">-->
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item ID</label>
+            <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemID" name="itemID" value="<?php echo $itemID; ?>" disabled>
+                <input type="text" class="form-control" id="itemID" name="itemID" value="<?php echo $itemID ?>" disabled>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Title</label>
+            <label for="itemName" class="col-sm-2 col-form-label">Item Title</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemName" value="<?php echo $itemName; ?>">
+                <input type="text" class="form-control" id="itemName" value="<?php echo $itemName ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Category</label>
+            <label for="itemCategory" class="col-sm-2 col-form-label">Item Category</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemCategory" value="<?php echo $itemCategoryName; ?>">
+                <input type="text" class="form-control" id="itemCategory" value="<?php echo $itemCategoryName ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Serial Number</label>
+            <label for="itemSerialNumber" class="col-sm-2 col-form-label">Item Serial Number</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemSerialNumber" value="<?php echo $itemSerialNumber; ?>">
+                <input type="text" class="form-control" id="itemSerialNumber" value="<?php echo $itemSerialNumber ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Description</label>
+            <label for="itemDescription" class="col-sm-2 col-form-label">Item Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemDescription" value="<?php echo $itemDescription; ?>">
+                <input type="text" class="form-control" id="itemDescription" value="<?php echo $itemDescription ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Image</label>
+            <label for="itemImage" class="col-sm-2 col-form-label">Item Image</label>
             <div class="col-sm-10">
                 <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemImage).'">'?>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Documentation</label>
+            <label for="itemDocumentation" class="col-sm-2 col-form-label">Item Documentation</label>
             <div class="col-sm-10">
                 <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemDocumentation).'">'?>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Receipt</label>
+            <label for="itemReceipt" class="col-sm-2 col-form-label">Item Receipt</label>
             <div class="col-sm-10">
                 <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemReceipt).'">'?>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Purchase Date</label>
+            <label for="itemPurchaseDate" class="col-sm-2 col-form-label">Item Purchase Date</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemPurchaseDate" value="<?php echo $itemOriginalPurchaseDate; ?>">
+                <input type="text" class="form-control" id="itemPurchaseDate" value="<?php echo $itemOriginalPurchaseDate ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Purchase Price</label>
+            <label for="itemPurchasePrice" class="col-sm-2 col-form-label">Item Purchase Price</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemPurchasePrice" value="<?php echo $itemPrice; ?>">
+                <input type="text" class="form-control" id="itemPurchasePrice" value="<?php echo $itemPrice ?>">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Item Affidavit of Quality</label>
+            <label for="itemAffidavit" class="col-sm-2 col-form-label">Item Affidavit of Quality</label>
             <div class="col-sm-10">
-                <textarea id="itemAffidavit"><?php echo $itemAffidavit; ?></textarea>
+                <textarea id="itemAffidavit"><?php echo $itemAffidavit ?></textarea>
             </div>
         </div>
         <fieldset class="row mb-3">
@@ -170,6 +170,7 @@ if ($resultAffidavit->num_rows > 0) {
             </div>
         </div>
         <!--<button type="submit" class="btn btn-secondary">SUBMIT AUTHORIZATION DECISION</button>-->
+
         <input type="submit" class="btn btn-secondary" value="SUBMIT AUTHORIZATION DECISION">
     </form>
 </div>
