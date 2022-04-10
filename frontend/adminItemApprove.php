@@ -82,7 +82,7 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item ID</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemID" value="<?php echo $itemID ?>" disabled>
+                <input type="text" class="form-control" id="itemID" name="itemID" value="<?php echo $itemID ?>" disabled>
             </div>
         </div>
         <div class="row mb-3">
@@ -145,7 +145,6 @@ if ($resultAffidavit->num_rows > 0) {
                 <textarea id="itemAffidavit"><?php echo $itemAffidavit ?></textarea>
             </div>
         </div>
-
         <fieldset class="row mb-3">
             <legend class="col-form-label col-sm-2 pt-0">Admin Authorization</legend>
             <div class="col-sm-10">
