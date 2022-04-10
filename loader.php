@@ -46,5 +46,5 @@ include("../classes/class.database.php");
 include("../classes/class.user.php");
 include("../classes/class.order.php");
 include("../classes/class.general.php");
-include("../classes/class.admin.php");
+include("classes/class.admin.php");
 ?>
