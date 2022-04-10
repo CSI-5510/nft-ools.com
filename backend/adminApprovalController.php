@@ -22,3 +22,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<h1>Approval Decision: $itemApprovedRadiosIn</h1>";
     $itemApprovalJustificationIn = $_POST['itemJustification'];
 }
+
+$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn'";
+if ($conn->query($sql) === TRUE) {
+    console("success");
+    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+} else {
+    console("failure");
+    echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+}
+$conn->close();

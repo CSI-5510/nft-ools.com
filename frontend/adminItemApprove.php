@@ -150,13 +150,13 @@ if ($resultAffidavit->num_rows > 0) {
             <legend class="col-form-label col-sm-2 pt-0">Admin Authorization</legend>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios1" value="approved" checked>
+                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios1" value="1" checked>
                     <label class="form-check-label" for="gridRadios1">
                         Approved
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios2" value="denied">
+                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios2" value="0">
                     <label class="form-check-label" for="gridRadios2">
                         Denied
                     </label>
