@@ -78,7 +78,8 @@ if ($resultAffidavit->num_rows > 0) {
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="get" action="../backend/adminApprovalController.php">
+    <form method="post" action="../backend/adminApprovalController.php">
+        <!--<input type="text" class="form-control" id="specialItemID" name="specialItemID" value="<?php echo $itemID ?>" disabled>-->
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item ID</label>
             <div class="col-sm-10">
@@ -168,7 +169,8 @@ if ($resultAffidavit->num_rows > 0) {
                 <input type="text" class="form-control" id="itemJustification">
             </div>
         </div>
-        <button type="submit" class="btn btn-secondary">SUBMIT AUTHORIZATION DECISION</button>
+        <!--<button type="submit" class="btn btn-secondary">SUBMIT AUTHORIZATION DECISION</button>-->
+        <input type="submit" class="btn btn-secondary" value="SUBMIT AUTHORIZATION DECISION">
     </form>
 </div>
 
