@@ -9,7 +9,7 @@ $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $itemIDin = $_POST['itemID'];
-    echo "<h1>Item ID IN:".$itemIDin."</h1>";
+    //echo "<h1>Item ID IN:".$itemIDin."</h1>";
 }
 
 $sqlItemEditTable = "SELECT i.i_id, i.i_name, i.i_category_Id, c.cat_name, i.i_serialnum, i.i_description, i.i_image, i.documentation, i.receipt, i.original_purchase_date, i.current_price FROM item i JOIN category c ON i.i_category_Id = c.cat_id WHERE i.i_id = '$itemIDin'";
@@ -78,7 +78,7 @@ if ($resultAffidavit->num_rows > 0) {
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="adminApprovalController.php">
+    <form method="get" action="../backend/adminApprovalController.php">
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item ID</label>
             <div class="col-sm-10">
