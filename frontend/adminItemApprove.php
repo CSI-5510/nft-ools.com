@@ -79,9 +79,96 @@ if ($resultAffidavit->num_rows > 0) {
 <div class="container">
     <h2>Item Listing Approval Form</h2>
     <form method="get" action="../backend/adminApprovalController.php">
-        <label for="itemID">Item ID:</label>
-        <input type="text" class="form-control" id="itemID" name="itemID" value="<?php echo $itemID; ?>" disabled>
-
+        <!--<input type="text" id="itemID" name="itemID" value="">-->
+        <div class="row mb-3">
+            <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemID" name="itemID" value="<?php echo $itemID; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemName" class="col-sm-2 col-form-label">Item Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemName" name="itemName" value="<?php echo $itemName; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemCategory" class="col-sm-2 col-form-label">Item Category</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemCategory" name="itemCategory" value="<?php echo $itemCategoryName; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemSerialNumber" class="col-sm-2 col-form-label">Item Serial Number</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemSerialNumber" name="itemSerialNumber" value="<?php echo $itemSerialNumber; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemDescription" class="col-sm-2 col-form-label">Item Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemDescription" name="itemDescription" value="<?php echo $itemDescription; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemImage" class="col-sm-2 col-form-label">Item Image</label>
+            <div class="col-sm-10">
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemImage).'">'?>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemDocumentation" class="col-sm-2 col-form-label">Item Documentation</label>
+            <div class="col-sm-10">
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemDocumentation).'">'?>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemReceipt" class="col-sm-2 col-form-label">Item Receipt</label>
+            <div class="col-sm-10">
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemReceipt).'">'?>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemPurchaseDate" class="col-sm-2 col-form-label">Item Purchase Date</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemPurchaseDate" name="itemPurchaseDate" value="<?php echo $itemOriginalPurchaseDate; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemPurchasePrice" class="col-sm-2 col-form-label">Item Purchase Price</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemPurchasePrice" name="itemPurchasePrice" value="<?php echo $itemPrice; ?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="itemAffidavit" class="col-sm-2 col-form-label">Item Affidavit of Quality</label>
+            <div class="col-sm-10">
+                <textarea id="itemAffidavit" name="itemAffidavit"><?php echo $itemAffidavit; ?></textarea>
+            </div>
+        </div>
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Admin Authorization</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios1" value="approved" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        Approved
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="approvalRadios" id="approvalRadios2" value="denied">
+                    <label class="form-check-label" for="gridRadios2">
+                        Denied
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Approval/Denial Justification</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="itemJustification">
+            </div>
+        </div>
         <input type="submit" class="btn btn-secondary" value="SUBMIT AUTHORIZATION DECISION">
     </form>
 </div>
