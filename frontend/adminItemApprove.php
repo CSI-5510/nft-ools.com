@@ -118,13 +118,13 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Documentation</label>
             <div class="col-sm-10">
-                <img src="data:image/jpeg;base64,'.base64_encode('<?php echo $itemDocumentation ?>').'"/>
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemDocumentation).'">'?>
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Receipt</label>
             <div class="col-sm-10">
-                <img src="data:image/jpeg;base64,'.base64_encode(<?php echo $itemImage ?>).'"/>
+                <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($itemReceipt).'">'?>
             </div>
         </div>
         <div class="row mb-3">
