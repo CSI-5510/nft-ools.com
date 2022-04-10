@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <?php
-                foreach ($result as $item):
+                foreach (Admin::getAllNonReviewedItems() as $item):
                     $itemID = $item["i_id"];
                     $itemName = $item['i_name'];
                     $itemOwnerID = $item['owner_id'];
