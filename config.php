@@ -62,6 +62,11 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Add Item";
         $FRONTEND = "collector";
         break;
+    case "admin":
+        $BACKEND = "admin";
+        $PAGE_TITLE = "Admin";
+        $FRONTEND = "admin";
+        break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";

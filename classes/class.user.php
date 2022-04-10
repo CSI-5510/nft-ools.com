@@ -30,8 +30,14 @@ public static function isLoggedIn()
 	return false;	
 }
 
-
-
+    public static function isAdmin()
+    {
+        if (DatabaseConnector::query('SELECT admin FROM user WHERE id=:uid AND admin=1', array(':uid'=>self::isLoggedIn()))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 
