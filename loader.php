@@ -3,8 +3,8 @@
 //This is how we get what page we should be on based on URL.
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
-$GLOBALS['config']['url_offset'] = 1; 
-$GLOBALS['config']['url_root'] = ""; 
+$GLOBALS['config']['url_offset'] = 1;
+$GLOBALS['config']['url_root'] = ""; //remove for server instance
 
 $GLOBALS['devmode'] = 1; 
 
@@ -31,6 +31,7 @@ $GLOBALS['messages']['success'] = array(); //Main array for all status messages
 
 if(!ob_start("ob_gzhandler")) ob_start();
 session_start();
+
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
