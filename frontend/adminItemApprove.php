@@ -142,7 +142,7 @@ if ($resultAffidavit->num_rows > 0) {
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Item Affidavit of Quality</label>
             <div class="col-sm-10">
-                <textarea id="itemAffidavit"><?php echo $itemDescription ?></textarea>
+                <textarea id="itemAffidavit"><?php echo $itemAffidavit ?></textarea>
             </div>
         </div>
 
