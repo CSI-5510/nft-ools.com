@@ -7,7 +7,7 @@ $dbName = "NFTools";
 
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
-if($_SERVER["REQUEST_METHOD"] == "GET") {
-    $itemIDin = $_GET['itemID'];
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $itemIDin = $_POST['itemID'];
     echo "<h1>Item ID: $itemIDin</h1>";
 }

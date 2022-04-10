@@ -78,7 +78,7 @@ if ($resultAffidavit->num_rows > 0) {
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="get" action="../backend/adminApprovalController.php">
+    <form method="post" action="../backend/adminApprovalController.php">
         <!--<input type="text" id="itemID" name="itemID" value="">-->
         <div class="row mb-3">
             <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
