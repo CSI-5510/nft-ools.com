@@ -1,5 +1,5 @@
 <?php
-
+// site.com/item/id/action
 
     /*
         $GLOBALS['url_loc'][0] <-- 'public_html'
