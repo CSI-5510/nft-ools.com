@@ -4,7 +4,7 @@
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
 $GLOBALS['config']['url_offset'] = 1;
-$GLOBALS['config']['url_root'] = ""; //remove for server instance
+$GLOBALS['config']['url_root'] = ""; 
 
 $GLOBALS['devmode'] = 1; 
 

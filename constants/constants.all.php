@@ -10,7 +10,10 @@
     $ADD_ITEM_CONFIRMATION = 'add_item_confirmation';
     $CANCEL_ADD_ITEM = 'cancel_add_item';
 
-
+	// ADMIN CONTROLS
+	DEFINE("REVIEW",'REVIEW');
+	
+	
     // FORMATTING
     $BLUE_BUTTON =  'bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600';
     $LISTING_LABEL = 'p-4 m-10 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center';

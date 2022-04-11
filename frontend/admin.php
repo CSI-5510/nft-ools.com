@@ -26,6 +26,7 @@
             <tbody>
             <?php
                 foreach (Admin::getAllNonReviewedItems() as $item):
+
                     $itemID = $item["i_id"];
                     $itemName = $item['i_name'];
                     $itemOwnerID = $item['owner_id'];
@@ -36,7 +37,7 @@
                     <th scope="row"><?php echo $itemID ?></th>
                     <td><?php echo $itemName ?></td>
                     <td><?php echo $itemOwnerFname . $itemOwnerLname ?></td>
-                    <td><form action="adminItemApprove.php" method="post"><input type="hidden" id="itemID" name="itemID" value="<?php echo $itemID ?>"><button type="submit" class="btn btn-secondary">Review</button></form></td>
+                    <td><a href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/review/<?php echo $itemID ?>" type="submit" class="btn btn-secondary">Review</a>
                 </tr>
             <?php
                 endforeach;
