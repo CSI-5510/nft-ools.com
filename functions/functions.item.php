@@ -146,7 +146,7 @@
         }
         include_once('../constants/constants.all.php');
         if($is_users_listing){
-            drawEditItemButton($item_data["i_id"], $BLUE_BUTTON, $EDIT);
+            drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
             return;
         }
         return;
@@ -168,12 +168,11 @@
         if($is_users_listing){
             return;
         }
-        include_once('../constants.all.php');
         if($signed_in){
-            drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+            drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, $ADD_TO_CART); 
             return;
         }
-        drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
+        drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
         return;
     }
 
