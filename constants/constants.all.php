@@ -1,11 +1,15 @@
 <?php
 
 
-// ADMIN CONTROLS
+    // ADMIN CONTROLS
 	DEFINE("REVIEW",'review');
 
     
     // NAVIGATION
+    define("PROJECT_ROOT",$GLOBALS['config']['url_root']);
+    define("URL_LOC_0",$GLOBALS['url_loc'][0]);
+    define("URL_LOC_1",$GLOBALS['url_loc'][1]);
+    define("URL_LOC_2",$GLOBALS['url_loc'][2]);
     define("ADD_TO_CART","add_to_cart");
     define("REMOVE_FROM_CART","remove_from_cart");
     define("EDIT","edit");
@@ -25,6 +29,12 @@
     define("FLEX_ROW_NO_JUSTIFY","flex flex-row items-start");
     define("FLEX_ROW_JUSTIFY","flex flex-row justify-between items-start");
     define("CONFIRMATION_IMAGE","p-4 m-10 ml-5 mr-40 w-3/5");
+
+    // ASIDE CONTROL ELEMENT FORMATTING
+    // AC[X]_CLASS_[DESCRIPTOR]
+    define("AC2_CLASS_ANY","ml-3 h-10 px-3 py-2 rounded-lg text-gray-500 bg-gray-800 hover:bg-gray-100");
+    define("AC3_CLASS_REGISTER","flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700");
+    define("AC3_CLASS_OTHER","flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100");
 
 
     // ACCEPTED FILE TYPES
@@ -61,6 +71,9 @@
     define("ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE","original_price");
     define("ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE","original_purchase_date");
     define("ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE","days_to_minimum_price");
+
+
+
 
     
 ?>

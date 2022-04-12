@@ -11,5 +11,5 @@
         ];
         array_push($options, $option);
     }
-    $user_id = User::isLoggedInWithRedirect()
+    // $user_id = User::isLoggedInWithRedirect()
 ?>

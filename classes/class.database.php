@@ -80,33 +80,8 @@ class DatabaseConnector {
   
 
 	public static function addNewItem($data, $userID){
-		$q = 'INSERT INTO item (
-			i_id, 
-			i_name, 
-			i_description, 
-			current_price, 
-			i_image, 
-			i_category_Id, 
-			i_serialnum, 
-			event_description, 
-			event_timestamp, 
-			original_price, 
-			is_approved, 
-			owner_id, 
-			days_to_minimum_price) VALUES (
-				NULL,
-				'.$data["i_name"].',
-				'.$data["i_description"].',
-				'.$data["current_price"].',
-				'.$data["i_image"].',
-				'.$data["i_category_Id"].',
-				'.$data["i_serialnum"].',
-				NULL,
-				NULL,
-				NULL,
-				'.$userID.',
-				NULL,
-				NULL)';
+		$q = 'INSERT INTO item (i_id, i_name) VALUES (NULL, '.$data[ADD_ITEM_QUERY_NAME].')';
+		console($q);
 		return DatabaseConnector::query($q);
 	}
 	

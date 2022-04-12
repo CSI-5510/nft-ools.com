@@ -6,9 +6,8 @@
     try{
         switch($GLOBALS['url_loc'][2]){
             case ADD_ITEM:
-                $user_id = User::isLoggedInWithRedirect();
-                // virus scan
-                // pass: 
+                // $user_id = User::isLoggedInWithRedirect();
+                $user_id = 29;
                 $price = pricing(
                     $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
                     $_POST[ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
