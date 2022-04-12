@@ -39,7 +39,7 @@
         $CLOSE_ROW = '</div>';
         
         // OPEN FORM
-        echo '<form method="POST" action="'.PROJECT_ROOT.'/'.URL_LOC_0.'/'.COLLECTOR.'/'.ADD_ITEM.'">';
+        echo '<form method="POST" action="./'.COLLECTOR.'/'.ADD_ITEM.'">';
         
         // ROW TITLE
         echo $OPEN_ROW;

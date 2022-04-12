@@ -79,9 +79,9 @@ class DatabaseConnector {
 	}
   
 
-	public static function addNewItem($data, $userID){
-		$q = 'INSERT INTO item (i_id, i_name) VALUES (NULL, '.$data[ADD_ITEM_QUERY_NAME].')';
-		console($q);
+	public static function addNewItem($data, $user_id){
+		$q = "INSERT INTO `item` (`i_id`, `i_name`, `i_description`, `current_price`, `i_image`, `i_category_Id`, `i_serialnum`, `original_price`, `is_approved`, `owner_id`, `days_to_minimum_price`, `receipt`, `documentation`, `original_purchase_date`, `rejection_reason`, `was_reviewed`) VALUES (NULL, '".$data[ADD_ITEM_QUERY_NAME]."', ".$data[ADD_ITEM_QUERY_DESCRIPTION].", ".$data[ADD_ITEM_QUERY_CURRENT_PRICE].", ".$data[ADD_ITEM_QUERY_IMAGE].", ".$data[ADD_ITEM_QUERY_CATEGORY].", ".$data[ADD_ITEM_QUERY_SERIAL_NUMBER].", ".$data[ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE].", ".$data[ADD_ITEM_QUERY_IS_APPROVED].", ".$data[ADD_ITEM_QUERY_OWNER_ID].", ".$data[ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE].", ".$data[ADD_ITEM_QUERY_RECEIPT].", ".$data[ADD_ITEM_QUERY_DOCUMENTATIONS].", ".$data[ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE].", ".$data[ADD_ITEM_QUERY_REJECTION_REASON].", ".$data[ADD_ITEM_QUERY_WAS_REVIEWED].")";
+		console(json_encode($q));
 		return DatabaseConnector::query($q);
 	}
 	
