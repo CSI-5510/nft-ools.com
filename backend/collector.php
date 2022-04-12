@@ -8,18 +8,18 @@
             case ADD_ITEM:
                 // $user_id = User::isLoggedInWithRedirect();
                 $user_id = 29;
-                $price = pricing(
-                    $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
-                    $_POST[ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
-                    PRICE_FLOOR, 
-                    DAYS_TO_MINIMUM_PIRCE
-                );
+                // $price = pricing(
+                //     $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
+                //     $_POST[ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
+                //     PRICE_FLOOR, 
+                //     DAYS_TO_MINIMUM_PIRCE
+                // );
                 $item_data = assembleItemData(
                     $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
                     DAYS_TO_MINIMUM_PIRCE
                 );
-                console($price);
-                console(json_encode($item_data));
+                // console($price);
+                // console(json_encode($item_data));
                 DatabaseConnector::addNewItem($item_data, $user_id);
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
@@ -44,6 +44,7 @@
                 break;
         }
     } catch(Exception $e){
+        console(json_encode($e));
         alertBox('Error', 'malformed url');
     }
 

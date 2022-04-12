@@ -35,7 +35,6 @@ session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-include('../constants/constants.all.php');
 include("../functions/functions.general.php");
 include('../functions/functions.debug.php');
 include('../functions/functions.tile.php');
@@ -48,4 +47,5 @@ include("../classes/class.user.php");
 include("../classes/class.order.php");
 include("../classes/class.general.php");
 include("classes/class.admin.php");
+include('../constants/constants.all.php');
 ?>

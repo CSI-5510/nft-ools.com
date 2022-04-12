@@ -21,7 +21,7 @@
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
-
+    define("HEADER_HOME","Location: ../public_html");
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
@@ -78,7 +78,23 @@
     define("ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE","days_to_minimum_price");
 
 
-
+    // ITEM TABLE COLUMNS
+    define("ITEM_TABLE_ID","i_id");
+    define("ITEM_TABLE_NAME","i_name");
+    define("ITEM_TABLE_DESCRIPITON","i_description");
+    define("ITEM_TABLE_CURRENT_PRICE","current_price");
+    define("ITEM_TABLE_IMAGE","i_image");
+    define("ITEM_TABLE_CATEGORY_ID","i_category_Id");
+    define("ITEM_TABLE_SERIAL_NUMBER","i_serialnum");
+    define("ITEM_TABLE_ORIGINAL_PRICE","original_price");
+    define("ITEM_TABLE_IS_APPROVED","is_approved");
+    define("ITEM_TABLE_OWNER_ID","owner_id");
+    define("ITEM_TABLE_DAYS_TO_MINIMUM_PRICE","days_to_minimum_price");
+    define("ITEM_TABLE_RECEIPT","receipt");
+    define("ITEM_TABLE_DOCUMENTATION","documentation");
+    define("ITEM_TABLE_ORIGINAL_PURCHASE_DATE","original_purchase_date");
+    define("ITEM_TABLE_REJECTION_REASON","rejection_reason");
+    define("ITEM_TABLE_WAS_REVIEWED","was_reviewed");
 
     
 ?>
