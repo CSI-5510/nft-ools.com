@@ -7,22 +7,26 @@ class User {
 
 		//looks for cookie that is stored
 		if(!isset($_COOKIE['NFTOOLSID'])) {
+			console ('cookie not set...');
 			return false;
 		}
 
 		// get user from header token
 		$q = DatabaseConnector::query('SELECT user_id FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])));
 		if(is_null($q)){
+			console ('token not found...');
 			return false;
 		}
 
 		// cookie is already set
 		$userid = $q[0]['user_id'];
 		if (isset($_COOKIE['NFTOOLSID_'])) {
+			console ('cookie set...');
 			return $userid;
 		} 
 
 		// set cookie
+		console ('setting cookie...');
 		self::set_cookie();
 		return $userid;
 	

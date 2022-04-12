@@ -6,6 +6,11 @@
     try{
         switch($GLOBALS['url_loc'][2]){
             case ADD_ITEM:
+                $user_id = User::isLoggedIn();
+                if(!$user_id){
+                    console ('not logged in');
+                    return;
+                }
                 // virus scan
                 // pass: 
                 $price = pricing(
@@ -20,7 +25,7 @@
                 );
                 console($price);
                 console(json_encode($item_data));
-                DatabaseConnector::addNewItem($item_data);
+                DatabaseConnector::addNewItem($item_data, $user_id);
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
                 //   $item_data = DatabaseConnector::getLastItemSubmission($user_id); 
