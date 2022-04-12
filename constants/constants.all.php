@@ -11,7 +11,7 @@
     $CANCEL_ADD_ITEM = 'cancel_add_item';
 
 	// ADMIN CONTROLS
-	DEFINE("REVIEW",'REVIEW');
+	DEFINE("REVIEW",'review');
 	
 	
     // FORMATTING

@@ -1,6 +1,6 @@
 <aside class="w-64">
    <div class="sidebar-content px-4 py-6">
-   <ul class="flex flex-col w-full space-y-2">
+   <ul class="flex flex-col relative h-screen w-full space-y-2">
       <li class="my-px">
          <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>" class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700 hover:bg-gray-700">
             <span class="flex items-center justify-center text-lg text-gray-400">
@@ -161,6 +161,33 @@
             </span>
          </a>
       </li>
-      <?php endif; ?>			
+	  
+
+         <?php if (User::isLoggedin()): ?>
+      <li class="absolute inset-x-0 bottom-0 h-16">
+         <a href="./admin" class="<?php echo $GLOBALS["url_loc"][1] !==
+         "admin"
+             ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
+             : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
+            <span class="flex items-center justify-center text-lg text-gray-400">
+               <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  class="h-6 w-6" fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  stroke-width="2"
+                  >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+               </svg>
+            </span>
+            <span class="ml-3">
+            Admin
+            </span>
+         </a>
+      </li>
+      <?php endif; ?>		  
+	  
+      <?php endif; ?>  
    </ul>
+
 </aside>

@@ -38,7 +38,7 @@
     } catch(Exception $e){
         alertBox('Error', 'malformed url');
     }
-
+?>
 
 <div class="grid grid-rows-5 grid-cols-3">
     <h3 class="row-span-1 col-span-2 text-2xl font-bold m-10 mb-0 p-4 bg-gray-200">
