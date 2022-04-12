@@ -87,10 +87,10 @@ class Order {
 		if(!self::isItemOpen($itemid)){
 			return false;
 		}
-		if(self::isUsersListing($itemid, $userid)!=false){
+		if(self::isUsersListing($itemid, $userid)){
 			return false;
 		}
-		if(self::isItemInUserCart($itemid, $userid)!=false){
+		if(self::isItemInUserCart($itemid, $userid)){
 			return false;
 		}
 		DatabaseConnector::query('UPDATE orders SET o_seller_id=:sellerid, o_status="pending" WHERE o_item_id=:itemid AND o_status="open" AND o_seller_id IS NULL', array(':sellerid'=>$userid, ':itemid'=>$itemid));
