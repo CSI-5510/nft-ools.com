@@ -58,10 +58,10 @@ if ($isAdmin) {
 					echo $itemID;				
 				$isListingApproved = admin::approveListing($itemApprovedRadiosIn,$itemApprovalJustificationIn,$itemIDin);
 					break;
-				case $REMOVE_FROM_CART:
+				case REMOVE_FROM_CART:
 					Order::removeItemFromCart($item_data['i_id'], $signed_in);
 					break;				
-				case $EDIT:
+				case EDIT:
 					// modal data
 					console('pass modal data');
 					break;

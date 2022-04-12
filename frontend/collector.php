@@ -7,15 +7,15 @@
 
     try{
         switch($GLOBALS['url_loc'][2]){
-            case $ADD_ITEM:
+            case ADD_ITEM:
                 alertBox('Notice', 'Please confirm our price and your submission details.');
                 drawCollectorAddItem();
                 break;
-            case $ADD_ITEM_CONFIRMATION:
+            case ADD_ITEM_CONFIRMATION:
                 alertBox('Notice', 'Item submission awaiting approval. The approval process takes 24 to 48 hours.');
                 drawItemPage($item_data, TRUE, TRUE, TRUE);
                 break;
-            case $CANCEL_ADD_ITEM:
+            case CANCEL_ADD_ITEM:
                 alertBox('Notice', 'Item submission request cancelled.');
                 break;
             default:

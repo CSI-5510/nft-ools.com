@@ -6,18 +6,18 @@
 
     try{
         switch($GLOBALS['url_loc'][2]){
-            case $ADD_ITEM:
+            case ADD_ITEM:
                 // virus scan
                 // pass: 
                 $price = pricing(
-                    $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
-                    $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
-                    $PRICE_FLOOR, 
-                    $DAYS_TO_MINIMUM_PIRCE
+                    $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
+                    $_POST[ADD_ITEM_ORIGINAL_PURCHASE_DATE], 
+                    PRICE_FLOOR, 
+                    DAYS_TO_MINIMUM_PIRCE
                 );
                 $item_data = assembleItemData(
-                    $_POST[$ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
-                    $DAYS_TO_MINIMUM_PIRCE
+                    $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
+                    DAYS_TO_MINIMUM_PIRCE
                 );
                 console($price);
                 console(json_encode($item_data));
@@ -28,12 +28,12 @@
                 // fail: 
                 //   $no_threats_detected = FALSE;
                 break;
-            case $ADD_ITEM_CONFIRMATION:
+            case ADD_ITEM_CONFIRMATION:
                 // $item_id = $_POST["item_id"];
                 // $item_data = DatabaseConnector::getItem($item_id);
                 // DatabaseConnector::setPendingApproval($item_id);
                 break;
-            case $CANCEL_ADD_ITEM:
+            case CANCEL_ADD_ITEM:
                 // $item_id = $_POST["item_id"];
                 // if($new_item){
                 //    DatabaseConnector::removeItem($item_id);
