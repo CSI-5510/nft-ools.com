@@ -32,14 +32,14 @@
      *
      * @return void draws to page
      */
-    function drawAddItem(){
+    function drawAddItem($options){
 
         // CONSTANTS
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
         
         // OPEN FORM
-        echo '<form method="POST" action="/'.$GLOBALS["url_loc"][0].'/collector/add_item" enctype="multipart/form-data">';
+        echo '<form method="POST" action="'.PROJECT_ROOT.'/'.URL_LOC_0.'/'.COLLECTOR.'/'.ADD_ITEM.'">';
         
         // ROW TITLE
         echo $OPEN_ROW;

@@ -4,6 +4,10 @@
     // ADMIN CONTROLS
 	DEFINE("REVIEW",'review');
 
+
+    // USER
+    define("USER_ID",User::isLoggedIn());
+
     
     // NAVIGATION
     define("PROJECT_ROOT",$GLOBALS['config']['url_root']);
@@ -16,6 +20,7 @@
     define("ADD_ITEM","add_item");
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
+    define("COLLECTOR","collector");
 
 
     // FORMATTING

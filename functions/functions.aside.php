@@ -5,11 +5,16 @@
      *
      * @return void draws to page
      */
-    function ac2(){
+    function ac2($user_id){
         if(URL_LOC_1 == ADD_ITEM){
             drawBlank();
             return;
         }
+        // user_id doesnt work on local host yet: 4-12-2022 10:47
+        // if(!$user_id){
+        //     drawBlank();
+        //     return;
+        // }
         drawAddItemButton();
     }
     
