@@ -144,7 +144,6 @@
         if(!$signed_in){
             return;
         }
-        include_once('../constants/constants.all.php');
         if($is_users_listing){
             drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
             return;

@@ -2,7 +2,6 @@
 
     include_once('../functions/functions.pricing_algorithm.php');
     include_once('../functions/functions.collector.php');
-    include_once('../constants/constants.all.php');
 
     try{
         switch($GLOBALS['url_loc'][2]){
