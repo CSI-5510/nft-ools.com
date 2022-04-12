@@ -2,7 +2,6 @@
 
 
     function drawCollectorAddItem(){
-        include('../constants/constants.all.php');
         // ROW 1
         echo '<form method="POST" action="/'.$GLOBALS["url_loc"][0].'/collector/add_item_confirmation" enctype="multipart/form-data"><div class="'.FLEX_ROW_JUSTIFY.'">';
         drawLabel("PRICE", LISTING_LABEL);
@@ -57,7 +56,6 @@
      * @return array for use with DatabaseConnect::addNewItem()
      */
     function assembleItemData($price, $days_to_minimum_price){
-        include('../constants/constants.all.php');
         return array(
             ADD_ITEM_QUERY_NAME=> $_POST[ADD_ITEM_TITLE], 
             ADD_ITEM_QUERY_DESCRIPTION=> $_POST[ADD_ITEM_DESCRIPTION], 

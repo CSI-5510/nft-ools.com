@@ -35,7 +35,6 @@
     function drawAddItem(){
 
         // CONSTANTS
-        include('../constants/constants.all.php');
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
         

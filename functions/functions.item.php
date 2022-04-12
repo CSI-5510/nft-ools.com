@@ -168,7 +168,6 @@
         if($is_users_listing){
             return;
         }
-        include_once('../constants.all.php');
         if($signed_in){
             drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
             return;
