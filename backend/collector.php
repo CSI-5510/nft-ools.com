@@ -6,11 +6,7 @@
     try{
         switch($GLOBALS['url_loc'][2]){
             case ADD_ITEM:
-                $user_id = User::isLoggedIn();
-                if(!$user_id){
-                    console ('not logged in');
-                    return;
-                }
+                $user_id = User::isLoggedInWithRedirect();
                 // virus scan
                 // pass: 
                 $price = pricing(

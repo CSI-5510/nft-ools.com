@@ -54,6 +54,21 @@ class User {
         }
     }
 
+	
+	/** check to see if user logged. redirects to public_html if not
+	 *
+	 * @return (string) user id
+	 */
+	public static function isLoggedInWithRedirect(){
+		$user_id = self::isLoggedIn();
+		if(!$user_id){
+			console ('not logged in');
+			header("Location: ../public_html");
+			return;
+		}
+		return $user_id;
+	}
+
 
 }
 
