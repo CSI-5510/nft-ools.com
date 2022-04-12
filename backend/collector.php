@@ -20,7 +20,7 @@
                 );
                 console($price);
                 console(json_encode($item_data));
-                //   DatabaseConnector::addItem($item_data)
+                DatabaseConnector::addNewItem($item_data);
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
                 //   $item_data = DatabaseConnector::getLastItemSubmission($user_id); 
