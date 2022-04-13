@@ -6,7 +6,7 @@
 
 
     // USER
-    define("USER_ID",User::isLoggedIn());
+define("USER_ID",29/*User::isLoggedIn()*/);
 
     
     // NAVIGATION
@@ -52,36 +52,29 @@
     define("PRICE_FLOOR",0.1);
 
 
-    // ADD ITEM POST
-    define("ADD_ITEM_TITLE","title");
-    define("ADD_ITEM_CATEGORY","category");
-    define("ADD_ITEM_DESCRIPTION","description");
-    define("ADD_ITEM_IMAGE","image");
-    define("ADD_ITEM_DOCUMENTATION","documentation");
-    define("ADD_ITEM_RECEIPT","receipt");
-    define("ADD_ITEM_ORIGINAL_PURCHASE_DATE","original_purchase_date");
-    define("ADD_ITEM_ORIGINAL_PURCHASE_PRICE","original_price");
-    define("ADD_ITEM_AFFIDAVIT_NAME","affidavit_name");
-    define("ADD_ITEM_AFFIDAVIT_VERIFY","affidavit_verify");
-    define("ADD_ITEM_SERIAL_NUMBER","serial");
-
-
-    // ADD ITEM QUERY
-    define("ADD_ITEM_QUERY_NAME", 'i_name');
-    define("ADD_ITEM_QUERY_DESCRIPTION", "i_description");
-    define("ADD_ITEM_QUERY_CURRENT_PRICE","current_price");
-    define("ADD_ITEM_QUERY_IMAGE","i_image");
-    define("ADD_ITEM_QUERY_CATEGORY","i_category_Id");
-    define("ADD_ITEM_QUERY_SERIAL_NUMBER","i_serialnum");
-    define("ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE","original_price");
-    define("ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE","original_purchase_date");
-    define("ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE","days_to_minimum_price");
+    // ITEM QUERY KEYS
+    define("ITEM_QUERY_ID","a");    // not currenty used
+    define("ITEM_QUERY_NAME","b");
+    define("ITEM_QUERY_DESCRIPTION", "c");
+    define("ITEM_QUERY_CURRENT_PRICE","d"); // not currenty used
+    define("ITEM_QUERY_IMAGE","e");
+    define("ITEM_QUERY_CATEGORY","f");
+    define("ITEM_QUERY_SERIAL_NUMBER","g");
+    define("ITEM_QUERY_ORIGINAL_PURCHASE_PRICE","h");
+    define("ITEM_QUERY_IS_APPROVED","i");
+    define("ITEM_QUERY_OWNER_ID","j");  // not currenty used
+    define("ITEM_QUERY_DAYS_TO_MINIMUM_PRICE","k"); // not currenty used
+    define("ITEM_QUERY_RECEIPT","l");
+    define("ITEM_QUERY_DOCUMENTATION","m");
+    define("ITEM_QUERY_ORIGINAL_PURCHASE_DATE","n");    // not currenty used
+    define("ITEM_QUERY_REJECTION_REASON","o");  // not currenty used
+    define("ITEM_QUERY_WAS_REVIEWED","p");  // not currenty used
 
 
     // ITEM TABLE COLUMNS
     define("ITEM_TABLE_ID","i_id");
     define("ITEM_TABLE_NAME","i_name");
-    define("ITEM_TABLE_DESCRIPITON","i_description");
+    define("ITEM_TABLE_DESCRIPTION","i_description");
     define("ITEM_TABLE_CURRENT_PRICE","current_price");
     define("ITEM_TABLE_IMAGE","i_image");
     define("ITEM_TABLE_CATEGORY_ID","i_category_Id");

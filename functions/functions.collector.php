@@ -55,22 +55,34 @@
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
      * @return array for use with DatabaseConnect::addNewItem()
      */
-    function assembleItemData($price, $days_to_minimum_price){
+    function assembleItemData(){
+        include_once('../functions/functions.pricing_algorithm.php'); 
+        $price = pricing(
+            $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_PRICE], 
+            $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_DATE], 
+            PRICE_FLOOR, 
+            DAYS_TO_MINIMUM_PIRCE
+        );
         return array(
-            ADD_ITEM_QUERY_NAME=> $_POST[ADD_ITEM_TITLE], 
-            ADD_ITEM_QUERY_DESCRIPTION=> $_POST[ADD_ITEM_DESCRIPTION], 
-            ADD_ITEM_QUERY_CURRENT_PRICE=> $price, 
-            ADD_ITEM_QUERY_IMAGE=> $_FILES[ADD_ITEM_IMAGE], 
-            ADD_ITEM_QUERY_CATEGORY=> $_POST[ADD_ITEM_CATEGORY], 
-            ADD_ITEM_QUERY_SERIAL_NUMBER=> $_POST[ADD_ITEM_SERIAL_NUMBER],
-            ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE=> $_POST[ADD_ITEM_ORIGINAL_PURCHASE_PRICE], 
-            ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE=> $_POST[ADD_ITEM_ORIGINAL_PURCHASE_DATE],
-            ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE=> $days_to_minimum_price
+            ITEM_TABLE_ID => NULL,
+            ITEM_TABLE_NAME => $_POST[ITEM_QUERY_NAME], 
+            ITEM_TABLE_DESCRIPTION => $_POST[ITEM_QUERY_DESCRIPTION], 
+            ITEM_TABLE_CURRENT_PRICE => $price, 
+            ITEM_TABLE_IMAGE => base64_encode(file_get_contents($_FILES[ITEM_QUERY_IMAGE]["tmp_name"])), 
+            ITEM_TABLE_CATEGORY_ID => intval($_POST[ITEM_QUERY_CATEGORY]), 
+            ITEM_TABLE_SERIAL_NUMBER => intval($_POST[ITEM_QUERY_SERIAL_NUMBER]),
+            ITEM_TABLE_ORIGINAL_PRICE => $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_PRICE], 
+            ITEM_TABLE_IS_APPROVED => 0,
+            ITEM_TABLE_OWNER_ID => USER_ID,
+            ITEM_TABLE_DAYS_TO_MINIMUM_PRICE => DAYS_TO_MINIMUM_PIRCE,
+            ITEM_TABLE_RECEIPT => base64_encode(file_get_contents($_FILES[ITEM_QUERY_RECEIPT]["tmp_name"])),
+            ITEM_TABLE_DOCUMENTATION => base64_encode(file_get_contents($_FILES[ITEM_QUERY_DOCUMENTATION]["tmp_name"])),
+            ITEM_TABLE_ORIGINAL_PURCHASE_DATE => $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_DATE],
+            ITEM_TABLE_REJECTION_REASON => '',
+            ITEM_TABLE_WAS_REVIEWED => 0,
         );
     }
 
 
 
 ?>
-
-
