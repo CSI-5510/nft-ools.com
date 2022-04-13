@@ -44,7 +44,7 @@
         // ROW TITLE
         echo $OPEN_ROW;
         drawLabel('TITLE', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA);
+        drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
         
         // ROW CATEGORY
@@ -56,7 +56,7 @@
         // ROW SERIAL NUMBER
         echo $OPEN_ROW;
         drawLabel('SERIAL NUMBER', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA);
+        drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
 
         // ROW DESCRIPTION
@@ -92,7 +92,7 @@
         // ROW PURCHASE PRICE
         echo $OPEN_ROW;
         drawLabel('PURCHASE PRICE', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA);
+        drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
         
         // ROW AFFIDAVIT OF QUALITY

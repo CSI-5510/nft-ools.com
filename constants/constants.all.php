@@ -6,7 +6,7 @@
 
 
     // USER
-define("USER_ID",29/*User::isLoggedIn()*/);
+    define("USER_ID",29/*User::isLoggedIn()*/);
 
     
     // NAVIGATION
@@ -89,5 +89,22 @@ define("USER_ID",29/*User::isLoggedIn()*/);
     define("ITEM_TABLE_REJECTION_REASON","rejection_reason");
     define("ITEM_TABLE_WAS_REVIEWED","was_reviewed");
 
-    
+    // EVENT TABLE COLUMNS
+    define("EVENT_TABLE_ID","o_id");
+    define("EVENT_TABLE_TIMESTAMP","o_date");
+    define("EVENT_TABLE_STATUS","o_status");
+    define("EVENT_TABLE_ITEM_ID","o_item_id");
+    define("EVENT_TABLE_BUYER_ID","buyer_id");
+    define("EVENT_TABLE_SELLER_ID","o_seller_id");
+    define("EVENT_TABLE_TRANSACTION_ID","o_transaction_id");
+    define("EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE","o_transactio_auth_code");
+    define("EVENT_TABLE_EVENT_DESCRIPTION","event_description");
+    define("EVENT_TABLE_EVENT_TIMESTAMP","event_timestamp"); // not needed
+
+
+    // EVENTS
+    define("EVENT_NEW_ITEM","new_item");
+    define("EVENT_TRANSACTION","transaction");
+
+
 ?>
