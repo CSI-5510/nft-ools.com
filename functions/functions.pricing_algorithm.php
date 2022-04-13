@@ -15,7 +15,7 @@
         if($depreciation<$floor){
             $depreciation=$floor;
         }
-        return $depreciation * $price;
+        return round($depreciation * $price, 2);
     }
     
     
