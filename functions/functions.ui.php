@@ -6,7 +6,7 @@
     /** draws listing label for input instructions
      *
      * @param  mixed $text instructions to display
-     * @param  mixed $format $LISTING_LABEL
+     * @param  mixed $format LISTING_LABEL
      * @return void draws to page
      */
     function drawLabel($text, $format){
@@ -22,7 +22,7 @@
     /** draws text input area
      *
      * @param  mixed $name form name attribute
-     * @param  mixed $format $LISTING_INPUT_AREA
+     * @param  mixed $format LISTING_INPUT_AREA
      * @return void draws to page
      */
     function drawTextInput($name, $format){
@@ -49,7 +49,7 @@
     /** draws text area input area
      *
      * @param  mixed $name form name attribute
-     * @param  mixed $format $LISTING_INPUT_AREA
+     * @param  mixed $format LISTING_INPUT_AREA
      * @return void draws to page
      */
     function drawTextArea($name, $format){
@@ -81,7 +81,7 @@
      * @param  string $id for html element's id attribute 
      * @param  mixed $name form name attribute
      * @param  string $message goes in the message box
-     * @param  mixed $format $LISTING_DROPZONE
+     * @param  mixed $format LISTING_DROPZONE
      * @return void draws to page
      */
     function drawDropzone($id, $name, $message, $format){
@@ -98,7 +98,7 @@
      *
      * @param  mixed $id for html element's id attribute
      * @param  mixed $name form name attribut
-     * @param  mixed $format format $LISTING_DROPZONE
+     * @param  mixed $format format LISTING_DROPZONE
      * @param  mixed $accepts file types accepted by input
      * @return void draws to page
      */

@@ -32,79 +32,78 @@
      *
      * @return void draws to page
      */
-    function drawAddItem(){
+    function drawAddItem($options){
 
         // CONSTANTS
-        include('../constants/constants.all.php');
-        $OPEN_ROW = '<div class="'.$FLEX_ROW_JUSTIFY.'">';
+        $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
         
         // OPEN FORM
-        echo '<form method="POST" action="/'.$GLOBALS["url_loc"][0].'/collector/add_item" enctype="multipart/form-data">';
+        echo '<form method="POST" action="./'.COLLECTOR.'/'.ADD_ITEM.'" enctype="multipart/form-data">';
         
         // ROW TITLE
         echo $OPEN_ROW;
-        drawLabel('TITLE', $LISTING_LABEL);
-        drawTextInput($ADD_ITEM_TITLE, $LISTING_INPUT_AREA);
+        drawLabel('TITLE', LISTING_LABEL);
+        drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW CATEGORY
         echo $OPEN_ROW;
-        drawLabel('CATEGORY', $LISTING_LABEL);
-        drawSelectOption($ADD_ITEM_CATEGORY, $LISTING_INPUT_AREA, $options);
+        drawLabel('CATEGORY', LISTING_LABEL);
+        drawSelectOption(ITEM_QUERY_CATEGORY, LISTING_INPUT_AREA, $options);
         echo $CLOSE_ROW;
         
         // ROW SERIAL NUMBER
         echo $OPEN_ROW;
-        drawLabel('SERIAL NUMBER', $LISTING_LABEL);
-        drawTextInput($ADD_ITEM_SERIAL_NUMBER, $LISTING_INPUT_AREA);
+        drawLabel('SERIAL NUMBER', LISTING_LABEL);
+        drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
 
         // ROW DESCRIPTION
         echo $OPEN_ROW;
-        drawLabel('DESCRIPTION', $LISTING_LABEL);
-        drawTextArea($ADD_ITEM_DESCRIPTION, $LISTING_INPUT_AREA);
+        drawLabel('DESCRIPTION', LISTING_LABEL);
+        drawTextArea(ITEM_QUERY_DESCRIPTION, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW IMAGE
         echo $OPEN_ROW;
-        drawLabel('IMAGE', $LISTING_LABEL);
-        drawFileUpload($ADD_ITEM_IMAGE, $ADD_ITEM_IMAGE, $LISTING_DROPZONE, $ACCEPTED_IMAGE_TYPES);
+        drawLabel('IMAGE', LISTING_LABEL);
+        drawFileUpload(ITEM_QUERY_IMAGE, ITEM_QUERY_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW DOCUMENTATION
         echo $OPEN_ROW;
-        drawLabel('DOCUMENTATION', $LISTING_LABEL);
-        drawFileUpload($ADD_ITEM_DOCUMENTATION, $ADD_ITEM_DOCUMENTATION, $LISTING_DROPZONE, $ACCEPTED_IMAGE_TYPES);
+        drawLabel('DOCUMENTATION', LISTING_LABEL);
+        drawFileUpload(ITEM_QUERY_DOCUMENTATION, ITEM_QUERY_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW RECEIPT
         echo $OPEN_ROW;
-        drawLabel('RECEIPT', $LISTING_LABEL);
-        drawFileUpload($ADD_ITEM_RECEIPT, $ADD_ITEM_RECEIPT, $LISTING_DROPZONE, $ACCEPTED_IMAGE_TYPES);
+        drawLabel('RECEIPT', LISTING_LABEL);
+        drawFileUpload(ITEM_QUERY_RECEIPT, ITEM_QUERY_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW PURCHASE DATE
         echo $OPEN_ROW;
-        drawLabel('PURCHASE DATE', $LISTING_LABEL);
-        drawDateInput($ADD_ITEM_ORIGINAL_PURCHASE_DATE, $LISTING_INPUT_AREA);
+        drawLabel('PURCHASE DATE', LISTING_LABEL);
+        drawDateInput(ITEM_QUERY_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW PURCHASE PRICE
         echo $OPEN_ROW;
-        drawLabel('PURCHASE PRICE', $LISTING_LABEL);
-        drawTextInput($ADD_ITEM_ORIGINAL_PURCHASE_PRICE, $LISTING_INPUT_AREA);
+        drawLabel('PURCHASE PRICE', LISTING_LABEL);
+        drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW AFFIDAVIT OF QUALITY
-        echo $OPEN_ROW;
-        drawLabel('AFFIDAVIT OF QUALITY', $LISTING_LABEL);
-        drawAffidavit($ADD_ITEM_AFFIDAVIT_NAME, $ADD_ITEM_AFFIDAVIT_VERIFY, 'i gaurantee that this thing works...');
-        echo $CLOSE_ROW;
+        // echo $OPEN_ROW;
+        // drawLabel('AFFIDAVIT OF QUALITY', LISTING_LABEL);
+        // drawAffidavit(ADD_ITEM_AFFIDAVIT_NAME, ADD_ITEM_AFFIDAVIT_VERIFY, 'i gaurantee that this thing works...');
+        // echo $CLOSE_ROW;
         
         // ROW SUBMIT BUTTON
         echo $OPEN_ROW;
-        drawSubmitButton($BLUE_BUTTON." mx-40 my-10 w-full");
+        drawSubmitButton(BLUE_BUTTON." mx-40 my-10 w-full");
         echo $CLOSE_ROW;
         
         // CLOSE FORM

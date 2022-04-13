@@ -8,7 +8,7 @@
      */
     function console($var){
         echo "
-            <script>console.log('$var');</script>
+            <script>console.log('".json_encode($var)."');</script>
         ";
     }
 

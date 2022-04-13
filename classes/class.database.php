@@ -30,10 +30,10 @@ class DatabaseConnector {
 	* @return array [{'c_id', 'c_name', 'i_image'}, ...]
 	*/
    public static function getCategoryCarouselData() {
-	   	$q = 'SELECT c.cat_id, c.cat_name, i.i_image 
+	   	$q = 'SELECT DISTINCT c.cat_id, c.cat_name, i.i_image 
 			FROM category c JOIN item i 
 			WHERE i.i_category_id = c.cat_id
-	   		GROUP BY c.cat_id 
+
 			ORDER BY c.cat_id';
 		// echo $q;
 	   	return DatabaseConnector::query($q);
@@ -79,35 +79,9 @@ class DatabaseConnector {
 	}
   
 
-	public static function addNewItem($data, $userID){
-		$q = 'INSERT INTO item (
-			i_id, 
-			i_name, 
-			i_description, 
-			current_price, 
-			i_image, 
-			i_category_Id, 
-			i_serialnum, 
-			event_description, 
-			event_timestamp, 
-			original_price, 
-			is_approved, 
-			owner_id, 
-			days_to_minimum_price) VALUES (
-				NULL,
-				'.$data["i_name"].',
-				'.$data["i_description"].',
-				'.$data["current_price"].',
-				'.$data["i_image"].',
-				'.$data["i_category_Id"].',
-				'.$data["i_serialnum"].',
-				NULL,
-				NULL,
-				NULL,
-				'.$userID.',
-				NULL,
-				NULL)';
-		return DatabaseConnector::query($q);
+	public static function addNewItem($data, $user_id){
+		$q = "INSERT INTO item (i_id, i_name, i_description, current_price, i_image, i_category_Id, i_serialnum, original_price, is_approved, owner_id, days_to_minimum_price, receipt, documentation, original_purchase_date, rejection_reason, was_reviewed) VALUES (NULL,'".$data[ITEM_TABLE_NAME]."','".$data[ITEM_TABLE_DESCRIPTION]."',".$data[ITEM_TABLE_CURRENT_PRICE].",:image,".$data[ITEM_TABLE_CATEGORY_ID].",".$data[ITEM_TABLE_SERIAL_NUMBER].",".$data[ITEM_TABLE_ORIGINAL_PRICE].",".$data[ITEM_TABLE_IS_APPROVED].",".$data[ITEM_TABLE_OWNER_ID].",".$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].",:r,:d,'".$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE]."','".$data[ITEM_TABLE_REJECTION_REASON]."',".$data[ITEM_TABLE_WAS_REVIEWED].")";
+		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
 	}
 	
 	public static function query($query, $params = array()) {
@@ -128,7 +102,7 @@ class DatabaseConnector {
 		$data = $data['total'];
 		return $data;			
 		}			
-		
+	
 	}
 
 	

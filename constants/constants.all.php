@@ -1,66 +1,93 @@
 <?php
 
 
+    // ADMIN CONTROLS
+	DEFINE("REVIEW",'review');
+
+
+    // USER
+define("USER_ID",29/*User::isLoggedIn()*/);
+
+    
     // NAVIGATION
-    $ADD_TO_CART = 'add_to_cart';
-	$REMOVE_FROM_CART = 'remove_from_cart';
+    define("PROJECT_ROOT",$GLOBALS['config']['url_root']);
+    define("URL_LOC_0",$GLOBALS['url_loc'][0]);
+    define("URL_LOC_1",$GLOBALS['url_loc'][1]);
+    define("URL_LOC_2",$GLOBALS['url_loc'][2]);
+    define("ADD_TO_CART","add_to_cart");
+    define("REMOVE_FROM_CART","remove_from_cart");
+    define("EDIT","edit");
+    define("ADD_ITEM","add_item");
+    define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
+    define("CANCEL_ADD_ITEM","cancel_add_item");
+    define("COLLECTOR","collector");
+    define("HEADER_HOME","Location: ../public_html");
 
-    $EDIT = 'edit';
-    $ADD_ITEM = 'add_item';
-    $ADD_ITEM_CONFIRMATION = 'add_item_confirmation';
-    $CANCEL_ADD_ITEM = 'cancel_add_item';
-
-	// ADMIN CONTROLS
-	DEFINE("REVIEW",'REVIEW');
-	
-	
     // FORMATTING
-    $BLUE_BUTTON =  'bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600';
-    $LISTING_LABEL = 'p-4 m-10 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center';
-    $CONFIRMATION_LABEL = 'p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2';
-    $LISTING_INPUT_AREA = 'p-4 m-10 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center';
-    $LISTING_DROPZONE = 'p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2 border-blue-800 hover:bg-blue-400 text-center';
-    $LISTING_AFFIDAVIT_CONTAINER = '';
-    $LISTING_PRICE_LABEL = 'p-4 m-10 ml-5 mr-40 w-3/5 bg-gray-300';
-    $FLEX_ROW_NO_JUSTIFY = 'flex flex-row items-start';
-    $FLEX_ROW_JUSTIFY = 'flex flex-row justify-between items-start';
-    $CONFIRMATION_IMAGE = 'p-4 m-10 ml-5 mr-40 w-3/5';
+    define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
+    define("LISTING_LABEL","p-4 m-10 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center");
+    define("CONFIRMATION_LABEL","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2");
+    define("LISTING_INPUT_AREA","p-4 m-10 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center");
+    define("LISTING_DROPZONE","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2 border-blue-800 hover:bg-blue-400 text-center");
+    define("LISTING_AFFIDAVIT_CONTAINER","");
+    define("LISTING_PRICE_LABEL","p-4 m-10 ml-5 mr-40 w-3/5 bg-gray-300");
+    define("FLEX_ROW_NO_JUSTIFY","flex flex-row items-start");
+    define("FLEX_ROW_JUSTIFY","flex flex-row justify-between items-start");
+    define("CONFIRMATION_IMAGE","p-4 m-10 ml-5 mr-40 w-3/5");
+
+    // ASIDE CONTROL ELEMENT FORMATTING
+    // AC[X]_CLASS_[DESCRIPTOR]
+    define("AC2_CLASS_ANY","ml-3 h-10 px-3 py-2 rounded-lg text-gray-500 bg-gray-800 hover:bg-gray-100");
+    define("AC3_CLASS_REGISTER","flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700");
+    define("AC3_CLASS_OTHER","flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100");
 
 
     // ACCEPTED FILE TYPES
-    $ACCEPTED_IMAGE_TYPES = '.jpg,.jpeg,.png';
+    define("ACCEPTED_IMAGE_TYPES",".jpg,.jpeg,.png");
 
 
     
     // PRICING
-    $DAYS_TO_MINIMUM_PIRCE = 37;
-    $PRICE_FLOOR = 0.1;
+    define("DAYS_TO_MINIMUM_PIRCE",37);
+    define("PRICE_FLOOR",0.1);
 
 
-    // ADD ITEM POST
-    $ADD_ITEM_TITLE = 'title';
-    $ADD_ITEM_CATEGORY = 'category';
-    $ADD_ITEM_DESCRIPTION = 'description';
-    $ADD_ITEM_IMAGE = 'image';
-    $ADD_ITEM_DOCUMENTATION = 'documentation';
-    $ADD_ITEM_RECEIPT = 'receipt';
-    $ADD_ITEM_ORIGINAL_PURCHASE_DATE = 'original_purchase_date';
-    $ADD_ITEM_ORIGINAL_PURCHASE_PRICE = 'original_price';
-    $ADD_ITEM_AFFIDAVIT_NAME = 'affidavit_name';
-    $ADD_ITEM_AFFIDAVIT_VERIFY = 'affidavit_verify';
-    $ADD_ITEM_SERIAL_NUMBER = 'serial';
+    // ITEM QUERY KEYS
+    define("ITEM_QUERY_ID","a");    // not currenty used
+    define("ITEM_QUERY_NAME","b");
+    define("ITEM_QUERY_DESCRIPTION", "c");
+    define("ITEM_QUERY_CURRENT_PRICE","d"); // not currenty used
+    define("ITEM_QUERY_IMAGE","e");
+    define("ITEM_QUERY_CATEGORY","f");
+    define("ITEM_QUERY_SERIAL_NUMBER","g");
+    define("ITEM_QUERY_ORIGINAL_PURCHASE_PRICE","h");
+    define("ITEM_QUERY_IS_APPROVED","i");
+    define("ITEM_QUERY_OWNER_ID","j");  // not currenty used
+    define("ITEM_QUERY_DAYS_TO_MINIMUM_PRICE","k"); // not currenty used
+    define("ITEM_QUERY_RECEIPT","l");
+    define("ITEM_QUERY_DOCUMENTATION","m");
+    define("ITEM_QUERY_ORIGINAL_PURCHASE_DATE","n");    // not currenty used
+    define("ITEM_QUERY_REJECTION_REASON","o");  // not currenty used
+    define("ITEM_QUERY_WAS_REVIEWED","p");  // not currenty used
 
 
-    // ADD ITEM QUERY
-    $ADD_ITEM_QUERY_NAME = 'i_name';
-    $ADD_ITEM_QUERY_DESCRIPTION = 'i_description';
-    $ADD_ITEM_QUERY_CURRENT_PRICE = 'current_price';
-    $ADD_ITEM_QUERY_IMAGE = 'i_image';
-    $ADD_ITEM_QUERY_CATEGORY = 'i_category_Id';
-    $ADD_ITEM_QUERY_SERIAL_NUMBER = 'i_serialnum';
-    $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_PRICE = 'original_price';
-    $ADD_ITEM_QUERY_ORIGINAL_PURCHASE_DATE = 'original_purchase_date';
-    $ADD_ITEM_QUERY_DAYS_TO_MINIMUM_PRICE = 'days_to_minimum_price';
+    // ITEM TABLE COLUMNS
+    define("ITEM_TABLE_ID","i_id");
+    define("ITEM_TABLE_NAME","i_name");
+    define("ITEM_TABLE_DESCRIPTION","i_description");
+    define("ITEM_TABLE_CURRENT_PRICE","current_price");
+    define("ITEM_TABLE_IMAGE","i_image");
+    define("ITEM_TABLE_CATEGORY_ID","i_category_Id");
+    define("ITEM_TABLE_SERIAL_NUMBER","i_serialnum");
+    define("ITEM_TABLE_ORIGINAL_PRICE","original_price");
+    define("ITEM_TABLE_IS_APPROVED","is_approved");
+    define("ITEM_TABLE_OWNER_ID","owner_id");
+    define("ITEM_TABLE_DAYS_TO_MINIMUM_PRICE","days_to_minimum_price");
+    define("ITEM_TABLE_RECEIPT","receipt");
+    define("ITEM_TABLE_DOCUMENTATION","documentation");
+    define("ITEM_TABLE_ORIGINAL_PURCHASE_DATE","original_purchase_date");
+    define("ITEM_TABLE_REJECTION_REASON","rejection_reason");
+    define("ITEM_TABLE_WAS_REVIEWED","was_reviewed");
 
     
 ?>
