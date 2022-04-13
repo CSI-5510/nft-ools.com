@@ -11,6 +11,7 @@
                 $user_id = 29;
                 $item_data = assembleItemData();
                 DatabaseConnector::addNewItem($item_data, $user_id);
+                // var_dump(DatabaseConnector::getLastItemAddedByUser());
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;
                 //   $item_data = DatabaseConnector::getLastItemSubmission($user_id); 

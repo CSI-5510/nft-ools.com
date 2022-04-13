@@ -21,15 +21,40 @@
 
     /** draws text input area
      *
-     * @param  mixed $name form name attribute
-     * @param  mixed $format LISTING_INPUT_AREA
+     * @param  string $name form name attribute
+     * @param  string $format LISTING_INPUT_AREA
+     * @param  int $character_limit -1 for no limit. if > 0 sets minlength to 1 and maxlength to value
+     * @param  bool $required set required flag
      * @return void draws to page
      */
-    function drawTextInput($name, $format){
+    function drawTextInput($name, $format, $character_limit, $required){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);        
         echo '
-            <input type="text" name="'.$name.'" class="'.$format.'">
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.$_r.'>
         ';
         return;
+    }
+
+    
+    /** adds min and max length attributes to html element
+     *
+     * @param  mixed $character_limit limits less than 0 exclude min/maxlength attributes
+     * @return string
+     */
+    function inputValidationLength($character_limit){
+        if($character_limit>0){
+            return 'minlength="1" maxlength="'.$character_limit.'"';
+        }
+        return '';
+    }
+
+
+    function inputValidationRequired($required){
+        if($required){
+            return 'required';
+        }
+        return '';
     }
 
     
