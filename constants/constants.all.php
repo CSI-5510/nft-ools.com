@@ -6,7 +6,7 @@
 
 
     // USER
-    define("USER_ID",29/*User::isLoggedIn()*/);
+    define("USER_ID",32/*User::isLoggedIn()*/);
 
     
     // NAVIGATION
@@ -94,7 +94,7 @@
     define("EVENT_TABLE_TIMESTAMP","o_date");
     define("EVENT_TABLE_STATUS","o_status");
     define("EVENT_TABLE_ITEM_ID","o_item_id");
-    define("EVENT_TABLE_BUYER_ID","buyer_id");
+    define("EVENT_TABLE_BUYER_ID","o_buyer_id");
     define("EVENT_TABLE_SELLER_ID","o_seller_id");
     define("EVENT_TABLE_TRANSACTION_ID","o_transaction_id");
     define("EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE","o_transactio_auth_code");
@@ -110,3 +110,4 @@
 
 
 ?>
+

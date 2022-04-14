@@ -81,7 +81,6 @@
      * @return void draws to page
      */
     function drawEditItemModal(){
-        console('draw edit item modal');
     }
 
     

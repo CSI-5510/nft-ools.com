@@ -114,7 +114,29 @@ class DatabaseConnector {
 	 * @return void inserts new item event into event table
 	 */
 	public static function newItemEvent($data){
-		$q = "INSERT INTO orders (".EVENT_TABLE_STATUS.",".EVENT_TABLE_ITEM_ID.",".EVENT_TABLE_SELLER_ID.",".EVENT_TABLE_EVENT_DESCRIPTION." VALUES (".$data[EVENT_TABLE_STATUS].",".$data[EVENT_TABLE_ITEM_ID].",".$data[EVENT_TABLE_EVENT_DESCRIPTION].")";
+		$q = "INSERT INTO orders ("
+				//.EVENT_TABLE_ID.","								/*00*/
+				//.EVENT_TABLE_TIMESTAMP.","						/*01*/
+				.EVENT_TABLE_STATUS.","								/*02*/
+				.EVENT_TABLE_ITEM_ID.","							/*03*/
+				.EVENT_TABLE_BUYER_ID.","							/*04*/
+				.EVENT_TABLE_SELLER_ID.","							/*05*/
+				.EVENT_TABLE_TRANSACTION_ID.","						/*06*/
+				.EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE.","	/*07*/
+				.EVENT_TABLE_EVENT_DESCRIPTION.","					/*08*/
+				.EVENT_TABLE_EVENT_TIMESTAMP						/*09*/
+			.") VALUES ("
+				//.$data[EVENT_TABLE_ID]."," 								/*00*/
+				//.$data[EVENT_TABLE_TIMESTAMP].",'"						/*01*/
+				."'".$data[EVENT_TABLE_STATUS]."',"							/*02*/
+				.$data[EVENT_TABLE_ITEM_ID].","								/*03*/	
+				.$data[EVENT_TABLE_BUYER_ID].","							/*04*/
+				.$data[EVENT_TABLE_SELLER_ID]."," 							/*05*/	
+				.$data[EVENT_TABLE_TRANSACTION_ID].","						/*06*/
+				.$data[EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE].","		/*07*/
+				."'".$data[EVENT_TABLE_EVENT_DESCRIPTION]."',"				/*08*/
+				.$data[EVENT_TABLE_EVENT_TIMESTAMP]							/*09*/
+			.")";
 		self::query($q);
 		return; 
 	}
@@ -140,7 +162,5 @@ class DatabaseConnector {
 		}			
 	
 	}
-
 	
-
 }
