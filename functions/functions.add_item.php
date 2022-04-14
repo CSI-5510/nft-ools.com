@@ -43,56 +43,56 @@
         
         // ROW TITLE
         echo $OPEN_ROW;
-        drawLabel('TITLE', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 20, TRUE);
+        echo drawLabel('TITLE', LISTING_LABEL);
+        echo drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
         
         // ROW CATEGORY
         echo $OPEN_ROW;
-        drawLabel('CATEGORY', LISTING_LABEL);
-        drawSelectOption(ITEM_QUERY_CATEGORY, LISTING_INPUT_AREA, $options);
+        echo drawLabel('CATEGORY', LISTING_LABEL);
+        echo drawSelectOption(ITEM_QUERY_CATEGORY, LISTING_INPUT_AREA, $options);
         echo $CLOSE_ROW;
         
         // ROW SERIAL NUMBER
         echo $OPEN_ROW;
-        drawLabel('SERIAL NUMBER', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA, 20, TRUE);
+        echo drawLabel('SERIAL NUMBER', LISTING_LABEL);
+        echo drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
 
         // ROW DESCRIPTION
         echo $OPEN_ROW;
-        drawLabel('DESCRIPTION', LISTING_LABEL);
-        drawTextArea(ITEM_QUERY_DESCRIPTION, LISTING_INPUT_AREA);
+        echo drawLabel('DESCRIPTION', LISTING_LABEL);
+        echo drawTextArea(ITEM_QUERY_DESCRIPTION, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW IMAGE
         echo $OPEN_ROW;
-        drawLabel('IMAGE', LISTING_LABEL);
-        drawFileUpload(ITEM_QUERY_IMAGE, ITEM_QUERY_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
+        echo drawLabel('IMAGE', LISTING_LABEL);
+        echo drawFileUpload(ITEM_QUERY_IMAGE, ITEM_QUERY_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW DOCUMENTATION
         echo $OPEN_ROW;
-        drawLabel('DOCUMENTATION', LISTING_LABEL);
-        drawFileUpload(ITEM_QUERY_DOCUMENTATION, ITEM_QUERY_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
+        echo drawLabel('DOCUMENTATION', LISTING_LABEL);
+        echo drawFileUpload(ITEM_QUERY_DOCUMENTATION, ITEM_QUERY_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW RECEIPT
         echo $OPEN_ROW;
-        drawLabel('RECEIPT', LISTING_LABEL);
-        drawFileUpload(ITEM_QUERY_RECEIPT, ITEM_QUERY_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
+        echo drawLabel('RECEIPT', LISTING_LABEL);
+        echo drawFileUpload(ITEM_QUERY_RECEIPT, ITEM_QUERY_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES);
         echo $CLOSE_ROW;
         
         // ROW PURCHASE DATE
         echo $OPEN_ROW;
-        drawLabel('PURCHASE DATE', LISTING_LABEL);
-        drawDateInput(ITEM_QUERY_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA);
+        echo drawLabel('PURCHASE DATE', LISTING_LABEL);
+        echo drawDateInput(ITEM_QUERY_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // ROW PURCHASE PRICE
         echo $OPEN_ROW;
-        drawLabel('PURCHASE PRICE', LISTING_LABEL);
-        drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE);
+        echo drawLabel('PURCHASE PRICE', LISTING_LABEL);
+        echo drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE);
         echo $CLOSE_ROW;
         
         // ROW AFFIDAVIT OF QUALITY
@@ -103,7 +103,7 @@
         
         // ROW SUBMIT BUTTON
         echo $OPEN_ROW;
-        drawSubmitButton(BLUE_BUTTON." mx-40 my-10 w-full");
+        echo drawSubmitButton(BLUE_BUTTON." mx-40 my-10 w-full");
         echo $CLOSE_ROW;
         
         // CLOSE FORM

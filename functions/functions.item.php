@@ -7,8 +7,7 @@
      */
     function drawSignInButton($text, $format){
         $url = signInNavigation();
-        drawLinkButton($text, $url, $format);
-        return;
+        return drawLinkButton($text, $url, $format);
     }
 
     
@@ -22,8 +21,7 @@
     function drawAddToCartButton($id, $format, $command){
         $text = 'Add to Orders';
         $url = itemAPI($id, $command);
-        drawLinkButton($text, $url, $format);
-        return;
+        return drawLinkButton($text, $url, $format);
     }
 	
 	    /** draws an remove to cart button 
@@ -36,8 +34,7 @@
     function drawRemoveFromCartButton($id, $format, $command){
         $text = 'Remove from Orders';
         $url = itemAPI($id, $command);
-        drawLinkButton($text, $url, $format);
-        return;
+        return drawLinkButton($text, $url, $format);
     }
 	
 	    /** draws disabled button
@@ -49,8 +46,7 @@
      */
     function drawPendingButton($format){
         $text = 'Currently In offer';
-        drawDisabledButton($text, $format);
-        return;
+        return drawDisabledButton($text, $format);
     }
 	
 	    /** draws disabled button
@@ -62,8 +58,7 @@
      */
     function drawUnavailableButton($format){
         $text = 'Not being offered';
-        drawDisabledButton($text, $format);
-        return;
+        return drawDisabledButton($text, $format);
     }
 
     
@@ -77,7 +72,7 @@
     function drawEditItemButton($id, $format, $command){
         $text = 'Edit Item';
         $url = itemAPI($id, $command);
-        drawLinkButton($text, $url, $format); 
+        return drawLinkButton($text, $url, $format); 
     }
 
     
@@ -139,14 +134,13 @@
      */
     function decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute){
         if($mute){
-            return;
+            return '';
         }
         if(!$signed_in){
-            return;
+            return '';
         }
         if($is_users_listing){
-            drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
-            return;
+            return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
         }
         return;
     }
@@ -162,17 +156,15 @@
      */
     function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute){
         if($mute){
-            return;
+            return '';
         }
         if($is_users_listing){
-            return;
+            return '';
         }
         if($signed_in){
-            drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
-            return;
+            return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
         }
-        drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
-        return;
+        return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
     }
 
 

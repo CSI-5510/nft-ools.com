@@ -7,15 +7,14 @@
      *
      * @param  mixed $text instructions to display
      * @param  mixed $format LISTING_LABEL
-     * @return void draws to page
+     * @return string
      */
     function drawLabel($text, $format){
-        echo '
+        return '
             <div class="'.$format.'">
                 '. $text .'
             </div>
         ';
-        return;
     }
 
 
@@ -25,15 +24,14 @@
      * @param  string $format LISTING_INPUT_AREA
      * @param  int $character_limit -1 for no limit. if > 0 sets minlength to 1 and maxlength to value
      * @param  bool $required set required flag
-     * @return void draws to page
+     * @return string
      */
     function drawTextInput($name, $format, $character_limit, $required){
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);        
-        echo '
+        return '
             <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.$_r.'>
         ';
-        return;
     }
 
     
@@ -49,7 +47,12 @@
         return '';
     }
 
-
+    
+    /** adds required attribute to html element
+     *
+     * @param  mixed $required
+     * @return string
+     */
     function inputValidationRequired($required){
         if($required){
             return 'required';
@@ -65,7 +68,7 @@
      * @return void
      */
     function drawDateInput($name, $format){
-        echo '
+        return '
             <input type="datetime-local" name="'.$name.'" class="'.$format.'">
         ';
     }
@@ -78,10 +81,9 @@
      * @return void draws to page
      */
     function drawTextArea($name, $format){
-        echo '
+        return '
             <textarea name="'. $name .'" class="'.$format.'"></textarea>
         ';
-        return;
     }
 
     
@@ -93,11 +95,12 @@
      * @return void draws to page
      */
     function drawSelectOption($name, $format, $options){
-        echo '<select name="'.$name.'" class="'.$format.'">';
+        $_r = '<select name="'.$name.'" class="'.$format.'">';
         foreach($options as $option){
-            echo '<option value="'.$option["value"].'">'.$option["text"].'</option>';
+            $_r = $_r.'<option value="'.$option["value"].'">'.$option["text"].'</option>';
         }
-        echo '</select>';
+        $_r = $_r.'</select>';
+        return $_r;
     }
 
 
@@ -107,15 +110,14 @@
      * @param  mixed $name form name attribute
      * @param  string $message goes in the message box
      * @param  mixed $format LISTING_DROPZONE
-     * @return void draws to page
+     * @return string
      */
     function drawDropzone($id, $name, $message, $format){
-        echo '
+        return '
             <div id="'.$id.'" name="'.$name.'" class="'.$format.'" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
                 <p>'.$message.'</p>
             </div>
         ';
-        return;
     }
 
     
@@ -125,10 +127,10 @@
      * @param  mixed $name form name attribut
      * @param  mixed $format format LISTING_DROPZONE
      * @param  mixed $accepts file types accepted by input
-     * @return void draws to page
+     * @return string
      */
     function drawFileUpload($id, $name, $format, $accepts){
-        echo '
+        return '
             <input id="'.$id.'" type="file" name="'.$name.'" class="'.$format.'" accepts="'.$accepts.'">
         ';
     } 
@@ -142,7 +144,7 @@
      * @return void draws to page
      */
     function drawLinkButton($text, $url, $format){
-        echo '
+        return '
             <a href="'.$url.'" class="'.$format.'">
                 '.$text.'
             </a>
@@ -151,7 +153,7 @@
 
 
     function drawDisabledButton($text, $format){
-        echo '
+        return '
             <div '. $format .'>
                 '.$text.'
             </div>
@@ -165,7 +167,7 @@
      * @return void
      */
     function drawFunctionButton($text, $fn, $format){
-        echo '
+        return '
             <a onclick="'.$fn.'" class="'.$format.'">
                 '.$text.'
             </a>
@@ -178,7 +180,7 @@
      * @return void draws to page
      */
     function alertBox($message, $link){
-        echo '
+        return '
             <div id="alert" class="bg-gray-800 text-center py-4 lg:px-4" role="alert">
             <div class="p-2 bg-gray-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
             <span class="flex rounded-full bg-gray-600 uppercase px-2 py-1 text-xs font-bold mr-3">'.$link.'</span>
@@ -196,7 +198,7 @@
      * @return void draws to page
      */
     function drawSubmitButton($format){
-        echo '
+        return '
             <input type="submit" value="SUBMIT" class="'.$format.'">
         ';
     }
@@ -208,6 +210,6 @@
      * @return void draws to page
      */
     function drawPostedImage($image, $format){
-        echo '<image class="'.$format.'" src="'.imageSrc(file_get_contents($_FILES[$image]["tmp_name"])).'"/>';
+        return '<image class="'.$format.'" src="'.imageSrc(file_get_contents($_FILES[$image]["tmp_name"])).'"/>';
     }
 ?>

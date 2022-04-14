@@ -101,6 +101,8 @@
     define("EVENT_TABLE_EVENT_DESCRIPTION","event_description");
     define("EVENT_TABLE_EVENT_TIMESTAMP","event_timestamp"); // not needed
 
+    // EVENT TABLE DEFAULT VALUES
+    define("EVENT_TABLE_DEFAULT_STATUS","pending");
 
     // EVENTS
     define("EVENT_NEW_ITEM","new_item");

@@ -9,7 +9,7 @@
                 // $user_id = User::isLoggedInWithRedirect();
                 console($_FILES);
                 $user_id = 29;
-                $item_data = assembleItemData();
+                $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, $user_id);
                 // var_dump(DatabaseConnector::getLastItemAddedByUser());
                 //   $no_threats_detected = TRUE; 

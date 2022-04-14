@@ -7,8 +7,8 @@ $CLOSE_ROW = '</div>';
 
 // ROW TITLE
 echo $OPEN_ROW;
-drawLabel('name', LISTING_LABEL);
-drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 20, TRUE);
+echo drawLabel('name', LISTING_LABEL);
+echo drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 20, TRUE);
 echo $CLOSE_ROW;
 
 
