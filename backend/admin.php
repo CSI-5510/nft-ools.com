@@ -63,7 +63,6 @@ if ($isAdmin) {
 					break;				
 				case EDIT:
 					// modal data
-					console('pass modal data');
 					break;
 				default:
 				//returns them back to the default item page

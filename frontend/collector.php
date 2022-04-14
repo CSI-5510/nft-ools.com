@@ -4,13 +4,11 @@
     // FRONTEND
     include_once('../functions/functions.collector.php');
     include_once('../functions/functions.item.php');
-    console(json_encode($GLOBALS['url_loc']));
 
     try{
         switch($GLOBALS['url_loc'][2]){
             case ADD_ITEM:
-                alertBox('Notice', 'Please confirm our price and your submission details.');
-                header("location: /public_html/item/".$item_id);
+                // header("location: /public_html/item/".$item_id);
                 break;
             case ADD_ITEM_CONFIRMATION:
                 alertBox('Notice', 'Item submission awaiting approval. The approval process takes 24 to 48 hours.');

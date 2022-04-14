@@ -15,7 +15,6 @@
 	$is_item_in_cart = Order::isItemInUserCart($GLOBALS['url_loc'][2], $signed_in);
 	
     if(!isset($GLOBALS['url_loc'][3])){
-        console('item backend line 18');
         return;
     }
 
@@ -29,7 +28,6 @@
                 break;				
             case EDIT:
                 // modal data
-                console('pass modal data');
                 break;
 			default:
 			//returns them back to the default item page

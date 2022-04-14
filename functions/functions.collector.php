@@ -5,7 +5,7 @@
      *
      * @param  mixed $price from pricing algorithm
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
-     * @return array for use with DatabaseConnect::addNewItem()
+     * @return array for use with DatabaseConnect::addEvent(EVENT_NEW_ITEM)
      */
     function addNewItemReducer(){
         include_once('../functions/functions.pricing_algorithm.php'); 
@@ -36,13 +36,21 @@
     }
 
 
-    // function newItemEventReducer($item_data){
-    //     return array(
-    //         EVENT_TABLE_STATUS => EVENT_TABLE_DEFAULT_STATUS,
-    //         EVENT_TABLE_ITEM_ID => $item_data[item_table], 
-    //         EVENT_TABLE_EVENT_DESCRIPTION => 'NEW ITEM ADDED'
-    //     );
-    // }
+    function newItemEventReducer($item_data){
+        return array(
+            EVENT_TABLE_ID => 'NULL',                                                                                                           /*00*/
+            EVENT_TABLE_TIMESTAMP => 'NULL',                                                                                                    /*01*/    
+            EVENT_TABLE_STATUS => EVENT_TABLE_DEFAULT_STATUS,                                                                                   /*02*/    
+            EVENT_TABLE_ITEM_ID => $item_data[ITEM_TABLE_ID],                                                                                   /*03*/
+            EVENT_TABLE_BUYER_ID => 'NULL',                                                                                                     /*04*/    
+            EVENT_TABLE_SELLER_ID => 'NULL',                                                                                                    /*05*/       
+            EVENT_TABLE_TRANSACTION_ID => 'NULL',                                                                                               /*06*/
+            EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE => 'NULL',                                                                              /*07*/
+            EVENT_TABLE_EVENT_DESCRIPTION => 'NEW ITEM ADDED: {\"'.ITEM_TABLE_CURRENT_PRICE.'\": '.$item_data[ITEM_TABLE_CURRENT_PRICE].'}',    /*08*/
+            EVENT_TABLE_EVENT_TIMESTAMP => 'NULL'                                                                                               /*09*/
+        );
+    }
 
     
 ?>
+
