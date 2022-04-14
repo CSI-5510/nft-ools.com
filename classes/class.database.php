@@ -119,6 +119,23 @@ class DatabaseConnector {
 		return; 
 	}
 	
+	/*  User Profile update queries
+	Pre-Populate Form with Current Account Details
+	*/
+	public static function getCurrentAccountDetails($id){
+		$q = 'SELECT fname, lname, email, addr_line1, addr_line2, city, state, zip, phone FROM user WHERE id =' .$id;
+		return DatabaseConnector::query($q);
+	}
+	
+	
+	/*  User Profile update queries
+	Once User has entered in different values, update the entire row with the new/existing form values
+	*/
+	public static function updateUserProfileInfo($data, $user_id){
+		$q = "UPDATE user SET id=value-1,username=value-2,email=value-3,password=value-4,`admin`=value-5,created_at=value-6,updated_at=value-7,fname=value-8,lname=value-9,addr_line_1=value-10,addr_line_2=value-11,city=value-12,state=value-13,zip=value-14,phone=value-15 WHERE id = $userID";
+		self::query($q);
+		return; 
+	}
 	
 	public static function query($query, $params = array()) {
 		$statement = self::connect()->prepare($query);

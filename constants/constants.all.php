@@ -18,6 +18,7 @@
     define("REMOVE_FROM_CART","remove_from_cart");
     define("EDIT","edit");
     define("ADD_ITEM","add_item");
+	define("EDIT_PROFILE","edit_profile");
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
@@ -88,6 +89,23 @@
     define("ITEM_TABLE_ORIGINAL_PURCHASE_DATE","original_purchase_date");
     define("ITEM_TABLE_REJECTION_REASON","rejection_reason");
     define("ITEM_TABLE_WAS_REVIEWED","was_reviewed");
+	
+	//USER TABLE COLUMNS
+	define("USER_TABLE_ID","id");
+    define("USER_TABLE_USERNAME","username");
+    define("USER_TABLE_EMAIL","email");
+    define("USER_TABLE_PASSWORD","password");
+    define("USER_TABLE_ADMIN","admin");
+    define("USER_TABLE_CREATED_AT","created_t");
+    define("USER_TABLE_UPDATED_AT","updated_at");
+    define("USER_TABLE_FNAME","fname");
+    define("USER_TABLE_LNAME","lname");
+    define("USER_TABLE_ADDR_LINE_1","addr_line_1");
+	define("USER_TABLE_ADDR_LINE_2","addr_line_2");
+	define("USER_TABLE_CITY","city");
+	define("USER_TABLE_STATE","state");
+	define("USER_TABLE_ZIP","zip");
+	define("USER_TABLE_PHONE","phone");
 
     // EVENT TABLE COLUMNS
     define("EVENT_TABLE_ID","o_id");
