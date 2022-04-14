@@ -107,6 +107,19 @@ class DatabaseConnector {
 		}
 		return;
 	}
+
+
+	public static function getItemEvents($item_id){
+		console($item_id);
+		$q = 'SELECT * FROM orders WHERE '.EVENT_TABLE_ITEM_ID.' =' .$item_id.' ORDER BY '.EVENT_TABLE_TIMESTAMP.' DESC';
+		try{
+			return self::query($q);
+		}catch(Exception $e){
+			var_dump($e);
+			return;
+		}
+	}
+
 	
 	/** inserts the "added to items" event into the event table. use when new items are added for the first time
 	 *
@@ -137,8 +150,13 @@ class DatabaseConnector {
 				."'".$data[EVENT_TABLE_EVENT_DESCRIPTION]."',"				/*08*/
 				.$data[EVENT_TABLE_EVENT_TIMESTAMP]							/*09*/
 			.")";
-		self::query($q);
-		return; 
+		try{
+			self::query($q);
+			return;
+		}catch(Exception $e){
+			var_dump($e);
+			return;
+		} 
 	}
 	
 	
