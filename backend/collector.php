@@ -11,6 +11,7 @@
                 $user_id = 29;
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, $user_id);
+                $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0][0];
                 // var_dump(DatabaseConnector::getLastItemAddedByUser());
                 //   $no_threats_detected = TRUE; 
                 //   get $user_id;

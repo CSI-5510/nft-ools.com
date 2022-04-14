@@ -79,8 +79,8 @@ class DatabaseConnector {
 	}
   
 
-	public static function getLastItemAddedByUser(){
-		$q = "SELECT o_date FROM orders WHERE o_seller_id = ".USER_ID." ORDER BY o_date DESC;";
+	public static function getLastItemAddedByUser($user_id){
+		$q = "SELECT i_id FROM item WHERE owner_id=".$user_id." ORDER BY timestamp DESC";
 		return DatabaseConnector::query($q);
 	}
 

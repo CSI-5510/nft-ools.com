@@ -36,13 +36,13 @@
     }
 
 
-    function newItemEventReducer($item_data){
-        return array(
-            EVENT_TABLE_STATUS => EVENT_TABLE_DEFAULT_STATUS,
-            EVENT_TABLE_ITEM_ID => $item_data[item_table], 
-            EVENT_TABLE_EVENT_DESCRIPTION => 'NEW ITEM ADDED'
-        );
-    }
+    // function newItemEventReducer($item_data){
+    //     return array(
+    //         EVENT_TABLE_STATUS => EVENT_TABLE_DEFAULT_STATUS,
+    //         EVENT_TABLE_ITEM_ID => $item_data[item_table], 
+    //         EVENT_TABLE_EVENT_DESCRIPTION => 'NEW ITEM ADDED'
+    //     );
+    // }
 
     
 ?>
