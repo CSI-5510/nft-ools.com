@@ -123,7 +123,7 @@ class DatabaseConnector {
 	Pre-Populate Form with Current Account Details
 	*/
 	public static function getCurrentAccountDetails($id){
-		$q = 'SELECT fname, lname, email, addr_line1, addr_line2, city, state, zip, phone FROM user WHERE id ='.$id;
+		$q = 'SELECT fname, lname, email, addr_line_1, addr_line_2, city, state, zip, phone FROM user WHERE id ='.$id;
 		return DatabaseConnector::query($q);
 	}
 	
