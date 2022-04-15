@@ -16,16 +16,27 @@
         }
 		
 		
-        public static function approveListing($itemApprovedRadiosIn, $itemApprovalJustificationIn, $itemIDin) {
-			//update item with approval status
-            DatabaseConnector::query("UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'", array());
+        public static function approveListing($itemApprovedRadiosIn, $itemApprovalJustificationIn, $itemID) {
+			if($itemApprovedRadiosIn = 1){
+			echo "UPDATE item SET is_approved=1, rejection_reason=".$itemApprovalJustificationIn." WHERE i_id=".$itemID."";
+		DatabaseConnector::query('UPDATE item SET is_approved=1, rejection_reason=:itemjustification WHERE i_id=:itemid', array(':itemjustification'=>$itemApprovalJustificationIn, ':itemid'=>$itemID));			
+								return true;
+			} 
 
-            if(DatabaseConnector::query("SELECT FROM item where is_approved=1' WHERE i_id = '$itemIDin'", array())){
-			return true;
-			} else {
-			return false;
+						return self::isItemApproved($itemID);
+			        }
+		
+		        public static function isItemApproved($itemID) {
+	
+	if(DatabaseConnector::query('SELECT i_id FROM item WHERE i_id=:itemid AND is_approved=1', array(':itemid'=>$itemid))){
+	return true;
+	}
+	return false;	
+
+			
         }
-		}
+
+			
 		
 		
 	

@@ -50,13 +50,7 @@ if ($isAdmin) {
 					break;
 				case "submit":
 					$itemID = $GLOBALS['url_loc'][3];
-					$itemApprovedRadiosIn = $_POST['approvalRadios'];
-					$itemApprovalJustificationIn = $_POST['itemJustification'];
-					echo $itemApprovedRadiosIn;echo "ZZZZZZZZZ";
-					echo $itemApprovalJustificationIn;
-					echo "ZZZZZZZZZ";
-					echo $itemID;				
-				$isListingApproved = admin::approveListing($itemApprovedRadiosIn,$itemApprovalJustificationIn,$itemIDin);
+
 					break;
 				case REMOVE_FROM_CART:
 					Order::removeItemFromCart($item_data['i_id'], $signed_in);
@@ -73,6 +67,21 @@ if ($isAdmin) {
 			$result = $e->getMessage();
 		}
 	}
+	
+	
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$itemApprovedRadiosIn = $_POST['approvalRadios'];
+$itemApprovalJustificationIn = $_POST['itemJustification'];
+$itemID = $GLOBALS['url_loc'][3];
+$isListingApproved = admin::approveListing($itemApprovedRadiosIn,$itemApprovalJustificationIn,$itemID);
+echo $isListingApproved;
+}
+	
+	
+		
+
+	
 
 } else {
     header("Location: ../index");

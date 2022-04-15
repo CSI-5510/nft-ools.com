@@ -69,8 +69,7 @@
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][3];
-	?>/">
+    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][3]; ?>">
         <!--<input type="text" id="itemID" name="itemID" value="">-->
         <div class="row mb-3">
             <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
