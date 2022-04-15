@@ -1,13 +1,12 @@
 <?php 
 
     
-    /**
-     * lineage
+    /** assembels an html string of the item lineage t
      *
-     * @param  mixed $item_events
-     * @return void
+     * @param  mixed $item_events results of DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])
+     * @return string
      */
-    function lineage($item_events){
+    function drawLineage($item_events){
         $_r = '
           <div class="container bg-gray-200 mx-auto w-full h-full">
             <div class="relative wrap overflow-hidden p-10 h-full">
@@ -41,7 +40,6 @@
               $content = timelineReducer($item_event, $body);
               $_r = $_r.rightTimeline($content);
               break;
-
           }
         }
         $_r = $_r.'
