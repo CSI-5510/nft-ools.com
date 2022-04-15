@@ -34,6 +34,8 @@
     define("FLEX_ROW_NO_JUSTIFY","flex flex-row items-start");
     define("FLEX_ROW_JUSTIFY","flex flex-row justify-between items-start");
     define("CONFIRMATION_IMAGE","p-4 m-10 ml-5 mr-40 w-3/5");
+    define("EVENT_LEFT","");
+    define("EVENT_RIGHT","");
 
     // ASIDE CONTROL ELEMENT FORMATTING
     // AC[X]_CLASS_[DESCRIPTOR]
@@ -100,6 +102,8 @@
     define("EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE","o_transactio_auth_code");
     define("EVENT_TABLE_EVENT_DESCRIPTION","event_description");
     define("EVENT_TABLE_EVENT_TIMESTAMP","event_timestamp"); // not needed
+    define("EVENT_TABLE_DESCRIPTION_EVENT_TYPE","event_type");
+    define("EVENT_TABLE_DESCRIPTION_CURRENT_PRICE",ITEM_TABLE_CURRENT_PRICE);
 
     // EVENT TABLE DEFAULT VALUES
     define("EVENT_TABLE_DEFAULT_STATUS","pending");
@@ -107,7 +111,17 @@
     // EVENTS
     define("EVENT_NEW_ITEM","new_item");
     define("EVENT_TRANSACTION","transaction");
+    define("EVENT_SAVED_ITEM_ADDED","added");
+    define("EVENT_SAVED_ITEM_LISTED","listed");
+    define("EVENT_SAVED_ITEM_DELISTED","delisted");
+    define("EVENT_SAVED_ITEM_UPDATED","updated");
+    define("EVENT_SAVED_ITEM_PURCHASED","purchased");
 
+
+    // TIMELINE
+    define("TIMELINE_REDUCER_BUBBLE","bubble");
+    define("TIMELINE_REDUCER_TITLE","event_title");
+    define("TIMELINE_REDUCER_BODY","event_body");
 
 ?>
 
