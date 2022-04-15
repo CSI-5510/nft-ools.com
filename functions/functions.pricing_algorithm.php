@@ -12,9 +12,7 @@
     function pricing($price, $born, $floor, $days_to_minimum){
         $gamma = calculateGamma($days_to_minimum);
         $depreciation = depreciation($born, $gamma);
-        if($depreciation<$floor){
-            $depreciation=$floor;
-        }
+        $depreciation = applyFloor($depreciation, $floor);
         return round($depreciation * $price, 2);
     }
     
@@ -30,6 +28,17 @@
         $age = ($now - strtotime($born))/daysToSeconds(1);
         $x = scaleToGamma($age, $gamma);
         return sigmoid($x, $gamma);
+    }
+
+    
+    /** scales the depreciation sigmoid range between the floor and 1.0
+     *
+     * @param  mixed $depreciation
+     * @param  mixed $floor
+     * @return float 
+     */
+    function applyFloor($depreciation, $floor){
+        return (1 - $floor) * $depreciation + $floor;
     }
 
     
@@ -69,7 +78,7 @@
     /** calculates gamma based on number of days until full depreciation
      *
      * @param  int $days number of days until full depreciation
-     * @return float gamma
+     * @return float gamma: gamma is the effective transitional domain of the sigmoid. values of x outside of gamma produce values of y approaching 1 or 0 (0.9993%). x is added to gamma to shift the sigmoid to the right so that the depreciation at the date of purchase would have been equal to 1.
      */
     function calculateGamma($days){
         return 10 / $days;
