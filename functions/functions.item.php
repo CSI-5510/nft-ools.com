@@ -93,6 +93,7 @@
      * @return void draws to page
      */
     function drawItemPage($item_data, $is_users_listing, $signed_in, $mute_controls){
+        include_once('../functions/functions.lineage.php');
         echo '
             <div class="grid grid-rows-5 grid-cols-3">
                 <h3 class="row-span-1 col-span-2 text-2xl font-bold m-10 mb-0 p-4 bg-gray-200">
@@ -116,7 +117,7 @@
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 bg-green-100 text-center">
-                lineage
+                '.drawLineage(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])).'
             </div>
         ';
         return;
