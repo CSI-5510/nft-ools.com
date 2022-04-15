@@ -110,7 +110,6 @@ class DatabaseConnector {
 
 
 	public static function getItemEvents($item_id){
-		console($item_id);
 		$q = 'SELECT * FROM orders WHERE '.EVENT_TABLE_ITEM_ID.' =' .$item_id.' ORDER BY '.EVENT_TABLE_TIMESTAMP.' DESC';
 		try{
 			return self::query($q);

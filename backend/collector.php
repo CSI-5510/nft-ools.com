@@ -2,9 +2,8 @@
 
     include_once('../functions/functions.pricing_algorithm.php');
     include_once('../functions/functions.collector.php');
-    console($_POST);
+    
     if(!isset($_POST)){
-
         header("location: /public_html");
     }
 

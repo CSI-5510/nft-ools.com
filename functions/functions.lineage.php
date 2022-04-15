@@ -8,16 +8,20 @@
      */
     function drawLineage($item_events){
         $_r = '
-          <div class="container bg-gray-200 mx-auto w-full h-full">
+          <div class="container mx-auto w-full h-full">
             <div class="relative wrap overflow-hidden p-10 h-full">
               <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%">
               </div>
         ';
         foreach($item_events as $item_event){
-          switch($item_event){
+          $type = extractEventDescriptionData($item_event[EVENT_TABLE_EVENT_DESCRIPTION], EVENT_TABLE_DESCRIPTION_EVENT_TYPE);
+          console($type);
+          switch($type){
             case EVENT_SAVED_ITEM_ADDED:
               $body = timelineItemAddedBody($item_event[EVENT_TABLE_EVENT_DESCRIPTION]);
+              console($body);
               $content = timelineReducer($item_event, $body);
+              console($content);
               $_r = $_r.rightTimeline($content);
               break;
             case EVENT_SAVED_ITEM_LISTED:
@@ -56,7 +60,8 @@
      * @return string item added message
      */
     function timelineItemAddedBody($description){
-      return 'item added to system';
+      $price = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_CURRENT_PRICE);
+      return 'item added to system<br>initial sale price: '.$price;
     }
 
     

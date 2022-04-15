@@ -116,7 +116,7 @@
                     .'
                 </div>
             </div>
-            <div id="lineage" class="p-4 m-10 bg-green-100 text-center">
+            <div id="lineage" class="p-4 m-10 text-center">
                 '.drawLineage(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])).'
             </div>
         ';
