@@ -32,7 +32,6 @@
                 break;
             default:
                 drawItemPage($item_data, $is_users_listing, $signed_in, FALSE);
-                var_dump(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID]));
                 break;
         }
     } catch(Exception $e){
