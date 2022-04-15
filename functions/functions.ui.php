@@ -27,11 +27,11 @@
      * @param  bool $required set required flag
      * @return void draws to page
      */
-    function drawTextInput($name, $format, $character_limit, $required){
+    function drawTextInput($name, $format, $character_limit, $required,$value){
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);        
         echo '
-            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.$_r.'>
+            <input type="text" value="'.$value.'" name="'.$name.'" class="'.$format.'"'.$_c.$_r.' >
         ';
         return;
     }

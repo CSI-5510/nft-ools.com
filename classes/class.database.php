@@ -116,14 +116,14 @@ class DatabaseConnector {
 	public static function newItemEvent($data){
 		$q = "INSERT INTO orders (".EVENT_TABLE_ID.",".EVENT_TABLE_TIMESTAMP.",".EVENT_TABLE_STATUS.",".EVENT_TABLE_ITEM_ID.",".EVENT_TABLE_BUYER_ID.",".EVENT_TABLE_SELLER_ID.",".EVENT_TABLE_TRANSACTION_ID.",".EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE.",".EVENT_TABLE_EVENT_DESCRIPTION.",".EVENT_TABLE_EVENT_TIMESTAMP.") VALUES ()";
 		self::query($q);
-		return; 
+		return; 	
 	}
 	
 	/*  User Profile update queries
 	Pre-Populate Form with Current Account Details
 	*/
 	public static function getCurrentAccountDetails($id){
-		$q = 'SELECT fname, lname, email, addr_line1, addr_line2, city, state, zip, phone FROM user WHERE id =' .$id;
+		$q = 'SELECT fname, lname, email, addr_line1, addr_line2, city, state, zip, phone FROM user WHERE id ='.$id;
 		return DatabaseConnector::query($q);
 	}
 	
@@ -132,7 +132,7 @@ class DatabaseConnector {
 	Once User has entered in different values, update the entire row with the new/existing form values
 	*/
 	public static function updateUserProfileInfo($data, $user_id){
-		$q = "UPDATE user SET id=value-1,username=value-2,email=value-3,password=value-4,`admin`=value-5,created_at=value-6,updated_at=value-7,fname=value-8,lname=value-9,addr_line_1=value-10,addr_line_2=value-11,city=value-12,state=value-13,zip=value-14,phone=value-15 WHERE id = $userID";
+		$q = "UPDATE user SET id=".$user_id.",username=".$_POST[USER_TABLE_USERNAME].",email=".$_POST[USER_TABLE_EMAIL].",password=".$_POST[USER_TABLE_PASSWORD].",fname=".$_POST[USER_TABLE_FNAME].",lname=".$_POST[USER_TABLE_LNAME].",addr_line_1=".$_POST[USER_TABLE_ADDR_LINE_1].",addr_line_2=".$_POST[USER_TABLE_ADDR_LINE_2].",city=".$_POST[USER_TABLE_CITY].",state=".$_POST[USER_TABLE_STATE].",zip=".$_POST[USER_TABLE_ZIP].",phone=".$_POST[USER_TABLE_PHONE]." WHERE id = ".$user_id;
 		self::query($q);
 		return; 
 	}

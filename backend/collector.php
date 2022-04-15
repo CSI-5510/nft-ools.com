@@ -23,6 +23,10 @@
                 // $item_data = DatabaseConnector::getItem($item_id);
                 // DatabaseConnector::setPendingApproval($item_id);
                 break;
+			case EDIT_PROFILE:
+				 DatabaseConnector::updateUserProfileInfo(USER_ID);
+				 $NOTIFY_USER=TRUE;
+				 break;
             case CANCEL_ADD_ITEM:
                 // $item_id = $_POST["item_id"];
                 // if($new_item){
