@@ -13,7 +13,7 @@
 	$is_item_open = Order::isItemOpen($GLOBALS['url_loc'][2]);
 	$is_item_pending = Order::isItemPending($GLOBALS['url_loc'][2]);
 	$is_item_in_cart = Order::isItemInUserCart($GLOBALS['url_loc'][2], $signed_in);
-	
+
     if(!isset($GLOBALS['url_loc'][3])){
         return;
     }

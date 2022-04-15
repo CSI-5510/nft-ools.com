@@ -60,7 +60,15 @@ class DatabaseConnector {
 	 * @return array [{'i_id', 'i_name', 'current_price', 'i_image', 'i_description'}]
 	 */
 	public static function getItemData($id){
-		$q = 'SELECT i_id, i_name, current_price, i_image, i_description 
+		$q = 'SELECT '
+				.ITEM_TABLE_ID.','
+				.ITEM_TABLE_NAME.','
+				.ITEM_TABLE_CURRENT_PRICE.','
+				.ITEM_TABLE_ORIGINAL_PRICE.','
+				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.','
+				.ITEM_TABLE_IMAGE.','
+				.ITEM_TABLE_DESCRIPTION.','
+				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.'  
 			FROM item WHERE i_id = '.$id; 
 		// echo $q;
 		return DatabaseConnector::query($q)[0];
@@ -108,7 +116,23 @@ class DatabaseConnector {
 		return;
 	}
 
+	
+	/** gets first and last name for a given user id
+	 *
+	 * @param  mixed $user_id
+	 * @return void
+	 */
+	public static function getUserFullName($user_id){
+		$q = 'SELECT '.USER_TABLE_FIRST_NAME.','.USER_TABLE_LAST_NAME.' FROM user WHERE '.USER_TABLE_ID.'='.$user_id;
+		return self::query($q)[0];
+	}
 
+	
+	/** returns all rows from order table for a given item id
+	 *
+	 * @param  mixed $item_id
+	 * @return void
+	 */
 	public static function getItemEvents($item_id){
 		$q = 'SELECT * FROM orders WHERE '.EVENT_TABLE_ITEM_ID.' =' .$item_id.' ORDER BY '.EVENT_TABLE_TIMESTAMP.' DESC';
 		try{

@@ -6,7 +6,7 @@
 
 
     // USER
-    define("USER_ID",32/*User::isLoggedIn()*/);
+    define("USER_ID",22/*User::isLoggedIn()*/);
 
     
     // NAVIGATION
@@ -102,8 +102,13 @@
     define("EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE","o_transactio_auth_code");
     define("EVENT_TABLE_EVENT_DESCRIPTION","event_description");
     define("EVENT_TABLE_EVENT_TIMESTAMP","event_timestamp"); // not needed
+
+    // EVENT TABLE DESCRIPTION COLUMN KEYS
     define("EVENT_TABLE_DESCRIPTION_EVENT_TYPE","event_type");
     define("EVENT_TABLE_DESCRIPTION_CURRENT_PRICE",ITEM_TABLE_CURRENT_PRICE);
+    define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_DATE",ITEM_TABLE_ORIGINAL_PURCHASE_DATE);
+    define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_PRICE",ITEM_TABLE_ORIGINAL_PRICE);
+    define("EVENT_TABLE_DESCRIPTION_ORIGINAL_OWNER","original_owner");
 
     // EVENT TABLE DEFAULT VALUES
     define("EVENT_TABLE_DEFAULT_STATUS","pending");
@@ -122,6 +127,13 @@
     define("TIMELINE_REDUCER_BUBBLE","bubble");
     define("TIMELINE_REDUCER_TITLE","event_title");
     define("TIMELINE_REDUCER_BODY","event_body");
+
+
+    // USER TABLE
+    define("USER_TABLE_FIRST_NAME","fname");
+    define("USER_TABLE_LAST_NAME","lname");
+    define("USER_TABLE_ID","id");
+
 
 ?>
 

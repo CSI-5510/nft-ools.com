@@ -15,13 +15,10 @@
         ';
         foreach($item_events as $item_event){
           $type = extractEventDescriptionData($item_event[EVENT_TABLE_EVENT_DESCRIPTION], EVENT_TABLE_DESCRIPTION_EVENT_TYPE);
-          console($type);
           switch($type){
             case EVENT_SAVED_ITEM_ADDED:
               $body = timelineItemAddedBody($item_event[EVENT_TABLE_EVENT_DESCRIPTION]);
-              console($body);
               $content = timelineReducer($item_event, $body);
-              console($content);
               $_r = $_r.rightTimeline($content);
               break;
             case EVENT_SAVED_ITEM_LISTED:
@@ -60,8 +57,18 @@
      * @return string item added message
      */
     function timelineItemAddedBody($description){
+      console($description);
       $price = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_CURRENT_PRICE);
-      return 'item added to system<br>initial sale price: '.$price;
+      $original_purchase_date = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_DATE);
+      $original_owner = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_ORIGINAL_OWNER);
+      $original_purchase_price = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_PRICE);
+      return '
+        item added to system<br>
+        original owner: '.$original_owner.'<br>
+        original purchase date: '.$original_purchase_date.'<br>
+        original purchase price: '.$original_purchase_price.'<br>
+        initial sales price: '.$price
+      ;
     }
 
     

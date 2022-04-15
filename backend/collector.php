@@ -10,12 +10,12 @@
     try{
         switch($GLOBALS['url_loc'][2]){
             case ADD_ITEM:
-                // $user_id = User::isLoggedInWithRedirect();
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, USER_ID);
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0][0];
                 $item_data = DatabaseConnector::getItemData($item_id);
-                $item_data = newItemEventReducer($item_data);
+                $user_data = DatabaseConnector::getUserFullName(USER_ID);
+                $item_data = newItemEventReducer($item_data,$user_data);
                 DatabaseConnector::addEvent(EVENT_NEW_ITEM, $item_data);
                 break;
             default:
