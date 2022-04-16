@@ -9,6 +9,10 @@
 
     try{
         switch($GLOBALS['url_loc'][2]){
+            case URL_ADD_EVENT:
+                $event_data = addEventReducer($_POST);
+                console($event_data);
+                break;
             case ADD_ITEM:
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, USER_ID);

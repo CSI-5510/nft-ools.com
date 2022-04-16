@@ -56,6 +56,23 @@
         );
     }
 
-    
+
+    function addEventReducer($post){return array(
+        EVENT_TABLE_ID => 'NULL',                                               /*00*/
+        EVENT_TABLE_TIMESTAMP => 'NULL',                                        /*01*/    
+        EVENT_TABLE_STATUS => EVENT_TABLE_DEFAULT_STATUS,                       /*02*/    
+        EVENT_TABLE_ITEM_ID => $post[EVENT_TABLE_ITEM_ID],                      /*03*/
+        EVENT_TABLE_BUYER_ID => 'NULL',                                         /*04*/    
+        EVENT_TABLE_SELLER_ID => 'NULL',                                        /*05*/       
+        EVENT_TABLE_TRANSACTION_ID => 'NULL',                                   /*06*/
+        EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE => 'NULL',                  /*07*/
+        EVENT_TABLE_EVENT_DESCRIPTION => 
+            ADD_EVENT_TYPE.'='.$post[ADD_EVENT_TYPE].'&'.
+            ADD_EVENT_DATE.'='.$post[ADD_EVENT_DATE].'&'.
+            ADD_EVENT_COST.'='.$post[ADD_EVENT_COST].'&'.
+            ADD_EVENT_DESCRIPTION.'='.$post[ADD_EVENT_DESCRIPTION],             /*08*/
+        EVENT_TABLE_EVENT_TIMESTAMP => 'NULL'                                   /*09*/
+    );
+    }
 ?>
 

@@ -8,8 +8,11 @@
         $CLOSE_ROW = '</div>';
         
         // OPEN FORM
-        echo '<form method="POST" action="./'.COLLECTOR.'/'.URL_ADD_EVENT.'" enctype="multipart/form-data">';
+        echo '<form method="POST" action="'.PROJECT_ROOT.'/'.URL_LOC_0.'/'.COLLECTOR.'/'.URL_ADD_EVENT.'" enctype="multipart/form-data">';
         
+        // ITEM ID
+        echo drawHidden(EVENT_TABLE_ITEM_ID,$id);
+
         // EVENT TYPE
         echo $OPEN_ROW;
         echo drawLabel('EVENT TYPE', LISTING_LABEL);
