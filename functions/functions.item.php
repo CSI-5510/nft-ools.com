@@ -82,9 +82,9 @@
      * @param  string $format the string for the class html element attribute
      * @return string the html as a string for the button
      */
-    function drawAddEventButton($id, $format){
+    function drawAddEventButton($item_data, $format){
         $text = 'Add Event';
-        $url = addEventURL($id);
+        $url = addEventURL($item_data[ITEM_TABLE_ID]);
         return drawLinkButton($text, $url, $format);
     }
 
