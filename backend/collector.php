@@ -11,7 +11,8 @@
         switch($GLOBALS['url_loc'][2]){
             case URL_ADD_EVENT:
                 $event_data = addEventReducer($_POST);
-                console($event_data);
+                DatabaseConnector::addEvent($event_data);
+                $item_id = $_POST[EVENT_TABLE_ITEM_ID];
                 break;
             case ADD_ITEM:
                 $item_data = addNewItemReducer();
@@ -20,7 +21,7 @@
                 $item_data = DatabaseConnector::getItemData($item_id);
                 $user_data = DatabaseConnector::getUserFullName(USER_ID);
                 $item_data = newItemEventReducer($item_data,$user_data);
-                DatabaseConnector::addEvent(EVENT_NEW_ITEM, $item_data);
+                DatabaseConnector::addEvent($item_data);
                 break;
             case ADD_ITEM_CONFIRMATION:
                 // $item_id = $_POST["item_id"];
