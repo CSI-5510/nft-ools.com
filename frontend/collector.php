@@ -1,10 +1,9 @@
 <?php
 
 
-    // FRONTEND
-    include('../functions/functions.collector.php');
+    include_once('../functions/functions.collector.php');
     include_once('../functions/functions.item.php');
-    console(json_encode($GLOBALS['url_loc']));
+    console("include statements executed");
 
     try{
          switch($GLOBALS['url_loc'][2]){
@@ -16,11 +15,9 @@
                  alertBox('Notice', 'Item submission awaiting approval. The approval process takes 24 to 48 hours.');
                  drawItemPage($item_data, TRUE, TRUE, TRUE);
                  break;
-			 case EDIT_PROFILE:
-				 
-				 header("location: /public_html/updateprofile");
-				 break;
-				 
+			 case EDIT_PROFILE:			
+				header("location: /public_html/".PROFILE_UPDATED);
+				break;				 
              case CANCEL_ADD_ITEM:
                  alertBox('Notice', 'Item submission request cancelled.');
                  break;

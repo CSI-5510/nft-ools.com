@@ -2,10 +2,11 @@
 
     // FRONTEND
     include('../functions/functions.edit_profile.php');
-	if(isset ($NOTIFY_USER)){
-		alertBox('Notice', 'Your profile has been updated successfully.');
-	}
-    drawEditProfile($options,$data);
+    console($GLOBALS['user_profile_updated']);
+    if($GLOBALS['user_profile_updated']){
+        alertBox('Notice', 'Your profile has been updated successfully.');
+    }
+    drawEditProfile($user_data);
 
 
 ?>

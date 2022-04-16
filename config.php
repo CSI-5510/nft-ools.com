@@ -59,7 +59,7 @@ switch ($GLOBALS['url_loc'][1]){
         break;
     case "collector":
         $BACKEND = "collector";
-        $PAGE_TITLE = "Add Item";
+        $PAGE_TITLE = "Collector";
         $FRONTEND = "collector";
         break;
     case "admin":
@@ -71,6 +71,11 @@ switch ($GLOBALS['url_loc'][1]){
         $BACKEND = "updateProfile";
         $PAGE_TITLE = "updateProfile";
         $FRONTEND = "updateProfile";
+        break;
+    case PROFILE_UPDATED:
+        $BACKEND = PROFILE_UPDATED;
+        $PAGE_TITLE = "Profile Updated";
+        $FRONTEND = PROFILE_UPDATED;
         break;
     default:
         $BACKEND = "index";

@@ -123,10 +123,10 @@ class DatabaseConnector {
 	Pre-Populate Form with Current Account Details
 	*/
 	public static function getCurrentAccountDetails($id){
-		$q = 'SELECT fname, lname, email, addr_line_1, addr_line_2, city, state, zip, phone FROM user WHERE id ='.$id;
+		$q = 'SELECT username, fname, lname, email, addr_line_1, addr_line_2, city, state, zip, phone FROM user WHERE id ='.$id;
 		try{
 			
-		     return self::query($q);
+		     return self::query($q)[0];
 		}
 		catch(Exception $e){
 			return $e;
@@ -138,8 +138,19 @@ class DatabaseConnector {
 	/*  User Profile update queries
 	Once User has entered in different values, update the entire row with the new/existing form values
 	*/
-	public static function updateUserProfileInfo($data, $user_id){
-		$q = "UPDATE user SET id=".$user_id.",username=".$_POST[USER_TABLE_USERNAME].",email=".$_POST[USER_TABLE_EMAIL].",password=".$_POST[USER_TABLE_PASSWORD].",fname=".$_POST[USER_TABLE_FNAME].",lname=".$_POST[USER_TABLE_LNAME].",addr_line_1=".$_POST[USER_TABLE_ADDR_LINE_1].",addr_line_2=".$_POST[USER_TABLE_ADDR_LINE_2].",city=".$_POST[USER_TABLE_CITY].",state=".$_POST[USER_TABLE_STATE].",zip=".$_POST[USER_TABLE_ZIP].",phone=".$_POST[USER_TABLE_PHONE]." WHERE id = ".$user_id;
+	public static function updateUserProfileInfo($user_id){
+		$q = "UPDATE user SET " 
+				."username='".$_POST[USER_TABLE_USERNAME]."'"
+				.",email='".$_POST[USER_TABLE_EMAIL]."'"
+				.",fname='".$_POST[USER_TABLE_FNAME]."'"
+				.",lname='".$_POST[USER_TABLE_LNAME]."'"
+				.",addr_line_1='".$_POST[USER_TABLE_ADDR_LINE_1]."'"
+				.",addr_line_2='".$_POST[USER_TABLE_ADDR_LINE_2]."'"
+				.",city='".$_POST[USER_TABLE_CITY]."'"
+				.",state='".$_POST[USER_TABLE_STATE]."'"
+				.",zip=".$_POST[USER_TABLE_ZIP]
+				.",phone=".$_POST[USER_TABLE_PHONE]
+			." WHERE id = ".$user_id;
 		self::query($q);
 		return; 
 	}

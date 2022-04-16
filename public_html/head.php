@@ -9,10 +9,9 @@
     <?php print $PAGE_TITLE;?>
   </title>
   <?php endif; ?>
-<script defer src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@1.x.x/dist/alpine-clipboard.js">
-  </script >		 		 
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@1.x.x/dist/alpine-clipboard.js"></script>		 		 
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <script defer src="https://unpkg.com/alpinejs@3.9.5/dist/cdn.min.js"></script>
-
+<script src="./scripts/main.js"></script>
 <script src='https://www.google.com/recaptcha/api.js' async defer></script>  
 </head>

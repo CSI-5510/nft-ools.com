@@ -6,8 +6,8 @@
      *
      * @return void draws to page
      */
-    function drawEditProfile($options,$data){
-
+    function drawEditProfile($data){
+        
         // CONSTANTS
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
@@ -29,10 +29,10 @@
         echo $CLOSE_ROW;
         
         // ROW PASSWORD
-        echo $OPEN_ROW;
-        drawLabel('Password', LISTING_LABEL);
-        drawTextInput(USER_TABLE_PASSWORD, LISTING_INPUT_AREA, 20, TRUE,$data[USER_TABLE_PASSWORD]);
-        echo $CLOSE_ROW;
+        // echo $OPEN_ROW;
+        // drawLabel('Password', LISTING_LABEL);
+        // drawTextInput(USER_TABLE_PASSWORD, LISTING_INPUT_AREA, 20, TRUE,$data[USER_TABLE_PASSWORD]);
+        // echo $CLOSE_ROW;
 
         // ROW FIRST NAME
         echo $OPEN_ROW;

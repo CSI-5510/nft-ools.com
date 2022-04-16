@@ -25,7 +25,7 @@
                 break;
 			case EDIT_PROFILE:
 				 DatabaseConnector::updateUserProfileInfo(USER_ID);
-				 $NOTIFY_USER=TRUE;
+				 $GLOBALS['user_profile_updated']=TRUE;
 				 break;
             case CANCEL_ADD_ITEM:
                 // $item_id = $_POST["item_id"];
