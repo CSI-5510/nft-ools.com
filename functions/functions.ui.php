@@ -26,7 +26,7 @@
      * @param  bool $required set required flag
      * @return string
      */
-    function drawTextInput($name, $format, $character_limit, $required){
+    function drawTextInput($name, $format, $character_limit, $required,$value){
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);        
         return '
