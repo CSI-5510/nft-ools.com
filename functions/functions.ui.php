@@ -215,4 +215,18 @@
     function drawPostedImage($image, $format){
         return '<image class="'.$format.'" src="'.imageSrc(file_get_contents($_FILES[$image]["tmp_name"])).'"/>';
     }
+
+    
+    /** assembels string for html hiden element
+     *
+     * @param  string $name should correspond to the column name in the table into which data will be inserted
+     * @param  mixed $value the value that will be submitted
+     * @return string html hidded input element as a string
+     */
+    function drawHidden($name, $value){
+        return '
+            <input type="hidden" name="'.$name.'" value="'.$value.'">
+        ';
+    }
+
 ?>
