@@ -80,9 +80,11 @@
      * @param  mixed $format LISTING_INPUT_AREA
      * @return void draws to page
      */
-    function drawTextArea($name, $format){
+    function drawTextArea($name, $format, $character_limit, $required){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);    
         return '
-            <textarea name="'. $name .'" class="'.$format.'"></textarea>
+            <textarea name="'. $name .'" class="'.$format.'"'.$_c.$_r.'></textarea>
         ';
     }
 
