@@ -17,28 +17,28 @@
         echo $OPEN_ROW;
         echo drawLabel('EVENT TYPE', LISTING_LABEL);
         $options = array(
-            array("value" => 'REPAIR', "text" => "REPAIR"),
-            array("value" => 'UPGRADE', "text" => "UPGRADE")
+            array("value" => EVENT_SAVED_REPAIRED, "text" => EVENT_SAVED_REPAIRED),
+            array("value" => EVENT_SAVED_UPGRADED, "text" => EVENT_SAVED_UPGRADED)
         );
-        echo drawSelectOption(ADD_EVENT_TYPE, LISTING_INPUT_AREA, $options);
+        echo drawSelectOption(EVENT_TABLE_DESCRIPTION_EVENT_TYPE, LISTING_INPUT_AREA, $options);
         echo $CLOSE_ROW;
         
         // EVENT DATE
         echo $OPEN_ROW;
         echo drawLabel('DATE', LISTING_LABEL);
-        echo drawDateInput(ADD_EVENT_DATE, LISTING_INPUT_AREA);
+        echo drawDateInput(EVENT_TABLE_DESCRIPTION_DATE, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // EVENT COST
         echo $OPEN_ROW;
         echo drawLabel('COST', LISTING_LABEL);
-        echo drawTextInput(ADD_EVENT_COST, LISTING_INPUT_AREA, 20, TRUE, '');
+        echo drawTextInput(EVENT_TABLE_DESCRIPTION_COST, LISTING_INPUT_AREA, 20, TRUE, '');
         echo $CLOSE_ROW;
         
         // EVENT DESCRIPTION
         echo $OPEN_ROW;
         echo drawLabel('DESCRIPTION', LISTING_LABEL);
-        echo drawTextArea(ADD_EVENT_DESCRIPTION, LISTING_INPUT_AREA, 200, TRUE);
+        echo drawTextArea(EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION, LISTING_INPUT_AREA, 200, TRUE);
         echo $CLOSE_ROW;  
         
         // ROW SUBMIT BUTTON

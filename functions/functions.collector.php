@@ -67,10 +67,10 @@
         EVENT_TABLE_TRANSACTION_ID => 'NULL',                                   /*06*/
         EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE => 'NULL',                  /*07*/
         EVENT_TABLE_EVENT_DESCRIPTION => 
-            ADD_EVENT_TYPE.'='.$post[ADD_EVENT_TYPE].'&'.
-            ADD_EVENT_DATE.'='.$post[ADD_EVENT_DATE].'&'.
-            ADD_EVENT_COST.'='.$post[ADD_EVENT_COST].'&'.
-            ADD_EVENT_DESCRIPTION.'='.$post[ADD_EVENT_DESCRIPTION],             /*08*/
+            EVENT_TABLE_DESCRIPTION_EVENT_TYPE.'='.$post[EVENT_TABLE_DESCRIPTION_EVENT_TYPE].'&'.
+            EVENT_TABLE_DESCRIPTION_DATE.'='.$post[EVENT_TABLE_DESCRIPTION_DATE].'&'.
+            EVENT_TABLE_DESCRIPTION_COST.'='.$post[EVENT_TABLE_DESCRIPTION_COST].'&'.
+            EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION.'='.$post[EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION],             /*08*/
         EVENT_TABLE_EVENT_TIMESTAMP => 'NULL'                                   /*09*/
     );
     }

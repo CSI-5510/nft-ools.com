@@ -131,6 +131,9 @@
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_DATE",ITEM_TABLE_ORIGINAL_PURCHASE_DATE);
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_PRICE",ITEM_TABLE_ORIGINAL_PRICE);
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_OWNER","original_owner");
+    define("EVENT_TABLE_DESCRIPTION_DATE","date");
+    define("EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION","description");
+    define("EVENT_TABLE_DESCRIPTION_COST","cost");
 
     // EVENT TABLE DEFAULT VALUES
     define("EVENT_TABLE_DEFAULT_STATUS","pending");
@@ -143,19 +146,14 @@
     define("EVENT_SAVED_ITEM_DELISTED","delisted");
     define("EVENT_SAVED_ITEM_UPDATED","updated");
     define("EVENT_SAVED_ITEM_PURCHASED","purchased");
+    define("EVENT_SAVED_REPAIRED","repaired");
+    define("EVENT_SAVED_UPGRADED","upgraded");
 
 
     // TIMELINE
     define("TIMELINE_REDUCER_BUBBLE","bubble");
     define("TIMELINE_REDUCER_TITLE","event_title");
     define("TIMELINE_REDUCER_BODY","event_body");
-
-
-    // ADD EVENT
-    define("ADD_EVENT_TYPE","type");
-    define("ADD_EVENT_DATE","date");
-    define("ADD_EVENT_COST","cost");
-    define("ADD_EVENT_DESCRIPTION","description");
 
 
 ?>

@@ -41,6 +41,16 @@
               $content = timelineReducer($item_event, $body);
               $_r = $_r.rightTimeline($content);
               break;
+            case EVENT_SAVED_UPGRADED:
+              $body = timelineItemUpdatedBody($item_event[EVENT_TABLE_EVENT_DESCRIPTION]);
+              $content = timelineReducer($item_event, $body);
+              $_r = $_r.leftTimeline($content);
+              break;
+            case EVENT_SAVED_REPAIRED:
+              $body = timelineItemUpdatedBody($item_event[EVENT_TABLE_EVENT_DESCRIPTION]);
+              $content = timelineReducer($item_event, $body);
+              $_r = $_r.leftTimeline($content);
+              break;
           }
         }
         $_r = $_r.'
@@ -63,7 +73,6 @@
       $original_owner = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_ORIGINAL_OWNER);
       $original_purchase_price = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_PRICE);
       return '
-        item added to system<br>
         original owner: '.$original_owner.'<br>
         original purchase date: '.$original_purchase_date.'<br>
         original purchase price: '.$original_purchase_price.'<br>
@@ -98,9 +107,15 @@
      * @return string update item message
      */
     function timelineItemUpdatedBody($description){
-      return 'item details updated';
+      $date = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_DATE);
+      $cost = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_COST);
+      $description = extractEventDescriptionData($description, EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION);
+      return '
+        Date: '.$date.'<br>
+        Cost: '.$cost.'<br>
+        Description: '.$description
+      ;
     }
-
 
     
     /** assembles data for timeline event draw functions
@@ -112,7 +127,7 @@
     function timelineReducer($item_event, $event_body){
       $type = extractEventDescriptionData($item_event[EVENT_TABLE_EVENT_DESCRIPTION], EVENT_TABLE_DESCRIPTION_EVENT_TYPE);
       $bubble = encodeEventType($type);
-      $event_title = $item_event[EVENT_TABLE_TIMESTAMP];
+      $event_title = strtoupper($type).'<br>'.$item_event[EVENT_TABLE_TIMESTAMP];
       return array(
         TIMELINE_REDUCER_BUBBLE => $bubble,
         TIMELINE_REDUCER_TITLE => $event_title,
@@ -143,6 +158,12 @@
           break;
         case EVENT_SAVED_ITEM_PURCHASED:
           return 'PR';
+          break;
+        case EVENT_SAVED_UPGRADED:
+          return 'UG';
+          break;
+        case EVENT_SAVED_REPAIRED:
+          return 'RP';
           break;
       }
     }
