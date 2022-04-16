@@ -151,5 +151,12 @@
     define("TIMELINE_REDUCER_BODY","event_body");
 
 
+    // ADD EVENT
+    define("ADD_EVENT_TYPE","type");
+    define("ADD_EVENT_DATE","date");
+    define("ADD_EVENT_COST","cost");
+    define("ADD_EVENT_DESCRIPTION","description");
+
+
 ?>
 
