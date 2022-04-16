@@ -28,11 +28,16 @@
      * @param  mixed $command 
      * @return string returns url
      */
-
     // ../phpstorm/nft-ools/
-    function itemAPI($id, $command){
+    function itemURL($id, $command){
         $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/item/'.$id.'/'.$command;
         return $l;
+    }
+
+
+    function addEventURL($id){
+        $_r = $GLOBALS['config']['url_root'].'/'.URL_LOC_0.'/'.URL_ADD_EVENT.'/'.$id;
+        return $_r;
     }
     
 ?>

@@ -20,7 +20,7 @@
      */
     function drawAddToCartButton($id, $format, $command){
         $text = 'Add to Orders';
-        $url = itemAPI($id, $command);
+        $url = itemURL($id, $command);
         return drawLinkButton($text, $url, $format);
     }
 	
@@ -33,7 +33,7 @@
      */
     function drawRemoveFromCartButton($id, $format, $command){
         $text = 'Remove from Orders';
-        $url = itemAPI($id, $command);
+        $url = itemURL($id, $command);
         return drawLinkButton($text, $url, $format);
     }
 	
@@ -71,16 +71,21 @@
     */
     function drawEditItemButton($id, $format, $command){
         $text = 'Edit Item';
-        $url = itemAPI($id, $command);
+        $url = itemURL($id, $command);
         return drawLinkButton($text, $url, $format); 
     }
 
     
-    /** draws edit item modal
+    /** assembels html text for Add Item button
      *
-     * @return void draws to page
+     * @param  int $id the item id for the id column in the id table
+     * @param  string $format the string for the class html element attribute
+     * @return string the html as a string for the button
      */
-    function drawEditItemModal(){
+    function drawAddEventButton($id, $format){
+        $text = 'Add Event';
+        $url = addEventURL($id);
+        return drawLinkButton($text, $url, $format);
     }
 
     
@@ -105,15 +110,13 @@
                 </p>
             </div>
             <div class="flex flex-row justify-between items-center">
-                <div id="price" class="p-4 m-10 bg-green-100 text-center">
-                    '.$item_data["current_price"].'
+                <div id="price" class="p-4 m-10 ml-20 text-4xl font-bold text-center">
+                    $'.$item_data["current_price"].'
                 </div>
-                <div class="flex flex-row justify-between items-center w-3/10">
-                    '.
-                        decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls)
-                        .
-                        decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls)
-                    .'
+                <div class="flex flex-row justify-between items-center w-3/10">'.
+                    decideAddEventButton().
+                    decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
+                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 text-center">
@@ -121,6 +124,20 @@
             </div>
         ';
         return;
+    }
+
+
+    decideAddEventButton(){
+        if($mute){
+            return '';
+        }
+        if(!$signed_in){
+            return '';
+        }
+        if($is_users_listing){
+            return drawEditEventButton($item_data["i_id"], BLUE_BUTTON, EDIT);
+        }
+        return '';
     }
 
     
@@ -142,7 +159,7 @@
         if($is_users_listing){
             return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
         }
-        return;
+        return '';
     }
 
     

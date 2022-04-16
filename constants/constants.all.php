@@ -22,6 +22,8 @@
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
     define("HEADER_HOME","Location: ../public_html");
+    define("URL_ADD_EVENT",'add_event');
+
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");

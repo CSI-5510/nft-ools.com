@@ -28,7 +28,7 @@
 				}
                 break;		
             case EDIT:
-                drawEditItemModal();
+                
                 break;
             default:
                 drawItemPage($item_data, $is_users_listing, $signed_in, FALSE);
