@@ -124,7 +124,14 @@ class DatabaseConnector {
 	*/
 	public static function getCurrentAccountDetails($id){
 		$q = 'SELECT fname, lname, email, addr_line_1, addr_line_2, city, state, zip, phone FROM user WHERE id ='.$id;
-		return DatabaseConnector::query($q);
+		try{
+			
+		     return self::query($q);
+		}
+		catch(Exception $e){
+			return $e;
+			
+		}
 	}
 	
 	
