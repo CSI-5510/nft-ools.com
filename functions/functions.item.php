@@ -24,7 +24,7 @@
         return drawLinkButton($text, $url, $format);
     }
 	
-	    /** draws an remove to cart button 
+    /** draws an remove to cart button 
      *
      * @param  mixed $id item id for sql delete
      * @param  mixed $format format for button from contants.all.php
@@ -37,7 +37,7 @@
         return drawLinkButton($text, $url, $format);
     }
 	
-	    /** draws disabled button
+	/** draws disabled button
      *
      * @param  mixed $id item id for sql delete
      * @param  mixed $format format for button from contants.all.php
@@ -49,7 +49,7 @@
         return drawDisabledButton($text, $format);
     }
 	
-	    /** draws disabled button
+	/** draws disabled button
      *
      * @param  mixed $id item id for sql delete
      * @param  mixed $format format for button from contants.all.php
@@ -76,58 +76,29 @@
     }
 
     
-    /** assembels html text for Add Item button
+    /** assembels html text for Add Event button
      *
      * @param  int $id the item id for the id column in the id table
      * @param  string $format the string for the class html element attribute
      * @return string the html as a string for the button
      */
-    function drawAddEventButton($id, $format){
+    function drawAddEventButton($item_data, $format){
         $text = 'Add Event';
-        $url = addEventURL($id);
+        $url = addEventURL($item_data[ITEM_TABLE_ID]);
         return drawLinkButton($text, $url, $format);
     }
 
     
-    /** draws the item page
+    /**
+     * decideAddEventButton
      *
-     * @param  mixed $item_data DB query results for item being displayed
-     * @param  mixed $is_users_listing does the item belong to the user?
-     * @param  mixed $signed_in is the user signed in?
-     * @param  mixed $mute should the control be muted in the context of the current page?
-     * @return void draws to page
+     * @param  int $id item id from id column of item table
+     * @param  bool $mute the control is hidded when true
+     * @param  bool $signed_in the control is hidded when false 
+     * @param  bool $is_users_listing the control is hidden when false
+     * @return void
      */
-    function drawItemPage($item_data, $is_users_listing, $signed_in, $mute_controls){
-        include_once('../functions/functions.lineage.php');
-        echo '
-            <div class="grid grid-rows-5 grid-cols-3">
-                <h3 class="row-span-1 col-span-2 text-2xl font-bold m-10 mb-0 p-4 bg-gray-200">
-                    '.$item_data["i_name"].'
-                </h3>
-                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data["i_image"]).'"/>
-                <p class="row-span-4 col-span-2 p-4 m-10 mt-0 bg-gray-200">
-                    '.$item_data["i_description"].'>
-                </p>
-            </div>
-            <div class="flex flex-row justify-between items-center">
-                <div id="price" class="p-4 m-10 ml-20 text-4xl font-bold text-center">
-                    $'.$item_data["current_price"].'
-                </div>
-                <div class="flex flex-row justify-between items-center w-3/10">'.
-                    decideAddEventButton().
-                    decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
-                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
-                </div>
-            </div>
-            <div id="lineage" class="p-4 m-10 text-center">
-                '.drawLineage(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])).'
-            </div>
-        ';
-        return;
-    }
-
-
-    decideAddEventButton(){
+    function decideAddEventButton($id, $mute, $signed_in, $is_users_listing){
         if($mute){
             return '';
         }
@@ -135,7 +106,7 @@
             return '';
         }
         if($is_users_listing){
-            return drawEditEventButton($item_data["i_id"], BLUE_BUTTON, EDIT);
+            return drawAddEventButton($id, BLUE_BUTTON);
         }
         return '';
     }
@@ -182,6 +153,44 @@
             return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
         }
         return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
+    }
+
+    
+    /** draws the item page
+     *
+     * @param  mixed $item_data DB query results for item being displayed
+     * @param  mixed $is_users_listing does the item belong to the user?
+     * @param  mixed $signed_in is the user signed in?
+     * @param  mixed $mute should the control be muted in the context of the current page?
+     * @return void draws to page
+     */
+    function drawItemPage($item_data, $is_users_listing, $signed_in, $mute_controls){
+        include_once('../functions/functions.lineage.php');
+        echo '
+            <div class="grid grid-rows-5 grid-cols-3">
+                <h3 class="row-span-1 col-span-2 text-2xl font-bold m-10 mb-0 p-4 bg-gray-200">
+                    '.$item_data["i_name"].'
+                </h3>
+                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data["i_image"]).'"/>
+                <p class="row-span-4 col-span-2 p-4 m-10 mt-0 bg-gray-200">
+                    '.$item_data["i_description"].'>
+                </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+                <div id="price" class="p-4 m-10 ml-20 text-4xl font-bold text-center">
+                    $'.$item_data["current_price"].'
+                </div>
+                <div class="flex flex-row justify-between items-center w-3/10">'.
+                    decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
+                    decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
+                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
+                </div>
+            </div>
+            <div id="lineage" class="p-4 m-10 text-center">
+                '.drawLineage(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])).'
+            </div>
+        ';
+        return;
     }
 
 

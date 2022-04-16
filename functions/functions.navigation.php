@@ -30,7 +30,7 @@
      */
     // ../phpstorm/nft-ools/
     function itemURL($id, $command){
-        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/item/'.$id.'/'.$command;
+        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/'.URL_ITEM.'/'.$id.'/'.$command;
         return $l;
     }
 

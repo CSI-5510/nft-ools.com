@@ -25,6 +25,8 @@
     define("HEADER_HOME","Location: ../public_html");
     define("PROFILE_UPDATED","profile_updated");
     define("URL_ADD_EVENT",'add_event');
+    define("URL_ITEM","item");
+
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
@@ -147,6 +149,13 @@
     define("TIMELINE_REDUCER_BUBBLE","bubble");
     define("TIMELINE_REDUCER_TITLE","event_title");
     define("TIMELINE_REDUCER_BODY","event_body");
+
+
+    // ADD EVENT
+    define("ADD_EVENT_TYPE","type");
+    define("ADD_EVENT_DATE","date");
+    define("ADD_EVENT_COST","cost");
+    define("ADD_EVENT_DESCRIPTION","description");
 
 
 ?>

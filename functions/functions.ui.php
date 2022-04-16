@@ -99,6 +99,7 @@
     function drawSelectOption($name, $format, $options){
         $_r = '<select name="'.$name.'" class="'.$format.'">';
         foreach($options as $option){
+            console($option);
             $_r = $_r.'<option value="'.$option["value"].'">'.$option["text"].'</option>';
         }
         $_r = $_r.'</select>';
