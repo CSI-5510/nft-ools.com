@@ -58,7 +58,7 @@
             </button>
          </li>
          <div x-show="categoryCollapse" x-transition.opacity>
-            <?php foreach ($data as $category): ?>
+            <?php foreach ($category_list as $category): ?>
                <li class="my-px space-y-2">
                   <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/category/<?php echo $category["cat_id"]; ?>" class="<?php echo $GLOBALS["url_loc"][2] === $category["cat_id"] ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 transition hover:bg-gray-300 hover:text-gray-300" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition ";?>">
                      <span class="ml-3 text-gray-500">
@@ -72,7 +72,7 @@
 
 
       <?php 
-         ac2(USER_ID);
+         showAsideAddItem(USER_ID);
       ?>
 
 

@@ -5,7 +5,7 @@
      *
      * @return void draws to page
      */
-    function ac2($user_id){
+    function showAsideAddItem($user_id){
         if(URL_LOC_1 == ADD_ITEM){
             drawBlank();
             return;
@@ -23,16 +23,7 @@
      *
      * @return void draws to page
      */
-    function drawAddItemButton(){
-        echo '
-            <li class="'.ac2_class().'">
-                <a href="'.ac2_href().'">
-                    <span>
-                        Add Item
-                    </span>
-                </a>
-            </li>
-        ';        
+    function drawAddItemButton(){    
     }
     
 
@@ -40,7 +31,7 @@
      *
      * @return string tailwind css formatting
      */
-    function ac2_class(){
+    function addItemButtonClass(){
         return AC2_CLASS_ANY;
     }
 
@@ -49,7 +40,7 @@
      *
      * @return string [root]/public_html/add_item
      */
-    function ac2_href(){
+    function addItemButtonHref(){
         return PROJECT_ROOT.'/'.URL_LOC_0.'/'.ADD_ITEM;
     }
     
@@ -61,6 +52,34 @@
     function drawBlank(){
         echo '';
     }
+
+
+    function showAsideMyItems($user_id){
+        if(URL_LOC_2 == PHP_URL_USER){
+            drawBlank();
+            return;
+        }
+        drawMyItemsButton($user_id);
+        return;
+    }
+
+
+    function drawMyItemsButton($user_id){
+        dra
+    }
+
+    function drawAsideButton($class, $link, $text){
+        return '
+            <li class="'.$class.'">
+                <a href="'.$link.'">
+                    <span>
+                        '.$text.'
+                    </span>
+                </a>
+            </li> 
+        ';
+    }
+
 
 
 ?>
