@@ -25,10 +25,12 @@
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
     define("URL_HOME",PROJECT_ROOT.'/'.URL_PUBLIC_DIRECTORY);
-    define("PROFILE_UPDATED","profile_updated");
+    define("URL_PROFILE_UPDATED","profile_updated");
     define("URL_ADD_EVENT",'add_event');
     define("URL_ITEM","item");
     define("URL_USER","user");
+    define("URL_CATEGORY","category");
+    define("URL_PROFILE","profile");
 
 
     // FORMATTING

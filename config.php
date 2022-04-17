@@ -72,15 +72,10 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Admin";
         $FRONTEND = "admin";
         break;
-    case "updateprofile":
-        $BACKEND = "updateProfile";
-        $PAGE_TITLE = "updateProfile";
-        $FRONTEND = "updateProfile";
-        break;
-    case PROFILE_UPDATED:
-        $BACKEND = PROFILE_UPDATED;
-        $PAGE_TITLE = "Profile Updated";
-        $FRONTEND = PROFILE_UPDATED;
+    case URL_PROFILE:
+        $BACKEND = URL_PROFILE;
+        $PAGE_TITLE = "Update Profile";
+        $FRONTEND = URL_PROFILE;
         break;
     default:
         $BACKEND = "index";
