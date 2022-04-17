@@ -56,6 +56,13 @@
     define("PRICE_FLOOR",0.1);
 
 
+    // CATEGORY TABLE
+    define("CATEGORY_TABLE_ID","cat_id");
+    define("CATEGORY_TABLE_NAME","cat_name");
+    define("CATEGORY_TABLE_MAJ_CAT_ID","maj_cat_id");
+    define("CATEGORY_TABLE_MAJ_CAT_NAME","maj_cat_name");
+
+
     // ITEM QUERY KEYS
     define("ITEM_QUERY_ID","a");    // not currenty used
     define("ITEM_QUERY_NAME","b");

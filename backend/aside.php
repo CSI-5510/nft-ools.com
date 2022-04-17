@@ -1,4 +1,4 @@
 <?php
-        $data = DatabaseConnector::getCategoryCarouselData();
+        $category_list = DatabaseConnector::getCategoryCarouselData();
 
 ?>

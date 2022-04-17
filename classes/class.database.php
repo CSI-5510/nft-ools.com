@@ -29,15 +29,27 @@ class DatabaseConnector {
 	*
 	* @return array [{'c_id', 'c_name', 'i_image'}, ...]
 	*/
-   public static function getCategoryCarouselData() {
-	   	$q = 'SELECT DISTINCT c.cat_id, c.cat_name, i.i_image 
-			FROM category c JOIN item i 
-			WHERE i.i_category_id = c.cat_id
-			GROUP BY c.cat_id
-			ORDER BY c.cat_id';
+	public static function getCategoryCarouselData() {
+			$q = 'SELECT DISTINCT c.cat_id, c.cat_name, i.i_image 
+				FROM category c JOIN item i 
+				WHERE i.i_category_id = c.cat_id
+				GROUP BY c.cat_id
+				ORDER BY c.cat_id';
+			// echo $q;
+			return DatabaseConnector::query($q);
+	}
+
+
+	public static function getCategoryList(){
+		$q = 'SELECT DISTINCT 
+			'.CATEGORY_TABLE_ID.', 
+			'.CATEGORY_TABLE_NAME.' 
+		FROM category 
+		GROUP BY '.CATEGORY_TABLE_ID.' 
+		ORDER BY '.CATEGORY_TABLE_ID;
 		// echo $q;
-	   	return DatabaseConnector::query($q);
-   }
+		return DatabaseConnector::query($q);
+	}
 
 	
 	/** DB query for all items in a category
