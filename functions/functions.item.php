@@ -84,7 +84,7 @@
      */
     function drawAddEventButton($item_data, $format){
         $text = 'Add Event';
-        $url = addEventURL($item_data[ITEM_TABLE_ID]);
+        $url = generalNavigation(array(URL_ADD_EVENT,$item_data[ITEM_TABLE_ID]));
         return drawLinkButton($text, $url, $format);
     }
 
@@ -128,7 +128,7 @@
             return '';
         }
         if($is_users_listing){
-            return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, EDIT);
+            return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, URL_EDIT);
         }
         return '';
     }
@@ -150,7 +150,7 @@
             return '';
         }
         if($signed_in){
-            return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
+            return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, URL_ADD_TO_CART); 
         }
         return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
     }
@@ -164,14 +164,14 @@
      * @param  mixed $mute should the control be muted in the context of the current page?
      * @return void draws to page
      */
-    function drawItemPage($item_data, $is_users_listing, $signed_in, $mute_controls){
+    function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $mute_controls){
         include_once('../functions/functions.lineage.php');
         echo '
             <div class="grid grid-rows-5 grid-cols-3">
                 <h3 class="row-span-1 col-span-2 text-3xl font-bold m-10 mb-0 p-4 bg-gray-200">
                     '.$item_data["i_name"].'
                 </h3>
-                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data["i_image"]).'"/>
+                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data[ITEM_TABLE_IMAGE]).'"/>
                 <p class="row-span-4 col-span-2 p-4 m-10 mt-0 bg-gray-200">
                     '.$item_data["i_description"].'>
                 </p>
@@ -187,11 +187,15 @@
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 text-center">
-                '.drawLineage(DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])).'
+                '.drawLineage($item_data, $order_data, $event_data).'
             </div>
         ';
         return;
     }
+
+
+
+
 
 
 ?>

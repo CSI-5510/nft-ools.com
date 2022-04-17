@@ -36,7 +36,7 @@
         // CONSTANTS
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
-        $url = generalNavigation(array(COLLECTOR, ADD_ITEM));
+        $url = generalNavigation(array(URL_COLLECTOR, URL_ADD_ITEM));
         
         return 
         // OPEN FORM
@@ -45,61 +45,61 @@
         // ROW TITLE
          $OPEN_ROW.
          drawLabel('TITLE', LISTING_LABEL).
-         drawTextInput(ITEM_QUERY_NAME, LISTING_INPUT_AREA, 45, TRUE, '').
+         drawTextInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, TRUE, '').
          $CLOSE_ROW.
         
         // ROW CATEGORY
          $OPEN_ROW.
          drawLabel('CATEGORY', LISTING_LABEL).
-         drawSelectOption(ITEM_QUERY_CATEGORY, LISTING_INPUT_AREA, $options).
+         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, LISTING_INPUT_AREA, $options).
          $CLOSE_ROW.
         
         // ROW SERIAL NUMBER
          $OPEN_ROW.
          drawLabel('SERIAL NUMBER', LISTING_LABEL).
-         drawTextInput(ITEM_QUERY_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, TRUE, '').
+         drawTextInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, TRUE, '').
          $CLOSE_ROW.
 
         // ROW DESCRIPTION
          $OPEN_ROW.
          drawLabel('DESCRIPTION', LISTING_LABEL).
-         drawTextArea(ITEM_QUERY_DESCRIPTION, LISTING_INPUT_AREA, 250, TRUE).
+         drawTextArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 250, TRUE).
          $CLOSE_ROW.
         
         // ROW IMAGE
          $OPEN_ROW.
          drawLabel('IMAGE', LISTING_LABEL).
-         drawFileUpload(ITEM_QUERY_IMAGE, ITEM_QUERY_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawFileUpload(ITEM_OBFUSCATED_IMAGE, ITEM_OBFUSCATED_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
          $CLOSE_ROW.
         
         // ROW DOCUMENTATION
          $OPEN_ROW.
          drawLabel('DOCUMENTATION', LISTING_LABEL).
-         drawFileUpload(ITEM_QUERY_DOCUMENTATION, ITEM_QUERY_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawFileUpload(ITEM_OBFUSCATED_DOCUMENTATION, ITEM_OBFUSCATED_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
          $CLOSE_ROW.
         
         // ROW RECEIPT
          $OPEN_ROW.
          drawLabel('RECEIPT', LISTING_LABEL).
-         drawFileUpload(ITEM_QUERY_RECEIPT, ITEM_QUERY_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
          $CLOSE_ROW.
         
         // ROW PURCHASE DATE
          $OPEN_ROW.
          drawLabel('PURCHASE DATE', LISTING_LABEL).
-         drawDateInput(ITEM_QUERY_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA).
          $CLOSE_ROW.
         
         // ROW PURCHASE PRICE
          $OPEN_ROW.
          drawLabel('PURCHASE PRICE', LISTING_LABEL).
-         drawTextInput(ITEM_QUERY_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE, '').
+         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE, '').
          $CLOSE_ROW.
         
         // ROW AFFIDAVIT OF QUALITY
         //  $OPEN_ROW.
         // drawLabel('AFFIDAVIT OF QUALITY', LISTING_LABEL).
-        // drawAffidavit(ADD_ITEM_AFFIDAVIT_NAME, ADD_ITEM_AFFIDAVIT_VERIFY, 'i gaurantee that this thing works...').
+        // drawAffidavit(URL_ADD_ITEM_AFFIDAVIT_NAME, URL_ADD_ITEM_AFFIDAVIT_VERIFY, 'i gaurantee that this thing works...').
         //  $CLOSE_ROW.
         
         // ROW SUBMIT BUTTON

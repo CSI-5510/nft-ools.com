@@ -94,17 +94,54 @@ class DatabaseConnector {
 	 */
 	public static function getItemData($id){
 		$q = 'SELECT '
-				.ITEM_TABLE_ID.','
-				.ITEM_TABLE_NAME.','
-				.ITEM_TABLE_CURRENT_PRICE.','
-				.ITEM_TABLE_ORIGINAL_PRICE.','
-				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.','
-				.ITEM_TABLE_IMAGE.','
-				.ITEM_TABLE_DESCRIPTION.','
-				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.'  
+			.ITEM_TABLE_ID.','
+			.ITEM_TABLE_NAME.','
+			.ITEM_TABLE_DESCRIPTION.','
+			.ITEM_TABLE_CURRENT_PRICE.','
+			.ITEM_TABLE_IMAGE.','
+			.ITEM_TABLE_CATEGORY_ID.','
+			.ITEM_TABLE_SERIAL_NUMBER.','
+			.ITEM_TABLE_ORIGINAL_PRICE.','
+			.ITEM_TABLE_IS_APPROVED.','
+			.ITEM_TABLE_OWNER_ID.','
+			.ITEM_TABLE_DAYS_TO_MINIMUM_PRICE.','
+			.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.','
+			.ITEM_TABLE_REJECTION_REASON.','
+			.ITEM_TABLE_WAS_REVIEWED.','
+			.ITEM_TABLE_TIMESTAMP.'
 			FROM item WHERE i_id = '.$id; 
-		// echo $q;
-		return DatabaseConnector::query($q)[0];
+		try{
+			return DatabaseConnector::query($q)[0];
+		}catch(Exception $e){
+			var_dump($e);
+			return($e);
+		}
+	}
+
+
+	public static function getItemDataNoPics($id){
+		$q = 'SELECT '
+			.ITEM_TABLE_ID.','
+			.ITEM_TABLE_NAME.','
+			.ITEM_TABLE_DESCRIPTION.','
+			.ITEM_TABLE_CURRENT_PRICE.','
+			.ITEM_TABLE_CATEGORY_ID.','
+			.ITEM_TABLE_SERIAL_NUMBER.','
+			.ITEM_TABLE_ORIGINAL_PRICE.','
+			.ITEM_TABLE_IS_APPROVED.','
+			.ITEM_TABLE_OWNER_ID.','
+			.ITEM_TABLE_DAYS_TO_MINIMUM_PRICE.','
+			.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.','
+			.ITEM_TABLE_REJECTION_REASON.','
+			.ITEM_TABLE_WAS_REVIEWED.','
+			.ITEM_TABLE_TIMESTAMP.'
+			FROM item WHERE i_id = '.$id; 
+		try{
+			return DatabaseConnector::query($q)[0];
+		}catch(Exception $e){
+			var_dump($e);
+			return($e);
+		}
 	}
 
 	
@@ -127,7 +164,41 @@ class DatabaseConnector {
 
 
 	public static function addNewItem($data, $user_id){
-		$q = "INSERT INTO item (i_id, i_name, i_description, current_price, i_image, i_category_Id, i_serialnum, original_price, is_approved, owner_id, days_to_minimum_price, receipt, documentation, original_purchase_date, rejection_reason, was_reviewed) VALUES (NULL,'".$data[ITEM_TABLE_NAME]."','".$data[ITEM_TABLE_DESCRIPTION]."',".$data[ITEM_TABLE_CURRENT_PRICE].",:image,".$data[ITEM_TABLE_CATEGORY_ID].",".$data[ITEM_TABLE_SERIAL_NUMBER].",".$data[ITEM_TABLE_ORIGINAL_PRICE].",".$data[ITEM_TABLE_IS_APPROVED].",".$data[ITEM_TABLE_OWNER_ID].",".$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].",:r,:d,'".$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE]."','".$data[ITEM_TABLE_REJECTION_REASON]."',".$data[ITEM_TABLE_WAS_REVIEWED].")";
+		$q = "INSERT INTO item ("
+				.ITEM_TABLE_ID.","							
+				.ITEM_TABLE_NAME.","
+				.ITEM_TABLE_DESCRIPTION.","
+				.ITEM_TABLE_CURRENT_PRICE.","
+				.ITEM_TABLE_IMAGE.","
+				.ITEM_TABLE_CATEGORY_ID.","
+				.ITEM_TABLE_SERIAL_NUMBER.","
+				.ITEM_TABLE_ORIGINAL_PRICE.","
+				.ITEM_TABLE_IS_APPROVED.","
+				.ITEM_TABLE_OWNER_ID.","
+				.ITEM_TABLE_DAYS_TO_MINIMUM_PRICE.","
+				.ITEM_TABLE_RECEIPT.","
+				.ITEM_TABLE_DOCUMENTATION.","
+				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.","
+				.ITEM_TABLE_REJECTION_REASON.","
+				.ITEM_TABLE_WAS_REVIEWED.") 
+			VALUES (
+				NULL,'"
+				.$data[ITEM_TABLE_NAME]."','"
+				.$data[ITEM_TABLE_DESCRIPTION]."',"
+				.$data[ITEM_TABLE_CURRENT_PRICE].",
+				:image,"
+				.$data[ITEM_TABLE_CATEGORY_ID].","
+				.$data[ITEM_TABLE_SERIAL_NUMBER].","
+				.$data[ITEM_TABLE_ORIGINAL_PRICE].","
+				.$data[ITEM_TABLE_IS_APPROVED].","
+				.$data[ITEM_TABLE_OWNER_ID].","
+				.$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].",
+				:r,
+				:d,'"
+				.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE]."','"
+				.$data[ITEM_TABLE_REJECTION_REASON]."',"
+				.$data[ITEM_TABLE_WAS_REVIEWED]."
+		)";
 		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
 	}
 
@@ -139,36 +210,42 @@ class DatabaseConnector {
 	 * @return void 
 	 */
 	public static function addEvent($data){
-		$q = "INSERT INTO orders ("
-				//.EVENT_TABLE_ID.","								/*00*/
-				//.EVENT_TABLE_TIMESTAMP.","						/*01*/
-				.EVENT_TABLE_STATUS.","								/*02*/
-				.EVENT_TABLE_ITEM_ID.","							/*03*/
-				.EVENT_TABLE_BUYER_ID.","							/*04*/
-				.EVENT_TABLE_SELLER_ID.","							/*05*/
-				.EVENT_TABLE_TRANSACTION_ID.","						/*06*/
-				.EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE.","	/*07*/
-				.EVENT_TABLE_EVENT_DESCRIPTION.","					/*08*/
-				.EVENT_TABLE_EVENT_TIMESTAMP						/*09*/
+		$date = $data[EVENT_TABLE_DATE];
+		var_dump($date);
+		var_dump("<br>");
+		if(!is_null($date)){
+			$date = "'".$date."'";
+		}
+		var_dump($date);
+		var_dump("<br>");
+		$q = "INSERT INTO events ("
+				//.EVENT_TABLE_ID.","			/*01*/
+				.EVENT_TABLE_ORDER_ID.","		/*02*/
+				.EVENT_TABLE_ITEM_ID.","		/*03*/
+				.EVENT_TABLE_DESCRIPTION.","	/*04*/
+				//.EVENT_TABLE_TIMESTAMP.","	/*05*/
+				.EVENT_TABLE_DATE.","			/*06*/
+				.EVENT_TABLE_TYPE.","			/*07*/
+				.EVENT_TABLE_COST				/*08*/
 			.") VALUES ("
-				//.$data[EVENT_TABLE_ID]."," 								/*00*/
-				//.$data[EVENT_TABLE_TIMESTAMP].",'"						/*01*/
-				."'".$data[EVENT_TABLE_STATUS]."',"							/*02*/
-				.$data[EVENT_TABLE_ITEM_ID].","								/*03*/	
-				.$data[EVENT_TABLE_BUYER_ID].","							/*04*/
-				.$data[EVENT_TABLE_SELLER_ID]."," 							/*05*/	
-				.$data[EVENT_TABLE_TRANSACTION_ID].","						/*06*/
-				.$data[EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE].","		/*07*/
-				."'".$data[EVENT_TABLE_EVENT_DESCRIPTION]."',"				/*08*/
-				.$data[EVENT_TABLE_EVENT_TIMESTAMP]							/*09*/
+				//.$data[EVENT_TABLE_ID]."," 			/*01*/
+				.$data[EVENT_TABLE_ORDER_ID].","		/*02*/
+				.$data[EVENT_TABLE_ITEM_ID].","			/*03*/	
+				."'".$data[EVENT_TABLE_DESCRIPTION]."',"		/*04*/
+				//.$data[ORDER_TABLE_TIMESTAMP].","		/*05*/
+				.$date."," 			/*06*/	
+				."'".$data[EVENT_TABLE_TYPE]."',"			/*07*/
+				.$data[EVENT_TABLE_COST]			/*08*/
 		.")";
 		try{
+			var_dump($q);
+			var_dump("<br>");
 			self::query($q);
-			return;
 		}catch(Exception $e){
 			var_dump($e);
-			return;
-		} 
+			return $e;
+		}
+		return;
 	}
 
 	
@@ -188,19 +265,30 @@ class DatabaseConnector {
 	 * @param  mixed $item_id
 	 * @return void
 	 */
-	public static function getItemEvents($item_id){
-		$q = 'SELECT * FROM orders WHERE '.EVENT_TABLE_ITEM_ID.' =' .$item_id.' ORDER BY '.EVENT_TABLE_TIMESTAMP.' DESC';
+	public static function getItemEventDataByItem($item_id){
+		$q = 'SELECT * FROM events WHERE '.EVENT_TABLE_ITEM_ID.' =' .$item_id.' ORDER BY '.EVENT_TABLE_TIMESTAMP.' DESC';
 		try{
 			return self::query($q);
 		}catch(Exception $e){
 			var_dump($e);
-			return;
+			return $e;
+		}
+	}
+
+
+	public static function getOrderDataByItem($item_id){
+		$q = 'SELECT * FROM orders WHERE '.ORDER_TABLE_ITEM_ID.' = '.$item_id.' ORDER BY '.ORDER_TABLE_TIMESTAMP.' DESC';
+		try{
+			return self::query($q);
+		}catch(Exception $e){
+			var_dump($e);
+			return $e;
 		}
 	}
 
 
 	/*  User Profile update queries
-	Pre-Populate Form with Current Account Details
+		Pre-Populate Form with Current Account Details
 	*/
 	public static function getCurrentAccountDetails($id){
 		$q = 'SELECT 
@@ -220,7 +308,7 @@ class DatabaseConnector {
 	
 	
 	/*  User Profile update queries
-	Once User has entered in different values, update the entire row with the new/existing form values
+		Once User has entered in different values, update the entire row with the new/existing form values
 	*/
 	public static function updateUserProfileInfo($user_id){
 		$q = "UPDATE user SET " 

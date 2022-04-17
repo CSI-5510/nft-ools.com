@@ -11,7 +11,7 @@
         // CONSTANTS
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
-        $url = generalNavigation(array(COLLECTOR, EDIT_PROFILE));
+        $url = generalNavigation(array(URL_COLLECTOR, URL_EDIT_PROFILE));
 
 		return 
 
@@ -105,7 +105,7 @@
         // CONSTANTS
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
-        $url = generalNavigation(array(URL_PROFILE, EDIT_PROFILE));
+        $url = generalNavigation(array(URL_PROFILE, URL_EDIT_PROFILE));
         
         return 
             // ROW USERNAME

@@ -77,9 +77,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 	
 	
 	
-	
-echo $myData;
-echo var_dump($myData);
 	}
 }
 

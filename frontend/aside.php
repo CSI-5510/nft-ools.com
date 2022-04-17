@@ -85,7 +85,7 @@
          <span class="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">Account</span>
       </li>
       <li class="my-px space-y-2">
-         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin() ? "profile" : "register"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !== "register" ? AC3_CLASS_OTHER : AC3_CLASS_REGISTER; ?>">
+         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/<?php echo User::isLoggedin() ? "profile" : "register"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !== "register" ? ASIDE_OTHER_CLASS : ASIDE_REGISTER_CLASS; ?>">
          <span class="flex items-center justify-center text-lg text-red-400">
             <svg
                fill="none"

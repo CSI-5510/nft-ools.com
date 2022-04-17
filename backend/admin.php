@@ -52,10 +52,10 @@ if ($isAdmin) {
 					$itemID = $GLOBALS['url_loc'][3];
 
 					break;
-				case REMOVE_FROM_CART:
+				case URL_REMOVE_FROM_CART:
 					Order::removeItemFromCart($item_data['i_id'], $signed_in);
 					break;				
-				case EDIT:
+				case URL_EDIT:
 					// modal data
 					break;
 				default:

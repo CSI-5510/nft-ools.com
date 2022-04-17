@@ -36,11 +36,5 @@
         $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/'.URL_ITEM.'/'.$id.'/'.$command;
         return $l;
     }
-
-
-    function addEventURL($id){
-        $_r = $GLOBALS['config']['url_root'].'/'.URL_LOC_0.'/'.URL_ADD_EVENT.'/'.$id;
-        return $_r;
-    }
     
 ?>
