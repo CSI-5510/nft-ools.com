@@ -3,12 +3,15 @@
         
     /** assembels text for href attribute
      *
-     * @param  mixed $area 'category' or 'item' used for page reference
-     * @param  mixed $id id used for db query
-     * @return string "/public_html/$area/$id"
+     * @param  array strings for each location in the url in order 0 = left most to n = right most
+     * @return string assembeled url
      */
-    function generalNavigation($area, $id){
-        return PROJECT_ROOT.'/'.URL_LOC_0.'/'.$area.'/'.$id;
+    function generalNavigation($locations){
+        $_r = URL_HOME;
+        foreach($locations as $location){
+            $_r = $_r.'/'.$location;
+        }
+        return $_r;
     }
 
         

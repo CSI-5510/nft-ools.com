@@ -67,7 +67,7 @@
      * @return string assembeled HTML for item row display
      */
     function drawItemRow($data){
-        $link = generalNavigation(URL_ITEM, $data[ITEM_TABLE_ID]);
+        $link = generalNavigation(array(URL_ITEM, $data[ITEM_TABLE_ID]));
         return '
             <a href="'.$link.'">
                 <div class="grid grid-rows-1 grid-cols-12 mx-20 mb-5">

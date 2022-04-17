@@ -13,8 +13,9 @@
             case ADD_ITEM:
                 header("location: /public_html/item/".$item_id);
                 break;			 
-            case EDIT_PROFILE:			
-                header("location: /public_html/".PROFILE_UPDATED);
+            case EDIT_PROFILE:
+                $url = generalNavigation(array(URL_PROFILE, URL_PROFILE_UPDATED));			
+                header("location: ".$url);
                 break;	
             default:
                 break;

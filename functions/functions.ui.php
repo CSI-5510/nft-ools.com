@@ -30,7 +30,7 @@
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);        
         return '
-            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.$_r.'>
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.'" value="'.$value.'">
         ';
     }
 

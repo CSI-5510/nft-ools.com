@@ -39,7 +39,11 @@ class DatabaseConnector {
 			return DatabaseConnector::query($q);
 	}
 
-
+	
+	/** gets category list with no images
+	 *
+	 * @return array array of category ids and names
+	 */
 	public static function getCategoryList(){
 		$q = 'SELECT DISTINCT 
 			'.CATEGORY_TABLE_ID.', 
@@ -199,15 +203,19 @@ class DatabaseConnector {
 	Pre-Populate Form with Current Account Details
 	*/
 	public static function getCurrentAccountDetails($id){
-		$q = 'SELECT username, fname, lname, email, addr_line_1, addr_line_2, city, state, zip, phone FROM user WHERE id ='.$id;
-		try{
-			
-		     return self::query($q)[0];
-		}
-		catch(Exception $e){
-			return $e;
-			
-		}
+		$q = 'SELECT 
+				'.USER_TABLE_USERNAME.', 
+				'.USER_TABLE_FIRST_NAME.', 
+				'.USER_TABLE_LAST_NAME.', 
+				'.USER_TABLE_EMAIL.', 
+				'.USER_TABLE_ADDR_LINE_1.', 
+				'.USER_TABLE_ADDR_LINE_2.', 
+				'.USER_TABLE_CITY.', 
+				'.USER_TABLE_STATE.', 
+				'.USER_TABLE_ZIP.', 
+				'.USER_TABLE_PHONE.'  
+			FROM user WHERE id ='.$id;
+		return self::query($q)[0];
 	}
 	
 	
