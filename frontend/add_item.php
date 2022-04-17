@@ -3,7 +3,7 @@
 
     // FRONTEND
     include('../functions/functions.add_item.php');
-    drawAddItem($options);
+    echo drawAddItem($options);
 
 
 ?>

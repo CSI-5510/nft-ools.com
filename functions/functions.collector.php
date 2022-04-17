@@ -8,9 +8,9 @@
      * @return array for use with DatabaseConnect::addEvent(EVENT_NEW_ITEM)
      */
     function addNewItemReducer(){
-        include_once('../functions/functions.pricing_algorithm.php'); 
+        $clean_price = numbersOnly($_POST[ITEM_QUERY_ORIGINAL_PURCHASE_PRICE]);
         $price = pricing(
-            $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_PRICE], 
+            $clean_price, 
             $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_DATE], 
             PRICE_FLOOR, 
             DAYS_TO_MINIMUM_PIRCE
@@ -23,7 +23,7 @@
             ITEM_TABLE_IMAGE => (file_get_contents($_FILES[ITEM_QUERY_IMAGE]["tmp_name"])), 
             ITEM_TABLE_CATEGORY_ID => intval($_POST[ITEM_QUERY_CATEGORY]), 
             ITEM_TABLE_SERIAL_NUMBER => intval($_POST[ITEM_QUERY_SERIAL_NUMBER]),
-            ITEM_TABLE_ORIGINAL_PRICE => $_POST[ITEM_QUERY_ORIGINAL_PURCHASE_PRICE], 
+            ITEM_TABLE_ORIGINAL_PRICE => $clean_price, 
             ITEM_TABLE_IS_APPROVED => 0,
             ITEM_TABLE_OWNER_ID => USER_ID,
             ITEM_TABLE_DAYS_TO_MINIMUM_PRICE => DAYS_TO_MINIMUM_PIRCE,

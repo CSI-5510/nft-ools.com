@@ -1,6 +1,5 @@
 <?php
 
-    include_once('../functions/functions.pricing_algorithm.php');
     include_once('../functions/functions.collector.php');
     
     if(!isset($_POST)){
