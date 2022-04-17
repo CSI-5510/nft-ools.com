@@ -8,7 +8,7 @@
      * @return string "/public_html/$area/$id"
      */
     function generalNavigation($area, $id){
-        return '/'.$GLOBALS["url_loc"][0].'/'.$area.'/'.$id;
+        return PROJECT_ROOT.'/'.URL_LOC_0.'/'.$area.'/'.$id;
     }
 
         

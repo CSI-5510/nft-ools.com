@@ -14,6 +14,8 @@
     define("URL_LOC_0",$GLOBALS['url_loc'][0]);
     define("URL_LOC_1",$GLOBALS['url_loc'][1]);
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
+    define("URL_LOC_3",$GLOBALS['url_loc'][3]);
+    define("URL_PUBLIC_DIRECTORY","public_html");
     define("ADD_TO_CART","add_to_cart");
     define("REMOVE_FROM_CART","remove_from_cart");
     define("EDIT","edit");
@@ -22,10 +24,11 @@
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
-    define("HEADER_HOME","Location: ../public_html");
+    define("URL_HOME",PROJECT_ROOT.'/'.URL_PUBLIC_DIRECTORY);
     define("PROFILE_UPDATED","profile_updated");
     define("URL_ADD_EVENT",'add_event');
     define("URL_ITEM","item");
+    define("URL_USER","user");
 
 
     // FORMATTING

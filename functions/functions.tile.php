@@ -48,8 +48,8 @@
     function printTile($data, $link){
 		//absolute path version, configurable for local development
 		$link = ''.$GLOBALS['config']['url_root'].''.$link.'';
-        echo '
-            <div class="w-64 h-64 p-0 m-0 bg-gray-200">
+        return '
+            <div class="m-10 w-64 h-64 p-0 m-0 bg-gray-200">
                 <a href="'.$link.'">
                     <div class="p-0 m-0 bottom-0">'.$data["name"].'</div>
                     <image class="w-full h-full p-0 m-0" src="'.imageSrc($data["image"]).'"/>
@@ -57,6 +57,47 @@
             </div>
         ';
         return;
+    }
+
+    
+    /** returns a string of HTML for displaying an item image, name, description, and price in a row format
+     *
+     * @param  mixed $data returned from DatabaseConnector::getItemData($id)
+     * @parma  mixed $link link as a string for <a> element's href attribute
+     * @return string assembeled HTML for item row display
+     */
+    function drawItemRow($data){
+        $link = generalNavigation(URL_ITEM, $data[ITEM_TABLE_ID]);
+        return '
+            <a href="'.$link.'">
+                <div class="grid grid-rows-1 grid-cols-12 mx-20 mb-5">
+                    <image class="row-span-1 col-span-3 mr-1" src="'.imageSrc($data[ITEM_TABLE_IMAGE]).'"/>
+                    <div class="row-span-1 col-span-9 p-4 bg-gray-300">
+                        <div class="grid grid-rows-4 grid-cols-1">
+                            <div class="row-span-1 col-span-1 mb-1 p-4 bg-gray-200">
+                                <span class="text-xl font-bold">
+                                    '.$data[ITEM_TABLE_NAME].'
+                                </span>
+                            </div>
+                            <div class="grid row-span-3 col-span-1">
+                                <div class="grid grid-rows-1 grid-cols-4">
+                                    <div class="row-span-1 col-span-3 mr-1 p-4 bg-gray-200">
+                                        <span class="text-lg">
+                                            '.$data[ITEM_TABLE_DESCRIPTION].'
+                                        </span>
+                                    </div>
+                                    <div class="row-span-1 col-span-1 p-4 bg-gray-200">
+                                        <span class="text-2xl font-bold text-right">
+                                            $'.$data[ITEM_TABLE_CURRENT_PRICE].'
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </a>  
+        ';
     }
 
 

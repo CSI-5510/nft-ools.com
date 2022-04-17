@@ -54,6 +54,23 @@ class DatabaseConnector {
 	}
 
 	
+	/** returns list of user's items
+	 *
+	 * @param  mixed $id user id
+	 * @return array list of user's items
+	 */
+	public static function getUserItemsList($id){
+		$q = 'SELECT 
+				'.ITEM_TABLE_ID.', 
+				'.ITEM_TABLE_NAME.', 
+				'.ITEM_TABLE_CURRENT_PRICE.', 
+				'.ITEM_TABLE_IMAGE.', 
+				'.ITEM_TABLE_DESCRIPTION.'
+			FROM item WHERE '.ITEM_TABLE_OWNER_ID.' = '.$id;
+		return DatabaseConnector::query($q);
+	}
+
+	
 	/** DB query for a single item
 	 *
 	 * @param  mixed $id item id in item table
