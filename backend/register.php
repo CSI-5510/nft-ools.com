@@ -6,11 +6,15 @@ if (User::isLoggedin()){
 if (isset($_POST['createaccount'])) {
 	   
 try{  
+
 	if(!isset($_POST['signup_email']) || !$_POST['signup_email']){ throw new Exception('Error: You did not provide an email!'); }	
 	if(!isset($_POST['signup_password']) || !$_POST['signup_password']){ throw new Exception('Error: You did not provide a password!'); }
+	if(!isset($_POST['password_confirm']) || !$_POST['password_confirm']){ throw new Exception('Error: You did not provide a confirmation password!'); }		
 	//set variables
 	$email = $_POST['signup_email'];
-	$password = $_POST['signup_password'];	
+	$password = $_POST['signup_password'];
+	$confirmation_password = $_POST['password_confirm'];
+	if($confirmation_password !== $password){ throw new Exception('Error: Your password and confirmation password do not match!'); }		
 	
 	//Before we continue, do we already have a email with this username?
 	if (DatabaseConnector::query('SELECT email from user where email=:email', array(':email'=>$email))) { 

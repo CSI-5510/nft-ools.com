@@ -56,7 +56,7 @@
     <div class="flex flex-row justify-between items-center w-3/10">
         <?php 
             if($is_users_listing){
-                drawEditItemButton($item_data['i_id'], $BLUE_BUTTON, $EDIT);
+                echo drawEditItemButton($item_data['i_id'], $BLUE_BUTTON, $EDIT);
             } else {
                 echo "&nbsp;";
              }
@@ -67,24 +67,24 @@
 					//if item is in cart of the user
 					if($is_item_in_cart){
 						//remove item
-						drawRemoveFromCartButton($item_data['i_id'], $BLUE_BUTTON, $REMOVE_FROM_CART);
+						echo drawRemoveFromCartButton($item_data['i_id'], BLUE_BUTTON, REMOVE_FROM_CART);
 					} else {
 						//make sure item isn't currently pending (in an offer)..
 						if(!$is_item_pending){
 							if(Order::isItemOpen($item_data['i_id'])){
 								//add item button
-								drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
+								echo drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, ADD_TO_CART); 
 							} else {
 								//draw this button to show the item is not available for offers at all
-								drawUnavailableButton($BLUE_BUTTON); 
+								echo drawUnavailableButton($BLUE_BUTTON); 
 							}
 						} else {
-						drawPendingButton($BLUE_BUTTON); 
+						echo drawPendingButton($BLUE_BUTTON); 
 						}
 					}
 				}
 			} else {   
-			drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
+		echo drawSignInButton('Sign In to Purchase', $BLUE_BUTTON); 
 		}
         ?>
     </div>

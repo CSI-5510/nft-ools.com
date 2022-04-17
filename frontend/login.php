@@ -62,7 +62,7 @@
               <button class="px-4 py-2 rounded text-white inline-block shadow-lg bg-gray-800 hover:bg-gray-900 focus:bg-gray-700" type="submit" name="login">Sign In</button>
               <a
                 class="inline-block align-baseline font-normal text-sm text-gray-500 hover:text-blue-800"
-                href="#"
+                href="./reset"
               >
                 Forgot Password?
               </a>
