@@ -1,8 +1,10 @@
 <?php
-
-if (User::isLoggedIn()){
-		//see if the user has a username
-	if(5+5===10){
+ 
+ 
+$userid = User::isLoggedIn();
+if ($userid){
+	//see if the user has a username
+	if(!User::getUsername($userid)){
 		//make sure not being redirected when already on page
 		if ($GLOBALS['url_loc'][1] === "setup"  || $GLOBALS['url_loc'][1] === "logout"){
 
@@ -12,6 +14,10 @@ if (User::isLoggedIn()){
 		header("location:../public_html/setup");
 		}
 	}
+	
+	
+	
+	
 }
 
 

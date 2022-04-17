@@ -33,6 +33,18 @@ class User {
 		return false;	
 	}
 	
+	public static function getUsername($id)
+{
+	//check to see if the username is set then using the given $id. else return false.
+	if(DatabaseConnector::query('SELECT username FROM user WHERE id=:id', array(':id'=>$id))[0]['username']){
+	//return username
+	return DatabaseConnector::query('SELECT username FROM user WHERE id=:id', array(':id'=>$id))[0]['username'];
+	}
+	else {
+	return false;
+	}
+}
+	
 	
 	
 		public static function isAdmin()
