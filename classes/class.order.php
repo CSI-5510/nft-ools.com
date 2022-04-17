@@ -114,6 +114,17 @@ class Order {
 		return DatabaseConnector::query('SELECT o_id, o_item_id, o_seller_id, o_status, i_name, i_image FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid', array(':userid'=>$userid));
 	}	
 	
+	public static function completeSuccessfulOrder($item_number, $txn_id)
+   {
+		DatabaseConnector::query('UPDATE orders SET o_transaction_id=:taxid, o_status="fulfilled" WHERE o_id=:orderid AND o_status="pending" AND o_buyer_id IS NOT NULL AND o_seller_id IS NOT NULL', array(':orderid'=>$item_number, ':taxid'=>$txn_id));
+    }
+	
+	//gets order id, price, and name of an item that the user is intending to buy
+	public static function getOrderDetails($itemid)
+		{
+			$userid = User::isLoggedIn();
+			return DatabaseConnector::query('SELECT o_id, current_price, i_name FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid and o_item_id=:itemid', array(':itemid'=>$itemid, ':userid'=>$userid));
+		}			
 }
 
 ?>

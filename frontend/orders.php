@@ -92,9 +92,16 @@
 								</td>
 								<td class="px-5 py-5 text-center border-b border-gray-200 bg-white text-sm">
 								<?php if($result["o_status"]==="pending"): ?>
-								<a href="./orders/remove_from_cart/<?php echo $result["o_item_id"] ?>" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Remove</a>
-								<?php endif;?>
-								<a href="./orders/remove_from_cart/<?php echo $result["o_item_id"] ?>" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Checkout</a>
+								<div><a href="./orders/remove_from_cart/<?php echo $result["o_item_id"]; ?>"><div class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Remove</div></a>
+								</div>
+								<div>
+								<form method="post">
+								  <input name="placeorder" type="hidden"></input>  
+								  <input name="itemid" type="hidden" value="<?php echo $result["o_item_id"]; ?>"></input>  
+								<button onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Checkout</button>
+								</form>
+								</div>
+
 								<?php endif;?>
 								</td>
 							</tr>
