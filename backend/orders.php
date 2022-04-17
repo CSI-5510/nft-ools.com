@@ -35,19 +35,19 @@ http://localhost/nft/public_html/orders?checkout=id?action=boolean
 $testmode = true;
 $paypalurl = $testmode ? 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr' : 'https://ipnpb.paypal.com/cgi-bin/webscr';
 $cancelurl = "".getUrl($protocol)."?checkout=#?cancel=true";
-$ipnurl = $protocol . $_SERVER['HTTP_HOST'] . "/nft/".$GLOBALS["url_loc"][0]."/listener";
+$ipnurl = "https://imperfectaimers.net/public_html/listener";
 $successurl = "".getUrl($protocol)."?checkout=#?success=true";
 
 
-if(isset($_POST["placeorder"]) || isset($_POST["paypal"])){
+/* if(isset($_POST["placeorder"]) || isset($_POST["paypal"])){
 
     $data = array(
         'cmd'			=> '_cart',
         'upload'        => '1',
         'lc'			=> 'EN',
-        'business' 		=> 'payments@imperfectandcompany.com',
+        'business' 		=> 'sb-t2ex4315255070@business.example.com',
         'cancel_return'	=> ''.$cancelurl.'',
-        'notify_url'	=> ''.$ipnurl.'',
+        'notify_url'	=> 'https://imperfectaimers.net/public_html/listener',
         'currency_code'	=> 'USD',
         'return'        => ''.$successurl.'',
     );
@@ -67,7 +67,8 @@ if(isset($_POST["placeorder"]) || isset($_POST["paypal"])){
     // End script
     exit;
 	}
-
+	
+ */
 if($_SERVER['REQUEST_METHOD'] == "GET"){
 	if (isset($_GET['ipn_listener']) && $_GET['ipn_listener'] == 'paypal') {
     // Get all input variables and convert them all to URL string variables

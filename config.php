@@ -67,10 +67,20 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Collector";
         $FRONTEND = "collector";
         break;
-    case "admin":
-        $BACKEND = "admin";
-        $PAGE_TITLE = "Admin";
-        $FRONTEND = "admin";
+    case "reset":
+        $BACKEND = "reset";
+        $PAGE_TITLE = "Reset your password";
+        $FRONTEND = "reset";
+        break;
+    case "redeem":
+        $BACKEND = "redeem";
+        $PAGE_TITLE = "Redeem your token";
+        $FRONTEND = "redeem";
+        break;
+    case "setup":
+        $BACKEND = "onboarding";
+        $PAGE_TITLE = "We need some details..";
+        $FRONTEND = "onboarding";
         break;
     case URL_PROFILE:
         $BACKEND = URL_PROFILE;

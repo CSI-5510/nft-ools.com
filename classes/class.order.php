@@ -5,12 +5,11 @@ class Order {
 	public static function isUsersListing($itemid, $userid)
 	{
 		//check to see if the itemid belongs to the given userid
-		// if (DatabaseConnector::query('SELECT owner_id FROM item WHERE i_id=:id AND owner_id=:ownerid', array(':id'=>$itemid,':ownerid'=>$userid))) {
-		// 	return true;
-		// 	} else {
-		// return false;			
-		// 	}
-		return DatabaseConnector::query('SELECT owner_id FROM item WHERE i_id=:id AND owner_id=:ownerid', array(':id'=>$itemid,':ownerid'=>$userid));
+		if (DatabaseConnector::query('SELECT owner_id FROM item WHERE i_id=:id AND owner_id=:ownerid', array(':id'=>$itemid,':ownerid'=>$userid))) {
+			return true;
+			} else {
+		return false;			
+			}
 	}
 
 	public static function isItemOpen($itemid)
@@ -28,12 +27,11 @@ class Order {
 	{
 		//check to see if the item is pending
 		//also returns uid of seller for further validation
-		// if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid))) {
-		// 	return DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid))[0]['o_seller_id'];
-		// 	} else {
-		// return false;			
-		// 	}
-		return DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid))[0]['o_seller_id'];
+		if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid))) {
+			return DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid))[0]['o_seller_id'];
+			} else {
+		return false;			
+			}
 	}
 	
 
@@ -95,11 +93,6 @@ class Order {
 					DatabaseConnector::query('UPDATE orders SET o_buyer_id=NULL, o_status="open" WHERE o_item_id=:itemid AND o_status="pending" AND o_buyer_id=:buyerid', array(':itemid'=>$itemid, ':buyerid'=>$userid));
 				}
 			}
-			if(!self::isItemInUserCart($itemid, $userid)){
-				return;
-			}
-			DatabaseConnector::query('UPDATE orders SET o_seller_id=NULL, o_status=NULL WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id=:sellerid', array(':itemid'=>$itemid, ':sellerid'=>$userid));
-
 	}
 
 	
@@ -123,8 +116,15 @@ class Order {
 	
 	public static function completeSuccessfulOrder($item_number, $txn_id)
    {
-		DatabaseConnector::query('UPDATE orders SET o_transaction_id=:taxid, o_status="fulfilled" WHERE o_id=:orderid AND o_status="pending" AND o_buyer_id IS NOT NULL AND o_seller_id IS NOT NULL', array(':orderid'=>$item_number, ':taxid'=>$txn_id));
+		$t = 'UPDATE orders SET o_transaction_id=:taxid, o_status="fulfilled" WHERE o_id=:orderid AND o_status="pending" AND o_buyer_id IS NOT NULL AND o_seller_id IS NOT NULL';
+var_dump($t);
+		DatabaseConnector::query($t, array(':orderid'=>$item_number, ':taxid'=>$txn_id));
     }
+
+	public static function getOrderBuyer($item_number)
+   {
+	return DatabaseConnector::query('SELECT o_buyer_id FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid and o_item_id=:itemid', array(':itemid'=>$itemid, ':userid'=>$userid));
+    }	
 	
 	//gets order id, price, and name of an item that the user is intending to buy
 	public static function getOrderDetails($itemid)

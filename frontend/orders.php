@@ -22,6 +22,8 @@
 ?>
 <div class="bg-white p-8 rounded-md w-full">
 <?php foreach($buyingorders AS $result):?>
+
+<?php $cartOrders = Order::getOrderDetails($result["o_item_id"]); ?>
 		<div>
 			<h2 class="text-gray-600 font-semibold">Your items</h2>
 			<span class="text-xs">As a buyer</span>
@@ -92,16 +94,26 @@
 								</td>
 								<td class="px-5 py-5 text-center border-b border-gray-200 bg-white text-sm">
 								<?php if($result["o_status"]==="pending"): ?>
+								<div class="flex flex-row items-center mx-auto justify-center text-center space-x-2">
 								<div><a href="./orders/remove_from_cart/<?php echo $result["o_item_id"]; ?>"><div class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Remove</div></a>
 								</div>
 								<div>
-								<form method="post">
-								  <input name="placeorder" type="hidden"></input>  
-								  <input name="itemid" type="hidden" value="<?php echo $result["o_item_id"]; ?>"></input>  
-								<button onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Checkout</button>
+								<form method="post" action="https://ipnpb.sandbox.paypal.com/cgi-bin/webscr">
+								  <input name="cmd" type="hidden" value="_cart"></input> 
+								  <input name="upload" type="hidden" value="1"></input> 
+								  <input name="lc" type="hidden" value="EN"></input> 
+								  <input name="business" type="hidden" value="sb-t2ex4315255070@business.example.com"></input> 
+								  <input name="cancel_return" type="hidden" value="<?php echo $cancelurl; ?>"></input> 
+								  <input name="notify_url" type="hidden" value="https://imperfectaimers.net/public_html/listener"></input> 
+								  <input name="currency_code" type="hidden" value="USD"></input> 
+								  <input name="return" type="hidden" value="<?php echo $successurl;?>"></input>
+								  <input name="item_number_1" type="hidden" value="<?php echo $cartOrders[0]['o_id']; ?>"></input>  
+								  <input name="item_name_1" type="hidden" value="<?php echo $cartOrders[0]['i_name']; ?>"></input>  
+								  <input name="amount_1" type="hidden" value="<?php echo $cartOrders[0]['current_price']; ?>"></input>  
+								<input type="submit" class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer" value="Checkout"></input>
 								</form>
 								</div>
-
+</div>
 								<?php endif;?>
 								</td>
 							</tr>
