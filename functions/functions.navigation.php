@@ -8,7 +8,7 @@
      * @return string "/public_html/$area/$id"
      */
     function generalNavigation($area, $id){
-        return '/'.$GLOBALS["url_loc"][0].'/'.$area.'/'.$id;
+        return PROJECT_ROOT.'/'.URL_LOC_0.'/'.$area.'/'.$id;
     }
 
         
@@ -28,11 +28,16 @@
      * @param  mixed $command 
      * @return string returns url
      */
-
     // ../phpstorm/nft-ools/
-    function itemAPI($id, $command){
-        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/item/'.$id.'/'.$command;
+    function itemURL($id, $command){
+        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/'.URL_ITEM.'/'.$id.'/'.$command;
         return $l;
+    }
+
+
+    function addEventURL($id){
+        $_r = $GLOBALS['config']['url_root'].'/'.URL_LOC_0.'/'.URL_ADD_EVENT.'/'.$id;
+        return $_r;
     }
     
 ?>

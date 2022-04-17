@@ -80,9 +80,11 @@
      * @param  mixed $format LISTING_INPUT_AREA
      * @return void draws to page
      */
-    function drawTextArea($name, $format){
+    function drawTextArea($name, $format, $character_limit, $required){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);    
         return '
-            <textarea name="'. $name .'" class="'.$format.'"></textarea>
+            <textarea name="'. $name .'" class="'.$format.'"'.$_c.$_r.'></textarea>
         ';
     }
 
@@ -97,6 +99,7 @@
     function drawSelectOption($name, $format, $options){
         $_r = '<select name="'.$name.'" class="'.$format.'">';
         foreach($options as $option){
+            console($option);
             $_r = $_r.'<option value="'.$option["value"].'">'.$option["text"].'</option>';
         }
         $_r = $_r.'</select>';
@@ -212,4 +215,18 @@
     function drawPostedImage($image, $format){
         return '<image class="'.$format.'" src="'.imageSrc(file_get_contents($_FILES[$image]["tmp_name"])).'"/>';
     }
+
+    
+    /** assembels string for html hiden element
+     *
+     * @param  string $name should correspond to the column name in the table into which data will be inserted
+     * @param  mixed $value the value that will be submitted
+     * @return string html hidded input element as a string
+     */
+    function drawHidden($name, $value){
+        return '
+            <input type="hidden" name="'.$name.'" value="'.$value.'">
+        ';
+    }
+
 ?>

@@ -66,6 +66,23 @@ class DatabaseConnector {
 	}
 
 	
+	/** returns list of user's items
+	 *
+	 * @param  mixed $id user id
+	 * @return array list of user's items
+	 */
+	public static function getUserItemsList($id){
+		$q = 'SELECT 
+				'.ITEM_TABLE_ID.', 
+				'.ITEM_TABLE_NAME.', 
+				'.ITEM_TABLE_CURRENT_PRICE.', 
+				'.ITEM_TABLE_IMAGE.', 
+				'.ITEM_TABLE_DESCRIPTION.'
+			FROM item WHERE '.ITEM_TABLE_OWNER_ID.' = '.$id;
+		return DatabaseConnector::query($q);
+	}
+
+	
 	/** DB query for a single item
 	 *
 	 * @param  mixed $id item id in item table
@@ -117,15 +134,37 @@ class DatabaseConnector {
 	 * @param  mixed $data return data from the event's reducer
 	 * @return void 
 	 */
-	public static function addEvent($type, $data){
-		switch($type){
-			case EVENT_NEW_ITEM:
-				self::newItemEvent($data);
-				break;
-			case EVENT_TRANSACTION:
-				break;
-		}
-		return;
+	public static function addEvent($data){
+		$q = "INSERT INTO orders ("
+				//.EVENT_TABLE_ID.","								/*00*/
+				//.EVENT_TABLE_TIMESTAMP.","						/*01*/
+				.EVENT_TABLE_STATUS.","								/*02*/
+				.EVENT_TABLE_ITEM_ID.","							/*03*/
+				.EVENT_TABLE_BUYER_ID.","							/*04*/
+				.EVENT_TABLE_SELLER_ID.","							/*05*/
+				.EVENT_TABLE_TRANSACTION_ID.","						/*06*/
+				.EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE.","	/*07*/
+				.EVENT_TABLE_EVENT_DESCRIPTION.","					/*08*/
+				.EVENT_TABLE_EVENT_TIMESTAMP						/*09*/
+			.") VALUES ("
+				//.$data[EVENT_TABLE_ID]."," 								/*00*/
+				//.$data[EVENT_TABLE_TIMESTAMP].",'"						/*01*/
+				."'".$data[EVENT_TABLE_STATUS]."',"							/*02*/
+				.$data[EVENT_TABLE_ITEM_ID].","								/*03*/	
+				.$data[EVENT_TABLE_BUYER_ID].","							/*04*/
+				.$data[EVENT_TABLE_SELLER_ID]."," 							/*05*/	
+				.$data[EVENT_TABLE_TRANSACTION_ID].","						/*06*/
+				.$data[EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE].","		/*07*/
+				."'".$data[EVENT_TABLE_EVENT_DESCRIPTION]."',"				/*08*/
+				.$data[EVENT_TABLE_EVENT_TIMESTAMP]							/*09*/
+		.")";
+		try{
+			self::query($q);
+			return;
+		}catch(Exception $e){
+			var_dump($e);
+			return;
+		} 
 	}
 
 	
@@ -155,45 +194,7 @@ class DatabaseConnector {
 		}
 	}
 
-	
-	/** inserts the "added to items" event into the event table. use when new items are added for the first time
-	 *
-	 * @param  mixed $data results of functions/functions.add_item.php=>newItemEventReducer()
-	 * @return void inserts new item event into event table
-	 */
-	public static function newItemEvent($data){
-		$q = "INSERT INTO orders ("
-				//.EVENT_TABLE_ID.","								/*00*/
-				//.EVENT_TABLE_TIMESTAMP.","						/*01*/
-				.EVENT_TABLE_STATUS.","								/*02*/
-				.EVENT_TABLE_ITEM_ID.","							/*03*/
-				.EVENT_TABLE_BUYER_ID.","							/*04*/
-				.EVENT_TABLE_SELLER_ID.","							/*05*/
-				.EVENT_TABLE_TRANSACTION_ID.","						/*06*/
-				.EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE.","	/*07*/
-				.EVENT_TABLE_EVENT_DESCRIPTION.","					/*08*/
-				.EVENT_TABLE_EVENT_TIMESTAMP						/*09*/
-			.") VALUES ("
-				//.$data[EVENT_TABLE_ID]."," 								/*00*/
-				//.$data[EVENT_TABLE_TIMESTAMP].",'"						/*01*/
-				."'".$data[EVENT_TABLE_STATUS]."',"							/*02*/
-				.$data[EVENT_TABLE_ITEM_ID].","								/*03*/	
-				.$data[EVENT_TABLE_BUYER_ID].","							/*04*/
-				.$data[EVENT_TABLE_SELLER_ID]."," 							/*05*/	
-				.$data[EVENT_TABLE_TRANSACTION_ID].","						/*06*/
-				.$data[EVENT_TABLE_TRANSACTION_AUTHENTICATION_CODE].","		/*07*/
-				."'".$data[EVENT_TABLE_EVENT_DESCRIPTION]."',"				/*08*/
-				.$data[EVENT_TABLE_EVENT_TIMESTAMP]							/*09*/
-			.")";
-		try{
-			self::query($q);
-			return;
-		}catch(Exception $e){
-			var_dump($e);
-			return;
-		} 
-	}
-	
+
 	/*  User Profile update queries
 	Pre-Populate Form with Current Account Details
 	*/

@@ -14,6 +14,8 @@
     define("URL_LOC_0",$GLOBALS['url_loc'][0]);
     define("URL_LOC_1",$GLOBALS['url_loc'][1]);
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
+    define("URL_LOC_3",$GLOBALS['url_loc'][3]);
+    define("URL_PUBLIC_DIRECTORY","public_html");
     define("ADD_TO_CART","add_to_cart");
     define("REMOVE_FROM_CART","remove_from_cart");
     define("EDIT","edit");
@@ -22,8 +24,12 @@
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
-    define("HEADER_HOME","Location: ../public_html");
+    define("URL_HOME",PROJECT_ROOT.'/'.URL_PUBLIC_DIRECTORY);
     define("PROFILE_UPDATED","profile_updated");
+    define("URL_ADD_EVENT",'add_event');
+    define("URL_ITEM","item");
+    define("URL_USER","user");
+
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
@@ -135,6 +141,9 @@
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_DATE",ITEM_TABLE_ORIGINAL_PURCHASE_DATE);
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_PURCHASE_PRICE",ITEM_TABLE_ORIGINAL_PRICE);
     define("EVENT_TABLE_DESCRIPTION_ORIGINAL_OWNER","original_owner");
+    define("EVENT_TABLE_DESCRIPTION_DATE","date");
+    define("EVENT_TABLE_DESCRIPTION_CUSTOM_DESCRIPTION","description");
+    define("EVENT_TABLE_DESCRIPTION_COST","cost");
 
     // EVENT TABLE DEFAULT VALUES
     define("EVENT_TABLE_DEFAULT_STATUS","pending");
@@ -147,6 +156,8 @@
     define("EVENT_SAVED_ITEM_DELISTED","delisted");
     define("EVENT_SAVED_ITEM_UPDATED","updated");
     define("EVENT_SAVED_ITEM_PURCHASED","purchased");
+    define("EVENT_SAVED_REPAIRED","repaired");
+    define("EVENT_SAVED_UPGRADED","upgraded");
 
 
     // TIMELINE

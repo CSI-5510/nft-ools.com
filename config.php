@@ -11,6 +11,11 @@ $ASIDE_BACKEND = "aside";
 switch ($GLOBALS['url_loc'][1]){
     case "/":
     break;
+    case URL_ADD_EVENT:
+        $BACKEND = URL_ADD_EVENT;
+        $PAGE_TITLE = "Add Event";
+        $FRONTEND = URL_ADD_EVENT;
+        break;
     case "item":
         $BACKEND = "item";
         $PAGE_TITLE = "Item";
