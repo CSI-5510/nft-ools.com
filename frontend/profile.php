@@ -6,6 +6,8 @@
     // if($GLOBALS['user_profile_updated']){
     //     alertBox('Notice', 'Your profile has been updated successfully.');
     // }
+
+
     switch(URL_LOC_2){
         case EDIT_PROFILE:
             echo drawEditProfile($user_data);

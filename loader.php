@@ -42,6 +42,8 @@ include('../functions/functions.carousel.php');
 include('../functions/functions.header.php');
 include('../functions/functions.navigation.php');
 include('../functions/functions.ui.php');
+include('../functions/functions.input_validation.php');
+include('../functions/functions.pricing_algorithm.php');
 include("../classes/class.database.php");
 include("../classes/class.user.php");
 include("../classes/class.order.php");
