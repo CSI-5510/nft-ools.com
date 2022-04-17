@@ -20,8 +20,8 @@
 
     try{
         switch($GLOBALS['url_loc'][3]){
-            case $ADD_TO_CART:
-                $result = Order::addItemToCart($item_data['i_id'], $signed_in);
+            case "add_to_cart":
+                Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
             case $REMOVE_FROM_CART:
                 Order::removeItemFromCart($item_data['i_id'], $signed_in);

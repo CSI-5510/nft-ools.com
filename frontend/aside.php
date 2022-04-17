@@ -136,8 +136,8 @@
 	  
       <?php if (User::isLoggedin()): ?>
       <li class="my-px">
-         <a href="./orders" class="<?php echo $GLOBALS["url_loc"][1] !==
-         "checkout"
+         <a href="<?php echo $GLOBALS['config']['url_root'];echo"/";echo $GLOBALS["url_loc"][0]; ?>/orders" class="<?php echo $GLOBALS["url_loc"][1] !==
+         "orders"
              ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
              : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
             <span class="flex items-center justify-center text-lg text-gray-400">

@@ -16,7 +16,7 @@ class Order {
 	{
 		//check to see if the item has an open order
 		//also checks to see if a seller exists already
-		if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="open" AND o_seller_id IS NULL', array(':itemid'=>$itemid))) {
+		if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_status="open" AND o_buyer_id IS NULL', array(':itemid'=>$itemid))) {
 			return true;
 			} else {
 		return false;			
@@ -39,7 +39,7 @@ class Order {
 	public static function isItemInUserCart($itemid, $userid)
 	{
 		//check to see if the item is already added to the users cart
-		if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_seller_id=:userid AND o_status="pending"', array(':itemid'=>$itemid, ':userid'=>$userid))) {
+		if (DatabaseConnector::query('SELECT o_id FROM orders WHERE o_item_id=:itemid AND o_buyer_id=:userid AND o_status="pending"', array(':itemid'=>$itemid, ':userid'=>$userid))) {
 			return true;
 			} else {
 		return false;			
@@ -56,31 +56,29 @@ class Order {
 	*/
 
 	public static function addItemToCart($itemid, $userid)
-	{
-		//make sure item is open and available
-		if(self::isItemOpen($itemid)){
-			//good! the item is open and without a seller id.
-			//lets make sure the user isn't adding an item that he already owns
-			if(self::isUsersListing($itemid, $userid) == false){
-
-				//since the user doesn't own the item we can proceed!
-				if(self::isItemInUserCart($itemid, $userid)== false){
-
-					//since item isn't in the user cart we can proceed
-					//looks like the item is ready to add into the cart...
-					//lets add a seller id to the order!
-					DatabaseConnector::query('UPDATE orders SET o_seller_id=:sellerid, o_status="pending" WHERE o_item_id=:itemid AND o_status="open" AND o_seller_id IS NULL', array(':sellerid'=>$userid, ':itemid'=>$itemid));
-				}
-				else {
-				return false;
-				}
-			} else {
-			return false;
-			}
-		} else {
-		return false;
-		}
-	}
+   {
+        //make sure item is open and available
+        if(self::isItemOpen($itemid)){
+            //good! the item is open and without a seller id.
+            //lets make sure the user isn't adding an item that he already owns
+            if(self::isUsersListing($itemid, $userid) == false){
+                //since the user doesn't own the item we can proceed!
+                if(self::isItemInUserCart($itemid, $userid)== false){
+                    //since item isn't in the user cart we can proceed
+                    //looks like the item is ready to add into the cart...
+                    //lets add a seller id to the order!
+					DatabaseConnector::query('UPDATE orders SET o_buyer_id=:buyerid, o_status="pending" WHERE o_item_id=:itemid AND o_status="open" AND o_buyer_id IS NULL AND o_seller_id IS NOT NULL', array(':itemid'=>$itemid, ':buyerid'=>$userid));
+                }
+                else {
+                return false;
+                }
+            } else {
+            return false;
+            }
+        } else {
+        return false;
+        }
+    }
 	
 	public static function removeItemFromCart($itemid, $userid)
 	{
@@ -91,8 +89,8 @@ class Order {
 				if(self::isItemInUserCart($itemid, $userid)== true){
 					//since item isn't in the user cart we can proceed
 					//looks like the item is ready to add into the cart...
-					//lets remove the seller_id from theo rder!
-					DatabaseConnector::query('UPDATE orders SET o_seller_id=NULL, o_status=NULL WHERE o_item_id=:itemid AND o_status="pending" AND o_seller_id=:sellerid', array(':itemid'=>$itemid, ':sellerid'=>$userid));
+					//lets remove the seller_id from the order!
+					DatabaseConnector::query('UPDATE orders SET o_buyer_id=NULL, o_status="open" WHERE o_item_id=:itemid AND o_status="pending" AND o_buyer_id=:buyerid', array(':itemid'=>$itemid, ':buyerid'=>$userid));
 				}
 			}
 	}
@@ -102,7 +100,20 @@ class Order {
 	{
 		$userid = User::isLoggedIn();
 		return DatabaseConnector::query('SELECT COUNT(*) FROM orders WHERE o_seller_id=:userid OR o_buyer_id=:userid', array(':userid'=>$userid))[0]['COUNT(*)'];
+	}
+	
+	public static function getUsersOrdersAsSeller()
+	{
+		$userid = User::isLoggedIn();
+		return DatabaseConnector::query('SELECT * FROM orders WHERE o_seller_id=:userid', array(':userid'=>$userid))[0]['COUNT(*)'];
+	}
+
+	public static function getUsersOrdersAsBuyer()
+	{
+		$userid = User::isLoggedIn();
+		return DatabaseConnector::query('SELECT o_id, o_item_id, o_seller_id, o_status, i_name, i_image FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid', array(':userid'=>$userid));
 	}	
+	
 }
 
 ?>

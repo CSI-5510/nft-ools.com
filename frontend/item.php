@@ -67,7 +67,7 @@
 					} else {
 						//make sure item isn't currently pending (in an offer)..
 						if(!$is_item_pending){
-							if($is_item_open){
+							if(Order::isItemOpen($item_data['i_id'])){
 								//add item button
 								drawAddToCartButton($item_data['i_id'], $BLUE_BUTTON, $ADD_TO_CART); 
 							} else {
