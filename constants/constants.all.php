@@ -6,7 +6,7 @@
 
 
     // USER
-    define("USER_ID",22/*User::isLoggedIn()*/);
+    define("USER_ID",User::isLoggedIn());
 
     
     // NAVIGATION

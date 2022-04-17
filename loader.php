@@ -15,7 +15,7 @@ $GLOBALS['db_conf']['db_user'] = "admin";
 $GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
  
-if($GLOBALS['config']['url_offset'] > 0){
+if($GLOBALS['config']['url_offset'] > 0) {
     $x = 0; while($x < ($GLOBALS['config']['url_offset'])){ unset($GLOBALS['url_loc'][$x]); $x++; }
     $GLOBALS['url_loc'] = array_values($GLOBALS['url_loc']);
 }
