@@ -58,7 +58,7 @@
             EVENT_TABLE_ITEM_ID => $item_id,
             EVENT_TABLE_DESCRIPTION => $post[EVENT_TABLE_DESCRIPTION],
             EVENT_TABLE_TIMESTAMP => 'NULL',
-            EVENT_TABLE_DATE => $post[EVENT_TABLE_DATE],
+            EVENT_TABLE_DATE => "'".$post[EVENT_TABLE_DATE]."'",
             EVENT_TABLE_TYPE => $post[EVENT_TABLE_TYPE],
             EVENT_TABLE_COST => $clean_cost               
         );

@@ -27,8 +27,8 @@
                 alertBox($item_data['i_name'], "Removed from orders");
 				}
                 break;		
-            case URL_EDIT:
-                
+            case URL_EDIT_ITEM:
+                echo drawEditItem($options, $item_data);
                 break;
             default:
                 drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, FALSE);
