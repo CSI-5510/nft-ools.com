@@ -18,7 +18,7 @@
     define("URL_LOC_4",$GLOBALS['url_loc'][4]);
     define("URL_HOME",PROJECT_ROOT.'/'.URL_LOC_0);
     define("URL_PUBLIC_DIRECTORY","public_html");
-    define("URL_ADD_TO_CART","URL_ADD_TO_CART");
+    define("URL_ADD_TO_CART","add_to_cart");
     define("URL_REMOVE_FROM_CART","remove_from_cart");
     define("URL_EDIT","edit");
     define("URL_ADD_ITEM","add_item");
