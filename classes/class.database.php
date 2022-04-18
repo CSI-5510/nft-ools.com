@@ -137,6 +137,31 @@ class DatabaseConnector {
 		}
 	}
 
+	public static function getItemIDs(){
+		$q = 'SELECT i_id,'.ITEM_TABLE_CATEGORY_ID.' FROM items ORDER BY '.ITEM_TABLE_CATEGORY_ID;
+		return self::query($q);
+	}
+
+
+	public static function getUinqueItems($data){
+		$old = null;
+		$new = null;
+		$_r = array();
+		foreach($data as $row){
+			if(is_null($old)){
+				array_push($_r, $row[ITEM_TABLE_ID]);
+				$old = $row[ITEM_TABLE_CATEGORY_ID];
+				continue;
+			}
+			$new = $row[ITEM_TABLE_CATEGORY_ID];
+			if($new != $old){
+				array_push($_r, $row[ITEM_TABLE_ID]);
+			}
+			$old = $new;
+		}
+	}
+
+
 
 	public static function getItemDataNoPics($id){
 		$q = 'SELECT '

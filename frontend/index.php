@@ -17,7 +17,7 @@
 <section class="relative  bg-blueGray-50">
     <div class="relative pt-16 pb-32 flex  items-center justify-center min-h-screen-75">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-            background-image: url('landing-page.jpg');
+            background-image: url('./css/images/landing-page.jpg');
           ">
           <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
 

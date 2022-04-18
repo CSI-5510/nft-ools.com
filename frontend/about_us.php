@@ -21,7 +21,7 @@
    <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 h-screen">
       <div class="max-h-70 md:h-screen">
-        <img class="w-screen h-screen" src="nftools.jpg" >
+        <img class="w-screen h-screen" src="./css/images/nftools.jpg" >
       </div>
       <div class="flex bg-gray-100 p-10">
         <div class="mb-auto mt-auto max-w-lg">
