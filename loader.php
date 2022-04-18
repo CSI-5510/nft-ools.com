@@ -3,7 +3,7 @@
 //This is how we get what page we should be on based on URL.
 $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?'), ENT_QUOTES));
 
-$GLOBALS['config']['url_offset'] = 1;
+$GLOBALS['config']['url_offset'] = 0;
 $GLOBALS['config']['url_root'] = ""; 
 
 $GLOBALS['devmode'] = 1; 
@@ -35,19 +35,26 @@ session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
 include("../functions/functions.general.php");
+
+
 include('../functions/functions.debug.php');
 include('../functions/functions.tile.php');
 include('../functions/functions.carousel.php');
+
 include('../functions/functions.header.php');
 include('../functions/functions.navigation.php');
 include('../functions/functions.ui.php');
 include('../functions/functions.input_validation.php');
 include('../functions/functions.pricing_algorithm.php');
 include("../classes/class.database.php");
+
 include("../classes/class.user.php");
 include("../classes/class.order.php");
+
 include("../classes/class.general.php");
 include("classes/class.admin.php");
+
 include('../constants/constants.all.php');
 ?>

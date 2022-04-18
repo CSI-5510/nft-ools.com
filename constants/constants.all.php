@@ -9,8 +9,16 @@
     define("USER_ID",User::isLoggedIn());
 
     
+	
+if($GLOBALS['config']['url_root'] !== ""){
+        $route = "".$GLOBALS['config']['url_root']."/";
+        } else {
+        $route="";
+        }
+	
     // NAVIGATION
-    define("PROJECT_ROOT",$GLOBALS['config']['url_root']);
+    define("PROJECT_ROOT",$route);
+	echo $route;
     define("URL_LOC_0",$GLOBALS['url_loc'][0]);
     define("URL_LOC_1",$GLOBALS['url_loc'][1]);
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
@@ -24,7 +32,7 @@
     define("ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("CANCEL_ADD_ITEM","cancel_add_item");
     define("COLLECTOR","collector");
-    define("URL_HOME",PROJECT_ROOT.'/'.URL_PUBLIC_DIRECTORY);
+    define("URL_HOME",PROJECT_ROOT.$GLOBALS['url_loc'][0]);
     define("URL_PROFILE_UPDATED","profile_updated");
     define("URL_ADD_EVENT",'add_event');
     define("URL_ITEM","item");

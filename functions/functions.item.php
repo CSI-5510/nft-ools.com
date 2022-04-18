@@ -33,7 +33,7 @@
      */
     function drawRemoveFromCartButton($id, $format, $command){
         $text = 'Remove from Orders';
-        $url = itemURL($id, $command);
+        $url = "adewew";
         return drawLinkButton($text, $url, $format);
     }
 	
