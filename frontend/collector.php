@@ -11,11 +11,11 @@
                 $url = generalNavigation(array(URL_ITEM, $item_id));
                 header('location: '.$url);
                 break;
-            case ADD_ITEM:
+            case URL_ADD_ITEM:
                 $url = generalNavigation(array(URL_ITEM, $item_id));
                 header("location: ".$url);
                 break;			 
-            case EDIT_PROFILE:
+            case URL_EDIT_PROFILE:
                 $url = generalNavigation(array(URL_PROFILE, URL_PROFILE_UPDATED));			
                 header("location: ".$url);
                 break;	

@@ -7,31 +7,30 @@
     }
 
     try{
-        switch($GLOBALS['url_loc'][2]){
+        switch(URL_LOC_2){
             case URL_ADD_EVENT:
-                $event_data = addEventReducer($_POST);
+                $item_id = URL_LOC_3;
+                $event_data = addEventReducer($item_id, $_POST);
                 DatabaseConnector::addEvent($event_data);
-                $item_id = $_POST[EVENT_TABLE_ITEM_ID];
                 break;
-            case ADD_ITEM:
+            case URL_ADD_ITEM:
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, USER_ID);
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0][0];
-                $item_data = DatabaseConnector::getItemData($item_id);
-                $user_data = DatabaseConnector::getUserFullName(USER_ID);
-                $item_data = newItemEventReducer($item_data,$user_data);
+                $item_data = DatabaseConnector::getItemDataNoPics($item_id);
+                $item_data = addItemEventReducer($item_data[ITEM_TABLE_ID]);
                 DatabaseConnector::addEvent($item_data);
                 break;
-            case ADD_ITEM_CONFIRMATION:
+            case URL_URL_ADD_ITEM_CONFIRMATION:
                 // $item_id = $_POST["item_id"];
                 // $item_data = DatabaseConnector::getItem($item_id);
                 // DatabaseConnector::setPendingApproval($item_id);
                 break;
-			case EDIT_PROFILE:
+			case URL_EDIT_PROFILE:
 				 DatabaseConnector::updateUserProfileInfo(USER_ID);
 				 $GLOBALS['user_profile_updated']=TRUE;
 				 break;
-            case CANCEL_ADD_ITEM:
+            case URL_CANCEL_ADD_ITEM:
                 // $item_id = $_POST["item_id"];
                 // if($new_item){
                 //    DatabaseConnector::removeItem($item_id);

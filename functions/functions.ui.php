@@ -3,10 +3,48 @@
 
     include_once('../functions/functions.tile.php');
     
+
+    function drawEmailInput($name, $format, $character_limit, $required, $value){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);   
+        return '
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.'" value="'.$value.'" onkeyup="isValidEmail(this);">
+        ';
+    }
+
+    function drawNoBlankInput($name, $format, $character_limit, $required, $value){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);   
+        return '
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.'" value="'.$value.'" onkeyup="notBlank(this);">
+        ';
+    }
+
+
+    function drawZipInput($name, $format, $required,$value){
+        $_min = inputValidationMinLength(4);
+        $_max = inputValidationMaxLength(5);
+        $_r = inputValidationRequired($required);        
+        return '
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_min.' '.$_max.' '.$_r.'" value="'.$value.'" onkeyup="isValidUSZip(this);">
+        ';
+    }    
+
+
+    function drawPhoneInput($name, $format, $required, $value){
+        $_min = inputValidationMinLength(10);
+        $_max = inputValidationMaxLength(10);
+        $_r = inputValidationRequired($required);        
+        return '
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_min.' '.$_max.' '.$_r.'" value="'.$value.'" onkeyup="isValidPhoneNumber(this);">
+        ';
+    }  
+
+
     /** draws listing label for input instructions
      *
      * @param  mixed $text instructions to display
-     * @param  mixed $format LISTING_LABEL
+     * @param  mixed $format LABEL_LEFT
      * @return string
      */
     function drawLabel($text, $format){
@@ -48,6 +86,22 @@
     }
 
     
+    function inputValidationMinLength($min){
+        if($min>0){
+            return 'minlength="'.$min.'"';
+        }
+        return '';
+    }
+
+
+    function inputValidationMaxLength($max){
+        if($max>0){
+            return 'maxlength="'.$max.'"';
+        }
+        return '';
+    }
+
+
     /** adds required attribute to html element
      *
      * @param  mixed $required
@@ -203,7 +257,7 @@
      */
     function drawSubmitButton($format){
         return '
-            <input type="submit" value="SUBMIT" class="'.$format.'">
+            <input type="submit" id="submit" value="SUBMIT" class="'.$format.'">
         ';
     }
 

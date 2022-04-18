@@ -35,14 +35,13 @@
      * @return void draws to page
      */
     function showAsideAddItem($user_id){
-        if(URL_LOC_1 == ADD_ITEM){
+        if(URL_LOC_1 == URL_ADD_ITEM){
             return drawBlank();
         }
-        // user_id doesnt work on local host yet: 4-12-2022 10:47
-        // if(!$user_id){
-        //     drawBlank();
-        //     return;
-        // }
+        if(!$user_id){
+            drawBlank();
+            return;
+        }
         return drawAddItemButton();
     }
     
@@ -52,8 +51,8 @@
      * @return void draws to page
      */
     function drawAddItemButton(){    
-        $class = AC2_CLASS_ANY;
-        $link = URL_HOME.'/'.ADD_ITEM;
+        $class = ASIDE_DEFAULT_CLASS;
+        $link = URL_HOME.'/'.URL_ADD_ITEM;
         $text = 'Add Item';
         return drawAsideButton($class, $link, $text);
     }
@@ -68,8 +67,10 @@
         if(URL_LOC_2 == URL_USER){
             return drawBlank();
         }
-        return drawMyItemsButton($user_id);
-        
+        if(!$user_id){
+            return drawBlank();
+        }
+        return drawMyItemsButton($user_id);        
     }
 
     
@@ -79,7 +80,7 @@
      * @return void
      */
     function drawMyItemsButton($user_id){
-        $class = AC2_CLASS_ANY;
+        $class = ASIDE_DEFAULT_CLASS;
         $link = URL_HOME.'/'.URL_CATEGORY.'/'.URL_USER;
         $text = 'My Items';
         return drawAsideButton($class, $link, $text);
@@ -90,12 +91,15 @@
         if(URL_LOC_1==URL_PROFILE){
             return drawBlank();
         }
+        if(!$user_id){
+            return drawBlank();
+        }
         return drawProfileButton($user_id);
     }
 
 
     function drawProfileButton($user_id){
-        $class = AC2_CLASS_ANY;
+        $class = ASIDE_DEFAULT_CLASS;
         $link = URL_HOME.'/'.URL_PROFILE;
         $text = 'Profile';
         return drawAsideButton($class, $link, $text);

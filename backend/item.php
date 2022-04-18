@@ -7,8 +7,11 @@
         $GLOBALS['url_loc'][2] <-- item id as string
         $GLOBALS['url_loc'][3] <-- operation as string
     */
-    $item_data = DatabaseConnector::getItemData($GLOBALS['url_loc'][2]);
-    $signed_in = User::isLoggedIn(); // User::isLoggedin();
+    $item_id = URL_LOC_2;
+    $item_data = DatabaseConnector::getItemData($item_id);
+    $order_data = DatabaseConnector::getOrderDataByItem($item_id);
+    $event_data = DatabaseConnector::getItemEventDataByItem($item_id);
+    $signed_in = USER_ID; // User::isLoggedin();
     $is_users_listing = Order::isUsersListing($GLOBALS['url_loc'][2],$signed_in);
 	$is_item_open = Order::isItemOpen($GLOBALS['url_loc'][2]);
 	$is_item_pending = Order::isItemPending($GLOBALS['url_loc'][2]);
@@ -20,13 +23,13 @@
 
     try{
         switch($GLOBALS['url_loc'][3]){
-            case "add_to_cart":
+            case URL_ADD_TO_CART:
                 Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
-            case REMOVE_FROM_CART:
+            case URL_REMOVE_FROM_CART:
                 Order::removeItemFromCart($item_data['i_id'], $signed_in);
                 break;				
-            case EDIT:
+            case URL_EDIT:
                 // modal data
                 break;
 			default:

@@ -2,7 +2,7 @@
     
     try{
         switch($GLOBALS['url_loc'][2]){
-            case $REMOVE_FROM_CART:
+            case $URL_REMOVE_FROM_CART:
 				//is item already in the users cart? let the user know
 				if(!$is_item_in_cart){
                 alertBox("Item is not in orders", "Error");

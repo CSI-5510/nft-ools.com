@@ -22,25 +22,40 @@ switch ($GLOBALS['url_loc'][1]){
         $FRONTEND = "item";
         break;
     case "logout":
-			//use this function to see if the user is logged in
-			if (!User::isLoggedin()){
-				header("Location: ./");
-				die();
-			}	
-			if (isset($_COOKIE['NFTOOLSID'])){
-			DatabaseConnector::query('DELETE FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])));
-			}
-			//expire cookie
-			setcookie('NFTOOLSID', '1', time()-3600);
-			//expire cookie
-			setcookie('NFTOOLSID_', '1', time()-3600);
-			//redirect the user
-			header("Location: ./");
-        break;		
-    case "login":
-        $BACKEND = "login";
+        //use this function to see if the user is logged in
+        if (!User::isLoggedin()){
+            header("Location: ./");
+            die();
+        }	
+        if (isset($_COOKIE['NFTOOLSID'])){
+        DatabaseConnector::query('DELETE FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])));
+        }
+        //expire cookie
+        setcookie('NFTOOLSID', '1', time()-3600);
+        //expire cookie
+        setcookie('NFTOOLSID_', '1', time()-3600);
+        //redirect the user
+        header("Location: ./");
+        break;
+    case URL_CAROUSEL:
+        $BACKEND = URL_CAROUSEL;
+		$PAGE_TITLE = "Categories";
+        $FRONTEND = URL_CAROUSEL;
+        break;
+    case URL_ABOUT_US:
+        $BACKEND = URL_ABOUT_US;
+        $PAGE_TITLE = "About Us";
+        $FRONTEND = URL_ABOUT_US;
+        unset($HEADER_BACKEND);
+        unset($FOOTER);
+        unset($FOOTER_BACKEND);
+        unset($ASIDE);
+        unset($ASIDE_BACKEND);
+        break;			
+    case URL_LOGIN:
+        $BACKEND = URL_LOGIN;
 		$PAGE_TITLE = "Log In";
-        $FRONTEND = "login";
+        $FRONTEND = URL_LOGIN;
         break;		
     case "register":
         $BACKEND = "register";
@@ -62,10 +77,10 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Add Item";
         $FRONTEND = "add_item";
         break;
-    case "collector":
-        $BACKEND = "collector";
+    case URL_COLLECTOR:
+        $BACKEND = URL_COLLECTOR;
         $PAGE_TITLE = "Collector";
-        $FRONTEND = "collector";
+        $FRONTEND = URL_COLLECTOR;
         break;
     case "reset":
         $BACKEND = "reset";
@@ -101,6 +116,12 @@ switch ($GLOBALS['url_loc'][1]){
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
         $FRONTEND = "index";
+        $HEADER = "header";
+        unset($HEADER_BACKEND);
+        unset($FOOTER);
+        unset($FOOTER_BACKEND);
+        unset($ASIDE);
+        unset($ASIDE_BACKEND);
 	    break;
 
 }

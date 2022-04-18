@@ -9,7 +9,7 @@
 
 
     switch(URL_LOC_2){
-        case EDIT_PROFILE:
+        case URL_EDIT_PROFILE:
             echo drawEditProfile($user_data);
             return;
             break;
