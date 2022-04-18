@@ -16,7 +16,16 @@
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);   
         return '
-            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.'" value="'.$value.'" onkeyup="notBlank(this);">
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.' value="'.$value.'" onkeyup="notBlank(this);">
+        ';
+    }
+
+
+    function drawNoBlankArea($name, $format, $character_limit, $required, $value){
+        $_c = inputValidationLength($character_limit);
+        $_r = inputValidationRequired($required);    
+        return '
+            <textarea name="'.$name.'" class="'.$format.'" '.$_c.' '.$_r.' onkeyup="notBlank(this);">'.$value.'</textarea>
         ';
     }
 
@@ -68,7 +77,7 @@
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);        
         return '
-            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.'" value="'.$value.'">
+            <input type="text" name="'.$name.'" class="'.$format.'"'.$_c.' '.$_r.' value="'.$value.'">
         ';
     }
 
@@ -121,9 +130,10 @@
      * @param  mixed $format pick a format or add one to constants
      * @return void
      */
-    function drawDateInput($name, $format){
+    function drawDateInput($name, $format, $required, $value){
+        $_r = inputValidationRequired($required);    
         return '
-            <input type="datetime-local" name="'.$name.'" class="'.$format.'">
+            <input type="datetime-local" name="'.$name.'" class="'.$format.'" '.$_r.' value="'.$value.'">
         ';
     }
 
@@ -150,8 +160,8 @@
      * @param  mixed $options list of options for the dropdown, must be 2D: [["value", "text"], ...]
      * @return void draws to page
      */
-    function drawSelectOption($name, $format, $options){
-        $_r = '<select name="'.$name.'" class="'.$format.'">';
+    function drawSelectOption($name, $format, $options, $value){
+        $_r = '<select name="'.$name.'" class="'.$format.'" value="'.$value.'" oninput="isValid(this);">';
         foreach($options as $option){
             console($option);
             $_r = $_r.'<option value="'.$option["value"].'">'.$option["text"].'</option>';
@@ -186,9 +196,10 @@
      * @param  mixed $accepts file types accepted by input
      * @return string
      */
-    function drawFileUpload($id, $name, $format, $accepts){
+    function drawFileUpload($id, $name, $format, $accepts, $required){
+        $_r = inputValidationRequired($required);   
         return '
-            <input id="'.$id.'" type="file" name="'.$name.'" class="'.$format.'" accepts="'.$accepts.'">
+            <input id="'.$id.'" type="file" name="'.$name.'" class="'.$format.'" accept="'.$accepts.'" '.$_r.'>
         ';
     } 
 
@@ -201,6 +212,7 @@
      * @return void draws to page
      */
     function drawLinkButton($text, $url, $format){
+
         return '
             <a href="'.$url.'" class="'.$format.'">
                 '.$text.'

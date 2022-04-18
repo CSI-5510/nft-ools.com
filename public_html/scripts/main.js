@@ -83,6 +83,16 @@ function isValidPhoneNumber(node) {
 }
 
 
+function performSearch(node, event){
+  console.log(event.keyCode);
+  if (event.keyCode === 13) {
+      document.location.href = "/public_html/search/"+node.value;
+  }
+}
+
+
+
+
 /** adds each item to buffer
  * @param  {Event} ev event
  * @returns void file system operation

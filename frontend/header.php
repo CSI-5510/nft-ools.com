@@ -21,6 +21,7 @@
                     name="search"
                     class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-300 w-full h-10 focus:outline-none focus:border-indigo-400"
                     placeholder="Search..."
+                    onkeyup="performSearch(this, event);"
                 />
             </div>
             <div class="flex md:hidden">

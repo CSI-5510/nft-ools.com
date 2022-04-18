@@ -14,13 +14,14 @@
         return $_r;
     }
 
+
         
     /** navigate to sign in page
      *
      * @return string "/public_html/signin"
      */
     function signInNavigation(){
-        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/login';
+        $l = PROJECT_ROOT.$GLOBALS["url_loc"][0].'/login';
         return $l;
     }
 
@@ -33,7 +34,7 @@
      */
     // ../phpstorm/nft-ools/
     function itemURL($id, $command){
-        $l = ''.$GLOBALS['config']['url_root'].'/'.$GLOBALS["url_loc"][0].'/'.URL_ITEM.'/'.$id.'/'.$command;
+        $l = PROJECT_ROOT.URL_ITEM.'/'.$id.'/'.$command;
         return $l;
     }
     

@@ -22,13 +22,13 @@
             array("value" => EVENT_SAVED_REPAIRED, "text" => EVENT_SAVED_REPAIRED),
             array("value" => EVENT_SAVED_UPGRADED, "text" => EVENT_SAVED_UPGRADED)
         );
-        echo drawSelectOption(EVENT_TABLE_TYPE, LISTING_INPUT_AREA, $options);
+        echo drawSelectOption(EVENT_TABLE_TYPE, LISTING_INPUT_AREA, $options, '');
         echo $CLOSE_ROW;
         
         // EVENT DATE
         echo $OPEN_ROW;
         echo drawLabel('DATE', LABEL_LEFT);
-        echo drawDateInput(EVENT_TABLE_DATE, LISTING_INPUT_AREA);
+        echo drawDateInput(EVENT_TABLE_DATE, LISTING_INPUT_AREA, TRUE, date('Y-m-d'));
         echo $CLOSE_ROW;
         
         // EVENT COST

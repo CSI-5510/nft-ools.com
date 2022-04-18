@@ -55,7 +55,7 @@ if ($isAdmin) {
 				case URL_REMOVE_FROM_CART:
 					Order::removeItemFromCart($item_data['i_id'], $signed_in);
 					break;				
-				case URL_EDIT:
+				case URL_EDIT_ITEM:
 					// modal data
 					break;
 				default:

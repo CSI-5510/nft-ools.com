@@ -9,8 +9,16 @@
     define("USER_ID",User::isLoggedIn());
 
     
+	
+if($GLOBALS['config']['url_root'] !== ""){
+        $route = "".$GLOBALS['config']['url_root']."/";
+        } else {
+        $route="";
+        }
+	
     // NAVIGATION
-    define("PROJECT_ROOT",$GLOBALS['config']['url_root']);
+    define("PROJECT_ROOT",$route);
+	echo $route;
     define("URL_LOC_0",$GLOBALS['url_loc'][0]);
     define("URL_LOC_1",$GLOBALS['url_loc'][1]);
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
@@ -20,10 +28,10 @@
     define("URL_PUBLIC_DIRECTORY","public_html");
     define("URL_ADD_TO_CART","add_to_cart");
     define("URL_REMOVE_FROM_CART","remove_from_cart");
-    define("URL_EDIT","edit");
+    define("URL_EDIT_ITEM","edit");
     define("URL_ADD_ITEM","add_item");
 	define("URL_EDIT_PROFILE","edit_profile");
-    define("URL_URL_ADD_ITEM_CONFIRMATION","add_item_confirmation");
+    define("URL_ADD_ITEM_CONFIRMATION","add_item_confirmation");
     define("URL_CANCEL_ADD_ITEM","cancel_add_item");
     define("URL_COLLECTOR","collector");
     define("URL_PROFILE_UPDATED","profile_updated");
@@ -35,6 +43,7 @@
     define("URL_CAROUSEL","carousel");
     define("URL_ABOUT_US","about_us");
     define("URL_LOGIN","login");
+    define("URL_SEARCH","search");
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
@@ -44,7 +53,8 @@
     define("REQUIRED_FIELDS_MESSAGE","p-4 mt-5 mb-0 ml-5 w-full bg-withe text-left");
     define("REQUIRED_FIELD_NOTE","p-1 -mb-5 -mr-5 w-full bg-withe text-left text-xs font-normal text-right");
     define("LISTING_INPUT_AREA","p-4 mt-5 mb-0 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center");
-    define("LISTING_DROPZONE","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2 border-blue-800 hover:bg-blue-400 text-center");
+    define("DROPDOWN_INPUT","p-4 mt-5 mb-0 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center");
+    define("LISTING_DROPZONE","p-4 mt-5 mb-0 ml-5 mr-40 w-3/5 bg-blue-200 border-2 border-blue-800 hover:bg-blue-400 text-center");
     define("LISTING_AFFIDAVIT_CONTAINER","");
     define("LISTING_PRICE_LABEL","p-4 mt-5 ml-5 mr-40 w-3/5 bg-gray-300");
     define("FLEX_ROW_NO_JUSTIFY","flex flex-row items-start");
@@ -62,6 +72,7 @@
 
     // ACCEPTED FILE TYPES
     define("ACCEPTED_IMAGE_TYPES",".jpg,.jpeg,.png");
+    define("ACCEPT_PDF",".pdf");
 
 
     

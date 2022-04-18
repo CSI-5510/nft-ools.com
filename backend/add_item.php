@@ -1,4 +1,5 @@
 <?php
+  $user_id = User::isLoggedInWithRedirect();
 
     // BACKEND
     $category_data = DatabaseConnector::getCategoryLinkData();
@@ -11,5 +12,4 @@
         ];
         array_push($options, $option);
     }
-    // $user_id = User::isLoggedInWithRedirect()
 ?>

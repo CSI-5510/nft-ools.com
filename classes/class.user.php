@@ -41,8 +41,26 @@ class User {
 	return false;
 	}
 }
-	
-	
+
+
+	public static function getFullName()
+{
+	$result = DatabaseConnector::query('SELECT fname, lname FROM user WHERE id=:id', array(':id'=>USER_ID))[0];
+	return $result["fname"].' '.$result["lname"];
+	}
+
+
+
+	//use this function in the user class to see if the user is logged in
+		public static function isLoggedInWithRedirect()
+		{
+			$userid = User::isLoggedin();
+			if (!$userid){
+				header("Location: ./login");
+			} else {
+			return $userid;
+			}
+		}
 	
 		public static function isAdmin()
 		{

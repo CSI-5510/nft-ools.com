@@ -49,56 +49,56 @@
         
         // ROW TITLE
          $OPEN_ROW.
-         drawLabel('TITLE', LABEL_LEFT).
-         drawTextInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, TRUE, '').
+         drawLabel('<p>TITLE *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
+         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, TRUE, '').
          $CLOSE_ROW.
         
         // ROW CATEGORY
          $OPEN_ROW.
-         drawLabel('CATEGORY', LABEL_LEFT).
-         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, LISTING_INPUT_AREA, $options).
+         drawLabel('<p>CATEGORY *</p><p class="'.REQUIRED_FIELD_NOTE.'"> select from list</p>', LABEL_LEFT).
+         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, '').
          $CLOSE_ROW.
         
         // ROW SERIAL NUMBER
          $OPEN_ROW.
-         drawLabel('SERIAL NUMBER', LABEL_LEFT).
-         drawTextInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, TRUE, '').
+         drawLabel('<p>SERIAL NUMBER *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 11 characters max</p>', LABEL_LEFT).
+         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, TRUE, '').
          $CLOSE_ROW.
 
         // ROW DESCRIPTION
          $OPEN_ROW.
-         drawLabel('DESCRIPTION', LABEL_LEFT).
-         drawTextArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 250, TRUE).
+         drawLabel('<p>DESCRIPTION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 300 characters max</p>', LABEL_LEFT).
+         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, TRUE, '').
          $CLOSE_ROW.
         
         // ROW IMAGE
          $OPEN_ROW.
-         drawLabel('IMAGE', LABEL_LEFT).
-         drawFileUpload(ITEM_OBFUSCATED_IMAGE, ITEM_OBFUSCATED_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawLabel('<p>IMAGE *</p><p class="'.REQUIRED_FIELD_NOTE.'">'.ACCEPTED_IMAGE_TYPES.'</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_IMAGE, ITEM_OBFUSCATED_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, TRUE).
          $CLOSE_ROW.
         
         // ROW DOCUMENTATION
          $OPEN_ROW.
-         drawLabel('DOCUMENTATION', LABEL_LEFT).
-         drawFileUpload(ITEM_OBFUSCATED_DOCUMENTATION, ITEM_OBFUSCATED_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawLabel('<p>DOCUMENTATION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> .pdf</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_DOCUMENTATION, ITEM_OBFUSCATED_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, TRUE).
          $CLOSE_ROW.
         
         // ROW RECEIPT
          $OPEN_ROW.
-         drawLabel('RECEIPT', LABEL_LEFT).
-         drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES).
+         drawLabel('<p>RECEIPT *</p><p class="'.REQUIRED_FIELD_NOTE.'">.jpg, .jpeg, or .png</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, TRUE).
          $CLOSE_ROW.
         
         // ROW PURCHASE DATE
          $OPEN_ROW.
-         drawLabel('PURCHASE DATE', LABEL_LEFT).
-         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA).
+         drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, TRUE, date('Y-m-d')).
          $CLOSE_ROW.
         
         // ROW PURCHASE PRICE
          $OPEN_ROW.
-         drawLabel('PURCHASE PRICE', LABEL_LEFT).
-         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 20, TRUE, '').
+         drawLabel('<p>PURCHASE PRICE *</p><p class="'.REQUIRED_FIELD_NOTE.'">enter a positive number</p>', LABEL_LEFT).
+         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 100, TRUE, '').
          $CLOSE_ROW.
         
         // ROW AFFIDAVIT OF QUALITY
