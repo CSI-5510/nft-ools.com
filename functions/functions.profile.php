@@ -15,18 +15,23 @@
 
 		return 
 
+            // REQUIRED FIELDS MESSAGE
+            $OPEN_ROW.
+            drawLabel('fields marked with * are required', REQUIRED_FIELDS_MESSAGE).
+            $CLOSE_ROW.
+
             // OPEN FORM
             '<form method="POST" action="'.$url.'" enctype="multipart/form-data">'.
             
             // ROW USERNAME
             $OPEN_ROW.
-            drawLabel('UserName', LISTING_LABEL).
+            drawLabel('<p>UserName *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 40 characters max</p>', LISTING_LABEL).
             drawTextInput(USER_TABLE_USERNAME, LISTING_INPUT_AREA, 20, TRUE, $data[USER_TABLE_USERNAME]).
             $CLOSE_ROW.
             
             // ROW EMAIL
             $OPEN_ROW.
-            drawLabel('Email', LISTING_LABEL).
+            drawLabel('<p>Email *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 40 characters max, must be a valid email</p>', LISTING_LABEL).
             drawTextInput(USER_TABLE_EMAIL, LISTING_INPUT_AREA, 20, TRUE,$data[USER_TABLE_EMAIL]).
             $CLOSE_ROW.
             

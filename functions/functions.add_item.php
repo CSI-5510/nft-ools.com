@@ -39,6 +39,12 @@
         $url = generalNavigation(array(URL_COLLECTOR, URL_ADD_ITEM));
         
         return 
+
+        // REQUIRED FIELDS MESSAGE
+        $OPEN_ROW.
+        drawLabel('fields marked with * are required', REQUIRED FIELDS MESSAGE).
+        $CLOSE_ROW.
+        
         // OPEN FORM
          '<form method="POST" action="'.$url.'" enctype="multipart/form-data">'.
         

@@ -7,6 +7,7 @@
 
     // USER
     define("USER_ID",22);
+    var_dump(User::isLoggedIn());
 
     
     // NAVIGATION
@@ -36,12 +37,14 @@
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
-    define("LISTING_LABEL","p-4 m-10 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center");
+    define("LISTING_LABEL","p-4 mt-5 mb-0 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center");
     define("CONFIRMATION_LABEL","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2");
-    define("LISTING_INPUT_AREA","p-4 m-10 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center");
+    define("REQUIRED_FIELDS_MESSAGE","p-4 mt-5 mb-0 ml-5 w-full bg-withe text-left");
+    define("REQUIRED_FIELD_NOTE","p-1 -mb-5 -mr-5 w-full bg-withe text-left text-xs font-normal text-right");
+    define("LISTING_INPUT_AREA","p-4 mt-5 mb-0 ml-5 mr-40 w-3/5 bg-white border-2 border-gray-800 text-center");
     define("LISTING_DROPZONE","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2 border-blue-800 hover:bg-blue-400 text-center");
     define("LISTING_AFFIDAVIT_CONTAINER","");
-    define("LISTING_PRICE_LABEL","p-4 m-10 ml-5 mr-40 w-3/5 bg-gray-300");
+    define("LISTING_PRICE_LABEL","p-4 mt-5 ml-5 mr-40 w-3/5 bg-gray-300");
     define("FLEX_ROW_NO_JUSTIFY","flex flex-row items-start");
     define("FLEX_ROW_JUSTIFY","flex flex-row justify-between items-start");
     define("CONFIRMATION_IMAGE","p-4 m-10 ml-5 mr-40 w-3/5");
