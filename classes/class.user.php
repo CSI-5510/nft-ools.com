@@ -23,6 +23,7 @@ class User {
                       // create a second cookie to force the first cookie to expire without logging the user out, this way the user won't even know they've been given a new login toke
                       setcookie("NFTOOLSID_", '1', time() + 60 * 60 * 24 * 3, '/', ' nft-ools.com', TRUE, TRUE);
                       //get loggedin user id
+                    return $userid;
 				}
 			} 
 		} 
