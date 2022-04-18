@@ -19,6 +19,15 @@
                 $url = generalNavigation(array(URL_PROFILE, URL_PROFILE_UPDATED));			
                 header("location: ".$url);
                 break;	
+            case URL_EDIT_ITEM:
+                foreach($_POST as $p){
+                    var_dump($p);
+                    echo "<br>";
+                }
+                foreach($_FILES as $f){
+                    var_dump($f);
+                    echo "<br>";
+                }
             default:
                 break;
         }

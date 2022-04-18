@@ -21,22 +21,11 @@
                 $item_data = addItemEventReducer($item_data[ITEM_TABLE_ID]);
                 DatabaseConnector::addEvent($item_data);
                 break;
-            case URL_URL_ADD_ITEM_CONFIRMATION:
-                // $item_id = $_POST["item_id"];
-                // $item_data = DatabaseConnector::getItem($item_id);
-                // DatabaseConnector::setPendingApproval($item_id);
-                break;
 			case URL_EDIT_PROFILE:
 				 DatabaseConnector::updateUserProfileInfo(USER_ID);
 				 $GLOBALS['user_profile_updated']=TRUE;
 				 break;
-            case URL_CANCEL_ADD_ITEM:
-                // $item_id = $_POST["item_id"];
-                // if($new_item){
-                //    DatabaseConnector::removeItem($item_id);
-                // } else {
-                //    DatabaseConnector::removeLatestOrder($item_id):
-                // }
+            case URL_EDIT_ITEM:
                 break;
             default:
                 break;

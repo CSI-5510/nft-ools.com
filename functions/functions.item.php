@@ -128,7 +128,7 @@
             return '';
         }
         if($is_users_listing){
-            return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, URL_EDIT);
+            return drawEditItemButton($item_data["i_id"], BLUE_BUTTON, URL_EDIT_ITEM);
         }
         return '';
     }
@@ -191,6 +191,97 @@
             </div>
         ';
         return;
+    }
+
+
+
+    function drawEditItem($options, $item_data){
+
+        // CONSTANTS
+        $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
+        $CLOSE_ROW = '</div>';
+        $url = generalNavigation(array(URL_COLLECTOR, URL_EDIT_ITEM));
+        
+        return 
+
+        // REQUIRED FIELDS MESSAGE
+        $OPEN_ROW.
+        drawLabel('fields marked with * are required', REQUIRED_FIELDS_MESSAGE).
+        $CLOSE_ROW.
+        
+        // OPEN FORM
+         '<form method="POST" action="'.$url.'" enctype="multipart/form-data">'.
+        
+        // ROW TITLE
+         $OPEN_ROW.
+         drawLabel('<p>TITLE *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
+         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_NAME]).
+         $CLOSE_ROW.
+        
+        // ROW CATEGORY
+         $OPEN_ROW.
+         drawLabel('<p>CATEGORY *</p><p class="'.REQUIRED_FIELD_NOTE.'"> select from list</p>', LABEL_LEFT).
+         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, $item_data[ITEM_TABLE_CATEGORY_ID]).
+         $CLOSE_ROW.
+        
+        // ROW SERIAL NUMBER
+         $OPEN_ROW.
+         drawLabel('<p>SERIAL NUMBER *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 11 characters max</p>', LABEL_LEFT).
+         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_SERIAL_NUMBER]).
+         $CLOSE_ROW.
+
+        // ROW DESCRIPTION
+         $OPEN_ROW.
+         drawLabel('<p>DESCRIPTION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 300 characters max</p>', LABEL_LEFT).
+         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_DESCRIPTION]).
+         $CLOSE_ROW.
+        
+        // ROW IMAGE
+         $OPEN_ROW.
+         drawLabel('<p>IMAGE *</p><p class="'.REQUIRED_FIELD_NOTE.'">'.ACCEPTED_IMAGE_TYPES.'</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_IMAGE, ITEM_OBFUSCATED_IMAGE, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
+         $CLOSE_ROW.
+        
+        // ROW DOCUMENTATION
+         $OPEN_ROW.
+         drawLabel('<p>DOCUMENTATION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> '.ACCEPTED_IMAGE_TYPES.'</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_DOCUMENTATION, ITEM_OBFUSCATED_DOCUMENTATION, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
+         $CLOSE_ROW.
+        
+        // ROW RECEIPT
+         $OPEN_ROW.
+         drawLabel('<p>RECEIPT *</p><p class="'.REQUIRED_FIELD_NOTE.'">'.ACCEPTED_IMAGE_TYPES.'</p>', LABEL_LEFT).
+         drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
+         $CLOSE_ROW.
+        
+        // ROW PURCHASE DATE
+         $OPEN_ROW.
+         drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, FALSE, date($item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE])).
+         $CLOSE_ROW.
+        
+        // ROW PURCHASE PRICE
+         $OPEN_ROW.
+         drawLabel('<p>PURCHASE PRICE *</p><p class="'.REQUIRED_FIELD_NOTE.'">enter a positive number</p>', LABEL_LEFT).
+         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 100, FALSE, $item_data[ITEM_TABLE_ORIGINAL_PRICE]).
+         $CLOSE_ROW.
+        
+        // ROW AFFIDAVIT OF QUALITY
+        //  $OPEN_ROW.
+        // drawLabel('AFFIDAVIT OF QUALITY', LABEL_LEFT).
+        // drawAffidavit(URL_ADD_ITEM_AFFIDAVIT_NAME, URL_ADD_ITEM_AFFIDAVIT_VERIFY, 'i gaurantee that this thing works...').
+        //  $CLOSE_ROW.
+        
+        // ROW SUBMIT BUTTON
+         $OPEN_ROW.
+         drawSubmitButton(BLUE_BUTTON." mx-40 my-10 w-full").
+         $CLOSE_ROW.
+        
+        // CLOSE FORM
+         '</form>'
+
+        ;
+        
     }
 
 

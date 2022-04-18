@@ -119,6 +119,25 @@ class DatabaseConnector {
 	}
 
 
+	public static function keywordSearch($keyword){
+		$q = "SELECT "
+			.ITEM_TABLE_ID.","
+			.ITEM_TABLE_NAME.","
+			.ITEM_TABLE_CURRENT_PRICE.","
+			.ITEM_TABLE_IMAGE.","
+			.ITEM_TABLE_DESCRIPTION." 
+			FROM item
+			WHERE LOWER(i_name) LIKE '%".$keyword."%'"
+		;
+		try{
+			return self::query($q);
+		}catch(Exception $e){
+			var_dump($e);
+			return($e);
+		}
+	}
+
+
 	public static function getItemDataNoPics($id){
 		$q = 'SELECT '
 			.ITEM_TABLE_ID.','
@@ -210,14 +229,6 @@ class DatabaseConnector {
 	 * @return void 
 	 */
 	public static function addEvent($data){
-		$date = $data[EVENT_TABLE_DATE];
-		var_dump($date);
-		var_dump("<br>");
-		if(!is_null($date)){
-			$date = "'".$date."'";
-		}
-		var_dump($date);
-		var_dump("<br>");
 		$q = "INSERT INTO events ("
 				//.EVENT_TABLE_ID.","			/*01*/
 				.EVENT_TABLE_ORDER_ID.","		/*02*/
@@ -233,7 +244,7 @@ class DatabaseConnector {
 				.$data[EVENT_TABLE_ITEM_ID].","			/*03*/	
 				."'".$data[EVENT_TABLE_DESCRIPTION]."',"		/*04*/
 				//.$data[ORDER_TABLE_TIMESTAMP].","		/*05*/
-				.$date."," 			/*06*/	
+				.$data[EVENT_TABLE_DATE]."," 			/*06*/	
 				."'".$data[EVENT_TABLE_TYPE]."',"			/*07*/
 				.$data[EVENT_TABLE_COST]			/*08*/
 		.")";

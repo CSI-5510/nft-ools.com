@@ -46,6 +46,7 @@ switch ($GLOBALS['url_loc'][1]){
         $BACKEND = URL_ABOUT_US;
         $PAGE_TITLE = "About Us";
         $FRONTEND = URL_ABOUT_US;
+        unset($HEADER);
         unset($HEADER_BACKEND);
         unset($FOOTER);
         unset($FOOTER_BACKEND);
@@ -102,6 +103,11 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Update Profile";
         $FRONTEND = URL_PROFILE;
         break;
+    case URL_SEARCH:
+        $BACKEND = URL_SEARCH;
+        $PAGE_TITLE = "Searching";
+        $FRONTEND = URL_SEARCH;
+        break;
     case "listener":
         $BACKEND = "listener";
         $PAGE_TITLE = "Sign In";
@@ -117,6 +123,7 @@ switch ($GLOBALS['url_loc'][1]){
         $PAGE_TITLE = "Index";
         $FRONTEND = "index";
         $HEADER = "header";
+        unset($HEADER);
         unset($HEADER_BACKEND);
         unset($FOOTER);
         unset($FOOTER_BACKEND);
