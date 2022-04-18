@@ -7,7 +7,6 @@
 
     // USER
     define("USER_ID",22);
-    var_dump(User::isLoggedIn());
 
     
     // NAVIGATION
@@ -33,11 +32,14 @@
     define("URL_USER","user");
     define("URL_CATEGORY","category");
     define("URL_PROFILE","profile");
-
+    define("URL_CAROUSEL","carousel");
+    define("URL_ABOUT_US","about_us");
+    define("URL_LOGIN","login");
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
-    define("LISTING_LABEL","p-4 mt-5 mb-0 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center");
+    define("LABEL_LEFT","p-4 mt-5 mb-0 ml-40 mr-5 w-2/5 bg-gray-300 text-2xl font-bold text-center");
+    define("LABEL_RIGHT","p-4 mt-5 mb-0 ml-5 mr-40 w-2/5 bg-gray-300 text-xl text-center");
     define("CONFIRMATION_LABEL","p-4 m-10 ml-5 mr-40 w-3/5 bg-blue-200 border-2");
     define("REQUIRED_FIELDS_MESSAGE","p-4 mt-5 mb-0 ml-5 w-full bg-withe text-left");
     define("REQUIRED_FIELD_NOTE","p-1 -mb-5 -mr-5 w-full bg-withe text-left text-xs font-normal text-right");

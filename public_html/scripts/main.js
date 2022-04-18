@@ -21,6 +21,68 @@ function removeAllChildren(node){
 }
 
 
+function isValid(node){
+  node.style.backgroundColor='lightgreen';
+  document.getElementById('submit').disabled = false;
+  return;
+}
+
+
+function isInvalid(node){
+  node.style.backgroundColor='lightcoral';
+  document.getElementById('submit').disabled = true;
+  return;
+}
+
+function isValidEmail(node){
+ if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(node.value))
+  {
+    isInvalid(node);
+    return;
+  }
+  isValid(node);
+  return;
+}
+
+
+function notBlank(node){
+  var value = node.value;
+  if(value.length == 0){
+    isInvalid(node);
+    return;
+  }
+  isValid(node);
+  return;
+}
+
+
+function isValidUSZip(node) {
+  var zip = node.value;
+  var test = /^\d{5}(-\d{4})?$/.test(zip);
+  if(!test){
+    isInvalid(node);
+    return;
+  }
+  isValid(node);
+  return;
+}
+
+
+function isValidPhoneNumber(node) {
+  var phone = node.value;
+  var test = /^[0-9]+$/.test(phone);
+  if(!test){
+    node.value = node.value.slice(0,-1);
+  }
+  if(phone.length<10){
+    isInvalid(node);
+    return;
+  }
+  isValid(node);
+  return;
+}
+
+
 /** adds each item to buffer
  * @param  {Event} ev event
  * @returns void file system operation
