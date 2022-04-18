@@ -286,6 +286,19 @@
 
 
 
+    function decideSellButton($item_data, $orders){
+        $approved = $item_data[ITEM_TABLE_IS_APPROVED];
+        $not_in_cart = !itemInCart($orders);
+        
+    }
+
+
+    function itemInCart($orders{
+        switch($orders[ORDER_TABLE_STATUS]){
+            case order_sta
+        }
+    }
+
 
 
 

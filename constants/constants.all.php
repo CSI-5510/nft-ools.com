@@ -161,8 +161,17 @@
 
 
     // EVENT TABLE DEFAULT VALUES
-    define("EVENT_TABLE_DEFAULT_STATUS","pending");
-
+    define("EVENT_TYPE_ADMIN_REVIEW","admin_review");
+    define("EVENT_TYPE_REJECTED","rejected");
+    define("EVENT_TYPE_ADDED_TO_SYSTEM","added_to_system");
+    define("EVENT_TYPE_UPGRADED","upgraded");
+    define("EVENT_TYPE_REPAIRED","repaired");
+    define("EVENT_TYPE_LISTED_FOR_SALE","listed_for_sale");
+    define("EVENT_TYPE_DELISTED_FROM_SALE","delisted_from_sale");
+    define("EVENT_TYPE_IN_CART","in_cart");
+    define("EVENT_TYPE_PENDING_SALE","pending_sale");
+    define("EVENT_TYPE_SOLD","sold");
+    define("EVENT_TYPE_NEW_OWNER_RECEIVED","new_owner_received");
 
     // EVENTS TYPES
     define("EVENT_TYPE_ADDED","added");
