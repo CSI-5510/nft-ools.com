@@ -17,7 +17,7 @@
 
         // EVENT TYPE
         echo $OPEN_ROW;
-        echo drawLabel('EVENT TYPE', LISTING_LABEL);
+        echo drawLabel('EVENT TYPE', LABEL_LEFT);
         $options = array(
             array("value" => EVENT_SAVED_REPAIRED, "text" => EVENT_SAVED_REPAIRED),
             array("value" => EVENT_SAVED_UPGRADED, "text" => EVENT_SAVED_UPGRADED)
@@ -27,19 +27,19 @@
         
         // EVENT DATE
         echo $OPEN_ROW;
-        echo drawLabel('DATE', LISTING_LABEL);
+        echo drawLabel('DATE', LABEL_LEFT);
         echo drawDateInput(EVENT_TABLE_DATE, LISTING_INPUT_AREA);
         echo $CLOSE_ROW;
         
         // EVENT COST
         echo $OPEN_ROW;
-        echo drawLabel('COST', LISTING_LABEL);
+        echo drawLabel('COST', LABEL_LEFT);
         echo drawTextInput(EVENT_TABLE_COST, LISTING_INPUT_AREA, 20, TRUE, '');
         echo $CLOSE_ROW;
         
         // EVENT DESCRIPTION
         echo $OPEN_ROW;
-        echo drawLabel('DESCRIPTION', LISTING_LABEL);
+        echo drawLabel('DESCRIPTION', LABEL_LEFT);
         echo drawTextArea(EVENT_TABLE_DESCRIPTION, LISTING_INPUT_AREA, 200, TRUE);
         echo $CLOSE_ROW;  
         
