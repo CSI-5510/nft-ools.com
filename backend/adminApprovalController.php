@@ -41,16 +41,14 @@ echo '<!DOCTYPE html>
   //  echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 	
 //}
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $itemID = $GLOBALS['url_loc'][2];
-    echo $itemID
-#inserting message to db	
-$msg=admin::saveApprovalMessageToDb($itemID);		
-echo $msg;
-}
-else {
-    header("Location: ../index");
-}
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //  $itemID = $GLOBALS['url_loc'][2];
+   // echo $itemID
+
+//}
+//else {
+  //  header("Location: ../index");
+//}
 
 
 

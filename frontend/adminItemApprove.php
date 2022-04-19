@@ -178,13 +178,13 @@ if ($resultAffidavit->num_rows > 0) {
 </html>
 
 <?php 
-if ($msg) {
+//if ($msg) {
     //console("success");
-    echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-} else {
+  //  echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+//} else {
     //console("failure");
-    echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-}
+  //  echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+//}
 ?>
 
 <?php endif; ?>
