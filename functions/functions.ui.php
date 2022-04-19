@@ -213,6 +213,7 @@
      * @return void draws to page
      */
     function drawLinkButton($text, $url, $format){
+
         return '
             <a href="'.$url.'" class="'.$format.'">
                 '.$text.'

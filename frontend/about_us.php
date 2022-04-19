@@ -40,7 +40,8 @@
           <p>2. John Machado</p>
           <p>3. Pooja Thote</p>
           <p>4. Sal Trupiano</p>
-          
+          <br>
+          <a href="#" class="bg-purple-300 hover:bg-purple-400 py-3 px-3 font-bold text-white rounded-full">Back</a>
         </div>
       </div>
     </div>

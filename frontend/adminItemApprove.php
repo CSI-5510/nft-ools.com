@@ -8,8 +8,8 @@ $dbName = "NFTools";
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $itemIDin = $_POST['itemID'];
-    //echo "<h1>Item ID IN:".$itemIDin."</h1>";
+   $itemIDin = $_POST['itemID'];
+   echo "<h1>Item ID IN:".$itemIDin."</h1>";
 }
 
 $sqlItemEditTable = "SELECT i.i_id, i.i_name, i.i_category_Id, c.cat_name, i.i_serialnum, i.i_description, i.i_image, i.documentation, i.receipt, i.original_purchase_date, i.current_price FROM item i JOIN category c ON i.i_category_Id = c.cat_id WHERE i.i_id = '$itemIDin'";
@@ -78,7 +78,7 @@ if ($resultAffidavit->num_rows > 0) {
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="../backend/adminApprovalController.php">
+    <form method="POST" action="../backend/adminApprovalController.php">
         <!--<input type="text" id="itemID" name="itemID" value="">-->
         <div class="row mb-3">
             <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
@@ -177,4 +177,14 @@ if ($resultAffidavit->num_rows > 0) {
 
 </html>
 
+<?php 
+//if ($msg) {
+    //console("success");
+  //  echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+//} else {
+    //console("failure");
+  //  echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+//}
+?>
 
+<?php // endif; ?>

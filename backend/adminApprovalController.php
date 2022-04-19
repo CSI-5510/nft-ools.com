@@ -28,12 +28,28 @@ echo '<!DOCTYPE html>
     </div>
 </nav><br>';
 
-$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'";
-if ($conn->query($sql) === TRUE) {
-    //console("success");
-    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-} else {
-    //console("failure");
-    echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-}
-$conn->close();
+
+
+//$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDIn'";
+//echo $sql;
+//if ($conn->query($sql) == TRUE) {
+   
+  //  echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+	
+//} else {
+   
+  //  echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+	
+//}
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //  $itemID = $GLOBALS['url_loc'][2];
+   // echo $itemID
+
+//}
+//else {
+  //  header("Location: ../index");
+//}
+
+
+
+?>

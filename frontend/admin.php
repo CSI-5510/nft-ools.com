@@ -1,16 +1,16 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<?php if(!isset($GLOBALS['url_loc'][3])): ?>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="#"></a>
-                    <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFT-ools</a>
-                </div>
+
+<?php if(!isset($GLOBALS['url_loc'][1])): ?>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#"></a>
+                <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFT-ools</a>
             </div>
         </nav><br>
         <div class="container">
@@ -50,7 +50,7 @@
     </div>
 <?php endif; ?>
 
-<?php if(isset($GLOBALS['url_loc'][3]) && $GLOBALS['url_loc'][2] === "review"): ?>
+<?php if(isset($GLOBALS['url_loc'][2]) && $GLOBALS['url_loc'][1] === "review"): ?>
 <!--- cdn bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -69,7 +69,7 @@
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][3]; ?>">
+    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][2]; ?>">
         <!--<input type="text" id="itemID" name="itemID" value="">-->
         <div class="row mb-3">
             <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
@@ -165,7 +165,7 @@
 </div>
 <?php endif; ?>
 
-<?php if(isset($GLOBALS['url_loc'][3]) && $GLOBALS['url_loc'][2] === "submit"): ?>
+<?php if(isset($GLOBALS['url_loc'][2]) && $GLOBALS['url_loc'][1] === "submit"): ?>
 
 
 
@@ -184,6 +184,8 @@
 </nav><br>
 <?php 
 
+console("test");
+
 if ($isListingApproved) {
     //console("success");
     echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
@@ -191,6 +193,19 @@ if ($isListingApproved) {
     //console("failure");
     echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
+
+//echo "<br>";
+try{
+    Admin::saveApprovalMessageToDb($GLOBALS['url_loc'][2]);
+    echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+}
+catch(Exception $e){
+    
+    echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+} 
+   
+  
+
 
 ?>
 

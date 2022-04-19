@@ -1,11 +1,11 @@
 <?php
 
 
-    $item_id = URL_LOC_2;
+    $item_id = URL_LOC_1;
 
     switch($item_id){
         case is_numeric($item_id):
-			$items_list = DatabaseConnector::getItemsData(URL_LOC_2);	
+			$items_list = DatabaseConnector::getItemsData($item_id);
             break;
         case URL_USER:
             if(!USER_ID){

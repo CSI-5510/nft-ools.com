@@ -100,7 +100,7 @@
 
     function drawProfileButton($user_id){
         $class = ASIDE_DEFAULT_CLASS;
-        $link = URL_HOME.'/'.URL_PROFILE;
+        $link = URL_HOME.URL_PROFILE;
         $text = 'Profile';
         return drawAsideButton($class, $link, $text);
     }
