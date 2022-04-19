@@ -27,9 +27,9 @@
             </div>
             <div class="absolute right-40 top-25 h-60 w-100">
               <nav class="hidden md:flex text-lg">
-                  <a href="<?php echo URL_HOME.'/'.URL_CAROUSEL ?>" class="text-white hover:text-purple-400 py-3 px-6">Home</a>
-                  <a href="<?php echo URL_HOME.'/'.URL_ABOUT_US ?>" class="text-white hover:text-purple-400 py-3 px-6">About Us</a>
-                  <a href="<?php echo URL_HOME.'/'.URL_LOGIN ?>" class="text-white hover:text-purple-400 py-3 px-6 ">Login/ Register</a>
+                  <a href="/public_html/carousel" class="text-white hover:text-purple-400 py-3 px-6">Home</a>
+                  <a href="/public_html/about_us" class="text-white hover:text-purple-400 py-3 px-6">About Us</a>
+                  <a href="/public_html/login" class="text-white hover:text-purple-400 py-3 px-6 ">Login/ Register</a>
               </nav>
             </div>
               <button class="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">
