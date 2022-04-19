@@ -40,7 +40,7 @@
       <li class="my-px space-y-2">
          <a href="<?php if($GLOBALS['config']['url_root']!== ""){echo $GLOBALS['config']['url_location'];} ?><?php echo User::isLoggedin() ? "profile" : "register"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !== "register" ? AC3_CLASS_OTHER : AC3_CLASS_REGISTER; ?>">
          <span class="flex items-center justify-center text-lg text-red-400">
-            <svg
+            <!--<svg
                fill="none"
                stroke-linecap="round"
                stroke-linejoin="round"
@@ -48,7 +48,7 @@
                viewBox="0 0 24 24"
                stroke="currentColor"
                class="h-6 w-6"
-               >
+               >-->
                <path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
             </svg>
          </span>
