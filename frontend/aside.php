@@ -125,7 +125,7 @@
 
 
           <li class="my-px">
-              <a href="<?php echo $GLOBALS['config']['url_location']; ?>category/add_item" class="<?php echo $GLOBALS["url_loc"][2] !==
+              <a href="<?php echo $GLOBALS['config']['url_location']; ?>add_item" class="<?php echo $GLOBALS["url_loc"][2] !==
               "add_item"
                   ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
                   : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
