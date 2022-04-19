@@ -24,11 +24,11 @@ if ($isAdmin) {
 
     $result = Admin::getAllNonReviewedItems();
 	
-	if(isset($GLOBALS['url_loc'][3])){
+	if(isset($GLOBALS['url_loc'][2])){
 		
 		try{
 			
-			switch($GLOBALS['url_loc'][2]){
+			switch($GLOBALS['url_loc'][1]){
 				case REVIEW:
 					$itemAndCategory = admin::getItemAndCategory($GLOBALS['url_loc'][3]);
 					$itemAffidavit = admin::getAffidavit($GLOBALS['url_loc'][3]);	
@@ -55,7 +55,7 @@ if ($isAdmin) {
 					}
 					break;
 				case "submit":
-					$itemID = $GLOBALS['url_loc'][3];
+					$itemID = $GLOBALS['url_loc'][2];
 
 					break;
 				case URL_REMOVE_FROM_CART:
@@ -79,7 +79,7 @@ if ($isAdmin) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $itemApprovedRadiosIn = $_POST['approvalRadios'];
 $itemApprovalJustificationIn = $_POST['itemJustification'];
-$itemID = $GLOBALS['url_loc'][3];
+$itemID = $GLOBALS['url_loc'][2];
 $isListingApproved = admin::approveListing($itemApprovedRadiosIn,$itemApprovalJustificationIn,$itemID);
 echo $isListingApproved;
 }
