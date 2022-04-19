@@ -7,6 +7,8 @@
      * @return mixed {"name", "id", "image"}
      */
     function mapCategoryToTile($data){
+        var_dump($data);
+        echo "<br>";
         return [
             "name"=> $data['cat_name'],
             "id"=> $data['cat_id'],
@@ -21,8 +23,6 @@
      * @return mixed {"name", "id", "image"}
      */
     function mapItemToTile($data){
-        var_dump($data);
-        echo "<br>";
         return [
             "name"=> $data['i_name'],
             "id"=> $data['i_id'],
