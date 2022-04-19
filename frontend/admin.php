@@ -188,20 +188,20 @@ console("test");
 
 if ($isListingApproved) {
     //console("success");
-    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! '.var_dump($GLOBALS['url_loc'][2]).'<br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 } else {
     //console("failure");
     echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
 
-echo "<br>";
+//echo "<br>";
 $msg=Admin::saveApprovalMessageToDb($GLOBALS['url_loc'][2]);
 if ($msg == 1) {
     //console("success");
-    echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+    echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 } else {
    //console("failure");
-   echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+   echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
 
 ?>
