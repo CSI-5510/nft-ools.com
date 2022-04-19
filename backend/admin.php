@@ -82,7 +82,7 @@ echo $isListingApproved;
 }
 	
 #inserting message to db	
-$msg=admin::saveApprovalMessageToDb($itemID);		
+$msg=Admin::saveApprovalMessageToDb($itemID);		
 echo $msg;
 	
 
