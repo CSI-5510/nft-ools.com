@@ -28,18 +28,30 @@ echo '<!DOCTYPE html>
     </div>
 </nav><br>';
 
-$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDIn'";
-echo $sql;
-if ($conn->query($sql) == TRUE) {
+
+
+//$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDIn'";
+//echo $sql;
+//if ($conn->query($sql) == TRUE) {
    
-    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-	INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL,$GLOBALS['url_loc'][3],$itemIDin,"Dear User,Your item listing request was approved by NFTools Admin, check your account for more details",CURRENT_TIMESTAMP, 0);
-} else {
+  //  echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+	
+//} else {
    
-    echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-	INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL,$GLOBALS['url_loc'][3],$itemIDin,"Dear User,Your item listing request was denied by NFTools Admin, check your account for more details",CURRENT_TIMESTAMP, 0);
+  //  echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+	
+//}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $itemID = $GLOBALS['url_loc'][2];
+    echo $itemID
+#inserting message to db	
+$msg=admin::saveApprovalMessageToDb($itemID);		
+echo $msg;
+}
+else {
+    header("Location: ../index");
 }
 
-$conn->close();
+
 
 ?>
