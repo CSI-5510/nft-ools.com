@@ -3,6 +3,9 @@
     include_once('../functions/functions.collector.php');
     include_once('../functions/functions.events.php');
     
+
+    var_dump($_POST);
+
     if(!isset($_POST)){
         header("location: /public_html");
     }
@@ -16,7 +19,6 @@
                 break;
             case URL_ADD_ITEM:
                 $item_data = addNewItemReducer();
-                var_dump($item_data);
                 DatabaseConnector::addNewItem($item_data, USER_ID);
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0][0];
                 $item_data = DatabaseConnector::getItemDataNoPics($item_id);
