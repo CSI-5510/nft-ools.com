@@ -24,7 +24,7 @@ if($GLOBALS['config']['url_root'] !== ""){
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
     define("URL_LOC_3",$GLOBALS['url_loc'][3]);
     define("URL_LOC_4",$GLOBALS['url_loc'][4]);
-    define("URL_HOME","public_html");
+    define("URL_HOME","./public_html");
     define("URL_PUBLIC_DIRECTORY","public_html");
     define("URL_ADD_TO_CART","add_to_cart");
     define("URL_REMOVE_FROM_CART","remove_from_cart");
