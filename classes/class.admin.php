@@ -27,7 +27,7 @@
 		
 		public static function isItemApproved($itemID) {
 	
-	if(DatabaseConnector::query('SELECT i_id FROM item WHERE i_id=:itemid AND is_approved=1', array(':itemid'=>$itemid))){
+	if(DatabaseConnector::query('SELECT i_id FROM item WHERE i_id=:itemid AND is_approved=1', array(':itemid'=>$itemID))){
 	return true;
 	}
 	return false;	
