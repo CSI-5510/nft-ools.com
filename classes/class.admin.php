@@ -17,7 +17,7 @@
 		
         public static function approveListing($itemApprovedRadiosIn, $itemApprovalJustificationIn, $itemID) {
 			if($itemApprovedRadiosIn = 1){
-			echo "UPDATE item SET is_approved=1, rejection_reason=".$itemApprovalJustificationIn." WHERE i_id=".$itemID."";
+			//echo "UPDATE item SET is_approved=1, rejection_reason=".$itemApprovalJustificationIn." WHERE i_id=".$itemID."";
 		DatabaseConnector::query('UPDATE item SET is_approved=1, rejection_reason=:itemjustification WHERE i_id=:itemid', array(':itemjustification'=>$itemApprovalJustificationIn, ':itemid'=>$itemID));			
 								return true;
 			} 
