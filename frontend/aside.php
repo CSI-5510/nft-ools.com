@@ -118,7 +118,7 @@
 		       <?php 
          echo '<br>';
 		 echo showAsideAddItem(USER_ID);
-         echo showAsideMyItems(USER_ID);
+         //echo showAsideMyItems(USER_ID);
          //echo showAsideProfile(USER_ID);
          echo '<br>';
       ?>
