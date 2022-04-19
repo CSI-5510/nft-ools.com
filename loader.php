@@ -5,7 +5,7 @@ $GLOBALS['url_loc'] = explode('/', htmlspecialchars(strtok($_SERVER['REQUEST_URI
 
 $GLOBALS['config']['url_offset'] = 2;
 $GLOBALS['config']['url_root'] = ""; 
-
+$GLOBALS['config']['url_location'] = "https://nft-ools.com/public_html/";
 $GLOBALS['devmode'] = 1; 
 
 //$GLOBALS['db_conf']['db_host'] = "35.196.103.19";
