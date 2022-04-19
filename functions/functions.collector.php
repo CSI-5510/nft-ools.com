@@ -139,7 +139,7 @@
             EVENT_TABLE_TIMESTAMP => 'NULL',
             EVENT_TABLE_DATE => 'NULL',
             EVENT_TABLE_TYPE => $type,
-            EVENT_TABLE_COST => 'NULL'               
+            EVENT_TABLE_COST => $price               
         );
     }
 
@@ -176,11 +176,11 @@
             EVENT_TABLE_ID => 'NULL',
             EVENT_TABLE_ORDER_ID =>  'NULL',
             EVENT_TABLE_ITEM_ID => $item_id,
-            EVENT_TABLE_DESCRIPTION => 'price at time of '.$mode.': '.$price,
+            EVENT_TABLE_DESCRIPTION => 'price at time of purchase: '.$price,
             EVENT_TABLE_TIMESTAMP => 'NULL',
             EVENT_TABLE_DATE => 'NULL',
             EVENT_TABLE_TYPE => $type,
-            EVENT_TABLE_COST => 'NULL'               
+            EVENT_TABLE_COST => $price               
         );
     }
 
