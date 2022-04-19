@@ -40,10 +40,10 @@
             #grab user id
             #$userid = User::isLoggedIn();
 
-		    $q1='select owner_id from item where i_id='.$itemId;
+		    $q1='SELECT owner_id from item where i_id='.$itemId;
             $userid=DatabaseConnector::query($q1);
             $q='INSERT INTO message (msg_id,uid,item_id,message_body,approval_timestamp,is_acknowledged) VALUES 
-            (NULL,'.$itemId.','.$userid.',"Dear User-Your item listing request was approved by NFTools Admin and check your account to know more details",CURRENT_TIMESTAMP,0)';
+            (NULL,'.$userid.','.$itemId.',"Dear User-Your item listing request was approved by NFTools Admin and check your account to know more details",CURRENT_TIMESTAMP,0)';
             var_dump($q);
             return DatabaseConnector::query($q);    
         }	
