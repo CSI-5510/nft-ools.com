@@ -78,6 +78,11 @@ switch ($GLOBALS['url_loc'][0]){
         $PAGE_TITLE = "Add Item";
         $FRONTEND = "add_item";
         break;
+    case "messages":
+        $BACKEND = "message";
+        $PAGE_TITLE = "Message by users";
+        $FRONTEND = "message";
+        break;
     case URL_COLLECTOR:
         $BACKEND = URL_COLLECTOR;
         $PAGE_TITLE = "Collector";
