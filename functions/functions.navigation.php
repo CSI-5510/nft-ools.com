@@ -7,7 +7,7 @@
      * @return string assembeled url
      */
     function generalNavigation($locations){
-        $_r = ""; //URL_HOME;
+        $_r = URL_HOME;
         foreach($locations as $location){
             $_r = $_r.'/'.$location;
         }
