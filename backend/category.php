@@ -2,10 +2,11 @@
 
 
     $item_id = URL_LOC_2;
+    echo "LOC1: ";
     echo URL_LOC_1;
-    echo "<br>";
+    echo "<br> LOC2: ";
     echo URL_LOC_2;
-    echo "<br>";
+    echo "<br> LOC3: ";
     echo URL_LOC_0;
 
     switch($item_id){
