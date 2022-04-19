@@ -8,8 +8,12 @@
      */
     function generalNavigation($locations){
         $_r = URL_HOME;
+        var_dump($_r);
+        echo "<br>";
         foreach($locations as $location){
             $_r = $_r.'/'.$location;
+            var_dump($_r);
+            echo "<br>";
         }
         return $_r;
     }
