@@ -8,7 +8,7 @@ $ASIDE = "aside";
 $ASIDE_BACKEND = "aside";
 
 
-switch ($GLOBALS['url_loc'][1]){
+switch ($GLOBALS['url_loc'][0]){
     case "/":
     break;
     case URL_ADD_EVENT:
@@ -117,7 +117,12 @@ switch ($GLOBALS['url_loc'][1]){
         $BACKEND = "orders";
         $PAGE_TITLE = "Orders";
         $FRONTEND = "orders";
-        break;		
+        break;
+    case "home":
+        $BACKEND = "carousel";
+        $PAGE_TITLE = "Home";
+        $FRONTEND = "carousel";
+        break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
