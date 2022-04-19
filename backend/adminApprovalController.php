@@ -28,7 +28,7 @@ echo '<!DOCTYPE html>
     </div>
 </nav><br>';
 
-$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'";
+$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemID'";
 echo $sql;
 if ($conn->query($sql) == TRUE) {
    
