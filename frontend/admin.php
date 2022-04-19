@@ -193,31 +193,13 @@ if ($isListingApproved) {
     echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! See the webmaster. <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
 
-$serverName = "35.196.103.19";
-$userName = "admin";
-$password = "oakland";
-$dbName = "NFTools";
-
-$conn = mysqli_connect($serverName, $userName, $password, $dbName);
-	
-$sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDIn'";
-echo $sql;
-if ($conn->query($sql) === TRUE) {
-   
-    echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-    
-    $sql1="INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL, $GLOBALS['url_loc'][2], '$itemIDIn', 'Dear User,Your item listing request was approved by NFTools Admin, check your account for more details', CURRENT_TIMESTAMP, 0)";
-    $conn->query($sql1)
-	//echo "INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL,$GLOBALS['url_loc'][2],'$itemIDIn','Dear User,Your item listing request was approved by NFTools Admin, check your account for more details',CURRENT_TIMESTAMP, 0)";
-	echo "Error: " . $sql1 . "<br>" . $conn->error;
+if ($msg) {
+    //console("success");
+    echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 } else {
-   
-    echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-  //  $conn->query("INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL,$GLOBALS['url_loc'][2],'$itemIDIn','Dear User,Your item listing request was denied by NFTools Admin, check your account for more details',CURRENT_TIMESTAMP, 0)");
+    //console("failure");
+    echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
-
-$conn->close();
-
 
 ?>
 

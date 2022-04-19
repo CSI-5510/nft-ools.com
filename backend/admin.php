@@ -81,13 +81,13 @@ $isListingApproved = admin::approveListing($itemApprovedRadiosIn,$itemApprovalJu
 echo $isListingApproved;
 }
 	
-	
-		
-
+#inserting message to db	
+$msg=admin::saveApprovalMessageToDb($itemID);		
+echo $msg;
 	
 
 } else {
-    //header("Location: ../index");
+    header("Location: ../index");
 }
 
 

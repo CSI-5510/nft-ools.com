@@ -1,4 +1,3 @@
-<h2> Hello World</h2>
 <header class="header bg-white  my-4  pt-2 ">
     <div class="header-content items-center flex-row">
         <form action="#">

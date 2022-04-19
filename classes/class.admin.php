@@ -25,7 +25,7 @@
 						return self::isItemApproved($itemID);
 			        }
 		
-		        public static function isItemApproved($itemID) {
+		public static function isItemApproved($itemID) {
 	
 	if(DatabaseConnector::query('SELECT i_id FROM item WHERE i_id=:itemid AND is_approved=1', array(':itemid'=>$itemid))){
 	return true;
@@ -34,8 +34,16 @@
 
 			
         }
-
+        
+        public static function saveApprovalMessageToDb($itemId)
+        {
+            #grab user id
+            $userid = User::isLoggedIn();
 			
+            $q='INSERT INTO message (msg_id, uid, item_id, message_body, approval_timestamp) VALUES 
+            (NULL, '.$itemId.', '.$userid.', 'Dear User,Your item listing request was approved by NFTools Admin,check your account to know more details', CURRENT_TIMESTAMP)';
+            return DatabaseConnector::query($q);    
+        }	
 		
 		
 	
