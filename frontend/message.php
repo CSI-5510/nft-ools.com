@@ -2,14 +2,14 @@
 <?php ?>
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="#"></a>
-                <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFT-ools</a>
+                <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFTools</a>
             </div>
         </div>
     </nav><br>
@@ -30,12 +30,12 @@
             <?php
                 foreach (Admin::getAllMessagesByUser(USER_ID) as $messages):
 
-                    $messageID = $messages["i_id"];
+                    $messageID = $messages["msg_id"];
 					          $userID=$messages["user_id"];
-                    $itemID = $messages['item_id'];
-                    $message = $messages['message_body'];
-                    $timestamp = $messages['approval_timestamp'];
-                    $ackStatus = $messages['is_acknowledged'];
+                    $itemID = $messages["item_id"];
+                    $message = $messages["message_body"];
+                    $timestamp = $messages["approval_timestamp"];
+                    $ackStatus = $messages["is_acknowledged"];
             ?>
                 
             <?php
