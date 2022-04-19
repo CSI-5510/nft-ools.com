@@ -29,10 +29,6 @@
               $content = delistedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
-            case EVENT_TYPE_UPDATED:
-              $content = updatedReducer($item_data, $order_data, $event);
-              $_r = $_r.leftTimeline($content);
-              break;
             case EVENT_TYPE_SOLD:
               $content = purchasedReducer($item_data, $order_data, $event);
               $_r = $_r.rightTimeline($content);
@@ -81,14 +77,15 @@
       );
     }
 
-  function listedReducer($item_data, $order_data, $event){
-    $bubble = encodeEventType($event[EVENT_TYPE_ADDED_TO_SYSTEM]);
-    $original_purchase_date = '';
-    $title = strtoupper($event[EVENT_TABLE_TYPE]).'<br>'.$original_purchase_date;
-    $price = '';
-    $original_owner = '';
-    $original_purchase_price = '';
-    $body = '';
+  function listedReducer($item_data, $event){
+    $bubble = encodeEventType($event[EVENT_TABLE_TYPE]);
+    $date = $event[EVENT_TABLE_TIMESTAMP];
+    $title = strtoupper($event[EVENT_TABLE_TYPE]).'<br>'.$date;
+    $price = $item_data[ITEM_TABLE_ORIGINAL_PRICE];
+    $name = DatabaseConnector::getUserFullName($item_data[ITEM_TABLE_OWNER_ID]);
+    $body = '
+      listed by: '.$name.'
+      for amount: '.$price
     ;
     return array(
       TIMELINE_REDUCER_BUBBLE => $bubble,
@@ -98,15 +95,15 @@
   }  
 
 
-  function delistedReducer($item_data, $order_data, $event){
+  function delistedReducer($item_data, $event){
     $bubble = encodeEventType($event[EVENT_TABLE_TYPE]);
-    $original_purchase_date = '';
-    $title = strtoupper($event[EVENT_TABLE_TYPE]).'<br>'.$original_purchase_date;
-    $price = '';
-    $original_purchase_date = '';
-    $original_owner = '';
-    $original_purchase_price = '';
-    $body = '';
+    $date = $event[EVENT_TABLE_TIMESTAMP];
+    $title = strtoupper($event[EVENT_TABLE_TYPE]).'<br>'.$date;
+    $price = $item_data[ITEM_TABLE_ORIGINAL_PRICE];
+    $name = DatabaseConnector::getUserFullName($item_data[ITEM_TABLE_OWNER_ID]);
+    $body = '
+      delisted by: '.$name.'
+      for amount: '.$price
     ;
     return array(
       TIMELINE_REDUCER_BUBBLE => $bubble,
@@ -204,9 +201,6 @@
           break;
         case EVENT_TYPE_LISTED_FOR_SALE:
           return 'LI';
-          break;
-        case EVENT_TYPE_UPDATED:
-          return 'UD';
           break;
         case EVENT_TYPE_DELISTED_FROM_SALE:
           return 'DL';

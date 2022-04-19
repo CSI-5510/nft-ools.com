@@ -28,6 +28,15 @@
                     var_dump($f);
                     echo "<br>";
                 }
+                break;
+            case URL_SELL_ITEM:
+                $url = generalNavigation(array(URL_ITEM,URL_LOC_3));
+                header("location: ".$url);
+                break;
+            case URL_REMOVE_SALE_LISTING:
+                $url = generalNavigation(array(URL_ITEM,URL_LOC_3));
+                header("location: ".$url);
+                break;
             default:
                 break;
         }

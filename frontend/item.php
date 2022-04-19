@@ -1,8 +1,11 @@
 <?php 
 
 
-    include('../functions/functions.item.php');
-    
+    if(!isset($GLOBALS['url_loc'][3])){
+        drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, FALSE);
+        return;
+    }
+
     try{
         switch($GLOBALS['url_loc'][3]){
             case URL_ADD_TO_CART:
@@ -31,12 +34,13 @@
                 echo drawEditItem($options, $item_data);
                 break;
             default:
-                drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, FALSE);
                 break;
         }
     } catch(Exception $e){
         alertBox('Error', 'malformed url');
     }
+
+
 ?>
 
 

@@ -39,7 +39,7 @@ session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-include('../functions/function.set_item_flags.php');
+include('../functions/functions.item.php');
 include("../functions/functions.general.php");
 include('../functions/functions.debug.php');
 include('../functions/functions.tile.php');

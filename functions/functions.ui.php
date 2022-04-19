@@ -12,6 +12,7 @@
         ';
     }
 
+    
     function drawNoBlankInput($name, $format, $character_limit, $required, $value){
         $_c = inputValidationLength($character_limit);
         $_r = inputValidationRequired($required);   
@@ -227,6 +228,7 @@
             </div>
         ';
     }
+   
     
     /** Draws a button that perfroms the input function on click
      *

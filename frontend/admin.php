@@ -1,53 +1,53 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <?php if(!isset($GLOBALS['url_loc'][3])): ?>
-<div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="#"></a>
-                <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFT-ools</a>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#"></a>
+                    <a class="nav-link active" href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/">&larr;Back to NFT-ools</a>
+                </div>
             </div>
-        </div>
-    </nav><br>
-    <div class="container">
-        <h2>NFT-ools Admin Approval Interface</h2>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Item ID</th>
-                <th scope="col">Item Name</th>
-                <th scope="col">Listed By</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-                foreach (Admin::getAllNonReviewedItems() as $item):
-
-                    $itemID = $item["i_id"];
-                    $itemName = $item['i_name'];
-                    $itemOwnerID = $item['owner_id'];
-                    $itemOwnerFname = $item['fname'];
-                    $itemOwnerLname = $item['lname'];
-            ?>
+        </nav><br>
+        <div class="container">
+            <h2>NFT-ools Admin Approval Interface</h2>
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <th scope="row"><?php echo $itemID ?></th>
-                    <td><?php echo $itemName ?></td>
-                    <td><?php echo $itemOwnerFname . $itemOwnerLname ?></td>
-                    <td><a href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/review/<?php echo $itemID ?>" type="submit" class="btn btn-secondary">Review</a>
+                    <th scope="col">Item ID</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Listed By</th>
+                    <th scope="col">Action</th>
                 </tr>
-            <?php
-                endforeach;
-            ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <?php
+                    foreach (Admin::getAllNonReviewedItems() as $item):
 
+                        $itemID = $item["i_id"];
+                        $itemName = $item['i_name'];
+                        $itemOwnerID = $item['owner_id'];
+                        $itemOwnerFname = $item['fname'];
+                        $itemOwnerLname = $item['lname'];
+                ?>
+                    <tr>
+                        <th scope="row"><?php echo $itemID ?></th>
+                        <td><?php echo $itemName ?></td>
+                        <td><?php echo $itemOwnerFname . $itemOwnerLname ?></td>
+                        <td><a href="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/review/<?php echo $itemID ?>" type="submit" class="btn btn-secondary">Review</a>
+                    </tr>
+                <?php
+                    endforeach;
+                ?>
+                </tbody>
+            </table>
+
+        </div>
     </div>
-</div>
 <?php endif; ?>
 
 <?php if(isset($GLOBALS['url_loc'][3]) && $GLOBALS['url_loc'][2] === "review"): ?>

@@ -36,6 +36,8 @@
     define("URL_ABOUT_US","about_us");
     define("URL_LOGIN","login");
     define("URL_SEARCH","search");
+    define("URL_SELL_ITEM","sell_item");
+    define("URL_REMOVE_SALE_LISTING","remove_sale_listing");
 
     // FORMATTING
     define("BLUE_BUTTON","bg-gray-800 rounded-lg text-gray-100 font-bold text-text-center p-4 m-4 transition duration-300 ease-in-out hover:bg-gray-600");
@@ -191,5 +193,9 @@
     define("TIMELINE_REDUCER_BODY","event_body");
 
 
+    // INSERT COLUMNS
+    define("INSERT_COLUMNS_EVENT_TABLE",array('id','order_id','item_id','description','timestamp','date','cost','type'));
+
+    
 ?>
 

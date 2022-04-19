@@ -247,44 +247,6 @@ class DatabaseConnector {
 	}
 
 	
-	/** calls specific query methods on the events table
-	 *
-	 * @param  string $type from the events section of the constants table (constants/constants.all.php)
-	 * @param  mixed $data return data from the event's reducer
-	 * @return void 
-	 */
-	public static function addEvent($data){
-		$q = "INSERT INTO events ("
-				//.EVENT_TABLE_ID.","			/*01*/
-				.EVENT_TABLE_ORDER_ID.","		/*02*/
-				.EVENT_TABLE_ITEM_ID.","		/*03*/
-				.EVENT_TABLE_DESCRIPTION.","	/*04*/
-				//.EVENT_TABLE_TIMESTAMP.","	/*05*/
-				.EVENT_TABLE_DATE.","			/*06*/
-				.EVENT_TABLE_TYPE.","			/*07*/
-				.EVENT_TABLE_COST				/*08*/
-			.") VALUES ("
-				//.$data[EVENT_TABLE_ID]."," 			/*01*/
-				.$data[EVENT_TABLE_ORDER_ID].","		/*02*/
-				.$data[EVENT_TABLE_ITEM_ID].","			/*03*/	
-				."'".$data[EVENT_TABLE_DESCRIPTION]."',"		/*04*/
-				//.$data[ORDER_TABLE_TIMESTAMP].","		/*05*/
-				.$data[EVENT_TABLE_DATE]."," 			/*06*/	
-				."'".$data[EVENT_TABLE_TYPE]."',"			/*07*/
-				.$data[EVENT_TABLE_COST]			/*08*/
-		.")";
-		try{
-			var_dump($q);
-			var_dump("<br>");
-			self::query($q);
-		}catch(Exception $e){
-			var_dump($e);
-			return $e;
-		}
-		return;
-	}
-
-	
 	/** gets first and last name for a given user id
 	 *
 	 * @param  mixed $user_id

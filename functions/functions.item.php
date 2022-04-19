@@ -181,6 +181,7 @@
                     $'.$item_data["current_price"].'
                 </div>
                 <div class="flex flex-row justify-between items-center w-3/10">'.
+                    decideSellButton($item_data[ITEM_TABLE_I_ID]).
                     decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
                     decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
                     decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
@@ -286,19 +287,95 @@
 
 
 
-    function decideSellButton($item_data, $events){
-        $approved = $item_data[ITEM_TABLE_IS_APPROVED];
-        $not_in_cart = !itemInCart($orders);
-        
+    function decideSellButton($item_id){
+        if(!availableToSell($item_id)){
+            $text = 'Remove Sale Listing';
+            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_id));
+            return drawLinkButton($text,$url,BLUE_BUTTON);
+        }
+        $text = 'Sell Item';
+        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_id));
+        return drawLinkButton($text,$url,BLUE_BUTTON);
     }
 
 
-    function itemInCart($events{
-        $events = DatabaseConnector::eventTypesDateDescending();
-        return $events[0][EVENT_TABLE_TYPE]==EVENT_TYPE_IN_CART;
+    function availableToSell($item_id){
+        /*
+            columns = [
+                'is_approved',
+                'was_reviewed',
+                'admin_review',
+                'rejected',
+                'added_to_system',
+                'upgraded',
+                'repaired',
+                'listed_for_sale',
+                'delisted_from_sale',
+                'in_cart',
+                'pending_sale',
+                'sold',
+                'new_owner_received'
+            ]
+        */
+        $flags = getFlags($item_id);
+        if(!$flags[ITEM_TABLE_IS_APPROVED]){
+            return false;
+        }
+        if(!$flags[ITEM_TABLE_WAS_REVIEWED]){
+            return false;
+        }
+        if($flags[ITEM_TABLE_REJECTED]){
+            return false;
+        }
+        if($flags[ITEM_TABLE_LISTED_FOR_SALE]){
+            return false;
+        }
+        if($flags[ITEM_TABLE_IN_CART]){
+            return false;
+        }
+        if($flags[ITEM_TABLE_PENDING_SALE]){
+            return false;
+        }
+        if($flags[ITEM_TABLE_SOLD]){
+            return false;
+        }
+        return true;
     }
 
 
+    function getFlags($item_id){
+        $columns = array(ITEM_TABLE_IS_APPROVED,ITEM_TABLE_WAS_REVIEWED,ITEM_TABLE_ADMIN_REVIEW,ITEM_TABLE_REJECTED,ITEM_TABLE_ADDED_TO_SYSTEM,ITEM_TABLE_UPGRADED,ITEM_TABLE_REPAIRED,ITEM_TABLE_LISTED_FOR_SALE,ITEM_TABLE_DELISTED_FROM_SALE,ITEM_TABLE_IN_CART,ITEM_TABLE_PENDING_SALE,ITEM_TABLE_SOLD,ITEM_TABLE_NEW_OWNER_RECEIVED);
+        $q = 'SELECT ';
+        foreach($columns as $column){
+            $q = $q.$column.',';
+        }
+        $q = substr($q, 0, -1);
+        $q = $q.' FROM item WHERE '.ITEM_TABLE_I_ID.' = '.$item_id;
+        return DatabaseConnector::query($q)[0];
+    }
+
+
+    function setItemFlag($item_id, $flag){
+        $columns = array(
+            ITEM_TABLE_ADMIN_REVIEW,ITEM_TABLE_REJECTED,ITEM_TABLE_ADDED_TO_SYSTEM,ITEM_TABLE_UPGRADED,ITEM_TABLE_REPAIRED,ITEM_TABLE_LISTED_FOR_SALE,ITEM_TABLE_DELISTED_FROM_SALE,ITEM_TABLE_IN_CART,ITEM_TABLE_PENDING_SALE,ITEM_TABLE_SOLD,ITEM_TABLE_NEW_OWNER_RECEIVED
+        );
+        $set_index = array_search($flag, $columns, true);
+        $i = 0;
+        $q = 'UPDATE item SET ';
+        foreach($columns as $column){
+            $value = '1';
+            if($set_index!==$i){
+                $value = 'NULL';
+            }
+            $q = $q.$column.'='.$value.',';
+            $i += 1;
+        }
+        $q = substr($q, 0, -1);
+        $q = $q.' WHERE item.'.ITEM_TABLE_I_ID.'='.$item_id;
+
+        DatabaseConnector::query($q)[0];
+        return;
+    }
 
 
 ?>

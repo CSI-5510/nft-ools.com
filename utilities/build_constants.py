@@ -24,9 +24,24 @@ class generateConstants:
         writer += ');'
         self.save(writer, f'{self.table_name.lower()}_constants_array.txt')
 
+    def write_array_no_mod(self):
+        writer = 'array('
+        for column in self.columns:
+            writer += f"'{column}',"
+        writer = writer[:-1]
+        writer += ');'
+        self.save(writer, f'{self.table_name.lower()}_no_mod_constants_array.txt')
+
 
 columns = [
-    'i_id', 'i_name', 'i_description', 'current_price', 'i_image', 'i_category_Id', 'i_serialnum', 'original_price', 'is_approved', 'owner_id', 'days_to_minimum_price', 'receipt', 'documentation', 'original_purchase_date', 'rejection_reason', 'was_reviewed', 'timestamp', 'admin_review', 'rejected', 'added_to_system', 'upgraded', 'repaired', 'listed_for_sale', 'delisted_from_sale', 'in_cart', 'pending_sale', 'sold', 'new_owner_received'
+        'id',
+        'order_id',
+        'item_id',
+        'description',
+        'timestamp',
+        'date',
+        'cost',
+        'type'
 ]
 
-generateConstants('item_table', columns).write_array()
+generateConstants('events_table', columns).write_array_no_mod()

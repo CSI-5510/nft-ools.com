@@ -5,7 +5,7 @@
      *
      * @param  mixed $price from pricing algorithm
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
-     * @return array for use with DatabaseConnect::addEvent(EVENT_NEW_ITEM)
+     * @return array for use with DatabaseConnect::insertEvent(EVENT_NEW_ITEM)
      */
     function addNewItemReducer(){
         $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
@@ -50,7 +50,7 @@
     }
 
 
-    function addEventReducer($item_id, $post){
+    function insertEventFormReducer($item_id, $post){
         $clean_cost = numbersOnly($post[EVENT_TABLE_COST]);
         return array(
             EVENT_TABLE_ID => 'NULL',
@@ -63,5 +63,34 @@
             EVENT_TABLE_COST => $clean_cost               
         );
     }
+
+    
+    /** inserts list for sale, delist from sales into event table
+     *
+     * @param  int $item_id
+     * @param  bool $listing controls labeling in description: false-->'delisting', true-->'listing'
+     * @return void
+     */
+    function insertEventSellItemReducer($item_id, $listing){
+        $price = DatabaseConnector::getItemDataNoPics($item_id);
+        $mode = 'listing';
+        $type = EVENT_TYPE_LISTED_FOR_SALE;
+        if(!$listing){
+            $mode = 'de'.$mode;
+            $type = EVENT_TYPE_DELISTED_FROM_SALE;
+        }
+        return array(
+            EVENT_TABLE_ID => 'NULL',
+            EVENT_TABLE_ORDER_ID =>  'NULL',
+            EVENT_TABLE_ITEM_ID => $item_id,
+            EVENT_TABLE_DESCRIPTION => 'price at time of '.$mode.': '.$price,
+            EVENT_TABLE_TIMESTAMP => 'NULL',
+            EVENT_TABLE_DATE => 'NULL',
+            EVENT_TABLE_TYPE => $type,
+            EVENT_TABLE_COST => 'NULL'               
+        );
+    }
+
+
 ?>
 
