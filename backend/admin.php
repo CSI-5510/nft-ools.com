@@ -53,7 +53,7 @@ if ($isAdmin) {
 					break;
 				case "submit":
 					$itemID = $GLOBALS['url_loc'][2];
-
+ 					echo $itemID;
 					break;
 				case URL_REMOVE_FROM_CART:
 					Order::removeItemFromCart($item_data['i_id'], $signed_in);
