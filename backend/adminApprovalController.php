@@ -29,6 +29,7 @@ echo '<!DOCTYPE html>
 </nav><br>';
 
 $sql = "UPDATE item SET is_approved=$itemApprovedRadiosIn, rejection_reason='$itemApprovalJustificationIn', was_reviewed=1 WHERE i_id = '$itemIDin'";
+echo $sql;
 if ($conn->query($sql) == TRUE) {
    
     echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
