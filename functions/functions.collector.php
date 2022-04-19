@@ -9,6 +9,7 @@
      */
     function addNewItemReducer(){
         $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
+        var_dump($clean_price);
         $price = pricing(
             $clean_price, 
             $_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 
