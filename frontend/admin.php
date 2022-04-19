@@ -195,7 +195,7 @@ if ($isListingApproved) {
 }
 
 echo "<br>";
-
+$msg=Admin::saveApprovalMessageToDb(7);
 if ($msg == 1) {
     //console("success");
     echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
