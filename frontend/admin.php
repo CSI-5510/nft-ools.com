@@ -1,5 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<?php if(!isset($GLOBALS['url_loc'][1])): ?>
+<?php if(!isset($GLOBALS['url_loc'][0])): ?>
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">&nbsp;NFT-ools Admin</a>
@@ -50,7 +50,7 @@
 </div>
 <?php endif; ?>
 
-<?php if(isset($GLOBALS['url_loc'][2]) && $GLOBALS['url_loc'][1] === "review"): ?>
+<?php if(isset($GLOBALS['url_loc'][1]) && $GLOBALS['url_loc'][0] === "review"): ?>
 <!--- cdn bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -69,7 +69,7 @@
 
 <div class="container">
     <h2>Item Listing Approval Form</h2>
-    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][3]; ?>">
+    <form method="post" action="<?php echo $GLOBALS['config']['url_root']; ?>/public_html/admin/submit/<?php echo $GLOBALS['url_loc'][2]; ?>">
         <!--<input type="text" id="itemID" name="itemID" value="">-->
         <div class="row mb-3">
             <label for="itemID" class="col-sm-2 col-form-label">Item ID</label>
@@ -165,7 +165,7 @@
 </div>
 <?php endif; ?>
 
-<?php if(isset($GLOBALS['url_loc'][2]) && $GLOBALS['url_loc'][1] === "submit"): ?>
+<?php if(isset($GLOBALS['url_loc'][1]) && $GLOBALS['url_loc'][0] === "submit"): ?>
 
 
 
