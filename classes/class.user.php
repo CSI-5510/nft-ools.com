@@ -1,20 +1,23 @@
 <?php
 
 
-
 	
 class User {
 	public static function isLoggedIn()
 	{
 		//looks for cookie that is stored
 		if(isset($_COOKIE['NFTOOLSID'])) {
+			echo ("on line 10");
 			//db check to see if the token is valid
 			if (DatabaseConnector::query('SELECT user_id FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])))) {
 				//grab and return user id
+				echo ("on line 14");
 				$userid = DatabaseConnector::query('SELECT user_id FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])))[0]['user_id'];
 				if (isset($_COOKIE['NFTOOLSID_'])) {
+					echo ("on line 17");
 				return $userid;
 				} else {
+					  echo("on line 20");
                       $cstrong = True;
                       $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                       DatabaseConnector::query('INSERT INTO login_tokens (token, user_id) VALUES (:token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$userid));
