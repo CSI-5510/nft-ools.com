@@ -205,10 +205,11 @@ echo $sql;
 if ($conn->query($sql) === TRUE) {
    
     echo '<div class="alert alert-success" role="alert">Item approval status was successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-     $sql1="INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL, $GLOBALS['url_loc'][2], '$itemIDIn', 'Dear User,Your item listing request was approved by NFTools Admin, check your account for more details', CURRENT_TIMESTAMP, 0)";
+    echo "$GLOBALS['url_loc'][2]"
+	$sql1="INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL, $GLOBALS['url_loc'][2], '$itemIDIn', 'Dear User,Your item listing request was approved by NFTools Admin, check your account for more details', CURRENT_TIMESTAMP, 0)";
      $conn->query($sql1)
 	//echo "INSERT INTO message(msg_id, user_id, item_id, message_body, approval_timestamp,is_acknowledged) VALUES (NULL,$GLOBALS['url_loc'][2],'$itemIDIn','Dear User,Your item listing request was approved by NFTools Admin, check your account for more details',CURRENT_TIMESTAMP, 0)";
-	
+	echo $sql1;
 } else {
    
     echo '<div class="alert alert-danger" role="alert">Item approval status was NOT successfully updated! <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
