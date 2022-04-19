@@ -4,8 +4,6 @@
     include_once('../functions/functions.events.php');
     
 
-    var_dump($_POST);
-
     if(!isset($_POST)){
         header("location: /public_html");
     }
