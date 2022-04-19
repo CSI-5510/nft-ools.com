@@ -16,11 +16,6 @@ $isAdmin = User::isAdmin();
 
 if ($isAdmin) {
 
-    echo $GLOBALS['url_loc'][3];
-    foreach ($GLOBALS['url_loc'] as $r) {
-        echo $r;
-        echo "<br>";
-    }
 
     $result = Admin::getAllNonReviewedItems();
 	
@@ -30,6 +25,7 @@ if ($isAdmin) {
 			
 			switch($GLOBALS['url_loc'][1]){
 				case REVIEW:
+                    echo "<h1>Test</h1>";
 					$itemAndCategory = admin::getItemAndCategory($GLOBALS['url_loc'][3]);
 					$itemAffidavit = admin::getAffidavit($GLOBALS['url_loc'][3]);	
 					//assigns item information
