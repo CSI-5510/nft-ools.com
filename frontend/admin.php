@@ -195,14 +195,17 @@ if ($isListingApproved) {
 }
 
 //echo "<br>";
-$msg=Admin::saveApprovalMessageToDb($GLOBALS['url_loc'][2]);
-if ($msg == 1) {
-    //console("success");
+try{
+    Admin::saveApprovalMessageToDb($GLOBALS['url_loc'][2]);
     echo '<div class="alert alert-success" role="alert">Item approval message was successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
-} else {
-   //console("failure");
-   echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
 }
+catch(Exception $e){
+    
+    echo '<div class="alert alert-danger" role="alert">Item approval message was not successfully saved into db!'.var_dump($msg).' <br><a href="../frontend/admin.php">Return to NFT-ools Admin</a>';
+} 
+   
+  
+
 
 ?>
 
