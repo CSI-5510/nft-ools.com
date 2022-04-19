@@ -288,18 +288,22 @@
 
 
     function decideSellButton($item_id){
-        if(!availableToSell($item_id)){
+        $item_data = DatabaseConnector::getItemDataNoPics($item_id);
+        if(intval($item_data[ITEM_TABLE_OWNER_ID])!==USER_ID){
+            return drawBlank();
+        }
+        if(!availableToSell($item_data)){
             $text = 'Remove Sale Listing';
-            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_id));
+            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
             return drawLinkButton($text,$url,BLUE_BUTTON);
         }
         $text = 'Sell Item';
-        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_id));
+        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data));
         return drawLinkButton($text,$url,BLUE_BUTTON);
     }
 
 
-    function availableToSell($item_id){
+    function availableToSell($item_data){
         /*
             columns = [
                 'is_approved',
@@ -317,26 +321,25 @@
                 'new_owner_received'
             ]
         */
-        $flags = getFlags($item_id);
-        if(!$flags[ITEM_TABLE_IS_APPROVED]){
+        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
             return false;
         }
-        if(!$flags[ITEM_TABLE_WAS_REVIEWED]){
+        if(!$item_data[ITEM_TABLE_WAS_REVIEWED]){
             return false;
         }
-        if($flags[ITEM_TABLE_REJECTED]){
+        if($item_data[ITEM_TABLE_REJECTED]){
             return false;
         }
-        if($flags[ITEM_TABLE_LISTED_FOR_SALE]){
+        if($item_data[ITEM_TABLE_LISTED_FOR_SALE]){
             return false;
         }
-        if($flags[ITEM_TABLE_IN_CART]){
+        if($item_data[ITEM_TABLE_IN_CART]){
             return false;
         }
-        if($flags[ITEM_TABLE_PENDING_SALE]){
+        if($item_data[ITEM_TABLE_PENDING_SALE]){
             return false;
         }
-        if($flags[ITEM_TABLE_SOLD]){
+        if($item_data[ITEM_TABLE_SOLD]){
             return false;
         }
         return true;

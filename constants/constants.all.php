@@ -160,6 +160,7 @@
     define("ORDER_TABLE_TRANSACTION_AUTHENTICATION_CODE","o_transactio_auth_code");
     define("ORDER_TABLE_EVENT_DESCRIPTION","event_description");
     define("ORDER_TABLE_EVENT_TIMESTAMP","event_timestamp"); // not needed
+    define("ORDER_TABLE_AGREEMENT_PRICE","agreement_price");
 
 
     // EVENT TABLE COLUMNS
@@ -195,7 +196,7 @@
 
     // INSERT COLUMNS
     define("INSERT_COLUMNS_EVENT_TABLE",array('id','order_id','item_id','description','timestamp','date','cost','type'));
-
+    define("INSERT_COLUMNS_ORDERS_TABLE",array('id','o_date','o_status','o_item_id','o_buyer_id','o_seller_id','o_transaction_id','o_transaction_auth_code','event_description','event_timestamp','agreement_price'));
     
 ?>
 

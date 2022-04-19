@@ -40,6 +40,11 @@
                 break;
             case URL_EDIT_ITEM:
                 break;
+            case URL_ADD_TO_CART:
+                $item_id = URL_LOC_3;
+                setItemFlag($item_id, ITEM_TABLE_IN_CART);
+                $event_data = '';
+                break;
             default:
                 break;
         }

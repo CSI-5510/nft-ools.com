@@ -35,13 +35,16 @@ class generateConstants:
 
 columns = [
         'id',
-        'order_id',
-        'item_id',
-        'description',
-        'timestamp',
-        'date',
-        'cost',
-        'type'
+        'o_date',
+        'o_status',
+        'o_item_id',
+        'o_buyer_id',
+        'o_seller_id',
+        'o_transaction_id',
+        'o_transaction_auth_code',
+        'event_description',
+        'event_timestamp',
+        'agreement_price'
 ]
 
-generateConstants('events_table', columns).write_array_no_mod()
+generateConstants('orders_table', columns).write_array_no_mod()
