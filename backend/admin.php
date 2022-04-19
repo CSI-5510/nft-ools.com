@@ -17,6 +17,10 @@ $isAdmin = User::isAdmin();
 if ($isAdmin) {
 
     echo $GLOBALS['url_loc'][3];
+    foreach ($GLOBALS['url_loc'] as $r) {
+        echo $r;
+        echo "<br>";
+    }
 
     $result = Admin::getAllNonReviewedItems();
 	
