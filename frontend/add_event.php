@@ -1,7 +1,7 @@
 <?php
 
 
-    include_once('../functions/functions.add_event.php');
+    include_once('../functions/functions.events.php');
     drawAddEventPage($item_id);
     
 

@@ -67,23 +67,23 @@
      * @return string assembeled HTML for item row display
      */
     function drawItemRow($data){
-        $link = generalNavigation(array(URL_ITEM, $data[ITEM_TABLE_ID]));
+        $link = generalNavigation(array(URL_ITEM, $data[ITEM_TABLE_I_ID]));
         return '
             <a href="'.$link.'">
                 <div class="grid grid-rows-1 grid-cols-12 mx-20 mb-5">
-                    <image class="row-span-1 col-span-3 mr-1" src="'.imageSrc($data[ITEM_TABLE_IMAGE]).'"/>
+                    <image class="row-span-1 col-span-3 mr-1" src="'.imageSrc($data[ITEM_TABLE_I_IMAGE]).'"/>
                     <div class="row-span-1 col-span-9 p-4 bg-gray-300">
                         <div class="grid grid-rows-4 grid-cols-1">
                             <div class="row-span-1 col-span-1 mb-1 p-4 bg-gray-200">
                                 <span class="text-xl font-bold">
-                                    '.$data[ITEM_TABLE_NAME].'
+                                    '.$data[ITEM_TABLE_I_NAME].'
                                 </span>
                             </div>
                             <div class="grid row-span-3 col-span-1">
                                 <div class="grid grid-rows-1 grid-cols-4">
                                     <div class="row-span-1 col-span-3 mr-1 p-4 bg-gray-200">
                                         <span class="text-lg">
-                                            '.$data[ITEM_TABLE_DESCRIPTION].'
+                                            '.$data[ITEM_TABLE_I_DESCRIPTION].'
                                         </span>
                                     </div>
                                     <div class="row-span-1 col-span-1 p-4 bg-gray-200">

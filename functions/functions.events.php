@@ -1,6 +1,43 @@
 <?php
 
+	/** calls specific query methods on the events table
+	 *
+	 * @param  string $type from the events section of the constants table (constants/constants.all.php)
+	 * @param  mixed $data return data from the event's reducer
+	 * @return void 
+	 */
+	function insertEvent($data){
+		$q = "INSERT INTO events ("
+				//.EVENT_TABLE_ID.","			/*01*/
+				.EVENT_TABLE_ORDER_ID.","		/*02*/
+				.EVENT_TABLE_ITEM_ID.","		/*03*/
+				.EVENT_TABLE_DESCRIPTION.","	/*04*/
+				//.EVENT_TABLE_TIMESTAMP.","	/*05*/
+				.EVENT_TABLE_DATE.","			/*06*/
+				.EVENT_TABLE_TYPE.","			/*07*/
+				.EVENT_TABLE_COST				/*08*/
+			.") VALUES ("
+				//.$data[EVENT_TABLE_ID]."," 			/*01*/
+				.$data[EVENT_TABLE_ORDER_ID].","		/*02*/
+				.$data[EVENT_TABLE_ITEM_ID].","			/*03*/	
+				."'".$data[EVENT_TABLE_DESCRIPTION]."',"		/*04*/
+				//.$data[ORDER_TABLE_TIMESTAMP].","		/*05*/
+				.$data[EVENT_TABLE_DATE]."," 			/*06*/	
+				."'".$data[EVENT_TABLE_TYPE]."',"			/*07*/
+				.$data[EVENT_TABLE_COST]			/*08*/
+		.")";
+		try{
+			var_dump($q);
+			var_dump("<br>");
+			DatabaseConnector::query($q);
+		}catch(Exception $e){
+			var_dump($e);
+			return $e;
+		}
+		return;
+	}
 
+    
     function drawAddEventPage($id){
 
         // CONSTANTS
@@ -19,8 +56,8 @@
         echo $OPEN_ROW;
         echo drawLabel('EVENT TYPE', LABEL_LEFT);
         $options = array(
-            array("value" => EVENT_SAVED_REPAIRED, "text" => EVENT_SAVED_REPAIRED),
-            array("value" => EVENT_SAVED_UPGRADED, "text" => EVENT_SAVED_UPGRADED)
+            array("value" => EVENT_TYPE_REPAIRED, "text" => EVENT_TYPE_REPAIRED),
+            array("value" => EVENT_TYPE_UPGRADED, "text" => EVENT_TYPE_UPGRADED)
         );
         echo drawSelectOption(EVENT_TABLE_TYPE, LISTING_INPUT_AREA, $options, '');
         echo $CLOSE_ROW;

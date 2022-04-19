@@ -5,7 +5,7 @@
      *
      * @param  mixed $price from pricing algorithm
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
-     * @return array for use with DatabaseConnect::addEvent(EVENT_NEW_ITEM)
+     * @return array for use with DatabaseConnect::insertEvent(EVENT_NEW_ITEM)
      */
     function addNewItemReducer(){
         $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
@@ -16,13 +16,13 @@
             DAYS_TO_MINIMUM_PIRCE
         );
         return array(
-            ITEM_TABLE_ID => NULL,
-            ITEM_TABLE_NAME => $_POST[ITEM_OBFUSCATED_NAME], 
-            ITEM_TABLE_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
+            ITEM_TABLE_I_ID => NULL,
+            ITEM_TABLE_I_NAME => $_POST[ITEM_OBFUSCATED_NAME], 
+            ITEM_TABLE_I_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
             ITEM_TABLE_CURRENT_PRICE => $price, 
-            ITEM_TABLE_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
-            ITEM_TABLE_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
-            ITEM_TABLE_SERIAL_NUMBER => intval($_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]),
+            ITEM_TABLE_I_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
+            ITEM_TABLE_I_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
+            ITEM_TABLE_I_SERIALNUM => intval($_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]),
             ITEM_TABLE_ORIGINAL_PRICE => $clean_price, 
             ITEM_TABLE_IS_APPROVED => 0,
             ITEM_TABLE_OWNER_ID => USER_ID,
@@ -44,13 +44,13 @@
             EVENT_TABLE_DESCRIPTION => 'added to system',
             EVENT_TABLE_TIMESTAMP => 'NULL',
             EVENT_TABLE_DATE => 'NULL',
-            EVENT_TABLE_TYPE => EVENT_TYPE_ADDED,
+            EVENT_TABLE_TYPE => EVENT_TYPE_ADDED_TO_SYSTEM,
             EVENT_TABLE_COST => 'NULL'
         );
     }
 
 
-    function addEventReducer($item_id, $post){
+    function insertEventFormReducer($item_id, $post){
         $clean_cost = numbersOnly($post[EVENT_TABLE_COST]);
         return array(
             EVENT_TABLE_ID => 'NULL',
@@ -63,5 +63,127 @@
             EVENT_TABLE_COST => $clean_cost               
         );
     }
+
+    
+    /** inserts list for sale, delist from sales into event table
+     *
+     * @param  int $item_id
+     * @param  bool $listing controls labeling in description: false-->'delisting', true-->'listing'
+     * @return void
+     */
+    function insertEventSellItemReducer($item_id, $listing){
+        $price = DatabaseConnector::getItemDataNoPics($item_id)[ITEM_TABLE_CURRENT_PRICE];
+        $mode = 'listing';
+        $type = EVENT_TYPE_LISTED_FOR_SALE;
+        if(!$listing){
+            $mode = 'de'.$mode;
+            $type = EVENT_TYPE_DELISTED_FROM_SALE;
+        }
+        return array(
+            EVENT_TABLE_ID => 'NULL',
+            EVENT_TABLE_ORDER_ID =>  'NULL',
+            EVENT_TABLE_ITEM_ID => $item_id,
+            EVENT_TABLE_DESCRIPTION => 'price at time of '.$mode.': '.$price,
+            EVENT_TABLE_TIMESTAMP => 'NULL',
+            EVENT_TABLE_DATE => 'NULL',
+            EVENT_TABLE_TYPE => $type,
+            EVENT_TABLE_COST => 'NULL'               
+        );
+    }
+
+
+    function orderInsertPrefix(){
+        $q = 'INSERT INTO orders (';
+        foreach(INSERT_COLUMNS_ORDERS_TABLE as $column){
+            if($column==ORDER_TABLE_ID){
+                continue;
+            }
+            if($column==ORDER_TABLE_TIMESTAMP){
+                continue;
+            }
+            $q = $q.$column.',';
+        }
+        $q = substr($q, 0, -1);
+        $q = $q.') VALUES (';
+        return $q;
+    }
+
+    function updateOrdersCartReducer($item_data, $buyer_id){
+        $item_id = $item_data[ITEM_TABLE_I_ID];
+        $price = $item_data[ITEM_TABLE_CURRENT_PRICE];
+        $seller = $item_data[ITEM_TABLE_OWNER_ID];
+        $q = orderInsertPrefix();
+        $q = $q.'pending'.',';          // o_status
+        $q = $q.$item_id.',';           // o_item_id
+        $q = $q.$buyer_id.',';          // o_buyer_id
+        $q = $q.$seller.',';            // o_seller_id
+        $q = $q.'NULL'.',';             // o_transaction_id
+        $q = $q.'NULL'.',';             // o_transactio_auth_code
+        $q = $q.'placed in cart'.',';   // event_description
+        $q = $q.'NULL'.',';             // event_timestamp
+        $q = $q.$price.',';             // agreement_price
+        $q = $q.')';
+        DatabaseConnector::query($q);
+        return;
+    }
+
+
+    function insertEventCartReducer($item_id){
+        $price = DatabaseConnector::getOrderDataByItem($item_id)[ORDER_TABLE_AGREEMENT_PRICE];
+        $type = EVENT_TYPE_IN_CART;
+        return array(
+            EVENT_TABLE_ID => 'NULL',
+            EVENT_TABLE_ORDER_ID =>  'NULL',
+            EVENT_TABLE_ITEM_ID => $item_id,
+            EVENT_TABLE_DESCRIPTION => 'price at time of addition to cart: '.$price,
+            EVENT_TABLE_TIMESTAMP => 'NULL',
+            EVENT_TABLE_DATE => 'NULL',
+            EVENT_TABLE_TYPE => $type,
+            EVENT_TABLE_COST => $price               
+        );
+    }
+
+
+    function updateOrdersPurchaseReducer($item_data, $buyer_id){        
+        $item_id = $item_data[ITEM_TABLE_I_ID];
+        $price = $item_data[ITEM_TABLE_CURRENT_PRICE];
+        $seller = $item_data[ITEM_TABLE_OWNER_ID];
+        $q = orderInsertPrefix();
+        $q = $q.'closed'.',';          // o_status
+        $q = $q.$item_id.',';           // o_item_id
+        $q = $q.$buyer_id.',';          // o_buyer_id
+        $q = $q.$seller.',';            // o_seller_id
+        $q = $q.'NULL'.',';             // o_transaction_id
+        $q = $q.'NULL'.',';             // o_transactio_auth_code
+        $q = $q.'purchase complete'.',';   // event_description
+        $q = $q.'NULL'.',';             // event_timestamp
+        $q = $q.$price.',';             // agreement_price
+        $q = $q.')';
+        DatabaseConnector::query($q);
+        return;
+    }
+
+
+    function insertEventPurchaseReducer($item_id, $listing){
+        $price = DatabaseConnector::getItemDataNoPics($item_id)[ITEM_TABLE_CURRENT_PRICE];
+        $mode = 'listing';
+        $type = EVENT_TYPE_LISTED_FOR_SALE;
+        if(!$listing){
+            $mode = 'de'.$mode;
+            $type = EVENT_TYPE_DELISTED_FROM_SALE;
+        }
+        return array(
+            EVENT_TABLE_ID => 'NULL',
+            EVENT_TABLE_ORDER_ID =>  'NULL',
+            EVENT_TABLE_ITEM_ID => $item_id,
+            EVENT_TABLE_DESCRIPTION => 'price at time of purchase: '.$price,
+            EVENT_TABLE_TIMESTAMP => 'NULL',
+            EVENT_TABLE_DATE => 'NULL',
+            EVENT_TABLE_TYPE => $type,
+            EVENT_TABLE_COST => $price               
+        );
+    }
+
+
 ?>
 
