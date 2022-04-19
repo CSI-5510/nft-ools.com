@@ -28,6 +28,7 @@ if ($isAdmin) {
 					$itemAndCategory = admin::getItemAndCategory($GLOBALS['url_loc'][2]);
 					$itemAffidavit = admin::getAffidavit($GLOBALS['url_loc'][2]);
                     echo $GLOBALS['url_loc'][2];
+                    var_dump($itemAndCategory);
 					//assigns item information
 					foreach($itemAndCategory as $rowTable){
 						$itemID = $rowTable['i_id'];
