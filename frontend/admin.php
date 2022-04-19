@@ -184,6 +184,7 @@
 </nav><br>
 <?php 
 
+console("test");
 
 if ($isListingApproved) {
     //console("success");
