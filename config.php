@@ -123,6 +123,11 @@ switch ($GLOBALS['url_loc'][0]){
         $PAGE_TITLE = "Home";
         $FRONTEND = "carousel";
         break;
+    case "admin":
+        $BACKEND = "admin";
+        $PAGE_TITLE = "Admin";
+        $FRONTEND = "admin";
+        break;
     default:
         $BACKEND = "index";
         $PAGE_TITLE = "Index";
