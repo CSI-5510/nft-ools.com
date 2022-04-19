@@ -28,7 +28,7 @@
             </thead>
             <tbody>
             <?php
-                foreach (Admin::getAllMessagesByUser() as $messages):
+                foreach (Admin::getAllMessagesByUser(USER_ID) as $messages):
 
                     $messageID = $messages["i_id"];
 					          $userID=$messages["user_id"];
