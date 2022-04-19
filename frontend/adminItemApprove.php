@@ -187,4 +187,4 @@ if ($resultAffidavit->num_rows > 0) {
 //}
 ?>
 
-<?php endif; ?>
+<?php // endif; ?>
