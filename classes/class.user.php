@@ -15,6 +15,7 @@ class User {
 				$userid = DatabaseConnector::query('SELECT user_id FROM login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['NFTOOLSID'])))[0]['user_id'];
 				if (isset($_COOKIE['NFTOOLSID_'])) {
 					echo ("on line 17");
+					echo $userid;
 				return $userid;
 				} else {
 					  echo("on line 20");
