@@ -25,9 +25,8 @@ if ($isAdmin) {
 			
 			switch($GLOBALS['url_loc'][1]){
 				case REVIEW:
-                    echo "<h1>Test</h1>";
-					$itemAndCategory = admin::getItemAndCategory($GLOBALS['url_loc'][3]);
-					$itemAffidavit = admin::getAffidavit($GLOBALS['url_loc'][3]);	
+					$itemAndCategory = admin::getItemAndCategory($GLOBALS['url_loc'][2]);
+					$itemAffidavit = admin::getAffidavit($GLOBALS['url_loc'][2]);
 					//assigns item information
 					foreach($itemAndCategory as $rowTable){
 						$itemID = $rowTable['i_id'];
