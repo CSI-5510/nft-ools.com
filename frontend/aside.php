@@ -91,7 +91,7 @@
 	  
       <?php if (User::isLoggedin()): ?>
          <li class="my-px">
-            <a href="<?php $GLOBALS['config']['url_location']; echo"/";} echo $GLOBALS["url_loc"][0]; ?>orders" class="<?php echo $GLOBALS["url_loc"][1] !==
+            <a href="<?php echo $GLOBALS['config']['url_location']; ?>orders" class="<?php echo $GLOBALS["url_loc"][1] !==
             "checkout"
                ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
                : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
@@ -125,7 +125,7 @@
 
 
           <li class="my-px">
-              <a href="<?php $GLOBALS['config']['url_location']; ?>profile" class="<?php echo $GLOBALS["url_loc"][1] !==
+              <a href="<?php echo $GLOBALS['config']['url_location']; ?>profile" class="<?php echo $GLOBALS["url_loc"][1] !==
               "Profile"
                   ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
                   : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
