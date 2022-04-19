@@ -49,6 +49,11 @@ class User {
 	return $result["fname"].' '.$result["lname"];
 	}
 
+	public static function getAllMessagesByUser($userId) {
+
+            $result = DatabaseConnector::query("SELECT msg_id, user_id, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE user_id='$userId'", array());
+            return $result;
+        }
 
 
 	//use this function in the user class to see if the user is logged in
