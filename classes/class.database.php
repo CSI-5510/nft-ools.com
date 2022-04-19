@@ -77,11 +77,11 @@ class DatabaseConnector {
 	 */
 	public static function getUserItemsList($id){
 		$q = 'SELECT 
-				'.ITEM_TABLE_ID.', 
-				'.ITEM_TABLE_NAME.', 
+				'.ITEM_TABLE_I_ID.', 
+				'.ITEM_TABLE_I_NAME.', 
 				'.ITEM_TABLE_CURRENT_PRICE.', 
-				'.ITEM_TABLE_IMAGE.', 
-				'.ITEM_TABLE_DESCRIPTION.'
+				'.ITEM_TABLE_I_IMAGE.', 
+				'.ITEM_TABLE_I_DESCRIPTION.'
 			FROM item WHERE '.ITEM_TABLE_OWNER_ID.' = '.$id;
 		return DatabaseConnector::query($q);
 	}
@@ -94,13 +94,13 @@ class DatabaseConnector {
 	 */
 	public static function getItemData($id){
 		$q = 'SELECT '
-			.ITEM_TABLE_ID.','
-			.ITEM_TABLE_NAME.','
-			.ITEM_TABLE_DESCRIPTION.','
+			.ITEM_TABLE_I_ID.','
+			.ITEM_TABLE_I_NAME.','
+			.ITEM_TABLE_I_DESCRIPTION.','
 			.ITEM_TABLE_CURRENT_PRICE.','
-			.ITEM_TABLE_IMAGE.','
-			.ITEM_TABLE_CATEGORY_ID.','
-			.ITEM_TABLE_SERIAL_NUMBER.','
+			.ITEM_TABLE_I_IMAGE.','
+			.ITEM_TABLE_I_CATEGORY_ID.','
+			.ITEM_TABLE_I_SERIALNUM.','
 			.ITEM_TABLE_ORIGINAL_PRICE.','
 			.ITEM_TABLE_IS_APPROVED.','
 			.ITEM_TABLE_OWNER_ID.','
@@ -121,11 +121,11 @@ class DatabaseConnector {
 
 	public static function keywordSearch($keyword){
 		$q = "SELECT "
-			.ITEM_TABLE_ID.","
-			.ITEM_TABLE_NAME.","
+			.ITEM_TABLE_I_ID.","
+			.ITEM_TABLE_I_NAME.","
 			.ITEM_TABLE_CURRENT_PRICE.","
-			.ITEM_TABLE_IMAGE.","
-			.ITEM_TABLE_DESCRIPTION." 
+			.ITEM_TABLE_I_IMAGE.","
+			.ITEM_TABLE_I_DESCRIPTION." 
 			FROM item
 			WHERE LOWER(i_name) LIKE '%".$keyword."%'"
 		;
@@ -138,7 +138,7 @@ class DatabaseConnector {
 	}
 
 	public static function getItemIDs(){
-		$q = 'SELECT i_id,'.ITEM_TABLE_CATEGORY_ID.' FROM items ORDER BY '.ITEM_TABLE_CATEGORY_ID;
+		$q = 'SELECT i_id,'.ITEM_TABLE_I_CATEGORY_ID.' FROM items ORDER BY '.ITEM_TABLE_I_CATEGORY_ID;
 		return self::query($q);
 	}
 
@@ -149,13 +149,13 @@ class DatabaseConnector {
 		$_r = array();
 		foreach($data as $row){
 			if(is_null($old)){
-				array_push($_r, $row[ITEM_TABLE_ID]);
-				$old = $row[ITEM_TABLE_CATEGORY_ID];
+				array_push($_r, $row[ITEM_TABLE_I_ID]);
+				$old = $row[ITEM_TABLE_I_CATEGORY_ID];
 				continue;
 			}
-			$new = $row[ITEM_TABLE_CATEGORY_ID];
+			$new = $row[ITEM_TABLE_I_CATEGORY_ID];
 			if($new != $old){
-				array_push($_r, $row[ITEM_TABLE_ID]);
+				array_push($_r, $row[ITEM_TABLE_I_ID]);
 			}
 			$old = $new;
 		}
@@ -165,12 +165,12 @@ class DatabaseConnector {
 
 	public static function getItemDataNoPics($id){
 		$q = 'SELECT '
-			.ITEM_TABLE_ID.','
-			.ITEM_TABLE_NAME.','
-			.ITEM_TABLE_DESCRIPTION.','
+			.ITEM_TABLE_I_ID.','
+			.ITEM_TABLE_I_NAME.','
+			.ITEM_TABLE_I_DESCRIPTION.','
 			.ITEM_TABLE_CURRENT_PRICE.','
-			.ITEM_TABLE_CATEGORY_ID.','
-			.ITEM_TABLE_SERIAL_NUMBER.','
+			.ITEM_TABLE_I_CATEGORY_ID.','
+			.ITEM_TABLE_I_SERIALNUM.','
 			.ITEM_TABLE_ORIGINAL_PRICE.','
 			.ITEM_TABLE_IS_APPROVED.','
 			.ITEM_TABLE_OWNER_ID.','
@@ -209,13 +209,13 @@ class DatabaseConnector {
 
 	public static function addNewItem($data, $user_id){
 		$q = "INSERT INTO item ("
-				.ITEM_TABLE_ID.","							
-				.ITEM_TABLE_NAME.","
-				.ITEM_TABLE_DESCRIPTION.","
+				.ITEM_TABLE_I_ID.","							
+				.ITEM_TABLE_I_NAME.","
+				.ITEM_TABLE_I_DESCRIPTION.","
 				.ITEM_TABLE_CURRENT_PRICE.","
-				.ITEM_TABLE_IMAGE.","
-				.ITEM_TABLE_CATEGORY_ID.","
-				.ITEM_TABLE_SERIAL_NUMBER.","
+				.ITEM_TABLE_I_IMAGE.","
+				.ITEM_TABLE_I_CATEGORY_ID.","
+				.ITEM_TABLE_I_SERIALNUM.","
 				.ITEM_TABLE_ORIGINAL_PRICE.","
 				.ITEM_TABLE_IS_APPROVED.","
 				.ITEM_TABLE_OWNER_ID.","
@@ -227,12 +227,12 @@ class DatabaseConnector {
 				.ITEM_TABLE_WAS_REVIEWED.") 
 			VALUES (
 				NULL,'"
-				.$data[ITEM_TABLE_NAME]."','"
-				.$data[ITEM_TABLE_DESCRIPTION]."',"
+				.$data[ITEM_TABLE_I_NAME]."','"
+				.$data[ITEM_TABLE_I_DESCRIPTION]."',"
 				.$data[ITEM_TABLE_CURRENT_PRICE].",
 				:image,"
-				.$data[ITEM_TABLE_CATEGORY_ID].","
-				.$data[ITEM_TABLE_SERIAL_NUMBER].","
+				.$data[ITEM_TABLE_I_CATEGORY_ID].","
+				.$data[ITEM_TABLE_I_SERIALNUM].","
 				.$data[ITEM_TABLE_ORIGINAL_PRICE].","
 				.$data[ITEM_TABLE_IS_APPROVED].","
 				.$data[ITEM_TABLE_OWNER_ID].","
@@ -243,7 +243,7 @@ class DatabaseConnector {
 				.$data[ITEM_TABLE_REJECTION_REASON]."',"
 				.$data[ITEM_TABLE_WAS_REVIEWED]."
 		)";
-		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
+		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_I_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
 	}
 
 	

@@ -100,13 +100,13 @@
 
 
     // ITEM TABLE COLUMNS
-    define("ITEM_TABLE_ID","i_id");
-    define("ITEM_TABLE_NAME","i_name");
-    define("ITEM_TABLE_DESCRIPTION","i_description");
+    define("ITEM_TABLE_I_ID","i_id");
+    define("ITEM_TABLE_I_NAME","i_name");
+    define("ITEM_TABLE_I_DESCRIPTION","i_description");
     define("ITEM_TABLE_CURRENT_PRICE","current_price");
-    define("ITEM_TABLE_IMAGE","i_image");
-    define("ITEM_TABLE_CATEGORY_ID","i_category_Id");
-    define("ITEM_TABLE_SERIAL_NUMBER","i_serialnum");
+    define("ITEM_TABLE_I_IMAGE","i_image");
+    define("ITEM_TABLE_I_CATEGORY_ID","i_category_Id");
+    define("ITEM_TABLE_I_SERIALNUM","i_serialnum");
     define("ITEM_TABLE_ORIGINAL_PRICE","original_price");
     define("ITEM_TABLE_IS_APPROVED","is_approved");
     define("ITEM_TABLE_OWNER_ID","owner_id");
@@ -117,6 +117,17 @@
     define("ITEM_TABLE_REJECTION_REASON","rejection_reason");
     define("ITEM_TABLE_WAS_REVIEWED","was_reviewed");
     define("ITEM_TABLE_TIMESTAMP","timestamp");
+    define("ITEM_TABLE_ADMIN_REVIEW","admin_review");
+    define("ITEM_TABLE_REJECTED","rejected");
+    define("ITEM_TABLE_ADDED_TO_SYSTEM","added_to_system");
+    define("ITEM_TABLE_UPGRADED","upgraded");
+    define("ITEM_TABLE_REPAIRED","repaired");
+    define("ITEM_TABLE_LISTED_FOR_SALE","listed_for_sale");
+    define("ITEM_TABLE_DELISTED_FROM_SALE","delisted_from_sale");
+    define("ITEM_TABLE_IN_CART","in_cart");
+    define("ITEM_TABLE_PENDING_SALE","pending_sale");
+    define("ITEM_TABLE_SOLD","sold");
+    define("ITEM_TABLE_NEW_OWNER_RECEIVED","new_owner_received");
 	
 	//USER TABLE COLUMNS
 	define("USER_TABLE_ID","id");
@@ -172,15 +183,6 @@
     define("EVENT_TYPE_PENDING_SALE","pending_sale");
     define("EVENT_TYPE_SOLD","sold");
     define("EVENT_TYPE_NEW_OWNER_RECEIVED","new_owner_received");
-
-    // EVENTS TYPES
-    define("EVENT_TYPE_ADDED","added");
-    define("EVENT_TYPE_LISTED","listed");
-    define("EVENT_TYPE_DELISTED","delisted");
-    define("EVENT_TYPE_UPDATED","updated");
-    define("EVENT_TYPE_PURCHASED","purchased");
-    define("EVENT_SAVED_REPAIRED","repaired");
-    define("EVENT_SAVED_UPGRADED","upgraded");
 
 
     // TIMELINE

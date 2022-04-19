@@ -16,7 +16,11 @@ $GLOBALS['db_conf']['db_pass'] = "oakland";
 $GLOBALS['db_conf']['db_charset'] = "utf8";
  
 if($GLOBALS['config']['url_offset'] > 0) {
-    $x = 0; while($x < ($GLOBALS['config']['url_offset'])){ unset($GLOBALS['url_loc'][$x]); $x++; }
+    $x = 0; 
+    while($x < ($GLOBALS['config']['url_offset'])){ 
+        unset($GLOBALS['url_loc'][$x]); 
+        $x++; 
+    }
     $GLOBALS['url_loc'] = array_values($GLOBALS['url_loc']);
 }
 
@@ -35,6 +39,7 @@ session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+include('../functions/function.set_item_flags.php');
 include("../functions/functions.general.php");
 include('../functions/functions.debug.php');
 include('../functions/functions.tile.php');

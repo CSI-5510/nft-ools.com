@@ -4,7 +4,7 @@
     /** assembels an html string of the item lineage t
      * @param  mixed $item_data
      * @param  mixed $order_data
-     * @param  mixed $event_data results of DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_ID])
+     * @param  mixed $event_data results of DatabaseConnector::getItemEvents($item_data[ITEM_TABLE_I_ID])
      * @return string
      */
     function drawLineage($item_data, $order_data, $event_data){
@@ -17,15 +17,15 @@
         foreach($event_data as $event){
           $type = $event[EVENT_TABLE_TYPE];
           switch($type){
-            case EVENT_TYPE_ADDED:
+            case EVENT_TYPE_ADDED_TO_SYSTEM:
               $content = addedReducer($item_data, $event);
               $_r = $_r.rightTimeline($content);
               break;
-            case EVENT_TYPE_LISTED:
+            case EVENT_TYPE_LISTED_FOR_SALE:
               $content = listedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
-            case EVENT_TYPE_DELISTED:
+            case EVENT_TYPE_DELISTED_FROM_SALE:
               $content = delistedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
@@ -33,15 +33,15 @@
               $content = updatedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
-            case EVENT_TYPE_PURCHASED:
+            case EVENT_TYPE_SOLD:
               $content = purchasedReducer($item_data, $order_data, $event);
               $_r = $_r.rightTimeline($content);
               break;
-            case EVENT_SAVED_UPGRADED:
+            case EVENT_TYPE_UPGRADED:
               $content = upgradedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
-            case EVENT_SAVED_REPAIRED:
+            case EVENT_TYPE_REPAIRED:
               $content = repairedReducer($item_data, $order_data, $event);
               $_r = $_r.leftTimeline($content);
               break;
@@ -82,7 +82,7 @@
     }
 
   function listedReducer($item_data, $order_data, $event){
-    $bubble = encodeEventType($event[EVENT_TYPE_ADDED]);
+    $bubble = encodeEventType($event[EVENT_TYPE_ADDED_TO_SYSTEM]);
     $original_purchase_date = '';
     $title = strtoupper($event[EVENT_TABLE_TYPE]).'<br>'.$original_purchase_date;
     $price = '';
@@ -199,25 +199,25 @@
     function encodeEventType($type){
       switch($type){
         // yes the breaks are redundant. dont worry about it.
-        case EVENT_TYPE_ADDED:
+        case EVENT_TYPE_ADDED_TO_SYSTEM:
           return 'AD';
           break;
-        case EVENT_TYPE_LISTED:
+        case EVENT_TYPE_LISTED_FOR_SALE:
           return 'LI';
           break;
         case EVENT_TYPE_UPDATED:
           return 'UD';
           break;
-        case EVENT_TYPE_DELISTED:
+        case EVENT_TYPE_DELISTED_FROM_SALE:
           return 'DL';
           break;
-        case EVENT_TYPE_PURCHASED:
+        case EVENT_TYPE_SOLD:
           return 'PR';
           break;
-        case EVENT_SAVED_UPGRADED:
+        case EVENT_TYPE_UPGRADED:
           return 'UG';
           break;
-        case EVENT_SAVED_REPAIRED:
+        case EVENT_TYPE_REPAIRED:
           return 'RP';
           break;
       }

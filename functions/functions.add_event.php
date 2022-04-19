@@ -19,8 +19,8 @@
         echo $OPEN_ROW;
         echo drawLabel('EVENT TYPE', LABEL_LEFT);
         $options = array(
-            array("value" => EVENT_SAVED_REPAIRED, "text" => EVENT_SAVED_REPAIRED),
-            array("value" => EVENT_SAVED_UPGRADED, "text" => EVENT_SAVED_UPGRADED)
+            array("value" => EVENT_TYPE_REPAIRED, "text" => EVENT_TYPE_REPAIRED),
+            array("value" => EVENT_TYPE_UPGRADED, "text" => EVENT_TYPE_UPGRADED)
         );
         echo drawSelectOption(EVENT_TABLE_TYPE, LISTING_INPUT_AREA, $options, '');
         echo $CLOSE_ROW;

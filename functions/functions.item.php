@@ -84,7 +84,7 @@
      */
     function drawAddEventButton($item_data, $format){
         $text = 'Add Event';
-        $url = generalNavigation(array(URL_ADD_EVENT,$item_data[ITEM_TABLE_ID]));
+        $url = generalNavigation(array(URL_ADD_EVENT,$item_data[ITEM_TABLE_I_ID]));
         return drawLinkButton($text, $url, $format);
     }
 
@@ -171,7 +171,7 @@
                 <h3 class="row-span-1 col-span-2 text-3xl font-bold m-10 mb-0 p-4 bg-gray-200">
                     '.$item_data["i_name"].'
                 </h3>
-                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data[ITEM_TABLE_IMAGE]).'"/>
+                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data[ITEM_TABLE_I_IMAGE]).'"/>
                 <p class="row-span-4 col-span-2 p-4 m-10 mt-0 bg-gray-200">
                     '.$item_data["i_description"].'>
                 </p>
@@ -215,25 +215,25 @@
         // ROW TITLE
          $OPEN_ROW.
          drawLabel('<p>TITLE *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_NAME]).
+         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_I_NAME]).
          $CLOSE_ROW.
         
         // ROW CATEGORY
          $OPEN_ROW.
          drawLabel('<p>CATEGORY *</p><p class="'.REQUIRED_FIELD_NOTE.'"> select from list</p>', LABEL_LEFT).
-         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, $item_data[ITEM_TABLE_CATEGORY_ID]).
+         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, $item_data[ITEM_TABLE_I_CATEGORY_ID]).
          $CLOSE_ROW.
         
         // ROW SERIAL NUMBER
          $OPEN_ROW.
          drawLabel('<p>SERIAL NUMBER *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 11 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_SERIAL_NUMBER]).
+         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_I_SERIALNUM]).
          $CLOSE_ROW.
 
         // ROW DESCRIPTION
          $OPEN_ROW.
          drawLabel('<p>DESCRIPTION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 300 characters max</p>', LABEL_LEFT).
-         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_DESCRIPTION]).
+         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_I_DESCRIPTION]).
          $CLOSE_ROW.
         
         // ROW IMAGE
@@ -286,17 +286,16 @@
 
 
 
-    function decideSellButton($item_data, $orders){
+    function decideSellButton($item_data, $events){
         $approved = $item_data[ITEM_TABLE_IS_APPROVED];
         $not_in_cart = !itemInCart($orders);
         
     }
 
 
-    function itemInCart($orders{
-        switch($orders[ORDER_TABLE_STATUS]){
-            case order_sta
-        }
+    function itemInCart($events{
+        $events = DatabaseConnector::eventTypesDateDescending();
+        return $events[0][EVENT_TABLE_TYPE]==EVENT_TYPE_IN_CART;
     }
 
 

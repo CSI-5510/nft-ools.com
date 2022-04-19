@@ -16,13 +16,13 @@
             DAYS_TO_MINIMUM_PIRCE
         );
         return array(
-            ITEM_TABLE_ID => NULL,
-            ITEM_TABLE_NAME => $_POST[ITEM_OBFUSCATED_NAME], 
-            ITEM_TABLE_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
+            ITEM_TABLE_I_ID => NULL,
+            ITEM_TABLE_I_NAME => $_POST[ITEM_OBFUSCATED_NAME], 
+            ITEM_TABLE_I_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
             ITEM_TABLE_CURRENT_PRICE => $price, 
-            ITEM_TABLE_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
-            ITEM_TABLE_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
-            ITEM_TABLE_SERIAL_NUMBER => intval($_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]),
+            ITEM_TABLE_I_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
+            ITEM_TABLE_I_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
+            ITEM_TABLE_I_SERIALNUM => intval($_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]),
             ITEM_TABLE_ORIGINAL_PRICE => $clean_price, 
             ITEM_TABLE_IS_APPROVED => 0,
             ITEM_TABLE_OWNER_ID => USER_ID,
@@ -44,7 +44,7 @@
             EVENT_TABLE_DESCRIPTION => 'added to system',
             EVENT_TABLE_TIMESTAMP => 'NULL',
             EVENT_TABLE_DATE => 'NULL',
-            EVENT_TABLE_TYPE => EVENT_TYPE_ADDED,
+            EVENT_TABLE_TYPE => EVENT_TYPE_ADDED_TO_SYSTEM,
             EVENT_TABLE_COST => 'NULL'
         );
     }
