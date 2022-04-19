@@ -21,6 +21,8 @@
      * @return mixed {"name", "id", "image"}
      */
     function mapItemToTile($data){
+        var_dump($data);
+        echo "<br>";
         return [
             "name"=> $data['i_name'],
             "id"=> $data['i_id'],
