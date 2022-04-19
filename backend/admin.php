@@ -87,7 +87,7 @@ echo $isListingApproved;
 	
 
 } else {
-    header("Location: ../index");
+    //header("Location: ../index");
 }
 
 
