@@ -20,14 +20,8 @@
                 header("location: ".$url);
                 break;	
             case URL_EDIT_ITEM:
-                foreach($_POST as $p){
-                    var_dump($p);
-                    echo "<br>";
-                }
-                foreach($_FILES as $f){
-                    var_dump($f);
-                    echo "<br>";
-                }
+                $url = generalNavigation(array(URL_ITEM, $item_id));
+                header("location: ".$url);
                 break;
             case URL_SELL_ITEM:
                 $url = generalNavigation(array(URL_ITEM,URL_LOC_2));

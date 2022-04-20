@@ -357,4 +357,38 @@
     }
 
 
+    function editItemReducer($post, $item_id){
+        // title
+        // category
+        // serial number
+        // description
+        // purchase date
+        // purchase price
+        $_r = array(
+                ITEM_TABLE_I_ID => $item_id,
+                ITEM_TABLE_I_NAME => $post[ITEM_OBFUSCATED_NAME],
+                ITEM_TABLE_I_CATEGORY_ID => $post[ITEM_OBFUSCATED_CATEGORY],
+                ITEM_TABLE_I_SERIALNUM => $post[ITEM_OBFUSCATED_SERIAL_NUMBER],
+                ITEM_TABLE_I_DESCRIPTION => $post[ITEM_OBFUSCATED_DESCRIPTION],
+                ITEM_TABLE_ORIGINAL_PURCHASE_DATE => $post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE],
+                ITEM_TABLE_ORIGINAL_PRICE => $post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]
+        );
+        return $_r;
+    }
+
+
+    function editItemQuery($data){
+        $q = "UPDATE i_name,i_category_Id,i_serialnum,i_description,original_purchase_date,original_price SET ";
+        $q = $q.ITEM_TABLE_I_NAME.'='.$data[ITEM_TABLE_I_NAME].',';
+        $q = $q.ITEM_TABLE_I_CATEGORY_ID.'='.$data[ITEM_TABLE_I_CATEGORY_ID].',';
+        $q = $q.ITEM_TABLE_I_SERIALNUM.'='.$data[ITEM_TABLE_I_SERIALNUM].',';
+        $q = $q.ITEM_TABLE_I_DESCRIPTION.'='.$data[ITEM_TABLE_I_DESCRIPTION].',';
+        $q = $q.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.'='.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE].',';
+        $q = $q.ITEM_TABLE_ORIGINAL_PRICE.'='.$data[ITEM_TABLE_ORIGINAL_PRICE];
+        $q = $q."WHERE item.".ITEM_TABLE_I_ID."=".$data[ITEM_TABLE_I_ID];
+        varDumpWithWhiteSpace($q);
+        return;
+    }
+
+
 ?>
