@@ -369,7 +369,7 @@
         // description
         // purchase date
         // purchase price
-        $date = str_replace($post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], ' ', 'T');
+        $date = str_replace($post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
         $_r = array(
                 ITEM_TABLE_I_ID => $post[ITEM_OBFUSCATED_ID],
                 ITEM_TABLE_I_NAME => $post[ITEM_OBFUSCATED_NAME],
