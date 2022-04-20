@@ -292,7 +292,7 @@
         var_dump($item_data[ITEM_TABLE_OWNER_ID]);
         echo "<br><br>";
         var_dump(USER_ID);
-        if(intval($item_data[ITEM_TABLE_OWNER_ID])!==USER_ID){
+        if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
             return drawBlank();
         }
         if(!availableToSell($item_data)){
