@@ -292,7 +292,21 @@
         var_dump($item_data[ITEM_TABLE_OWNER_ID]);
         echo "<br><br>";
         var_dump(USER_ID);
-        decideHideSellButton($item_id);
+        if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
+            return drawBlank();
+        }
+        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
+            return drawBlank();
+        }
+        if($item_data[ITEM_TABLE_REJECTED]){
+            return drawBlank();
+        }
+        if($item_data[ITEM_TABLE_IN_CART]){
+            return drawBlank();
+        }
+        if($item_data[ITEM_TABLE_PENDING_SALE]){
+            return drawBlank();
+        }
         if(!availableToSell($item_data)){
             $text = 'Remove Sale Listing';
             $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
@@ -305,21 +319,7 @@
 
 
     function decideHideSellButton($item_data){
-        if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
-            return drawBlank();
-        }
-        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
-            return drawBlank();
-        }
-        if($item_data[ITEM_TABLE_REJECTED]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_IN_CART]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_PENDING_SALE]){
-            return false;
-        }
+
         return drawBlank();
     }
 
