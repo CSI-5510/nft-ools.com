@@ -58,6 +58,9 @@ class User {
             $userid = User::isLoggedIn();
             $result = DatabaseConnector::query("SELECT msg_id, uid, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE uid='$userid'", array());
 			var_dump($result);
+			echo "<br>";
+			$query = "SELECT msg_id, uid, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE uid='$userid'";
+			echo "<h1>$query</h1>";
             return $result;
         }
 
