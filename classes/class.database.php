@@ -208,7 +208,7 @@ class DatabaseConnector {
 
 
 	public static function addNewItem($data, $user_id){
-		$q = "INSERT INTO item(i_id, i_name, i_description, current_price, i_image, i_category_Id, i_serialnum, original_price, is_approved, owner_id, days_to_minimum_price, receipt, documentation, original_purchase_date, rejection_reason, was_reviewed, timestamp, admin_review, rejected, added_to_system, upgraded, repaired, listed_for_sale, delisted_from_sale, in_cart, pending_sale, sold, new_owner_received) VALUES (";
+		$q = "INSERT INTO item(/*i_id, */i_name, i_description, current_price, i_image, i_category_Id, i_serialnum, original_price, is_approved, owner_id, days_to_minimum_price, receipt, documentation, original_purchase_date, rejection_reason, was_reviewed, /*timestamp, */admin_review, rejected, added_to_system, upgraded, repaired, listed_for_sale, delisted_from_sale, in_cart, pending_sale, sold, new_owner_received) VALUES (";
 		$q = $q.$data[ITEM_TABLE_I_ID]; 
 		$q = $q.$data[ITEM_TABLE_I_NAME].',';	
 		$q = $q.$data[ITEM_TABLE_I_DESCRIPTION].',';	
