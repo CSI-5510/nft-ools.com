@@ -18,9 +18,10 @@
                 break;
             case URL_ADD_ITEM:
                 $item_data = addNewItemReducer();
-                var_dump($item_data);
-                /*
+
                 DatabaseConnector::addNewItem($item_data, USER_ID);
+
+                /*
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0];
                 var_dump($item_id);
                 var_dump(DatabaseConnector::getLastItemAddedByUser(USER_ID));
