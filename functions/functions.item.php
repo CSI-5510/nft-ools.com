@@ -34,7 +34,7 @@
 
     function drawRemoveFromCartButton($id, $format, $command){
         $text = 'Remove from Orders';
-        $url = generalNavigation(array('item',$id,'remove_from_order'));
+        $url = generalNavigation(array('item',$id,URL_REMOVE_FROM_CART));
         return drawLinkButton($text, $url, $format);
     }
 	
