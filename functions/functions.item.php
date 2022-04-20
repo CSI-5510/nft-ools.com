@@ -292,9 +292,7 @@
         var_dump($item_data[ITEM_TABLE_OWNER_ID]);
         echo "<br><br>";
         var_dump(USER_ID);
-        if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
-            return drawBlank();
-        }
+        decideHideSellButton($item_id);
         if(!availableToSell($item_data)){
             $text = 'Remove Sale Listing';
             $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
@@ -303,6 +301,26 @@
         $text = 'Sell Item';
         $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data));
         return drawLinkButton($text,$url,BLUE_BUTTON);
+    }
+
+
+    function decideHideSellButton($item_data){
+        if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
+            return drawBlank();
+        }
+        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
+            return drawBlank();
+        }
+        if($item_data[ITEM_TABLE_REJECTED]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_IN_CART]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_PENDING_SALE]){
+            return false;
+        }
+        return drawBlank();
     }
 
 
@@ -324,22 +342,7 @@
                 'new_owner_received'
             ]
         */
-        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
-            return false;
-        }
-        if(!$item_data[ITEM_TABLE_WAS_REVIEWED]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_REJECTED]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_LISTED_FOR_SALE]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_IN_CART]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_PENDING_SALE]){
+        if(!$item_data[ITEM_TABLE_LISTED_FOR_SALE]){
             return false;
         }
         if($item_data[ITEM_TABLE_SOLD]){
