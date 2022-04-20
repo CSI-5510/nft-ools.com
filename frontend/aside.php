@@ -60,7 +60,7 @@
                      echo "Register";
                   } 
                ?>			
-            <a href=" <?php if($GLOBALS['config']['url_root']!== ""){echo $GLOBALS['config']['url_location'];} ?><?php echo User::isLoggedin() ? "logout" : "login"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !== "login" ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700 transition" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700 "; ?>">
+            <a href=" <?php if($GLOBALS['config']['url_root']!== ""){echo $GLOBALS['config']['url_location'];} ?><?php echo User::isLoggedin() ? "/public_html/logout" : "/public_html/login"; ?>" class="<?php echo $GLOBALS["url_loc"][1] !== "login" ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700 transition" : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700 "; ?>">
             <span class="flex items-center justify-center text-lg text-red-400">
                <svg
                   fill="none"
