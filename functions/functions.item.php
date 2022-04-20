@@ -145,8 +145,10 @@
      */
     function decideCartOrSignIn($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open){
         if($is_users_listing){
-            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "edit");
-        }
+            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "EDIT");
+        } else {
+            echo "&nbsp;";
+         }
          //check if user is signed in
         if($signed_in){
             //make sure user doesn't own the listing....
@@ -174,8 +176,6 @@
         drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
     }
 
-
-        return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON); 
     }
 
     
