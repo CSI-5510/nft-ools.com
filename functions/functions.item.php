@@ -145,35 +145,37 @@
      */
     function decideCartOrSignIn($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open){
         if($is_users_listing){
-            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "EDIT");
+            echo drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "EDIT");
         } else {
             echo "&nbsp;";
          }
          //check if user is signed in
         if($signed_in){
+
             //make sure user doesn't own the listing....
             if(!$is_users_listing){
+    
                 //if item is in cart of the user
                 if($is_item_in_cart){
                     //remove item
-                    drawRemoveFromCartButton($item_data['i_id'], BLUE_BUTTON, URL_REMOVE_FROM_CART);
+                    echo drawRemoveFromCartButton($item_data['i_id'], BLUE_BUTTON, URL_REMOVE_FROM_CART);
                 } else {
                     //make sure item isn't currently pending (in an offer)..
                     if(!$is_item_pending){
                         if(Order::isItemOpen($item_data['i_id'])){
                             //add item button
-                            drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, URL_ADD_TO_CART); 
-                        } else {
+                            echo drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, URL_ADD_TO_CART); 
+                        } else { 
                             //draw this button to show the item is not available for offers at all
-                            drawUnavailableButton(BLUE_BUTTON); 
+                           echo drawUnavailableButton(BLUE_BUTTON); 
                         }
                     } else {
-                    drawPendingButton(BLUE_BUTTON); 
+                   echo  drawPendingButton(BLUE_BUTTON); 
                     }
                 }
             }
         } else {   
-        drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
+        echo drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
     }
 
     }
