@@ -207,10 +207,10 @@
         $url = generalNavigation(array(URL_COLLECTOR, URL_EDIT_ITEM));
 
 
-        $date = str_replace($item_data[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
+        $date = str_replace($item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE], 'T', ' ');
         varDumpWithWhiteSpace($date);
 
-        
+
         return 
 
         // REQUIRED FIELDS MESSAGE
