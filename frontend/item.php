@@ -1,13 +1,13 @@
 <?php 
 
 
-    if(!isset($GLOBALS['url_loc'][3])){
+    if(!isset($GLOBALS['url_loc'][2])){
         drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, FALSE);
         return;
     }
 
     try{
-        switch($GLOBALS['url_loc'][3]){
+        switch($GLOBALS['url_loc'][2]){
             case URL_ADD_TO_CART:
 				//is item already in the users cart? let the user know
 				if($is_item_in_cart){
