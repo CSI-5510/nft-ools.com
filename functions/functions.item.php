@@ -205,6 +205,11 @@
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
         $url = generalNavigation(array(URL_COLLECTOR, URL_EDIT_ITEM));
+
+
+        $date = str_replace($item_data[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
+        varDumpWithWhiteSpace($date);
+
         
         return 
 
@@ -263,8 +268,7 @@
         //  drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
         //  $CLOSE_ROW.
         
-        $date = str_replace($item_data[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
-        varDumpWithWhiteSpace($date);
+
         // ROW PURCHASE DATE
          $OPEN_ROW.
          drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
