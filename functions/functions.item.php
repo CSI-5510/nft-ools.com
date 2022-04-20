@@ -289,13 +289,13 @@
 
     function decideSellButton($item_id){
         $item_data = DatabaseConnector::getItemDataNoPics($item_id);
-        var_dump($item_data[ITEM_TABLE_OWNER_ID]);
-        echo "<br><br>";
-        var_dump(USER_ID);
         if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
             return drawBlank();
         }
         if(!$item_data[ITEM_TABLE_IS_APPROVED]){
+            var_dump($item_data[ITEM_TABLE_OWNER_ID]);
+            echo "<br><br>";
+            var_dump(USER_ID);
             return drawBlank();
         }
         if($item_data[ITEM_TABLE_REJECTED]){
