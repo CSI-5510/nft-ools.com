@@ -61,10 +61,14 @@ class DatabaseConnector {
 	 * @param  string $cat_id category to be queried
 	 * @return array [{'i_id', 'i_name', 'current_price', 'i_image', 'i_description', 'cat_id'}, ...]
 	 */
-	public static function getItemsData($id){
-		$q = 'SELECT i.i_id, i.i_name, i.current_price, i.i_image, i.i_description, c.cat_id 
-			FROM item i INNER JOIN category c ON i.i_category_id = c.cat_id 
-			WHERE i.i_category_id = '.$id;
+	public static function getItemsData($id,$user_id){
+		$q = 'SELECT 
+				i.i_id, i.i_name, i.current_price, i.i_image, i.i_description, c.cat_id 
+			FROM item i 
+			INNER JOIN category c ON i.i_category_id = c.cat_id 
+			WHERE i.i_category_id = '.$id.'
+			AND i.owner_id ='.$user_id;
+
 		// echo $q;
 		return DatabaseConnector::query($q);
 	}
