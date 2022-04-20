@@ -1,11 +1,4 @@
 <?php 
-
-
-    if(!isset($GLOBALS['url_loc'][2])){
-        drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open, FALSE);
-        return;
-    }
-
     try{
         switch($GLOBALS['url_loc'][2]){
             case URL_ADD_TO_CART:
@@ -39,6 +32,14 @@
     } catch(Exception $e){
         alertBox('Error', 'malformed url');
     }
+
+
+    if(!isset($GLOBALS['url_loc'][2])){
+        drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open, FALSE);
+        return;
+    }
+
+
 
 
 ?>

@@ -123,7 +123,8 @@ var_dump($t);
 
 	public static function getOrderBuyer($item_number)
    {
-	return DatabaseConnector::query('SELECT o_buyer_id FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid and o_item_id=:itemid', array(':itemid'=>$itemid, ':userid'=>$userid));
+	$userid = user::isLoggedIn();
+	return DatabaseConnector::query('SELECT o_buyer_id FROM orders o JOIN item as i on o_item_id=i_id WHERE o_buyer_id=:userid and o_item_id=:itemid', array(':itemid'=>$item_number, ':userid'=>$userid));
     }	
 	
 	//gets order id, price, and name of an item that the user is intending to buy

@@ -145,7 +145,7 @@
      */
     function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open){
         if($is_users_listing){
-            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, $EDIT);
+            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "edit");
         } else {
             echo "&nbsp;";
          }
@@ -189,7 +189,7 @@
      * @param  mixed $mute should the control be muted in the context of the current page?
      * @return void draws to page
      */
-                if($is_item_in_cart){
+              
     function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $mute_controls, $is_item_pending, $is_item_in_cart, $is_item_open){
         include_once('../functions/functions.lineage.php');
         echo '
