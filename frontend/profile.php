@@ -8,7 +8,7 @@
     // }
 
 
-    switch(URL_LOC_2){
+    switch(URL_LOC_1){
         case URL_EDIT_PROFILE:
             echo drawEditProfile($user_data);
             return;
