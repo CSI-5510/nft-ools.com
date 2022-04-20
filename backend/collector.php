@@ -17,8 +17,9 @@
                 insertEvent($event_data);
                 break;
             case URL_ADD_ITEM:
-                //$item_data = addNewItemReducer();
-                //DatabaseConnector::addNewItem($item_data, USER_ID);
+                $item_data = addNewItemReducer();
+                DatabaseConnector::addNewItem($item_data, USER_ID);
+                /*
                 $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
                 $price = pricing(
                     $clean_price,
@@ -31,13 +32,12 @@
                 echo "\n\n\n\n\n";
                 var_dump($q);
                 echo "<br><br>";
-                /*
                 DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_I_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
+                */
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0][0];
                 $item_data = DatabaseConnector::getItemDataNoPics($item_id);
                 $item_data = addItemEventReducer($item_data[ITEM_TABLE_I_ID]);
-                insertEvent($item_data);
-                */
+                insertEvent($item_data);                
                 break;
 			case URL_EDIT_PROFILE:
 				 DatabaseConnector::updateUserProfileInfo(USER_ID);

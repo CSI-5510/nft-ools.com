@@ -208,41 +208,36 @@ class DatabaseConnector {
 
 
 	public static function addNewItem($data, $user_id){
-		$q = "INSERT INTO item ("
-				.ITEM_TABLE_I_ID.","							
-				.ITEM_TABLE_I_NAME.","
-				.ITEM_TABLE_I_DESCRIPTION.","
-				.ITEM_TABLE_CURRENT_PRICE.","
-				.ITEM_TABLE_I_IMAGE.","
-				.ITEM_TABLE_I_CATEGORY_ID.","
-				.ITEM_TABLE_I_SERIALNUM.","
-				.ITEM_TABLE_ORIGINAL_PRICE.","
-				.ITEM_TABLE_IS_APPROVED.","
-				.ITEM_TABLE_OWNER_ID.","
-				.ITEM_TABLE_DAYS_TO_MINIMUM_PRICE.","
-				.ITEM_TABLE_RECEIPT.","
-				.ITEM_TABLE_DOCUMENTATION.","
-				.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.","
-				.ITEM_TABLE_REJECTION_REASON.","
-				.ITEM_TABLE_WAS_REVIEWED.") 
-			VALUES (
-				NULL,'"
-				.$data[ITEM_TABLE_I_NAME]."','"
-				.$data[ITEM_TABLE_I_DESCRIPTION]."',"
-				.$data[ITEM_TABLE_CURRENT_PRICE].",
-				:image,"
-				.$data[ITEM_TABLE_I_CATEGORY_ID].","
-				.$data[ITEM_TABLE_I_SERIALNUM].","
-				.$data[ITEM_TABLE_ORIGINAL_PRICE].","
-				.$data[ITEM_TABLE_IS_APPROVED].","
-				.$data[ITEM_TABLE_OWNER_ID].","
-				.$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].",
-				:r,
-				:d,'"
-				.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE]."','"
-				.$data[ITEM_TABLE_REJECTION_REASON]."',"
-				.$data[ITEM_TABLE_WAS_REVIEWED]."
-		)";
+		$q = "INSERT INTO item(i_id, i_name, i_description, current_price, i_image, i_category_Id, i_serialnum, original_price, is_approved, owner_id, days_to_minimum_price, receipt, documentation, original_purchase_date, rejection_reason, was_reviewed, timestamp, admin_review, rejected, added_to_system, upgraded, repaired, listed_for_sale, delisted_from_sale, in_cart, pending_sale, sold, new_owner_received) VALUES (";
+		$q = $q.$data[ITEM_TABLE_I_ID].','; 
+		$q = $q.$data[ITEM_TABLE_I_NAME].',';	
+		$q = $q.$data[ITEM_TABLE_I_DESCRIPTION].',';	
+		$q = $q.$data[ITEM_TABLE_CURRENT_PRICE].',';	
+		$q = $q.':image'.',';	
+		$q = $q.$data[ITEM_TABLE_I_CATEGORY_ID].',';	
+		$q = $q.$data[ITEM_TABLE_I_SERIALNUM].',';	
+		$q = $q.$data[ITEM_TABLE_ORIGINAL_PRICE].',';	
+		$q = $q.$data[ITEM_TABLE_OWNER_ID].',';	
+		$q = $q.$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].',';	
+		$q = $q.'$r'.',';		
+		$q = $q.'$d'.',';		
+		$q = $q.$data[ITEM_TABLE_ORIGINAL_date].',';	
+		$q = $q.$data[ITEM_TABLE_TIMESTAMP].',';	
+		$q = $q.$data[ITEM_TABLE_ADMIN_REVIEW].',';	
+		$q = $q.$data[item_table_rejected].',';	
+		$q = $q.$data[ITEM_TABLE_ADDED_TO_SYSTEM].',';	
+		$q = $q.$data[ITEM_TABLE_UPGRADED].',';	
+		$q = $q.$data[ITEM_TABLE_REPAIRED].',';	 
+		$q = $q.$data[ITEM_TABLE_LISTED_FOR_SALE].',';	
+		$q = $q.$data[ITEM_TABLE_DELISTED_FROM_SALE].',';	
+		$q = $q.$data[ITEM_TABLE_IN_CART].',';	
+		$q = $q.$data[ITEM_TABLE_PENDING_SALE].',';	
+		$q = $q.$data[ITEM_TABLE_SOLD].',';	
+		$q = $q.$data[ITEM_TABLE_NEW_OWNER_RECEIVED].
+		")";
+		echo $q;
+		echo "<br><br>";
+		var_dump($q);
 		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_I_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
 	}
 
@@ -346,4 +341,3 @@ class DatabaseConnector {
 	
 	}
 	
-}
