@@ -14,7 +14,7 @@
     try{
         switch(URL_LOC_1){
             case URL_ADD_EVENT:
-                $item_id = URL_LOC_1;
+                $item_id = $_POST[EVENT_TABLE_ITEM_ID];
                 $event_data = insertEventFormReducer($item_id, $_POST);
                 insertEvent($event_data);
                 break;

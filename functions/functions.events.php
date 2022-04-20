@@ -47,7 +47,7 @@
         echo '<form method="POST" action="'.$url.'" enctype="multipart/form-data">';
         
         // ITEM ID
-        echo drawHidden(ORDER_TABLE_ITEM_ID,$id);
+        echo drawHidden(EVENT_TABLE_ITEM_ID,$id);
 
         // EVENT TYPE
         echo $OPEN_ROW;
