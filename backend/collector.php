@@ -19,6 +19,7 @@
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, USER_ID);
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0];
+                var_dump(DatabaseConnector::getLastItemAddedByUser(USER_ID));
                 $item_data = DatabaseConnector::getItemDataNoPics($item_id);
                 $item_data = addItemEventReducer($item_data[ITEM_TABLE_I_ID]);
                 insertEvent($item_data);
