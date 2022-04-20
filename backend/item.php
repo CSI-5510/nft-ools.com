@@ -37,6 +37,7 @@
         switch($GLOBALS['url_loc'][2]){
             case "add_to_cart":
                 Order::addItemToCart($item_data['i_id'], $signed_in);
+                header('location: ../../orders');
                 break;
             case "remove_from_cart":
                 Order::removeItemFromCart($item_data['i_id'], $signed_in);

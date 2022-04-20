@@ -146,9 +146,7 @@
     function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open){
         if($is_users_listing){
             drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "edit");
-        } else {
-            echo "&nbsp;";
-         }
+        }
          //check if user is signed in
         if($signed_in){
             //make sure user doesn't own the listing....
