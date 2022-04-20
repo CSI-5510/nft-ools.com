@@ -27,11 +27,8 @@
 				.$data[EVENT_TABLE_COST]			/*08*/
 		.")";
 		try{
-			var_dump($q);
-			var_dump("<br>");
 			DatabaseConnector::query($q);
 		}catch(Exception $e){
-			var_dump($e);
 			return $e;
 		}
 		return;
