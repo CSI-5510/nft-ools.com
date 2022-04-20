@@ -22,7 +22,7 @@
         );
         return array(
             ITEM_TABLE_I_ID => 'NULL',
-            ITEM_TABLE_I_NAME => "'".$_POST[ITEM_OBFUSCATED_NAME]"'", 
+            ITEM_TABLE_I_NAME => "'".$_POST[ITEM_OBFUSCATED_NAME]."'", 
             ITEM_TABLE_I_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
             ITEM_TABLE_CURRENT_PRICE => $price, 
             ITEM_TABLE_I_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
