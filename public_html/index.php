@@ -23,7 +23,7 @@
   <body class=" ">
   <!--container-->   
   <div class="flex h-screen">
-        <div class="bg-gray-800">
+        <div class="">
           <?php 
             if(isset($ASIDE)){
               include_once("../frontend/".$ASIDE.".php");

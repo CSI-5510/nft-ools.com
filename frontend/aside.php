@@ -2,7 +2,7 @@
    include('../functions/functions.aside.php'); 
 ?>
 
-<aside class="w-64">
+<aside class="w-64 bg-gray-800" >
    <div class="sidebar-content px-4 py-6">
    <ul class="flex flex-col relative h-screen w-full space-y-2 relative">
       <li class="my-px">
@@ -245,7 +245,7 @@
            <li class="my-px absolute bottom-0 inset-x-0">
                <a href="<?php echo $GLOBALS['config']['url_location']; ?>admin" class="<?php echo $GLOBALS["url_loc"][1] !==
                "admin"
-                   ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition"
+                   ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 bg-gray-800 hover:bg-gray-100 hover:text-gray-700 transition"
                    : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
                <span class="flex items-center justify-center text-lg text-gray-400">
                   <svg
