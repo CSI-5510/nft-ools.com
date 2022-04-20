@@ -1,9 +1,11 @@
 <?php
 
+    echo "up";
+
     include_once('../functions/functions.collector.php');
     include_once('../functions/functions.events.php');
     
-    showURL();
+    echo "hi";
 
     if(!isset($_POST)){
         header("location: /public_html");
