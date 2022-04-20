@@ -306,8 +306,8 @@
         }
         if($item_data[ITEM_TABLE_PENDING_SALE]){
             return drawBlank();
-        }
-        if(!availableToSell($item_data)){
+        }        
+        if($item_data[ITEM_TABLE_LISTED_FOR_SALE]){
             $text = 'Remove Sale Listing';
             $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
             return drawLinkButton($text,$url,BLUE_BUTTON);
@@ -315,40 +315,6 @@
         $text = 'Sell Item';
         $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data));
         return drawLinkButton($text,$url,BLUE_BUTTON);
-    }
-
-
-    function decideHideSellButton($item_data){
-
-        return drawBlank();
-    }
-
-
-    function availableToSell($item_data){
-        /*
-            columns = [
-                'is_approved',
-                'was_reviewed',
-                'admin_review',
-                'rejected',
-                'added_to_system',
-                'upgraded',
-                'repaired',
-                'listed_for_sale',
-                'delisted_from_sale',
-                'in_cart',
-                'pending_sale',
-                'sold',
-                'new_owner_received'
-            ]
-        */
-        if(!$item_data[ITEM_TABLE_LISTED_FOR_SALE]){
-            return false;
-        }
-        if($item_data[ITEM_TABLE_SOLD]){
-            return false;
-        }
-        return true;
     }
 
 
