@@ -18,9 +18,9 @@
      * @param  mixed $command command for api from constants.all.php
      * @return void draws to page
      */
-    function drawAddToCartButton($id, $format, $command){
+    function drawAddToCartButton($id, $format){
         $text = 'Add to Orders';
-        $url = itemURL($id, $command);
+        $url = generalNavigation(array($id, URL_ADD_TO_CART));
         return drawLinkButton($text, $url, $format);
     }
 	
@@ -144,15 +144,15 @@
      */
     function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute){
         if($mute){
-            return '';
+            return drawBlank();
         }
         if($is_users_listing){
-            return '';
+            return drawBlank();
         }
-        if($signed_in){
-            return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, URL_ADD_TO_CART); 
+        if(!$signed_in){
+            return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
         }
-        return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
+        return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON); 
     }
 
     
