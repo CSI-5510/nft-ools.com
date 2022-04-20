@@ -21,7 +21,7 @@
                 break;	
             case URL_EDIT_ITEM:
                 $url = generalNavigation(array(URL_ITEM, $item_id));
-                header("location: ".$url);
+                // header("location: ".$url);
                 break;
             case URL_SELL_ITEM:
                 $url = generalNavigation(array(URL_ITEM,URL_LOC_2));
