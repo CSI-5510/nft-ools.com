@@ -7,10 +7,6 @@
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
      * @return array for use with DatabaseConnect::insertEvent(EVENT_NEW_ITEM)
      */
-
-    /*
-    NULL,jkdsfoewn ,jdfoaio fe kjasd j,775.08,:image,1,e6HTa$2HM43,799.88,0,41,37,$r,$d,2022-04-14T04:31,,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
-    */
     function addNewItemReducer(){
         $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
         var_dump($clean_price);

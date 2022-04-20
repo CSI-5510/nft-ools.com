@@ -238,8 +238,6 @@ class DatabaseConnector {
 		$q = $q.$data[ITEM_TABLE_SOLD].',';	
 		$q = $q.$data[ITEM_TABLE_NEW_OWNER_RECEIVED].
 		")";
-		echo $q;
-		echo "<br><br>";
 		return DatabaseConnector::query($q,array(":image"=>$data[ITEM_TABLE_I_IMAGE],":r"=>$data[ITEM_TABLE_RECEIPT],":d"=>$data[ITEM_TABLE_DOCUMENTATION]));
 	}
 
