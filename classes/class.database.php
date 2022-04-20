@@ -216,15 +216,18 @@ class DatabaseConnector {
 		$q = $q.':image'.',';	
 		$q = $q.$data[ITEM_TABLE_I_CATEGORY_ID].',';	
 		$q = $q.$data[ITEM_TABLE_I_SERIALNUM].',';	
-		$q = $q.$data[ITEM_TABLE_ORIGINAL_PRICE].',';	
+		$q = $q.$data[ITEM_TABLE_ORIGINAL_PRICE].',';
+		$q = $q.$data[ITEM_TABLE_IS_APPROVED].',';		
 		$q = $q.$data[ITEM_TABLE_OWNER_ID].',';	
 		$q = $q.$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].',';	
 		$q = $q.'$r'.',';		
 		$q = $q.'$d'.',';		
-		$q = $q.$data[ITEM_TABLE_ORIGINAL_date].',';	
+		$q = $q.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE].',';
+		$q = $q.$data[ITEM_TABLE_REJECTION_REASON].',';	
+		$q = $q.$data[ITEM_TABLE_WAS_REVIEWED].',';		
 		$q = $q.$data[ITEM_TABLE_TIMESTAMP].',';	
 		$q = $q.$data[ITEM_TABLE_ADMIN_REVIEW].',';	
-		$q = $q.$data[item_table_rejected].',';	
+		$q = $q.$data[ITEM_TABLE_REJECTED].',';	
 		$q = $q.$data[ITEM_TABLE_ADDED_TO_SYSTEM].',';	
 		$q = $q.$data[ITEM_TABLE_UPGRADED].',';	
 		$q = $q.$data[ITEM_TABLE_REPAIRED].',';	 
@@ -341,3 +344,4 @@ class DatabaseConnector {
 	
 	}
 	
+}
