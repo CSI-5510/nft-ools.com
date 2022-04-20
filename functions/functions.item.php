@@ -20,7 +20,7 @@
      */
     function drawAddToCartButton($id, $format){
         $text = 'Add to Orders';
-        $url = generalNavigation(array(URL_ITEM,$id, URL_ADD_TO_CART));
+        $url = generalNavigation(array('orders');
         return drawLinkButton($text, $url, $format);
     }
 	
@@ -143,18 +143,7 @@
      * @return void makes draw decision
      */
     function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute){
-        if($mute){
-            return drawBlank();
-        }
-        if($is_users_listing){
-            return drawBlank();
-        }
-        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
-            return drawBlank();
-        }
-        if(!$signed_in){
-            return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
-        }
+
         return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON); 
     }
 
