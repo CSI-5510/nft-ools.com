@@ -246,7 +246,7 @@
                <a href="<?php echo $GLOBALS['config']['url_location']; ?>admin" class="<?php echo $GLOBALS["url_loc"][1] !==
                "admin"
                    ? "flex flex-row items-center h-10 px-3 rounded-lg text-gray-500 bg-gray-800 hover:bg-gray-100 hover:text-gray-700 transition"
-                   : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-100 hover:bg-gray-100 hover:text-gray-700"; ?>">
+                   : "flex flex-row items-center h-10 px-3 rounded-lg text-gray-600 bg-gray-800 hover:bg-gray-100 hover:text-gray-700"; ?>">
                <span class="flex items-center justify-center text-lg text-gray-400">
                   <svg
                           xmlns="http://www.w3.org/2000/svg"
