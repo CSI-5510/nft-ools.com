@@ -13,7 +13,6 @@
     $item_data = DatabaseConnector::getItemData($item_id);
     $order_data = DatabaseConnector::getOrderDataByItem($item_id);
     $event_data = DatabaseConnector::getItemEventDataByItem($item_id);
-    var_dump($event_data);
     $signed_in = USER_ID; // User::isLoggedin();
     $is_users_listing = Order::isUsersListing($item_id,$signed_in);
 	$is_item_open = Order::isItemOpen($item_id);

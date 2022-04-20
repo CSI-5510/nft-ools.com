@@ -31,7 +31,7 @@
 				}
                 break;		
             case URL_EDIT_ITEM:
-                echo drawEditItem($options, $item_data);
+                drawEditItem($options,$item_data);
                 break;
             default:
                 break;
