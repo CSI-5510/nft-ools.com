@@ -43,9 +43,7 @@
 		
 		<?php if(User::isLoggedin()): ?>
         <a href="" class="ml-auto flex-shrink-0 flex items-center">
-           // <span class="hidden sm:inline ml-1 font-bold">
-             //   Profile
-           // </span>
+           
         </a>
 		<?php endif;?>
     </div>
