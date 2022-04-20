@@ -18,22 +18,11 @@
                 break;
             case URL_ADD_ITEM:
                 $item_data = addNewItemReducer();
-                echo "item_data[i_serialnum]: &nbsp;";
-                var_dump($item_data["i_serialnum"]);
-                echo "<br> var dump of g -- ";
-                var_dump($_POST["g"]);
                 DatabaseConnector::addNewItem($item_data, USER_ID);
-
-
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0];
-                var_dump($item_id);
-                /*
-                var_dump(DatabaseConnector::getLastItemAddedByUser(USER_ID));
                 $item_data = DatabaseConnector::getItemDataNoPics($item_id);
                 $item_data = addItemEventReducer($item_data[ITEM_TABLE_I_ID]);
-                var_dump($item_data);
                 insertEvent($item_data);
-                */
                 break;
 			case URL_EDIT_PROFILE:
 				 DatabaseConnector::updateUserProfileInfo(USER_ID);
