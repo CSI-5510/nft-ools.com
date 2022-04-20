@@ -8,7 +8,7 @@
     try{
         switch(URL_LOC_1){
             case URL_ADD_EVENT:
-                ///$url = generalNavigation(array(URL_ITEM, $item_id));
+                $url = generalNavigation(array(URL_ITEM, $item_id));
                 header('location: '.$url);
                 break;
             case URL_ADD_ITEM:

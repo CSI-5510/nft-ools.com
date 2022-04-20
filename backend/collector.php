@@ -1,11 +1,8 @@
 <?php
 
-    echo "up";
 
     include_once('../functions/functions.collector.php');
     include_once('../functions/functions.events.php');
-    
-    echo "hi";
 
     if(!isset($_POST)){
         header("location: /public_html");
@@ -14,7 +11,6 @@
     try{
         switch(URL_LOC_1){
             case URL_ADD_EVENT:
-                var_dump($_POST);
                 $item_id = $_POST[EVENT_TABLE_ITEM_ID];
                 $event_data = insertEventFormReducer($item_id, $_POST);
                 insertEvent($event_data);
