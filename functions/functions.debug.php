@@ -24,4 +24,12 @@
     }
 
 
+    function varDumpWithWhiteSpace($v){
+        echo "<br>";
+        var_dump($v);
+        echo "<br><br>";
+        return;
+    }
+
+
 ?>
