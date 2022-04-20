@@ -7,7 +7,7 @@
      * @return string assembeled url
      */
     function generalNavigation($locations){
-        $_r = PROJECT_ROOT.'public_html/';
+        $_r = '/public_html/';
         foreach($locations as $location){
             $_r = $_r.'/'.$location;
         }
