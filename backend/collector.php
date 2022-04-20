@@ -26,7 +26,7 @@
                     PRICE_FLOOR,
                     DAYS_TO_MINIMUM_PIRCE
                 );
-                $q = "INSERT INTO item (i_id,i_name,i_description,current_price,i_image,i_category_Id,i_serialnum,original_price,is_approved,owner_id,days_to_minimum_price,receipt,documentation,original_purchase_date,rejection_reason,was_reviewed) VALUES (NULL,$_POST[ITEM_OBFUSCATED_NAME],$_POST[ITEM_OBFUSCATED_DESCRIPTION],$price,file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"]),$_POST[ITEM_OBFUSCATED_CATEGORY],$_POST[ITEM_OBFUSCATED_SERIAL_NUMBER],$clean_price,0,USER_ID,DAYS_TO_MINIMUM_PIRCE,file_get_contents($_FILES[ITEM_OBFUSCATED_RECEIPT]["tmp_name"]),file_get_contents($_FILES[ITEM_OBFUSCATED_DOCUMENTATION]["tmp_name"]),$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE],'',0);
+                $q = "INSERT INTO item (i_id,i_name,i_description,current_price,i_image,i_category_Id,i_serialnum,original_price,is_approved,owner_id,days_to_minimum_price,receipt,documentation,original_purchase_date,rejection_reason,was_reviewed) VALUES (NULL,$_POST[ITEM_OBFUSCATED_NAME],$_POST[ITEM_OBFUSCATED_DESCRIPTION],$price,file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]['tmp_name']),$_POST[ITEM_OBFUSCATED_CATEGORY],$_POST[ITEM_OBFUSCATED_SERIAL_NUMBER],$clean_price,0,USER_ID,DAYS_TO_MINIMUM_PIRCE,file_get_contents($_FILES[ITEM_OBFUSCATED_RECEIPT]["tmp_name"]),file_get_contents($_FILES[ITEM_OBFUSCATED_DOCUMENTATION]["tmp_name"]),$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE],'',0);
                 echo $q;
                 echo "<br><br>";
                 var_dump($q);
