@@ -12,9 +12,9 @@
     }
 
     try{
-        switch(URL_LOC_2){
+        switch(URL_LOC_1){
             case URL_ADD_EVENT:
-                $item_id = URL_LOC_3;
+                $item_id = URL_LOC_2;
                 $event_data = insertEventFormReducer($item_id, $_POST);
                 insertEvent($event_data);
                 break;
