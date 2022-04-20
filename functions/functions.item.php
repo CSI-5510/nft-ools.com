@@ -263,10 +263,12 @@
         //  drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
         //  $CLOSE_ROW.
         
+        $date = str_replace($post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
+        varDumpWithWhiteSpace($date);
         // ROW PURCHASE DATE
          $OPEN_ROW.
          drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
-         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, true, date($item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE])).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, true, $date)).
          $CLOSE_ROW.
         
         // ROW PURCHASE PRICE
@@ -369,15 +371,13 @@
         // description
         // purchase date
         // purchase price
-        $date = str_replace($post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
-        varDumpWithWhiteSpace($date);
         $_r = array(
                 ITEM_TABLE_I_ID => $post[ITEM_OBFUSCATED_ID],
                 ITEM_TABLE_I_NAME => $post[ITEM_OBFUSCATED_NAME],
                 ITEM_TABLE_I_CATEGORY_ID => $post[ITEM_OBFUSCATED_CATEGORY],
                 ITEM_TABLE_I_SERIALNUM => $post[ITEM_OBFUSCATED_SERIAL_NUMBER],
                 ITEM_TABLE_I_DESCRIPTION => $post[ITEM_OBFUSCATED_DESCRIPTION],
-                ITEM_TABLE_ORIGINAL_PURCHASE_DATE => $date,
+                ITEM_TABLE_ORIGINAL_PURCHASE_DATE => $post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE],
                 ITEM_TABLE_ORIGINAL_PRICE => $post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]
         );
         return $_r;
