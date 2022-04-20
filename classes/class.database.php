@@ -316,7 +316,6 @@ class DatabaseConnector {
 				.",zip=".$_POST[USER_TABLE_ZIP]
 				.",phone=".$_POST[USER_TABLE_PHONE]
 			." WHERE id = ".$user_id;
-		varDumpWithWhiteSpace($q);
 		self::query($q);
 		return; 
 	}

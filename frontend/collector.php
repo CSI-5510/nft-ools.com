@@ -17,7 +17,7 @@
                 break;			 
             case URL_EDIT_PROFILE:
                 $url = generalNavigation(array(URL_PROFILE, URL_PROFILE_UPDATED));			
-                // header("location: ".$url);
+                header("location: ".$url);
                 break;	
             case URL_EDIT_ITEM:
                 foreach($_POST as $p){

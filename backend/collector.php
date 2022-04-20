@@ -40,7 +40,6 @@
                 insertEvent($item_data);                
                 break;
 			case URL_EDIT_PROFILE:
-                varDumpWithWhiteSpace($_POST);
 				DatabaseConnector::updateUserProfileInfo(USER_ID);
 				$GLOBALS['user_profile_updated']=TRUE;
 				break;
