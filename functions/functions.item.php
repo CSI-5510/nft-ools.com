@@ -217,9 +217,9 @@
          '<form method="POST" action="'.$url.'" enctype="multipart/form-data">'.
 
         // ITEM ID
-        $OPEN_ROW;
-        drawHidden(ITEM_OBFUSCATED_ID, $item_data[ITEM_TABLE_I_ID]);
-        $CLOSE_ROW;
+        $OPEN_ROW.
+        drawHidden(ITEM_OBFUSCATED_ID, $item_data[ITEM_TABLE_I_ID]).
+        $CLOSE_ROW.
         
         // ROW TITLE
          $OPEN_ROW.
