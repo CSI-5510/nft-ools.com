@@ -53,19 +53,20 @@ class User {
 	return $result["fname"].' '.$result["lname"];
 	}
 
-	public static function getAllMessagesByUser($userId) {
+	public static function getAllMessagesByUser() {
 
-            $result = DatabaseConnector::query('SELECT msg_id, user_id, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE user_id='.$userId, array());
-            return $result;
-        }
+		$user_id = User::isLoggedIn();
+		$result = DatabaseConnector::query("SELECT msg_id, uid, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE uid='$user_id'", array());
+		return $result;
+	}
 
-	public static function getAllMessagesCount() {
+    public static function getAllMessagesCount() {
 
 		$userid = User::isLoggedIn();
 		$result=DatabaseConnector::query('SELECT COUNT(*) FROM message WHERE uid=:userid', array(':userid'=>$userid))[0]['COUNT(*)'];
 		return $result;
-        }
-
+	}
+	
 
 	//use this function in the user class to see if the user is logged in
 		public static function isLoggedInWithRedirect()
