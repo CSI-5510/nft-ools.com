@@ -10,7 +10,7 @@
 
     var_dump($_POST);
 
-
+/*
     try{
         switch(URL_LOC_1){
             case URL_ADD_EVENT:
@@ -19,7 +19,6 @@
                 insertEvent($event_data);
                 break;
             case URL_ADD_ITEM:
-                break;
                 $item_data = addNewItemReducer();
                 DatabaseConnector::addNewItem($item_data, USER_ID);
                 $item_id = DatabaseConnector::getLastItemAddedByUser(USER_ID)[0];
@@ -59,5 +58,6 @@
         var_dump($e);
         alertBox('Error', 'malformed url');
     }
+*/
 
 ?>
