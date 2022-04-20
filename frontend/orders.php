@@ -17,8 +17,9 @@
                 break;
         }
     } catch(Exception $e){
-        alertBox('malformed url');
+        alertBox('malformed url', "second");
     }
+
 ?>
 <div class="bg-white p-8 rounded-md w-full">
 <?php foreach($buyingorders AS $result):?>

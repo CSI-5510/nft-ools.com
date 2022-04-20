@@ -33,7 +33,7 @@
         alertBox('Error', 'malformed url');
     }
 
-        drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open, FALSE);
+        drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open);
 
 
 

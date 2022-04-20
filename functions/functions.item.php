@@ -188,7 +188,7 @@
      * @return void draws to page
      */
               
-    function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $mute_controls, $is_item_pending, $is_item_in_cart, $is_item_open){
+    function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open){
         include_once('../functions/functions.lineage.php');
         echo '
             <div class="grid grid-rows-5 grid-cols-3">
@@ -208,7 +208,7 @@
                     decideSellButton($item_data[ITEM_TABLE_I_ID]).
                     decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
                     decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
-                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls,  $is_item_pending, $is_item_in_cart, $is_item_open).'
+                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open).'
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 text-center">

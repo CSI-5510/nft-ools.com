@@ -115,7 +115,7 @@ switch ($GLOBALS['url_loc'][0]){
         break;
     case "listener":
         $BACKEND = "listener";
-        $PAGE_TITLE = "Sign In";
+        $PAGE_TITLE = "listener";
         $FRONTEND = "listener";
         break;	
     case "orders":

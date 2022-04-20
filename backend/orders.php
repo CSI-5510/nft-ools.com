@@ -69,17 +69,6 @@ $successurl = "".getUrl($protocol)."?checkout=#?success=true";
 	}
 	
  */
-if($_SERVER['REQUEST_METHOD'] == "GET"){
-	if (isset($_GET['ipn_listener']) && $_GET['ipn_listener'] == 'paypal') {
-    // Get all input variables and convert them all to URL string variables
-    $raw_data = file_get_contents('php://input');
-    $raw_array = explode('&', $raw_data);
-    $myPost = [];
-	
-	
-	
-	}
-}
 
 
 	
