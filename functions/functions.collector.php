@@ -35,7 +35,7 @@
             ITEM_TABLE_RECEIPT => (file_get_contents($_FILES[ITEM_OBFUSCATED_RECEIPT]["tmp_name"])),
             ITEM_TABLE_DOCUMENTATION => (file_get_contents($_FILES[ITEM_OBFUSCATED_DOCUMENTATION]["tmp_name"])),
             ITEM_TABLE_ORIGINAL_PURCHASE_DATE => "'".$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE]."'",
-            ITEM_TABLE_REJECTION_REASON => '',
+            ITEM_TABLE_REJECTION_REASON => 'pending approval',
             ITEM_TABLE_WAS_REVIEWED => 'NULL',
             ITEM_TABLE_TIMESTAMP => 'NULL',
             ITEM_TABLE_ADMIN_REVIEW => 'NULL',
