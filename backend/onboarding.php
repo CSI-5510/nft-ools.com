@@ -4,13 +4,14 @@
 if (!User::isLoggedin()){
 	header("Location: ./login");
 }
+/*
 $userid = User::isLoggedIn();
 
 if (User::getUsername($userid)){
 	//redirect mans if hes got a username already
 	header("Location: ./home");
 }
-
+*/
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {	
 
