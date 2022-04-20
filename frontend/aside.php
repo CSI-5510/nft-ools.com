@@ -163,7 +163,7 @@
                   </svg>
                </span>
                   <span class="ml-3">
-               My Pending Items
+               My Items
                </span>
               
               </a>
