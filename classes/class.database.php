@@ -220,8 +220,8 @@ class DatabaseConnector {
 		$q = $q.$data[ITEM_TABLE_IS_APPROVED].',';		
 		$q = $q.$data[ITEM_TABLE_OWNER_ID].',';	
 		$q = $q.$data[ITEM_TABLE_DAYS_TO_MINIMUM_PRICE].',';	
-		$q = $q.'$r'.',';		
-		$q = $q.'$d'.',';		
+		$q = $q.':r'.',';		
+		$q = $q.':d'.',';		
 		$q = $q.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE].',';
 		$q = $q.$data[ITEM_TABLE_REJECTION_REASON].',';	
 		$q = $q.$data[ITEM_TABLE_WAS_REVIEWED].',';		
