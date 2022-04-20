@@ -3,6 +3,7 @@
     include_once('../functions/functions.collector.php');
     include_once('../functions/functions.events.php');
     
+    showURL();
 
     if(!isset($_POST)){
         header("location: /public_html");
