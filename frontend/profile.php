@@ -11,11 +11,9 @@
     switch(URL_LOC_1){
         case URL_EDIT_PROFILE:
             echo drawEditProfile($user_data);
-            return;
             break;
         default: 
             echo drawProfile($user_data);
-            return;
             break;
     }
 
