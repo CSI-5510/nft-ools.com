@@ -38,7 +38,7 @@
             case "add_to_cart":
                 Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
-            case URL_REMOVE_FROM_CART:
+            case "remove_from_cart":
                 Order::removeItemFromCart($item_data['i_id'], $signed_in);
                 break;				
             case URL_EDIT_ITEM:

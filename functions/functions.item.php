@@ -31,9 +31,10 @@
      * @param  mixed $command command for api from constants.all.php
      * @return void draws to page
      */
+
     function drawRemoveFromCartButton($id, $format, $command){
         $text = 'Remove from Orders';
-        $url = "adewew";
+        $url = generalNavigation(array('item',$id,'remove_from_order'));
         return drawLinkButton($text, $url, $format);
     }
 	
@@ -142,7 +143,39 @@
      * @param  mixed $mute
      * @return void makes draw decision
      */
-    function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute){
+    function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open){
+        if($is_users_listing){
+            drawEditItemButton($item_data['i_id'], BLUE_BUTTON, $EDIT);
+        } else {
+            echo "&nbsp;";
+         }
+         //check if user is signed in
+        if($signed_in){
+            //make sure user doesn't own the listing....
+            if(!$is_users_listing){
+                //if item is in cart of the user
+                if($is_item_in_cart){
+                    //remove item
+                    drawRemoveFromCartButton($item_data['i_id'], BLUE_BUTTON, URL_REMOVE_FROM_CART);
+                } else {
+                    //make sure item isn't currently pending (in an offer)..
+                    if(!$is_item_pending){
+                        if(Order::isItemOpen($item_data['i_id'])){
+                            //add item button
+                            drawAddToCartButton($item_data['i_id'], BLUE_BUTTON, URL_ADD_TO_CART); 
+                        } else {
+                            //draw this button to show the item is not available for offers at all
+                            drawUnavailableButton(BLUE_BUTTON); 
+                        }
+                    } else {
+                    drawPendingButton(BLUE_BUTTON); 
+                    }
+                }
+            }
+        } else {   
+        drawSignInButton('Sign In to Purchase', BLUE_BUTTON); 
+    }
+
 
         return drawAddToCartButton($item_data['i_id'], BLUE_BUTTON); 
     }
@@ -156,7 +189,8 @@
      * @param  mixed $mute should the control be muted in the context of the current page?
      * @return void draws to page
      */
-    function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $mute_controls){
+                if($is_item_in_cart){
+    function drawItemPage($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $mute_controls, $is_item_pending, $is_item_in_cart, $is_item_open){
         include_once('../functions/functions.lineage.php');
         echo '
             <div class="grid grid-rows-5 grid-cols-3">
@@ -176,7 +210,7 @@
                     decideSellButton($item_data[ITEM_TABLE_I_ID]).
                     decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
                     decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
-                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
+                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls,  $is_item_pending, $is_item_in_cart, $is_item_open).'
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 text-center">
