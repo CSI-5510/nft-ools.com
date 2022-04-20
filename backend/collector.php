@@ -46,9 +46,9 @@
             case URL_SELL_ITEM:
                 $item_id = URL_LOC_2;
                 varDumpWithWhiteSpace($item_id);
-                // setItemFlag($item_id, ITEM_TABLE_LISTED_FOR_SALE);
-                // $event_data = insertEventSellItemReducer($item_id, true);
-                // insertEvent($event_data);
+                setItemFlag($item_id, ITEM_TABLE_LISTED_FOR_SALE);
+                $event_data = insertEventSellItemReducer($item_id, true);
+                insertEvent($event_data);
                 break;
             case URL_REMOVE_SALE_LISTING:
                 $item_id = URL_LOC_2;
@@ -57,7 +57,7 @@
                 insertEvent($event_data);
                 break;
             case URL_EDIT_ITEM:
-                $item_id = URL_LOC_1;
+                $item_id = $_POST[ITEM_OBFUSCATED_ID];
                 $edited_item_data = editItemReducer($_POST);
                 editItemQuery($edited_item_data);
                 break;
