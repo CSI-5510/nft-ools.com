@@ -215,6 +215,11 @@
         
         // OPEN FORM
          '<form method="POST" action="'.$url.'" enctype="multipart/form-data">'.
+
+        // ITEM ID
+        $OPEN_ROW;
+        drawHidden(ITEM_OBFUSCATED_ID, $item_data[ITEM_TABLE_I_ID]);
+        $CLOSE_ROW;
         
         // ROW TITLE
          $OPEN_ROW.
@@ -357,7 +362,7 @@
     }
 
 
-    function editItemReducer($post, $item_id){
+    function editItemReducer($post){
         // title
         // category
         // serial number
@@ -365,7 +370,7 @@
         // purchase date
         // purchase price
         $_r = array(
-                ITEM_TABLE_I_ID => $item_id,
+                ITEM_TABLE_I_ID => $post[ITEM_OBFUSCATED_ID],
                 ITEM_TABLE_I_NAME => $post[ITEM_OBFUSCATED_NAME],
                 ITEM_TABLE_I_CATEGORY_ID => $post[ITEM_OBFUSCATED_CATEGORY],
                 ITEM_TABLE_I_SERIALNUM => $post[ITEM_OBFUSCATED_SERIAL_NUMBER],
