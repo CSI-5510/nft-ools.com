@@ -31,7 +31,7 @@
                 foreach (User::getAllMessagesByUser(USER_ID) as $messages):
 
                     $messageID = $messages["msg_id"];
-					          $userID=$messages["user_id"];
+	            $userID=$messages["uid"];
                     $itemID = $messages["item_id"];
                     $message = $messages["message_body"];
                     $timestamp = $messages["approval_timestamp"];
