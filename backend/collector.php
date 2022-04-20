@@ -56,9 +56,9 @@
                 insertEvent($event_data);
                 break;
             case URL_EDIT_ITEM:
-                echo "perform edit update";
-                // $item_id = URL_LOC_1;
-                // $edited_item_data = editItemReducer($_POST, $item_id);
+                $item_id = URL_LOC_1;
+                $edited_item_data = editItemReducer($_POST, $item_id);
+                varDumpWithWhiteSpace($edited_item_data);
                 // editItemQuery($edited_item_data);
                 break;
             case URL_ADD_TO_CART:
