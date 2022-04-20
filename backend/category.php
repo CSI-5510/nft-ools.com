@@ -5,7 +5,7 @@
 
     switch($item_id){
         case is_numeric($item_id):
-			$items_list = DatabaseConnector::getItemsData($item_id);
+			$items_list = DatabaseConnector::getItemsData($item_id, USER_ID);
             break;
         case URL_USER:
             if(!USER_ID){
