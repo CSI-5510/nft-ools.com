@@ -68,8 +68,7 @@ class DatabaseConnector {
 			INNER JOIN category c ON i.i_category_id = c.cat_id 
 			WHERE i.i_category_id = '.$id.'
 			AND i.owner_id ='.$user_id;
-
-		// echo $q;
+		varDumpWithWhiteSpace($q);
 		return DatabaseConnector::query($q);
 	}
 
