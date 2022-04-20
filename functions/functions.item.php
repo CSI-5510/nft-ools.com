@@ -289,6 +289,7 @@
 
     function decideSellButton($item_id){
         $item_data = DatabaseConnector::getItemDataNoPics($item_id);
+        var_dump($item_data);
         if($item_data[ITEM_TABLE_OWNER_ID]!==USER_ID){
             return drawBlank();
         }
