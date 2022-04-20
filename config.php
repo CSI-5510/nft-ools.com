@@ -105,7 +105,7 @@ switch ($GLOBALS['url_loc'][0]){
         break;
     case URL_PROFILE:
         $BACKEND = URL_PROFILE;
-        $PAGE_TITLE = "Update Profile";
+        $PAGE_TITLE = "Profile";
         $FRONTEND = URL_PROFILE;
         break;
     case URL_SEARCH:
