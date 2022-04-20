@@ -16,7 +16,7 @@
 
             // REQUIRED FIELDS MESSAGE
             $OPEN_ROW.
-            drawLabel('fields marked with * are required', REQUIRED_FIELDS_MESSAGE).
+            drawLabel('all fields optional', REQUIRED_FIELDS_MESSAGE).
             $CLOSE_ROW.
 
             // OPEN FORM
@@ -24,13 +24,13 @@
             
             // ROW USERNAME
             $OPEN_ROW.
-            drawLabel('<p>UserName *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
+            drawLabel('UserName', LABEL_LEFT).
             drawTextInput(USER_TABLE_USERNAME, LISTING_INPUT_AREA, 45, false, $data[USER_TABLE_USERNAME]).
             $CLOSE_ROW.
             
             // ROW EMAIL
             $OPEN_ROW.
-            drawLabel('<p>Email *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max, must follow valid email formatting</p>', LABEL_LEFT).
+            drawLabel('Email', LABEL_LEFT).
             drawEmailInput(USER_TABLE_EMAIL, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_EMAIL]).
             $CLOSE_ROW.
             
@@ -42,49 +42,49 @@
 
             // ROW FIRST NAME
             $OPEN_ROW.
-            drawLabel('<p>First Name *</p><p class="'.REQUIRED_FIELD_NOTE.'">45 characters max</p>', LABEL_LEFT).
+            drawLabel('First Name', LABEL_LEFT).
             drawTextInput(USER_TABLE_FIRST_NAME, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_FIRST_NAME]).
             $CLOSE_ROW.
             
             // ROW LAST NAME
             $OPEN_ROW.
-            drawLabel('<p>Last Name *</p><p class="'.REQUIRED_FIELD_NOTE.'">45 characters max</p>', LABEL_LEFT).
+            drawLabel('Last Name', LABEL_LEFT).
             drawTextInput(USER_TABLE_LAST_NAME, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_LAST_NAME]).
             $CLOSE_ROW.
             
             // ROW ADDRESS LINE 1
             $OPEN_ROW.
-            drawLabel('<p>Address Line 1 *</p><p class="'.REQUIRED_FIELD_NOTE.'">200 characters max</p>', LABEL_LEFT).
+            drawLabel('Address Line', LABEL_LEFT).
             drawTextInput(USER_TABLE_ADDR_LINE_1, LISTING_INPUT_AREA, 200, false,$data[USER_TABLE_ADDR_LINE_1]).
             $CLOSE_ROW.
             
             // ROW ADDRESS LINE 2
             $OPEN_ROW.
-            drawLabel('<p>Address Line 2 *</p><p class="'.REQUIRED_FIELD_NOTE.'">45 characters max</p>', LABEL_LEFT).
+            drawLabel('Address Line 2', LABEL_LEFT).
             drawTextInput(USER_TABLE_ADDR_LINE_2, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_ADDR_LINE_2]).
             $CLOSE_ROW.
             
             // ROW CITY
             $OPEN_ROW.
-            drawLabel('<p>City *</p><p class="'.REQUIRED_FIELD_NOTE.'">45 characters max</p>', LABEL_LEFT).
+            drawLabel('City', LABEL_LEFT).
             drawTextInput(USER_TABLE_CITY, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_CITY]).
             $CLOSE_ROW.
             
             // ROW STATE
             $OPEN_ROW.
-            drawLabel('<p>State *</p><p class="'.REQUIRED_FIELD_NOTE.'">45 characters max</p>', LABEL_LEFT).
+            drawLabel('State', LABEL_LEFT).
             drawTextInput(USER_TABLE_STATE, LISTING_INPUT_AREA, 45, false,$data[USER_TABLE_STATE]).
             $CLOSE_ROW.
             
             // ROW ZIP CODE
             $OPEN_ROW.
-            drawLabel('<p>ZIP Code *</p><p class="'.REQUIRED_FIELD_NOTE.'">5 numbers</p>', LABEL_LEFT).
+            drawLabel('ZIP Code', LABEL_LEFT).
             drawZipInput(USER_TABLE_ZIP, LISTING_INPUT_AREA, false, $data[USER_TABLE_ZIP]).
             $CLOSE_ROW.
             
             // ROW PHONE NUMBER
             $OPEN_ROW.
-            drawLabel('<p>Phone Number *</p><p class="'.REQUIRED_FIELD_NOTE.'">10 digits, no delimeters</p>', LABEL_LEFT).
+            drawLabel('Phone Number', LABEL_LEFT).
             drawPhoneInput(USER_TABLE_PHONE, LISTING_INPUT_AREA, false, $data[USER_TABLE_PHONE]).
             $CLOSE_ROW.
             
