@@ -31,13 +31,13 @@
 				 $GLOBALS['user_profile_updated']=TRUE;
 				 break;
             case URL_SELL_ITEM:
-                $item_id = URL_LOC_3;
+                $item_id = URL_LOC_2;
                 setItemFlag($item_id, ITEM_TABLE_LISTED_FOR_SALE);
                 $event_data = insertEventSellItemReducer($item_id, true);
                 insertEvent($event_data);
                 break;
             case URL_REMOVE_SALE_LISTING:
-                $item_id = URL_LOC_3;
+                $item_id = URL_LOC_2;
                 setItemFlag($item_id, ITEM_TABLE_DELISTED_FROM_SALE);
                 $event_data = insertEventSellItemReducer($item_id, false);
                 insertEvent($event_data);
@@ -45,7 +45,7 @@
             case URL_EDIT_ITEM:
                 break;
             case URL_ADD_TO_CART:
-                $item_id = URL_LOC_3;
+                $item_id = URL_LOC_2;
                 setItemFlag($item_id, ITEM_TABLE_IN_CART);
                 $event_data = '';
                 break;
