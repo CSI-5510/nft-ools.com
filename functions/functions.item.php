@@ -392,6 +392,7 @@
         $q = $q.ITEM_TABLE_ORIGINAL_PRICE.'='.$data[ITEM_TABLE_ORIGINAL_PRICE];
         $q = $q." WHERE item.".ITEM_TABLE_I_ID."=".$data[ITEM_TABLE_I_ID];
         varDumpWithWhiteSpace($q);
+        DatabaseConnector::query($q);
         return;
     }
 
