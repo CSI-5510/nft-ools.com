@@ -59,6 +59,13 @@ class User {
             return $result;
         }
 
+	public static function getAllMessagesCount() {
+
+		$userid = User::isLoggedIn();
+		$result=DatabaseConnector::query('SELECT COUNT(*) FROM message WHERE uid=:userid', array(':userid'=>$userid))[0]['COUNT(*)'];
+		return $result;
+        }
+
 
 	//use this function in the user class to see if the user is logged in
 		public static function isLoggedInWithRedirect()
