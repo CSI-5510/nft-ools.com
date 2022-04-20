@@ -29,12 +29,12 @@
         array_push($options, $option);
     }
 
-    if(!isset($GLOBALS['url_loc'][3])){
+    if(!isset($GLOBALS['url_loc'][2])){
         return;
     }
 
     try{
-        switch($GLOBALS['url_loc'][3]){
+        switch($GLOBALS['url_loc'][2]){
             case URL_ADD_TO_CART:
                 Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
