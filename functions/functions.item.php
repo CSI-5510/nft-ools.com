@@ -378,14 +378,14 @@
 
 
     function editItemQuery($data){
-        $q = "UPDATE i_name,i_category_Id,i_serialnum,i_description,original_purchase_date,original_price SET ";
+        $q = "UPDATE item SET";
         $q = $q.ITEM_TABLE_I_NAME.'='.$data[ITEM_TABLE_I_NAME].',';
         $q = $q.ITEM_TABLE_I_CATEGORY_ID.'='.$data[ITEM_TABLE_I_CATEGORY_ID].',';
         $q = $q.ITEM_TABLE_I_SERIALNUM.'='.$data[ITEM_TABLE_I_SERIALNUM].',';
         $q = $q.ITEM_TABLE_I_DESCRIPTION.'='.$data[ITEM_TABLE_I_DESCRIPTION].',';
         $q = $q.ITEM_TABLE_ORIGINAL_PURCHASE_DATE.'='.$data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE].',';
         $q = $q.ITEM_TABLE_ORIGINAL_PRICE.'='.$data[ITEM_TABLE_ORIGINAL_PRICE];
-        $q = $q."WHERE item.".ITEM_TABLE_I_ID."=".$data[ITEM_TABLE_I_ID];
+        $q = $q." WHERE item.".ITEM_TABLE_I_ID."=".$data[ITEM_TABLE_I_ID];
         varDumpWithWhiteSpace($q);
         return;
     }
