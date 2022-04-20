@@ -18,7 +18,9 @@
                 break;
             case URL_ADD_ITEM:
                 $item_data = addNewItemReducer();
+                echo "item_data[i_serialnum]: &nbsp;";
                 var_dump($item_data["i_serialnum"]);
+                echo "<br> var dump of g -- ";
                 var_dump($_POST["g"]);
                 DatabaseConnector::addNewItem($item_data, USER_ID);
 
