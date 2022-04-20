@@ -131,6 +131,7 @@ class DatabaseConnector {
 			FROM item
 			WHERE LOWER(i_name) LIKE '%".$keyword."%'"
 		;
+		varDumpWithWhiteSpace($q);
 		try{
 			return self::query($q);
 		}catch(Exception $e){
