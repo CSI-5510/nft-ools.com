@@ -7,6 +7,8 @@
         $GLOBALS['url_loc'][2] <-- item id as string
         $GLOBALS['url_loc'][3] <-- operation as string
     */
+
+
     $item_id = URL_LOC_2;
     $item_data = DatabaseConnector::getItemData($item_id);
     $order_data = DatabaseConnector::getOrderDataByItem($item_id);

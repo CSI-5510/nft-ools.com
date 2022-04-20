@@ -13,4 +13,15 @@
     }
 
 
+    function showURL(){
+        $i = 0;
+        $_r = '';
+        foreach($GLOBALS['url_loc'] as $loc){
+            $_r = $_r."url_loc [".$i."]: ".$loc."<br>";
+            $i++;
+        }
+        return $_r;
+    }
+
+
 ?>

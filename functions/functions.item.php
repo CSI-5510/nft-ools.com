@@ -84,7 +84,7 @@
      */
     function drawAddEventButton($item_data, $format){
         $text = 'Add Event';
-        $url = generalNavigation(array(URL_ADD_EVENT,$item_data[ITEM_TABLE_ID]));
+        $url = generalNavigation(array(URL_ADD_EVENT,$item_data[ITEM_TABLE_I_ID]));
         return drawLinkButton($text, $url, $format);
     }
 
@@ -171,7 +171,7 @@
                 <h3 class="row-span-1 col-span-2 text-3xl font-bold m-10 mb-0 p-4 bg-gray-200">
                     '.$item_data["i_name"].'
                 </h3>
-                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data[ITEM_TABLE_IMAGE]).'"/>
+                <image class="row-span-5 col-span-1 p-0 m-5 bg-green-100 text-center" src="'.imageSrc($item_data[ITEM_TABLE_I_IMAGE]).'"/>
                 <p class="row-span-4 col-span-2 p-4 m-10 mt-0 bg-gray-200">
                     '.$item_data["i_description"].'>
                 </p>
@@ -181,6 +181,7 @@
                     $'.$item_data["current_price"].'
                 </div>
                 <div class="flex flex-row justify-between items-center w-3/10">'.
+                    decideSellButton($item_data[ITEM_TABLE_I_ID]).
                     decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
                     decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
                     decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute_controls).'
@@ -215,25 +216,25 @@
         // ROW TITLE
          $OPEN_ROW.
          drawLabel('<p>TITLE *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_NAME]).
+         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_I_NAME]).
          $CLOSE_ROW.
         
         // ROW CATEGORY
          $OPEN_ROW.
          drawLabel('<p>CATEGORY *</p><p class="'.REQUIRED_FIELD_NOTE.'"> select from list</p>', LABEL_LEFT).
-         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, $item_data[ITEM_TABLE_CATEGORY_ID]).
+         drawSelectOption(ITEM_OBFUSCATED_CATEGORY, DROPDOWN_INPUT, $options, $item_data[ITEM_TABLE_I_CATEGORY_ID]).
          $CLOSE_ROW.
         
         // ROW SERIAL NUMBER
          $OPEN_ROW.
          drawLabel('<p>SERIAL NUMBER *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 11 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_SERIAL_NUMBER]).
+         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_I_SERIALNUM]).
          $CLOSE_ROW.
 
         // ROW DESCRIPTION
          $OPEN_ROW.
          drawLabel('<p>DESCRIPTION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 300 characters max</p>', LABEL_LEFT).
-         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_DESCRIPTION]).
+         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_I_DESCRIPTION]).
          $CLOSE_ROW.
         
         // ROW IMAGE
@@ -286,7 +287,98 @@
 
 
 
+    function decideSellButton($item_id){
+        $item_data = DatabaseConnector::getItemDataNoPics($item_id);
+        if(intval($item_data[ITEM_TABLE_OWNER_ID])!==USER_ID){
+            return drawBlank();
+        }
+        if(!availableToSell($item_data)){
+            $text = 'Remove Sale Listing';
+            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
+            return drawLinkButton($text,$url,BLUE_BUTTON);
+        }
+        $text = 'Sell Item';
+        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data));
+        return drawLinkButton($text,$url,BLUE_BUTTON);
+    }
 
+
+    function availableToSell($item_data){
+        /*
+            columns = [
+                'is_approved',
+                'was_reviewed',
+                'admin_review',
+                'rejected',
+                'added_to_system',
+                'upgraded',
+                'repaired',
+                'listed_for_sale',
+                'delisted_from_sale',
+                'in_cart',
+                'pending_sale',
+                'sold',
+                'new_owner_received'
+            ]
+        */
+        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
+            return false;
+        }
+        if(!$item_data[ITEM_TABLE_WAS_REVIEWED]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_REJECTED]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_LISTED_FOR_SALE]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_IN_CART]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_PENDING_SALE]){
+            return false;
+        }
+        if($item_data[ITEM_TABLE_SOLD]){
+            return false;
+        }
+        return true;
+    }
+
+
+    function getFlags($item_id){
+        $columns = array(ITEM_TABLE_IS_APPROVED,ITEM_TABLE_WAS_REVIEWED,ITEM_TABLE_ADMIN_REVIEW,ITEM_TABLE_REJECTED,ITEM_TABLE_ADDED_TO_SYSTEM,ITEM_TABLE_UPGRADED,ITEM_TABLE_REPAIRED,ITEM_TABLE_LISTED_FOR_SALE,ITEM_TABLE_DELISTED_FROM_SALE,ITEM_TABLE_IN_CART,ITEM_TABLE_PENDING_SALE,ITEM_TABLE_SOLD,ITEM_TABLE_NEW_OWNER_RECEIVED);
+        $q = 'SELECT ';
+        foreach($columns as $column){
+            $q = $q.$column.',';
+        }
+        $q = substr($q, 0, -1);
+        $q = $q.' FROM item WHERE '.ITEM_TABLE_I_ID.' = '.$item_id;
+        return DatabaseConnector::query($q)[0];
+    }
+
+
+    function setItemFlag($item_id, $flag){
+        $columns = array(
+            ITEM_TABLE_ADMIN_REVIEW,ITEM_TABLE_REJECTED,ITEM_TABLE_ADDED_TO_SYSTEM,ITEM_TABLE_UPGRADED,ITEM_TABLE_REPAIRED,ITEM_TABLE_LISTED_FOR_SALE,ITEM_TABLE_DELISTED_FROM_SALE,ITEM_TABLE_IN_CART,ITEM_TABLE_PENDING_SALE,ITEM_TABLE_SOLD,ITEM_TABLE_NEW_OWNER_RECEIVED
+        );
+        $set_index = array_search($flag, $columns, true);
+        $i = 0;
+        $q = 'UPDATE item SET ';
+        foreach($columns as $column){
+            $value = '1';
+            if($set_index!==$i){
+                $value = 'NULL';
+            }
+            $q = $q.$column.'='.$value.',';
+            $i += 1;
+        }
+        $q = substr($q, 0, -1);
+        $q = $q.' WHERE item.'.ITEM_TABLE_I_ID.'='.$item_id;
+
+        DatabaseConnector::query($q)[0];
+        return;
+    }
 
 
 ?>
