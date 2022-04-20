@@ -31,11 +31,11 @@
                 }
                 break;
             case URL_SELL_ITEM:
-                $url = generalNavigation(array(URL_ITEM,URL_LOC_1));
+                $url = generalNavigation(array(URL_ITEM,URL_LOC_2));
                 header("location: ".$url);
                 break;
             case URL_REMOVE_SALE_LISTING:
-                $url = generalNavigation(array(URL_ITEM,URL_LOC_1));
+                $url = generalNavigation(array(URL_ITEM,URL_LOC_2));
                 header("location: ".$url);
                 break;
             default:
