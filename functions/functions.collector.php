@@ -21,7 +21,7 @@
             DAYS_TO_MINIMUM_PIRCE
         );
         return array(
-            ITEM_TABLE_I_ID => 'NULL',
+            ITEM_TABLE_I_ID => NULL,
             ITEM_TABLE_I_NAME => "'".$_POST[ITEM_OBFUSCATED_NAME]."'", 
             ITEM_TABLE_I_DESCRIPTION => "'".$_POST[ITEM_OBFUSCATED_DESCRIPTION]."'", 
             ITEM_TABLE_CURRENT_PRICE => $price, 
@@ -37,7 +37,7 @@
             ITEM_TABLE_ORIGINAL_PURCHASE_DATE => "'".$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE]."'",
             ITEM_TABLE_REJECTION_REASON => "'pending approval'",
             ITEM_TABLE_WAS_REVIEWED => 'NULL',
-            ITEM_TABLE_TIMESTAMP => 'NULL',
+            ITEM_TABLE_TIMESTAMP => NULL,
             ITEM_TABLE_ADMIN_REVIEW => 'NULL',
             ITEM_TABLE_REJECTED => 'NULL',
             ITEM_TABLE_ADDED_TO_SYSTEM => 'NULL',
