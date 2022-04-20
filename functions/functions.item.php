@@ -289,7 +289,7 @@
 
     function decideSellButton($item_id){
         $item_data = DatabaseConnector::getItemDataNoPics($item_id);
-        var_dump($item_data[ITEM_OBFUSCATED_OWNER_ID]);
+        var_dump($item_data[ITEM_TABLE_OWNER_ID]);
         echo "<br><br>";
         var_dump(USER_ID);
         if(intval($item_data[ITEM_TABLE_OWNER_ID])!==USER_ID){
