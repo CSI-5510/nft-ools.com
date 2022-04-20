@@ -13,8 +13,7 @@
                 break;
             case URL_ADD_ITEM:
                 $url = generalNavigation(array(URL_ITEM, $item_id));
-                var_dump($url);
-                header("location: ".$url);
+                //header("location: ".$url);
                 break;			 
             case URL_EDIT_PROFILE:
                 $url = generalNavigation(array(URL_PROFILE, URL_PROFILE_UPDATED));			
