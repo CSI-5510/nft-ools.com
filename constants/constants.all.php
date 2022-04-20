@@ -8,24 +8,20 @@
     // USER
     define("USER_ID",User::isLoggedIn());
 
-    
-	
-if($GLOBALS['config']['url_root'] !== ""){
-        $route = "".$GLOBALS['config']['url_root']."/";
-        } else {
-        $route="";
-        }
+    $route="";
+    if($GLOBALS['config']['url_root'] !== ""){
+            $route = "".$GLOBALS['config']['url_root']."/";
+    }
 	
     // NAVIGATION
     define("PROJECT_ROOT",$route);
-	echo $route;
     define("URL_LOC_0",$GLOBALS['url_loc'][0]);
     define("URL_LOC_1",$GLOBALS['url_loc'][1]);
     define("URL_LOC_2",$GLOBALS['url_loc'][2]);
     define("URL_LOC_3",$GLOBALS['url_loc'][3]);
     define("URL_LOC_4",$GLOBALS['url_loc'][4]);
     define("URL_HOME",PROJECT_ROOT.'/'.URL_LOC_0);
-    define("URL_PUBLIC_DIRECTORY","public_html/");
+    define("URL_PUBLIC_DIRECTORY",URL_HOME."public_html/");
     define("URL_ADD_TO_CART","add_to_cart");
     define("URL_REMOVE_FROM_CART","remove_from_cart");
     define("URL_EDIT_ITEM","edit");
