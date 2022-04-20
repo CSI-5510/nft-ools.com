@@ -90,7 +90,7 @@
      */
     function inputValidationLength($character_limit){
         if($character_limit>0){
-            return 'minlength="1" maxlength="'.$character_limit.'"';
+            return 'maxlength="'.$character_limit.'"';
         }
         return '';
     }
