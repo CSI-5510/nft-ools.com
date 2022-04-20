@@ -71,7 +71,7 @@
     */
     function drawEditItemButton($id, $format, $command){
         $text = 'Edit Item';
-        $url = generalNavigation(array($id, $command));
+        $url = generalNavigation(array("item", $id, $command));
         return drawLinkButton($text, $url, $format); 
     }
 
