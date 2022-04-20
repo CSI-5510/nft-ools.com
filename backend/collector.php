@@ -40,9 +40,10 @@
                 insertEvent($item_data);                
                 break;
 			case URL_EDIT_PROFILE:
-				 DatabaseConnector::updateUserProfileInfo(USER_ID);
-				 $GLOBALS['user_profile_updated']=TRUE;
-				 break;
+                varDumpWithWhiteSpace($_POST);
+				DatabaseConnector::updateUserProfileInfo(USER_ID);
+				$GLOBALS['user_profile_updated']=TRUE;
+				break;
             case URL_SELL_ITEM:
                 $item_id = URL_LOC_2;
                 setItemFlag($item_id, ITEM_TABLE_LISTED_FOR_SALE);
