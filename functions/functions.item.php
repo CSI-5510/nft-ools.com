@@ -310,11 +310,11 @@
         }        
         if($flags[ITEM_TABLE_LISTED_FOR_SALE]){
             $text = 'Remove Sale Listing';
-            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data));
+            $url = generalNavigation(array(URL_COLLECTOR,URL_REMOVE_SALE_LISTING,$item_data[ITEM_TABLE_I_ID]));
             return drawLinkButton($text,$url,BLUE_BUTTON);
         }
         $text = 'Sell Item';
-        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data));
+        $url = generalNavigation(array(URL_COLLECTOR,URL_SELL_ITEM,$item_data[ITEM_TABLE_I_ID]));
         return drawLinkButton($text,$url,BLUE_BUTTON);
     }
 
