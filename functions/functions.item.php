@@ -205,11 +205,7 @@
         $OPEN_ROW = '<div class="'.FLEX_ROW_JUSTIFY.'">';
         $CLOSE_ROW = '</div>';
         $url = generalNavigation(array(URL_COLLECTOR, URL_EDIT_ITEM));
-
-
         $date = str_replace(' ', 'T', $item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE]);
-        varDumpWithWhiteSpace($date);
-
 
         return 
 
