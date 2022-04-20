@@ -57,6 +57,8 @@ class Order {
 
 	public static function addItemToCart($itemid, $userid)
    {
+	   varDumpWithWhiteSpace($itemid);
+	   varDumpWithWhiteSpace($userid);
         //make sure item is open and available
         if(self::isItemOpen($itemid)){
             //good! the item is open and without a seller id.

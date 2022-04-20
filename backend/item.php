@@ -35,7 +35,7 @@
 
     try{
         switch($GLOBALS['url_loc'][2]){
-            case URL_ADD_TO_CART:
+            case "add_to_cart":
                 Order::addItemToCart($item_data['i_id'], $signed_in);
                 break;
             case URL_REMOVE_FROM_CART:
