@@ -2,7 +2,7 @@
 
 
     include_once('../functions/functions.events.php');
-    $item_id = URL_LOC_2;
+    $item_id = URL_LOC_1;
 
 
 ?>
