@@ -68,6 +68,7 @@
      */
     function drawItemRow($data){
         $link = generalNavigation(array(PROJECT_ROOT.URL_ITEM, $data[ITEM_TABLE_I_ID]));
+        var_dump($line);
         return '
             <a href="'.$link.'">
                 <div class="grid grid-rows-1 grid-cols-12 mx-20 mb-5">
