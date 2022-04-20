@@ -55,8 +55,9 @@ class User {
 
 	public static function getAllMessagesByUser() {
 
-            $user_id = User::isLoggedIn();
-            $result = DatabaseConnector::query("SELECT msg_id, uid, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE uid='$user_id'", array());
+            $userid = User::isLoggedIn();
+            $result = DatabaseConnector::query("SELECT msg_id, uid, item_id, message_body, approval_timestamp, is_acknowledged FROM message WHERE uid='$userid'", array());
+			var_dump($result);
             return $result;
         }
 
