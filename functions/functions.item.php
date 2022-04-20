@@ -143,7 +143,7 @@
      * @param  mixed $mute
      * @return void makes draw decision
      */
-    function decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open){
+    function decideCartOrSignIn($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open){
         if($is_users_listing){
             drawEditItemButton($item_data['i_id'], BLUE_BUTTON, "edit");
         }
@@ -208,7 +208,7 @@
                     decideSellButton($item_data[ITEM_TABLE_I_ID]).
                     decideAddEventButton($item_data, $mute_controls, $signed_in, $is_users_listing).
                     decideEditItemButton($item_data, $is_users_listing, $signed_in, $mute_controls).
-                    decideCartOrSignIn($item_data, $is_users_listing, $signed_in, $mute, $is_item_pending, $is_item_in_cart, $is_item_open).'
+                    decideCartOrSignIn($item_data, $order_data, $event_data, $is_users_listing, $signed_in, $is_item_pending, $is_item_in_cart, $is_item_open).'
                 </div>
             </div>
             <div id="lineage" class="p-4 m-10 text-center">
