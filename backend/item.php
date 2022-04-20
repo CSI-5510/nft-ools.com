@@ -24,13 +24,6 @@
 
 
 
-    $item_data = DatabaseConnector::getItemData($GLOBALS['url_loc'][1]);
-    $signed_in = User::isLoggedin();
-    $is_users_listing = Order::isUsersListing($GLOBALS['url_loc'][1],$signed_in);
-	$is_item_open = Order::isItemOpen($GLOBALS['url_loc'][1]);
-	$is_item_pending = Order::isItemPending($GLOBALS['url_loc'][1]);
-	$is_item_in_cart = Order::isItemInUserCart($GLOBALS['url_loc'][1], $signed_in);
-
     foreach($category_data as $c){
         $option = [
             "value"=>$c["cat_id"],
