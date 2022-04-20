@@ -23,7 +23,7 @@
             ITEM_TABLE_CURRENT_PRICE => $price, 
             ITEM_TABLE_I_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
             ITEM_TABLE_I_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
-            ITEM_TABLE_I_SERIALNUM => intval($_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]),
+            ITEM_TABLE_I_SERIALNUM => $_POST[ITEM_OBFUSCATED_SERIAL_NUMBER],
             ITEM_TABLE_ORIGINAL_PRICE => $clean_price, 
             ITEM_TABLE_IS_APPROVED => 0,
             ITEM_TABLE_OWNER_ID => USER_ID,
