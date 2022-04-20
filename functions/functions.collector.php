@@ -32,19 +32,19 @@
             ITEM_TABLE_DOCUMENTATION => (file_get_contents($_FILES[ITEM_OBFUSCATED_DOCUMENTATION]["tmp_name"])),
             ITEM_TABLE_ORIGINAL_PURCHASE_DATE => "'".$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE]."'",
             ITEM_TABLE_REJECTION_REASON => "'pending approval'",
-            ITEM_TABLE_WAS_REVIEWED => 'NULL',
+            ITEM_TABLE_WAS_REVIEWED => 0,
             ITEM_TABLE_TIMESTAMP => NULL,
-            ITEM_TABLE_ADMIN_REVIEW => 'NULL',
-            ITEM_TABLE_REJECTED => 'NULL',
-            ITEM_TABLE_ADDED_TO_SYSTEM => 'NULL',
-            ITEM_TABLE_UPGRADED => 'NULL',
-            ITEM_TABLE_REPAIRED => 'NULL',
-            ITEM_TABLE_LISTED_FOR_SALE  => 'NULL',
-            ITEM_TABLE_DELISTED_FROM_SALE => 'NULL',
-            ITEM_TABLE_IN_CART => 'NULL',
-            ITEM_TABLE_PENDING_SALE => 'NULL',
-            ITEM_TABLE_SOLD => 'NULL',
-            ITEM_TABLE_NEW_OWNER_RECEIVED => 'NULL'
+            ITEM_TABLE_ADMIN_REVIEW => 0,
+            ITEM_TABLE_REJECTED => 0,
+            ITEM_TABLE_ADDED_TO_SYSTEM => 0,
+            ITEM_TABLE_UPGRADED => 0,
+            ITEM_TABLE_REPAIRED => 0,
+            ITEM_TABLE_LISTED_FOR_SALE  => 0,
+            ITEM_TABLE_DELISTED_FROM_SALE => 0,
+            ITEM_TABLE_IN_CART => 0,
+            ITEM_TABLE_PENDING_SALE => 0,
+            ITEM_TABLE_SOLD => 0,
+            ITEM_TABLE_NEW_OWNER_RECEIVED => 0
         );
     }
 
