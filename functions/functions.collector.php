@@ -7,6 +7,10 @@
      * @param  mixed $days_to_minimum_price set in contants/constants.all.php
      * @return array for use with DatabaseConnect::insertEvent(EVENT_NEW_ITEM)
      */
+
+    /*
+    NULL,jkdsfoewn ,jdfoaio fe kjasd j,775.08,:image,1,e6HTa$2HM43,799.88,0,41,37,$r,$d,2022-04-14T04:31,,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+    */
     function addNewItemReducer(){
         $clean_price = numbersOnly($_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE]);
         var_dump($clean_price);
@@ -18,21 +22,21 @@
         );
         return array(
             ITEM_TABLE_I_ID => 'NULL',
-            ITEM_TABLE_I_NAME => $_POST[ITEM_OBFUSCATED_NAME], 
+            ITEM_TABLE_I_NAME => "'".$_POST[ITEM_OBFUSCATED_NAME]"'", 
             ITEM_TABLE_I_DESCRIPTION => $_POST[ITEM_OBFUSCATED_DESCRIPTION], 
             ITEM_TABLE_CURRENT_PRICE => $price, 
             ITEM_TABLE_I_IMAGE => (file_get_contents($_FILES[ITEM_OBFUSCATED_IMAGE]["tmp_name"])), 
             ITEM_TABLE_I_CATEGORY_ID => intval($_POST[ITEM_OBFUSCATED_CATEGORY]), 
-            ITEM_TABLE_I_SERIALNUM => $_POST[ITEM_OBFUSCATED_SERIAL_NUMBER],
+            ITEM_TABLE_I_SERIALNUM => "'".$_POST[ITEM_OBFUSCATED_SERIAL_NUMBER]."'",
             ITEM_TABLE_ORIGINAL_PRICE => $clean_price, 
             ITEM_TABLE_IS_APPROVED => 0,
             ITEM_TABLE_OWNER_ID => USER_ID,
             ITEM_TABLE_DAYS_TO_MINIMUM_PRICE => DAYS_TO_MINIMUM_PIRCE,
             ITEM_TABLE_RECEIPT => (file_get_contents($_FILES[ITEM_OBFUSCATED_RECEIPT]["tmp_name"])),
             ITEM_TABLE_DOCUMENTATION => (file_get_contents($_FILES[ITEM_OBFUSCATED_DOCUMENTATION]["tmp_name"])),
-            ITEM_TABLE_ORIGINAL_PURCHASE_DATE => $_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE],
+            ITEM_TABLE_ORIGINAL_PURCHASE_DATE => "'".$_POST[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE]."'",
             ITEM_TABLE_REJECTION_REASON => '',
-            ITEM_TABLE_WAS_REVIEWED => 0,
+            ITEM_TABLE_WAS_REVIEWED => 'NULL',
             ITEM_TABLE_TIMESTAMP => 'NULL',
             ITEM_TABLE_ADMIN_REVIEW => 'NULL',
             ITEM_TABLE_REJECTED => 'NULL',
