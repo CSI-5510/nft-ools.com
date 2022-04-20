@@ -20,7 +20,7 @@
      */
     function drawAddToCartButton($id, $format){
         $text = 'Add to Orders';
-        $url = generalNavigation(array('orders'));
+        $url = generalNavigation(array('item',$id,'add_to_cart'));
         return drawLinkButton($text, $url, $format);
     }
 	
