@@ -165,9 +165,9 @@
                   <span class="ml-3">
                My Pending Items
                </span>
-               <span class="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full ml-auto">
-                  <?php echo User::getAllMessagesCount(); ?>
-               </span>
+              // <span class="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full ml-auto">
+               //   <?php echo User::getAllMessagesCount(); ?>
+              // </span>
               </a>
           </li>
 
