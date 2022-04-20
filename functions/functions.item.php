@@ -149,6 +149,9 @@
         if($is_users_listing){
             return drawBlank();
         }
+        if(!$item_data[ITEM_TABLE_IS_APPROVED]){
+            return drawBlank();
+        }
         if(!$signed_in){
             return drawSignInButton('Sign In to Purchase', 'flex '.BLUE_BUTTON);
         }
@@ -207,7 +210,7 @@
 
         // REQUIRED FIELDS MESSAGE
         $OPEN_ROW.
-        drawLabel('fields marked with * are required', REQUIRED_FIELDS_MESSAGE).
+        drawLabel('* indicated required field', REQUIRED_FIELDS_MESSAGE).
         $CLOSE_ROW.
         
         // OPEN FORM
@@ -216,7 +219,7 @@
         // ROW TITLE
          $OPEN_ROW.
          drawLabel('<p>TITLE *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 45 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, FALSE, $item_data[ITEM_TABLE_I_NAME]).
+         drawNoBlankInput(ITEM_OBFUSCATED_NAME, LISTING_INPUT_AREA, 45, true, $item_data[ITEM_TABLE_I_NAME]).
          $CLOSE_ROW.
         
         // ROW CATEGORY
@@ -228,13 +231,13 @@
         // ROW SERIAL NUMBER
          $OPEN_ROW.
          drawLabel('<p>SERIAL NUMBER *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 11 characters max</p>', LABEL_LEFT).
-         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, FALSE, $item_data[ITEM_TABLE_I_SERIALNUM]).
+         drawNoBlankInput(ITEM_OBFUSCATED_SERIAL_NUMBER, LISTING_INPUT_AREA, 11, true, $item_data[ITEM_TABLE_I_SERIALNUM]).
          $CLOSE_ROW.
 
         // ROW DESCRIPTION
          $OPEN_ROW.
          drawLabel('<p>DESCRIPTION *</p><p class="'.REQUIRED_FIELD_NOTE.'"> 300 characters max</p>', LABEL_LEFT).
-         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, FALSE, $item_data[ITEM_TABLE_I_DESCRIPTION]).
+         drawNoBlankArea(ITEM_OBFUSCATED_DESCRIPTION, LISTING_INPUT_AREA, 300, true, $item_data[ITEM_TABLE_I_DESCRIPTION]).
          $CLOSE_ROW.
         
         // // ROW IMAGE
@@ -258,13 +261,13 @@
         // ROW PURCHASE DATE
          $OPEN_ROW.
          drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
-         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, FALSE, date($item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE])).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, true, date($item_data[ITEM_TABLE_ORIGINAL_PURCHASE_DATE])).
          $CLOSE_ROW.
         
         // ROW PURCHASE PRICE
          $OPEN_ROW.
          drawLabel('<p>PURCHASE PRICE *</p><p class="'.REQUIRED_FIELD_NOTE.'">enter a positive number</p>', LABEL_LEFT).
-         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 100, FALSE, $item_data[ITEM_TABLE_ORIGINAL_PRICE]).
+         drawTextInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_PRICE, LISTING_INPUT_AREA, 100, true, $item_data[ITEM_TABLE_ORIGINAL_PRICE]).
          $CLOSE_ROW.
         
         // ROW AFFIDAVIT OF QUALITY
