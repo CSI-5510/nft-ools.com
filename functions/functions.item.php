@@ -263,12 +263,12 @@
         //  drawFileUpload(ITEM_OBFUSCATED_RECEIPT, ITEM_OBFUSCATED_RECEIPT, LISTING_DROPZONE, ACCEPTED_IMAGE_TYPES, FALSE).
         //  $CLOSE_ROW.
         
-        $date = str_replace($post[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
+        $date = str_replace($item_data[ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE], 'T', ' ');
         varDumpWithWhiteSpace($date);
         // ROW PURCHASE DATE
          $OPEN_ROW.
          drawLabel('<p>PURCHASE DATE *</p><p class="'.REQUIRED_FIELD_NOTE.'">pick a date</p>', LABEL_LEFT).
-         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, true, $date)).
+         drawDateInput(ITEM_OBFUSCATED_ORIGINAL_PURCHASE_DATE, LISTING_INPUT_AREA, true, $date).
          $CLOSE_ROW.
         
         // ROW PURCHASE PRICE
